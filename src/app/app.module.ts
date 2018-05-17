@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
-
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -50,7 +50,8 @@ import { ThanksComponent } from './client/thanks/thanks.component';
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpClientModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [],
