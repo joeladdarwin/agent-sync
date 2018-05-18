@@ -10,6 +10,7 @@ export const environment = {
     authDomain: 'agent-sync-sonder.firebaseapp.com',
     databaseURL: 'https://agent-sync-sonder.firebaseio.com',
     storageBucket: 'agent-sync-sonder.appspot.com',
-    messagingSenderId: '192652069233'
+    messagingSenderId: '192652069233',
+    projectId: "agent-sync-sonder",
 },
 };

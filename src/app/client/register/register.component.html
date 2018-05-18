@@ -3,20 +3,21 @@
     <form class=" col-md-12 mx-auto mt-5 p-3 " #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" >
 
         <h1>Please let us know who to register.</h1>
-        <input type="text" name="fullname" placeholder="Full Name" class="form-control" #fullname="ngModel" [(ngModel)] ="clientService.selectedClient.fullname" required minlength="5" maxlength="30"
+        <input type="text" name="name" placeholder="Full Name" class="form-control" #name="ngModel" [(ngModel)] ="clientinfocervice.name" required minlength="5" maxlength="30"
       >
         <br>
         <br>
-        <input type="text" name="brokerage" placeholder="Brokerage" class="form-control" #brokerage="ngModel" [(ngModel)] ="clientService.selectedClient.brokerage" required>
+        <input type="text" name="brokerage" placeholder="Brokerage" class="form-control" #brokerage="ngModel" [(ngModel)] ="clientinfocervice.brokerage" required>
         <br>
         <br>
         
-        <input type="email" name="email" placeholder="Email Address" class="form-control" #email="ngModel" [(ngModel)] ="clientService.selectedClient.email" required pattern="[^@]*@[^@]*">
+        <input type="email" name="email" placeholder="Email Address" class="form-control" #email="ngModel" [(ngModel)] ="clientinfocervice.email" required pattern="[^@]*@[^@]*">
         <br>
         <br>
-        <input type="tel" name="phone" placeholder="Phonenumber" class="form-control"  #phone="ngModel" [(ngModel)] ="clientService.selectedClient.phone" required pattern="[0-9]+" maxlength="10">
+        <input type="tel" name="phone" placeholder="Phonenumber" class="form-control"  #phone="ngModel" [(ngModel)] ="clientinfocervice.phone" required pattern="[0-9]+" maxlength="10">
         <br>
         <br>
+
         <button type="submit" class="btn btn1 mx-auto" [disabled]="!registerForm.valid">REGISTER ME</button>
         <button type="button" class="btn btn1 mx-auto" (click)="resetForm(registerForm)">Reset</button>
 
@@ -25,7 +26,6 @@
         </p>
 
     </form>
-<<<<<<< HEAD
     <!-- <form [formGroup]="userForm" *ngIf="newUser" (ngSubmit)="signup()">
         <h3>New User Signup</h3>
         <p (click)="toggleForm()">Already Registered?</p>
@@ -51,7 +51,3 @@
     
     </form> -->
 </div>
-=======
-
-</div>
->>>>>>> design
