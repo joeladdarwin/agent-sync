@@ -17,6 +17,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFirestoreModule, AngularFirestore } from 'angularfire2/firestore';
 
 
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './client/login/login.component';
 import { RegisterComponent } from './client/register/register.component';
@@ -50,7 +51,9 @@ import { ThanksComponent } from './client/thanks/thanks.component';
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     AngularFireDatabaseModule,
-    HttpClientModule
+    HttpClientModule,
+    
+
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [],

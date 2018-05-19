@@ -24,8 +24,14 @@ export class RegisterComponent implements OnInit {
   }
  
   onSubmit(registerForm : NgForm)
-  {
-    this.clientinfocervice.addUser(registerForm.value);
+  { 
+    var name = registerForm.controls['name'].value;
+    var email = registerForm.controls['email'].value;
+    var brokerage = registerForm.controls['brokerage'].value;
+    var phone = registerForm.controls['phone'].value;
+    var pass = Math.random().toString(36).substring(2, 8) + Math.random().toString(36).substring(2, 8);
+    this.clientinfocervice.addUser2(email,pass);
+    this.clientinfocervice.addUser(name, email, brokerage, phone, pass);
     // this.clientService.registerClient(registerForm.value)
     this.resetForm(registerForm);
     this.router.navigateByUrl('/thanks');
