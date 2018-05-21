@@ -1,53 +1,59 @@
 <div class="row">
+    <div class="container-fluid text-center" id="headerback">
+        <i class="fa fa-arrow-left float-left"></i>
+        <h4>Please let us know who to register.</h4>
+            <form class=" col-md-12 text-center reg " #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" >
 
-    <form class=" col-md-12 mx-auto mt-5 p-3 " #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" >
+               
+                    <input type="text" name="name" placeholder="Full Name" class=" form-group numinput text-center" #name="ngModel" [(ngModel)] ="clientinfocervice.name" required minlength="5" maxlength="30"
+                    >
+                    <br>
+                    <br>
+                    <input type="text" name="brokerage" placeholder="Brokerage" class=" form-group numinput text-center" #brokerage="ngModel" [(ngModel)] ="clientinfocervice.brokerage" required>
+                    <br>
+                    <br>
+                    
+                    <input type="email" name="email" placeholder="Email Address" class=" form-group numinput text-center" #email="ngModel" [(ngModel)] ="clientinfocervice.email" required pattern="[^@]*@[^@]*">
+                    <br>
+                    <br>
+                    <input type="tel" name="phone" placeholder="Phonenumber" class=" form-group numinput text-center" #phone="ngModel" [(ngModel)] ="clientinfocervice.phone" required pattern="[0-9]+" maxlength="10">
+                    <br>
+                    <br>
 
-        <h1>Please let us know who to register.</h1>
-        <input type="text" name="name" placeholder="Full Name" class="form-control" #name="ngModel" [(ngModel)] ="clientinfocervice.name" required minlength="5" maxlength="30"
-      >
-        <br>
-        <br>
-        <input type="text" name="brokerage" placeholder="Brokerage" class="form-control" #brokerage="ngModel" [(ngModel)] ="clientinfocervice.brokerage" required>
-        <br>
-        <br>
-        
-        <input type="email" name="email" placeholder="Email Address" class="form-control" #email="ngModel" [(ngModel)] ="clientinfocervice.email" required pattern="[^@]*@[^@]*">
-        <br>
-        <br>
-        <input type="tel" name="phone" placeholder="Phonenumber" class="form-control"  #phone="ngModel" [(ngModel)] ="clientinfocervice.phone" required pattern="[0-9]+" maxlength="10">
-        <br>
-        <br>
+                        <div class="row">
+                            <button type="submit" class="btn btn1 mx-auto" [disabled]="!registerForm.valid">REGISTER ME</button>
+                        
+                        </div>
+                        <br>
 
-        <button type="submit" class="btn btn1 mx-auto" [disabled]="!registerForm.valid">REGISTER ME</button>
-        <button type="button" class="btn btn1 mx-auto" (click)="resetForm(registerForm)">Reset</button>
+                        <p>Already have an account?
+                            <a routerLink="/login">Sign In</a>
+                        </p>
 
-        <p>Already have an account?
-            <a routerLink="/login">Sign In</a>
-        </p>
-
-    </form>
-    <!-- <form [formGroup]="userForm" *ngIf="newUser" (ngSubmit)="signup()">
-        <h3>New User Signup</h3>
-        <p (click)="toggleForm()">Already Registered?</p>
-        <hr>
-    
-        <label for="email">Email</label>
-        <input type="email" formControlName="email" required>
-    
-        <div *ngIf="formErrors.email">
-            {{ formErrors.email }}
-        </div>
-    
-        <label for="password">Password</label>
-        <input type="password" formControlName="password" required>
-    
-        <div *ngIf="formErrors.password">
-            {{ formErrors.password }}
-        </div>
-    
-        <button type="submit" [disabled]="!userForm.valid">Submit</button>
-    
-        <span *ngIf="userForm.valid">Form is valid</span>
-    
-    </form> -->
+            </form>
+   </div>
+   <!-- <form [formGroup]="userForm" *ngIf="newUser" (ngSubmit)="signup()">
+       <h3>New User Signup</h3>
+       <p (click)="toggleForm()">Already Registered?</p>
+       <hr>
+   
+       <label for="email">Email</label>
+       <input type="email" formControlName="email" required>
+   
+       <div *ngIf="formErrors.email">
+           {{ formErrors.email }}
+       </div>
+   
+       <label for="password">Password</label>
+       <input type="password" formControlName="password" required>
+   
+       <div *ngIf="formErrors.password">
+           {{ formErrors.password }}
+       </div>
+   
+       <button type="submit" [disabled]="!userForm.valid">Submit</button>
+   
+       <span *ngIf="userForm.valid">Form is valid</span>
+   
+   </form> -->
 </div>

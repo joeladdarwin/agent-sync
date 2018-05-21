@@ -1,0 +1,62 @@
+.numinput{
+    width:44vw;
+    line-height: 2.5rem;
+    border: 2px solid #434343;
+    margin-top: 12rem;
+}
+h4
+{ 
+	color: #434343;
+    margin-bottom: 1rem;
+    text-align:center;
+    line-height:100%;
+    
+ 
+}
+.fa{
+    font-size: 2rem;
+}
+.reg{
+    margin-top: 5rem;
+}
+#headerback{
+
+    background-image: url('/assets/image/background.jpg');
+    background-repeat: no-repeat;
+    width:100vw;
+    height:100vh;
+    margin: auto;
+    background-size: cover;
+}
+.btn1
+	{
+		color: white;
+		background-color:#F07C49;
+        border-radius:20px;
+         width: 21rem;
+         margin-top: 6rem;
+        
+		
+    }
+    @media screen and (max-width: 780px) {
+       
+        .numinput{
+            width:86vw;
+            line-height: 3.5rem;
+            margin-top: 11rem;
+        }
+        .fa{
+        
+            font-size: 1rem;
+            margin-top:1rem;
+        }
+        .btn1
+	{
+	
+         width: 19rem;
+     
+        
+		
+    }
+       
+        }

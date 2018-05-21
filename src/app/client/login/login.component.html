@@ -1,22 +1,43 @@
-<div class="col-md-4 offset-md-4">
-    <span class="error" *ngIf="error" >{{ error }}</span>
-    <form class="col-md-12 mx-auto" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-
-        <div class="form-group">
-
-            <input type="email" class="form-control"  placeholder="Email" required  (ngModel)="email" name="email">
-            <input type="password" class="form-control"  placeholder="Password" required (ngModel)="password" name="password">
-        </div>
-        <div class="form-group text-center">
-            <button type="submit" class="btn btn1 mx-auto" [disabled]="!loginForm.valid">SIGN IN</button>
-
-
-            <button type="button" class="btn btn2" routerLink="/register">REGISTER ME</button>
-            <button type="button" class="btn btn2" routerLink="/forget">FORGET INFO</button>
-
-        </div>
-
-
-
-    </form>
-</div>
+<div class="row">
+        <div class="container-fluid text-center" id="headerback">
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <img src="/assets/image/logo1.jpg" class="rounded-circle con"><br><br>
+                  <h1>AGENT<span>SYNC</span><small>TM</small></h1>
+          
+                  <p>by Sounder Works</p>
+                </div>
+                </div><br>
+               <div class="row">
+                  <div class="col-md-12 offset-md-3">
+                        <span class="error" *ngIf="error" >{{ error }}</span>
+                 <form class="col-md-12 mx-auto" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+                       
+                
+                   <div class="form-group">
+                  
+                        <input type="email" class="form-control numinput text-center"  placeholder="Email" required  (ngModel)="email" name="email">
+                        <input type="password" class="form-control numinput text-center"  placeholder="Password" required (ngModel)="password" name="password">
+                       </div>
+                       <div class="col-md-6 ">
+                            <button type="submit" class="btn btn1 mx-auto" [disabled]="!loginForm.valid">SIGN IN</button>
+                     
+                          
+                         </div>
+                       
+                       </form>
+                       </div>
+               </div><br>
+                      <div class="row text-center">
+                        
+                          <div class="col-md-12 ">
+                            
+              <button type="button" class="btn btn2" routerLink="/register">REGISTER ME</button>
+                    <button type="button" class="btn btn2" routerLink="/forget">FORGET INFO</button>
+                            
+                          </div>
+                          
+                       
+                       </div>
+                </div>
+              </div>
