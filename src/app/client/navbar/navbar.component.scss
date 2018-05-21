@@ -1,0 +1,24 @@
+.navbar{
+    box-shadow:none !important; 
+    -webkit-box-shadow: none !important;
+
+}
+nav.navbar.fixed-top.navbar-expand-lg.navbar-dark.grey.scrolling-navbar.ie-nav {
+    background-color: #636363;
+}
+.grey {
+    background-color: #636363 !important;
+}
+.navbar
+{
+    box-shadow: none !important;
+}
+
+@media screen and (max-width: 780px) {
+    .navbar{
+        box-shadow:none !important; 
+        -webkit-box-shadow: none !important;
+    
+    }
+
+}
