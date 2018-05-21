@@ -27,6 +27,17 @@ import { AppRoutingModule } from './/app-routing.module';
 import { ThanksComponent } from './client/thanks/thanks.component';
 import { NavbarComponent } from './client/navbar/navbar.component';
 import { ProfileComponent } from './client/profile/profile.component';
+import { PlaceorderComponent } from './client/placeorder/placeorder.component';
+import { OrderunitComponent } from './client/orderunit/orderunit.component';
+import { OrderaddressComponent } from './client/orderaddress/orderaddress.component';
+import { PropertysizeComponent } from './client/propertysize/propertysize.component';
+import { SelectsquarefeetComponent } from './client/selectsquarefeet/selectsquarefeet.component';
+import { SelectproductsComponent } from './client/selectproducts/selectproducts.component';
+import { SelectaccesspropertyComponent } from './client/selectaccessproperty/selectaccessproperty.component';
+import { SelectdateComponent } from './client/selectdate/selectdate.component';
+import { SelecttimeComponent } from './client/selecttime/selecttime.component';
+import { AdditionalnotesComponent } from './client/additionalnotes/additionalnotes.component';
+import { RevieworderComponent } from './client/revieworder/revieworder.component';
 
 
 
@@ -42,6 +53,17 @@ import { ProfileComponent } from './client/profile/profile.component';
     ThanksComponent,
     NavbarComponent,
     ProfileComponent,
+    PlaceorderComponent,
+    OrderunitComponent,
+    OrderaddressComponent,
+    PropertysizeComponent,
+    SelectsquarefeetComponent,
+    SelectproductsComponent,
+    SelectaccesspropertyComponent,
+    SelectdateComponent,
+    SelecttimeComponent,
+    AdditionalnotesComponent,
+    RevieworderComponent,
   
   ],
   imports: [

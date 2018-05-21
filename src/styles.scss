@@ -11,7 +11,12 @@ body {
 * {
     font-family: 'Raleway';
 }
-
+.jumbotron.jumbotron-fluid {
+    background-color:#636363;
+    color:#FFFFFF;
+    margin-top: 3rem;
+    width:100rem;
+}
 button {
     background: #008FEF;
     color: white;
