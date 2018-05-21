@@ -25,6 +25,8 @@ import { ForgetinfoComponent } from './client/forgetinfo/forgetinfo.component';
 import { DashboardComponent } from './client/dashboard/dashboard/dashboard.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ThanksComponent } from './client/thanks/thanks.component';
+import { NavbarComponent } from './client/navbar/navbar.component';
+import { ProfileComponent } from './client/profile/profile.component';
 
 
 
@@ -38,6 +40,8 @@ import { ThanksComponent } from './client/thanks/thanks.component';
     ForgetinfoComponent,
     DashboardComponent,
     ThanksComponent,
+    NavbarComponent,
+    ProfileComponent,
   
   ],
   imports: [
