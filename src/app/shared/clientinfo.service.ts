@@ -16,38 +16,45 @@ export class ClientinfoService {
   users : Observable<Client[]>;
   userDocument : AngularFirestoreDocument<Client>;
   constructor(public afs: AngularFirestore, private afAuth: AngularFireAuth, private router: Router) {
-    this.user = afAuth.authState;
+    
     this.usersCollection = this.afs.collection('users');
     this.afAuth.authState.subscribe((auth) => {
       this.authState = auth
     });
    }
   
+  addUser2(name:string, email:string, brokerage:string, phone:string, password:string)
+   {
+    
+   
+    this.afAuth.auth.createUserWithEmailAndPassword(email, password).
+    then((user) => {
+        this.authState = user
+        
+      
+      }).catch(function (error) {
+      // Handle Errors here.
+       var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
+     });
+   }
 
   
   addUser(name, email, brokerage, phone, password)
    {
-        
-    this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(value => {
-      console.log('Success!', value);
-    })
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, password).then(
+      (user) => {
+        this.authState = user
+        this.usersCollection.add({ name, email, brokerage, phone })
+        this.afAuth.auth.sendPasswordResetEmail(email)
+      }
+    )
       .catch(err => {
         console.log('Something went wrong:', err.message);
       })
     // this.afAuth.auth.createUserWithEmailAndPassword(email,password)
-    this.afAuth.auth.sendPasswordResetEmail(email)
-       
-    this.usersCollection.add({name, email, brokerage, phone}).then((user) => {
-      this.authState = user
-      
-     
-    }).catch(function (error) {
-         console.error("Error adding document: ", error);
-       });
-     
-    
-     
-   }
+     }
    
   emailLogin(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)

@@ -72,7 +72,6 @@ import { PriceComponent } from './client/price/price.component';
     ThanksComponent,
     NavbarComponent,
     ProfileComponent,
-<<<<<<< HEAD
     LoginsentComponent,
     PlaceorderComponent,
     MyorderComponent,
@@ -93,19 +92,6 @@ import { PriceComponent } from './client/price/price.component';
     CompletenewComponent,
     CompleteComponent,
     PriceComponent,
-=======
-    PlaceorderComponent,
-    OrderunitComponent,
-    OrderaddressComponent,
-    PropertysizeComponent,
-    SelectsquarefeetComponent,
-    SelectproductsComponent,
-    SelectaccesspropertyComponent,
-    SelectdateComponent,
-    SelecttimeComponent,
-    AdditionalnotesComponent,
-    RevieworderComponent,
->>>>>>> 62dd59757b0c292a2df6f8335668cecefa0935af
   
   ],
   imports: [
