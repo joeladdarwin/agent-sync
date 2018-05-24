@@ -1,0 +1,77 @@
+h1
+{ 
+	color: #434343;
+	font-size: 2rem;
+    text-align:center;
+    line-height:100%;
+    
+ 
+}
+
+#headerback{
+
+    background-image: url('/assets/image/background.jpg');
+    background-repeat: no-repeat;
+    width:100vw;
+    height:100vh;
+    margin: auto;
+    background-size: cover;
+}
+
+.btn
+	{
+		color: white;
+		background-color:#F07C49;
+        border-radius:30px;
+         width: 13rem;
+        padding: 10px 20px 10px 20px;
+		
+    }
+    
+    h4 {
+        color: #fff;
+        font-size: 1rem;
+    }
+    p{
+        color:#F07C49;
+    }
+    .btn1
+	{
+		color: white;
+		background-color:#F07C49;
+        border-radius:20px;
+         width: 21rem;
+         margin-top: 15rem;
+      
+		
+    }
+  
+.numinput{
+    width:44vw;
+    line-height: 3.5rem;
+    border: 2px solid #434343;
+}
+.container{
+    color:#000;
+}
+.fa{
+    font-size: 3rem;
+    margin-top: 4rem;
+}
+.btn3{
+    color: white;
+		background-color:#77C16C;
+        border-radius:20px;
+         width: 21rem;
+        
+}
+
+@media screen and (max-width: 780px) {
+    
+    .fa{
+         
+    padding-left: 11rem;
+    margin-top: 2rem;
+    }
+   
+    }

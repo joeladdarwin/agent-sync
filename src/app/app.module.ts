@@ -27,7 +27,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { ThanksComponent } from './client/thanks/thanks.component';
 import { NavbarComponent } from './client/navbar/navbar.component';
 import { ProfileComponent } from './client/profile/profile.component';
-import { PlaceorderComponent } from './client/placeorder/placeorder.component';
+
 import { OrderunitComponent } from './client/orderunit/orderunit.component';
 import { OrderaddressComponent } from './client/orderaddress/orderaddress.component';
 import { PropertysizeComponent } from './client/propertysize/propertysize.component';
@@ -37,8 +37,27 @@ import { SelectaccesspropertyComponent } from './client/selectaccessproperty/sel
 import { SelectdateComponent } from './client/selectdate/selectdate.component';
 import { SelecttimeComponent } from './client/selecttime/selecttime.component';
 import { AdditionalnotesComponent } from './client/additionalnotes/additionalnotes.component';
-import { RevieworderComponent } from './client/revieworder/revieworder.component';
 
+
+import { LoginsentComponent } from './client/loginsent/loginsent.component';
+import { PlaceorderComponent } from './client/placeorder/placeorder.component';
+import { MyorderComponent } from './client/myorder/myorder.component';
+import { MyaccountComponent } from './client/myaccount/myaccount.component';
+import { DeliveriesComponent } from './client/deliveries/deliveries.component';
+import { AddressComponent } from './client/address/address.component';
+import { EditprofileComponent } from './client/editprofile/editprofile.component';
+import { UnitnumberComponent } from './client/unitnumber/unitnumber.component';
+import { MyinvoicesComponent } from './client/myinvoices/myinvoices.component';
+import { SquarefeetComponent } from './client/squarefeet/squarefeet.component';
+import { ProductsComponent } from './client/products/products.component';
+import { AccessComponent } from './client/access/access.component';
+import { DateComponent } from './client/date/date.component';
+import { TimeComponent } from './client/time/time.component';
+import { CommentsComponent } from './client/comments/comments.component';
+import { RevieworderComponent } from './client/revieworder/revieworder.component';
+import { CompletenewComponent } from './client/completenew/completenew.component';
+import { CompleteComponent } from './client/complete/complete.component';
+import { PriceComponent } from './client/price/price.component';
 
 
 
@@ -53,6 +72,28 @@ import { RevieworderComponent } from './client/revieworder/revieworder.component
     ThanksComponent,
     NavbarComponent,
     ProfileComponent,
+<<<<<<< HEAD
+    LoginsentComponent,
+    PlaceorderComponent,
+    MyorderComponent,
+    MyaccountComponent,
+    DeliveriesComponent,
+    
+    AddressComponent,
+    EditprofileComponent,
+    UnitnumberComponent,
+    MyinvoicesComponent,
+    SquarefeetComponent,
+    ProductsComponent,
+    AccessComponent,
+    DateComponent,
+    TimeComponent,
+    CommentsComponent,
+    RevieworderComponent,
+    CompletenewComponent,
+    CompleteComponent,
+    PriceComponent,
+=======
     PlaceorderComponent,
     OrderunitComponent,
     OrderaddressComponent,
@@ -64,6 +105,7 @@ import { RevieworderComponent } from './client/revieworder/revieworder.component
     SelecttimeComponent,
     AdditionalnotesComponent,
     RevieworderComponent,
+>>>>>>> 62dd59757b0c292a2df6f8335668cecefa0935af
   
   ],
   imports: [

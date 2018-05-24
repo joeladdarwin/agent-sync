@@ -1,0 +1,67 @@
+h1
+{ 
+	color: #434343;
+	font-size: 2rem;
+    text-align:center;
+    line-height:100%;
+    
+ 
+}
+
+#headerback{
+
+    background-image: url('/assets/image/background.jpg');
+    background-repeat: no-repeat;
+    width:100vw;
+    height:100vh;
+    margin: auto;
+    background-size: cover;
+}
+
+.btn
+	{
+		color: white;
+		background-color:#F07C49;
+        border-radius:30px;
+         width: 13rem;
+        padding: 10px 20px 10px 20px;
+		
+    }
+    a {
+        color: #F07C49;
+    }
+    h4 {
+        color: #fff;
+        font-size: 1rem;
+    }
+    p{
+        color:#F07C49;
+    }
+  
+.numinput{
+    width:44vw;
+    line-height: 3.5rem;
+    border: 2px solid #434343;
+}
+.fa{
+    font-size: 2rem;
+    margin-top: -4rem;
+    
+}
+.slidepara{
+    color:#5F5F5F;
+}
+@media screen and (max-width: 780px) {
+    
+    .numinput{
+        width:86vw;
+        line-height: 3.5rem;
+    }
+    .fa{
+         
+        font-size: 1rem;
+        margin-top: -1rem;
+        margin-left: -11rem;
+        }
+    
+    }
