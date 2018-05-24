@@ -3,5 +3,5 @@ export interface Client {
     brokerage : string;
     email : string;
     phone : string;
-    password : string;
+    
 }

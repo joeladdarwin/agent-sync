@@ -29,9 +29,8 @@ export class RegisterComponent implements OnInit {
     var email = registerForm.controls['email'].value;
     var brokerage = registerForm.controls['brokerage'].value;
     var phone = registerForm.controls['phone'].value;
-    var pass = Math.random().toString(36).substring(2, 8) + Math.random().toString(36).substring(2, 8);
-    this.clientinfocervice.addUser2(email,pass);
-    this.clientinfocervice.addUser(name, email, brokerage, phone, pass);
+    var password = "1sdsF";
+    this.clientinfocervice.addUser(name, email, brokerage, phone, password);
     // this.clientService.registerClient(registerForm.value)
     this.resetForm(registerForm);
     this.router.navigateByUrl('/thanks');
