@@ -28,6 +28,17 @@ import { ThanksComponent } from './client/thanks/thanks.component';
 import { NavbarComponent } from './client/navbar/navbar.component';
 import { ProfileComponent } from './client/profile/profile.component';
 
+import { OrderunitComponent } from './client/orderunit/orderunit.component';
+import { OrderaddressComponent } from './client/orderaddress/orderaddress.component';
+import { PropertysizeComponent } from './client/propertysize/propertysize.component';
+import { SelectsquarefeetComponent } from './client/selectsquarefeet/selectsquarefeet.component';
+import { SelectproductsComponent } from './client/selectproducts/selectproducts.component';
+import { SelectaccesspropertyComponent } from './client/selectaccessproperty/selectaccessproperty.component';
+import { SelectdateComponent } from './client/selectdate/selectdate.component';
+import { SelecttimeComponent } from './client/selecttime/selecttime.component';
+import { AdditionalnotesComponent } from './client/additionalnotes/additionalnotes.component';
+
+
 import { LoginsentComponent } from './client/loginsent/loginsent.component';
 import { PlaceorderComponent } from './client/placeorder/placeorder.component';
 import { MyorderComponent } from './client/myorder/myorder.component';
@@ -61,6 +72,7 @@ import { PriceComponent } from './client/price/price.component';
     ThanksComponent,
     NavbarComponent,
     ProfileComponent,
+<<<<<<< HEAD
     LoginsentComponent,
     PlaceorderComponent,
     MyorderComponent,
@@ -81,6 +93,19 @@ import { PriceComponent } from './client/price/price.component';
     CompletenewComponent,
     CompleteComponent,
     PriceComponent,
+=======
+    PlaceorderComponent,
+    OrderunitComponent,
+    OrderaddressComponent,
+    PropertysizeComponent,
+    SelectsquarefeetComponent,
+    SelectproductsComponent,
+    SelectaccesspropertyComponent,
+    SelectdateComponent,
+    SelecttimeComponent,
+    AdditionalnotesComponent,
+    RevieworderComponent,
+>>>>>>> 62dd59757b0c292a2df6f8335668cecefa0935af
   
   ],
   imports: [
