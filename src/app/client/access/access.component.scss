@@ -1,0 +1,79 @@
+h1
+{ 
+	color: #434343;
+	font-size: 2rem;
+    text-align:center;
+    line-height:100%;
+    
+ 
+}
+.btn1
+	{
+		color: white;
+        background-color:#F07C49;
+        
+    
+     }
+     .numinput{
+        width:37vw;
+        line-height: 2.5rem;
+        border: 1px solid #434343;
+    }
+
+    .slidepara{
+        color:#5F5F5F;
+    }
+.btn
+	{
+		color: white;
+		background-color:#F07C49;
+        padding: 2rem;
+         width: 29rem;
+        
+		
+    }
+   
+    h4 {
+        color: #fff;
+        font-size: 1rem;
+    }
+    p{
+        color:#F07C49;
+    }
+    .fa{
+        font-size: 3rem;
+        margin-top: 4rem;
+  
+        }
+        ul>li
+            {
+                list-style-type: none;
+            }
+
+        
+  
+
+@media screen and (max-width: 780px) {
+    .btn
+	{
+		color: white;
+		background-color:#F07C49;
+        padding: 2rem;
+         width: 29rem;
+         margin-left:-2rem;
+        
+		
+    }
+    .fa{
+         
+        padding-left: 11rem;
+        margin-top: 2rem;
+        }
+        .numinput{
+            width:76vw;
+            line-height: 3.5rem;
+          
+        }
+       
+    
+    }

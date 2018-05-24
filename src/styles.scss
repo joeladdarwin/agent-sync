@@ -22,6 +22,26 @@ button {
     margin-bottom: 30px;
     cursor: pointer;
 }
+/* You can add global styles to this file, and also import other style files */
+.jumbotron.jumbotron-fluid {
+    background-color:#636363;
+    color:#FFFFFF;
+    margin-top: -2rem;
+    width:100rem;
+}
+.fa{
+    font-size: 2rem;
+    margin-top: 4rem;
+}
+@media screen and (max-width: 780px) {
+    
+    .fa{
+    font-size: 1rem;  
+
+    margin-top: 2rem;
+    }
+   
+    }
 
 .loading {
     width: 30px;

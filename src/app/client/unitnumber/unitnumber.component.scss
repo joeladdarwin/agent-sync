@@ -1,0 +1,66 @@
+h1
+{ 
+	color: #434343;
+	font-size: 2rem;
+    text-align:center;
+    line-height:100%;
+    
+ 
+}
+.classone{
+    background-color: #F07C49;
+}
+
+#headerback{
+
+    background-image: url('/assets/image/background.jpg');
+    background-repeat: no-repeat;
+    width:100vw;
+    height:100vh;
+    margin: auto;
+    background-size: cover;
+}
+
+
+    a {
+        color: #F07C49;
+    }
+    h4 {
+        color: #fff;
+        font-size: 1rem;
+    }
+    p{
+        color:#F07C49;
+    }
+    .slidepara{
+        color:#5F5F5F;
+    }
+  
+.numinput{
+    width:44vw;
+    line-height: 3.5rem;
+    border: 2px solid #434343;
+}
+.container{
+    color:#000;
+}
+.incbtn{
+    font-size: 9rem;
+
+}
+.amountdec{
+    margin-top: 1rem;
+}
+.increbtn{
+    color: #D5D5D5;
+    font-size: 9rem;
+    margin-top: 0 !important;
+}
+
+@media screen and (max-width: 780px) {
+    
+    .numinput{
+        width:86vw;
+        line-height: 3.5rem;
+    }
+    }
