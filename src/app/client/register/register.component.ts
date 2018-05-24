@@ -29,11 +29,11 @@ export class RegisterComponent implements OnInit {
     var email = registerForm.controls['email'].value;
     var brokerage = registerForm.controls['brokerage'].value;
     var phone = registerForm.controls['phone'].value;
-    var password = "1sdsF";
+    var password = "1sdsF89";
     this.clientinfocervice.addUser(name, email, brokerage, phone, password);
     // this.clientService.registerClient(registerForm.value)
     this.resetForm(registerForm);
-    this.router.navigateByUrl('/thanks');
+    this.router.navigateByUrl('/loginsent');
   }
   ran = "1223as";
   resetForm(registerForm?: NgForm)
