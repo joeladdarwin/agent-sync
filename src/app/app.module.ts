@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { HttpClientModule } from '@angular/common/http';
-
+import { AuthGuard } from '../app/shared/auth.guard'
 
 
 
@@ -110,7 +110,7 @@ import { PriceComponent } from './client/price/price.component';
 
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
