@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
     this.resetForm(registerForm);
     this.router.navigateByUrl('/loginsent');
   }
-  ran = "1223as";
+ 
   resetForm(registerForm?: NgForm)
   {
     

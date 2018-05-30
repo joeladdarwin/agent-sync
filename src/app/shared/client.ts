@@ -1,5 +1,5 @@
 export interface Client {
-    name : string;
+    displayName : string;
     brokerage : string;
     email : string;
     phone : string;

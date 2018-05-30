@@ -16,7 +16,7 @@
                     <input type="email" name="email" placeholder="Email Address" class=" form-group numinput text-center" #email="ngModel" [(ngModel)] ="clientinfocervice.email" required pattern="[^@]*@[^@]*">
                     <br>
                     <br>
-                    <input type="tel" name="phone" placeholder="Phonenumber" class=" form-group numinput text-center" #phone="ngModel" [(ngModel)] ="clientinfocervice.phone" required pattern="[0-9]+" maxlength="10">
+                    <input type="tel" name="phone" placeholder="Phonenumber" class=" form-group numinput text-center" #phone="ngModel" [(ngModel)] ="clientinfocervice.phone" required pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$" maxlength="13">
                     <br>
                     <br>
 
