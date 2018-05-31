@@ -39,8 +39,6 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "forget", component: ForgetinfoComponent },
   { path: "thanks", component: ThanksComponent },
-  { path: "dashboard", component: DashboardComponent },
-
   { path: "", redirectTo: 'login', pathMatch: 'full'},
   { path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard] },
   { path: "profile", component: ProfileComponent },
