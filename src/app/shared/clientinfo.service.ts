@@ -9,6 +9,7 @@ import { User } from 'firebase';
 import * as firebase from 'firebase/app';
 
 
+
 @Injectable()
 export class ClientinfoService {
   authState: any = null;
@@ -24,10 +25,11 @@ export class ClientinfoService {
 
     this.usersCollection = this.afs.collection('users');
     
+    
     this.user.subscribe((user) => {
       if (user) {
         this.userDetails = user;
-        console.log(this.userDetails);
+        // console.log(this.userDetails);
       } else {
         this.userDetails = null;
       }
@@ -56,7 +58,10 @@ export class ClientinfoService {
             displayName : displayName,
             photoURL : null
           }
+   
         )
+        this.afAuth.auth.currentUser.updatePhoneNumber(phone)
+       
       }
     )
       .catch(err => {
@@ -64,20 +69,15 @@ export class ClientinfoService {
       })
     // this.afAuth.auth.createUserWithEmailAndPassword(email,password)
      }
-  loggedIn()
-  {
-    if(this.authState == null)
-    {
-      return false
-    }else
-    {
-      return true
-    }
-  }   
+  
   getUsername()
   {
     return this.afAuth.auth.currentUser.displayName;
-  }   
+  }  
+  getBrokerage()
+  {
+    
+  } 
   getUser()
   {
     this.afAuth.auth.onAuthStateChanged(function (user) {
