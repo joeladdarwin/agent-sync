@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, fromDocRef  } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { Client } from '../shared/client';
+import { Home } from '../shared/home';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from "@angular/router";
 import { EmailAuthProvider } from '@firebase/auth-types';
@@ -18,13 +19,15 @@ export class ClientinfoService {
   user : Observable<User>;
   usersCollection : AngularFirestoreCollection<Client>;
   users : Observable<Client[]>;
+  homeCollection : AngularFirestoreCollection<Home>;
   userDocument : AngularFirestoreDocument<Client>;
+  docRefid : string;
   private userDetails: firebase.User = null;
   constructor(public afs: AngularFirestore, private afAuth: AngularFireAuth, private router: Router) {
     this.user = this.afAuth.authState;
 
     this.usersCollection = this.afs.collection('users');
-    
+    this.homeCollection = this.afs.collection('home');
     
     this.user.subscribe((user) => {
       if (user) {
@@ -37,8 +40,32 @@ export class ClientinfoService {
       );
    }
   
-  
+  addHome(createdon)
+  {
+    var createdby = this.afAuth.auth.currentUser.displayName;
+    
+    this.homeCollection.add(
+      {
+        createdon, createdby
+      }
+    ).then(function (docRef) {
+      console.log("Document written with ID: ", docRef.id);
+      var docRefid = this.docRef.id;
+      return docRefid
+    })
+      .catch(function (error) {
+        console.error("Error adding document: ", error);
+      });
+  }
+    updateHomeaddress(street, city, zip, unit)
+    {
+      this.homeCollection.doc(this.docRefid).update(
+        {
+          street, city, zip, unit
+        }
 
+      )
+    }
   
   addUser(displayName, email, brokerage, phone, password)
    {
