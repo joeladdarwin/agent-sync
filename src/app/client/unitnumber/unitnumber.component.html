@@ -42,10 +42,10 @@
   
    
        
-         <a  [disabled] = "buttonstatus" (click)="removeItem()"><span [ngStyle]="{'color': amount === 0 ? '#F07C49' : '#D5D5D5'}"><i class="fa fa-caret-up incbtn" ></i></span></a> 
+         <a (click) = "addItem()" [disabled] = "buttonstatus" ><span [ngStyle]="{'color': amount === 10 ? '#D5D5D5' : '#F07C49' }"><i class="fa fa-caret-up increbtn" ></i></span></a> 
       
          <div class="amountdec" >{{amount}} </div> 
-         <a (click) = "addItem()"><i class="fa fa-caret-down increbtn"> </i></a>   
+         <a (click)="removeItem()" [disabled] = "buttonstatus" ><span [ngStyle]="{'color': amount === 0 ? '#D5D5D5' : '#F07C49'  }"><i class="fa fa-caret-down increbtn"> </i></span></a>   
         
 </div>
 

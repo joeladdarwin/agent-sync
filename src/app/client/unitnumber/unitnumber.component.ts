@@ -13,8 +13,13 @@ export class UnitnumberComponent implements OnInit {
  public ctwo=true;
 
   addItem(){
-    this.amount=this.amount+1;
-    console.log('plus is : '+this.amount)
+    if(this.amount < 10){
+      this.amount = this.amount + 1;
+      console.log('plus is : ' + this.amount)
+    }else{
+      this.buttonstatus=true;
+    }
+    
    
     
   
@@ -42,7 +47,7 @@ export class UnitnumberComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.amount=0;
+    this.amount=1;
   }
 
 }
