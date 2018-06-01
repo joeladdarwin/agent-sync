@@ -52,13 +52,16 @@ h1
   
 
 @media screen and (max-width: 780px) {
+    .jumbotron.jumbotron-fluid {
+        margin-top: -1rem;
+    }
     .btn
 	{
 		color: white;
 		background-color:#F07C49;
         padding: 2rem;
-         width: 29rem;
-         margin-left:-2rem;
+         width: 24rem;
+         margin-left:-3rem;
         
 		
     }
