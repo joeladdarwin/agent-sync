@@ -30,6 +30,7 @@ export class RegisterComponent implements OnInit {
     var brokerage = registerForm.controls['brokerage'].value;
     var phone = registerForm.controls['phone'].value;
     var password = "1sdsF89";
+    
     this.clientinfocervice.addUser(name, email, brokerage, phone, password);
     // this.clientService.registerClient(registerForm.value)
     this.resetForm(registerForm);

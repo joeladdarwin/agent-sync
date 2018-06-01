@@ -21,14 +21,15 @@ export class ClientinfoService {
   users : Observable<Client[]>;
   homeCollection : AngularFirestoreCollection<Home>;
   userDocument : AngularFirestoreDocument<Client>;
-  docRefid : string;
+  docRef : string;
+  unit : number;
   private userDetails: firebase.User = null;
   constructor(public afs: AngularFirestore, private afAuth: AngularFireAuth, private router: Router) {
     this.user = this.afAuth.authState;
 
     this.usersCollection = this.afs.collection('users');
     this.homeCollection = this.afs.collection('home');
-    
+    this.unit = 1;
     this.user.subscribe((user) => {
       if (user) {
         this.userDetails = user;
@@ -44,22 +45,24 @@ export class ClientinfoService {
   {
     var createdby = this.afAuth.auth.currentUser.displayName;
     
-    this.homeCollection.add(
-      {
-        createdon, createdby
-      }
+    this.homeCollection.doc(createdby+this.unit).set({
+      createdby, createdon
+    }
+    
     ).then(function (docRef) {
-      console.log("Document written with ID: ", docRef.id);
-      var docRefid = this.docRef.id;
-      return docRefid
+      console.log("Document written with ID: ", docRef);
+      // var docRefid = this.docRef.id;
+      // return docRefid
     })
       .catch(function (error) {
         console.error("Error adding document: ", error);
       });
   }
-    updateHomeaddress(street, city, zip, unit)
+    updateHomeaddress(street, city, zip, unit )
     {
-      this.homeCollection.doc(this.docRefid).update(
+      var createdby = this.afAuth.auth.currentUser.displayName;
+      
+      this.homeCollection.doc(createdby+this.unit).update(
         {
           street, city, zip, unit
         }
