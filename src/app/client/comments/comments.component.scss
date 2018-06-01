@@ -24,8 +24,7 @@ h1
 		background-color:#F07C49;
         border-radius:30px;
          width: 13rem;
-        padding: 10px 20px 10px 20px;
-		
+      
     }
     
     h4 {
@@ -44,8 +43,8 @@ h1
 .slidepara{
     color:#5F5F5F;
 }
-.container{
-    color:#000;
+@media screen and (max-width: 780px) {
+    
 }
 
 
