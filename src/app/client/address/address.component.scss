@@ -20,11 +20,9 @@ h1
 
 .btn
 	{
-		color: white;
-		background-color:#F07C49;
-        border-radius:30px;
-         width: 13rem;
-        padding: 10px 20px 10px 20px;
+        color: #fff !important;
+        font-size: 1rem;
+		
 		
     }
     a {
@@ -45,7 +43,7 @@ h1
 }
 .fa{
     font-size: 2rem;
-    margin-top: -4rem;
+    margin-top: 3rem;
     
 }
 .slidepara{
@@ -54,7 +52,7 @@ h1
 @media screen and (max-width: 780px) {
     
     .numinput{
-        width:86vw;
+        width:79vw;
         line-height: 3.5rem;
     }
     .fa{
@@ -63,5 +61,11 @@ h1
         margin-top: -1rem;
         margin-left: -11rem;
         }
+    .btn
+	    {
+            margin-left: -7rem;
+            margin-top: -1rem;
+        }
+   
     
     }
