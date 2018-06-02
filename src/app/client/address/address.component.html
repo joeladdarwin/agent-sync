@@ -1,60 +1,61 @@
 
 
  <app-navbar></app-navbar>
- <div class="row">
- <div class="jumbotron jumbotron-fluid">
-    <img src="assets/image/delivery.png" class="float-right" alt="my account" > 
-    <div class="container text-center">
-      <h4>New Order > First Unit </h4>    
-      <br>  
-     <p>Property Address</p> 
-  
-  </div>
+  <form class="col-md-12" #addressForm="ngForm" (submit)="addressSubmit(addressForm)">
 
-  <div class="row">
-    <div class="container-fluid">
-      <div class="row text-center">
-        <div class="col-sm-4 md-4 col-4 con">
-         
-        <a routerLink="/placeorder"> <h4>BACK</h4></a>
-          
-        </div>
-        <div class="col-sm-4 md-4 col-4 con">
-          <h4>Subtotal :</h4>
-        </div>
-        <div class="col-sm-4 md-4 col-4 con">
-        <a routerLink="/squarefeet"  [disabled]="!addressForm.valid"> <h4>NEXT</h4></a>
-        </div>
-      
-      </div>
-    </div>
-
-  </div>
-</div>
+    <div class="form-group row">
+      <img src="assets/image/delivery.png" class="float-right img-fluid" alt="my account" > 
+     
+        <h4 class="text-center">New Order > First Unit </h4>    
+        
+         <p class="text-center">Property Address</p> 
     
-<div class="container-fluid text-center" >
+    
+
+    
+        <div class="row text-center">
+          <div class="col-sm-4 md-4 col-4 con">
+          
+          <a routerLink="/placeorder"> <h4>BACK</h4></a>
+            
+          </div>
+          <div class="col-sm-4 md-4 col-4 con">
+            <h4>Subtotal :</h4>
+          </div>
+          <div class="col-sm-4 md-4 col-4 con">
+
+          <button type="submit" class="btn btn-link"  >NEXT</button>
+          </div>
+        
+        </div>
+    
+
+    </div>
+    
+
 
   <div class="row">
           
-    <form class="col-md-12 mx-auto mt-5 p-3" #addressForm="ngForm" (submit)="addressSubmit(addressForm)" >
+   
        
  
        <input type="text" name="street" #street="ngModel" [(ngModel)]="cli.street" placeholder="Street Address" required  class="numinput text-center"><br><br>
        <input type="text" name="city" #city="ngModel" [(ngModel)]="cli.city" placeholder="City, State" required class="numinput text-center"><br><br>
-       <input type="text" name="zip" #zip="ngModel" [(ngModel)]="cli.zip" placeholder="Zip Code" required pattern="/(^\d{5}$)|(^\d{5}-\d{4}$)/" class="numinput text-center"><br><br>
+       <input type="text" name="zip" #zip="ngModel" [(ngModel)]="cli.zip" placeholder="Zip Code" required  class="numinput text-center"><br><br>
        <input type="text" name="unit" #unit="ngModel" [(ngModel)]="cli.unit" placeholder="Unit Number" required  pattern="/[1-9]|10/" class="numinput text-center"><br><br>
-        <button type="submit" >hidden submit</button>
+        
        
       
-       
-     </form>
+    
    </div>
  
+ 
+
+
+ 
+</form>
+<div class="col-md-12 text-center">
+  <i class="fa fa-angle-up mx-auto"></i>
+  <p class="slidepara">Slide to view prices</p>
 
 </div>
-
-  <div class="col-md-12 text-center">
-      <i class="fa fa-angle-up mx-auto"></i>
-      <p class="slidepara">Slide to view prices</p>
-  
-    </div>

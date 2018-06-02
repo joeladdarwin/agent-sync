@@ -11,6 +11,7 @@ import * as firebase from 'firebase/app';
 
 
 
+
 @Injectable()
 export class ClientinfoService {
   authState: any = null;
@@ -23,6 +24,7 @@ export class ClientinfoService {
   userDocument : AngularFirestoreDocument<Client>;
   docRef : string;
   unit : number;
+  
   private userDetails: firebase.User = null;
   constructor(public afs: AngularFirestore, private afAuth: AngularFireAuth, private router: Router) {
     this.user = this.afAuth.authState;
@@ -69,7 +71,12 @@ export class ClientinfoService {
 
       )
     }
-  
+    updateHomesqft(squarefeet)
+    {
+      var createdby = this.afAuth.auth.currentUser.displayName;
+     
+      this.homeCollection.doc(createdby+this.unit).update(squarefeet)
+    }
   addUser(displayName, email, brokerage, phone, password)
    {
    
