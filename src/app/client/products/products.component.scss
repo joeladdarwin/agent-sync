@@ -22,12 +22,17 @@ h1
 .btn
 	{
 		color: white;
-		background-color:#F07C49;
+		background-color:#F07C49 !important;
         padding: 2rem;
          width: 31rem;
         
 		
     }
+    .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+        color: #fff !important;
+        background-color: red !important;
+        border-color: #4e555b !important;
+    }   
    
     h4 {
         color: #fff;
@@ -58,10 +63,9 @@ h1
 	{
 		color: white;
 		background-color:#F07C49;
-        padding: 2rem;
-         width: 24rem;
-         margin-left:-3rem;
-        
+      
+         width: 22rem;
+       
 		
     }
     .fa{
