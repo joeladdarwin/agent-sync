@@ -88,8 +88,9 @@ export class ClientinfoService {
         {
           street, city, zip, unit
         }
-
+        
       )
+      this.router.navigate(['/squarefeet'])
     }
 
 

@@ -21,11 +21,9 @@ export class AddressComponent implements OnInit {
     var unit = addressForm.controls['unit'].value;
 
     this.cli.updateHomeaddress(street, city, zip, unit )
-    this.router.navigateByUrl('/squarefeet')
+ 
   }
   ngOnInit() {
-    console.log("Buil" + this.cli.getselectedbuilding());
-    this.building = this.cli.getselectedbuilding();
    
   }
 
