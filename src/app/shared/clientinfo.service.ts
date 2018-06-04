@@ -24,11 +24,13 @@ export class ClientinfoService {
   userDocument : AngularFirestoreDocument<Client>;
   docRef : string;
   unit : number;
-  
+  selectedbuilding : string;
+  bul;
+
   private userDetails: firebase.User = null;
   constructor(public afs: AngularFirestore, private afAuth: AngularFireAuth, private router: Router) {
     this.user = this.afAuth.authState;
-
+    this.selectedbuilding="Home";
     this.usersCollection = this.afs.collection('users');
     this.homeCollection = this.afs.collection('home');
     this.unit = 1;
@@ -42,7 +44,23 @@ export class ClientinfoService {
     }
       );
    }
+  updateselectedbuilding(bul) 
+  {
+    
+    console.log(bul + "Upadated");
+
+    this.selectedbuilding = bul;
   
+    return this.selectedbuilding
+  }
+  getselectedbuilding()
+  {
+    console.log(this.updateselectedbuilding(this.bul) )
+
+  
+  
+  }
+
   addHome(createdon)
   {
     var createdby = this.afAuth.auth.currentUser.displayName;
@@ -60,6 +78,8 @@ export class ClientinfoService {
         console.error("Error adding document: ", error);
       });
   }
+
+
     updateHomeaddress(street, city, zip, unit )
     {
       var createdby = this.afAuth.auth.currentUser.displayName;
@@ -71,12 +91,17 @@ export class ClientinfoService {
 
       )
     }
+
+
     updateHomesqft(squarefeet)
     {
       var createdby = this.afAuth.auth.currentUser.displayName;
      
-      this.homeCollection.doc(createdby+this.unit).update(squarefeet)
+      this.homeCollection.doc(createdby+this.unit).update(
+        {squarefeet, createdby})
     }
+
+
   addUser(displayName, email, brokerage, phone, password)
    {
    

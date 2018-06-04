@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   providers : [ ClientinfoService]
 })
 export class AddressComponent implements OnInit {
-
+  building;
   constructor(private cli: ClientinfoService, private router : Router) { }
   addressSubmit(addressForm : NgForm)
   {
@@ -24,6 +24,9 @@ export class AddressComponent implements OnInit {
     this.router.navigateByUrl('/squarefeet')
   }
   ngOnInit() {
+    console.log("Buil" + this.cli.getselectedbuilding());
+    this.building = this.cli.getselectedbuilding();
+   
   }
 
 }
