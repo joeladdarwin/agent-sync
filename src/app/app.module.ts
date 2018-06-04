@@ -6,7 +6,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from '../app/shared/auth.guard'
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { environment } from "../environments/environment";
@@ -106,6 +106,7 @@ import { PriceComponent } from './client/price/price.component';
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     AngularFireDatabaseModule,
     HttpClientModule,
+    BrowserAnimationsModule
     
 
   ],

@@ -10,13 +10,18 @@ import { ClientinfoService } from '../../shared/clientinfo.service';
 })
 export class PlaceorderComponent implements OnInit {
   names : any;
+  cdate = Date.now();
+  building;
   constructor(private cli : ClientinfoService) {
     this.names = this.cli.getUsername();
    }
+
   onselecthouse()
   {
-    var cdate = Date.now();
-    this.cli.addHome(cdate)
+    
+    this.cli.addHome(this.cdate)
+    this.cli.updateselectedbuilding("Home")
+    
     
   }
   onselecttown()
