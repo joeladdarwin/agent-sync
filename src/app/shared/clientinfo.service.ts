@@ -20,19 +20,20 @@ export class ClientinfoService {
   user : Observable<User>;
   usersCollection : AngularFirestoreCollection<Client>;
   users : Observable<Client[]>;
-  homeCollection : AngularFirestoreCollection<Home>;
+  buildingCollection : AngularFirestoreCollection<Home>;
   userDocument : AngularFirestoreDocument<Client>;
-  docRef : string;
+  docRef; 
   unit : number;
-  selectedbuilding : string;
-  bul;
-
+  totalunits : number;
+  createdby:string;
+  buildingRef;
   private userDetails: firebase.User = null;
   constructor(public afs: AngularFirestore, private afAuth: AngularFireAuth, private router: Router) {
     this.user = this.afAuth.authState;
-    this.selectedbuilding="Home";
+    
     this.usersCollection = this.afs.collection('users');
-    this.homeCollection = this.afs.collection('home');
+    this.buildingCollection = this.afs.collection('building');
+   
     this.unit = 1;
     this.user.subscribe((user) => {
       if (user) {
@@ -44,29 +45,13 @@ export class ClientinfoService {
     }
       );
    }
-  updateselectedbuilding(bul) 
-  {
-    
-    console.log(bul + "Upadated");
-
-    this.selectedbuilding = bul;
   
-    return this.selectedbuilding
-  }
-  getselectedbuilding()
-  {
-    console.log(this.updateselectedbuilding(this.bul) )
-
-  
-  
-  }
-
-  addHome(createdon)
+  addBuilding(building)
   {
     var createdby = this.afAuth.auth.currentUser.displayName;
     
-    this.homeCollection.doc(createdby+this.unit).set({
-      createdby, createdon
+    this.buildingCollection.doc(createdby+this.unit).set({
+      createdby, building,
     }
     
     ).then(function (docRef) {
@@ -78,13 +63,22 @@ export class ClientinfoService {
         console.error("Error adding document: ", error);
       });
   }
-
+  updatetotalbuilding(totalunits)
+  {
+    var createdby = this.afAuth.auth.currentUser.displayName;
+    this.buildingCollection.doc(createdby + this.unit).update(
+      {
+        createdby, totalunits
+      
+      })
+      this.router.navigate(['/address'])
+  }
 
     updateHomeaddress(street, city, zip, unit )
     {
       var createdby = this.afAuth.auth.currentUser.displayName;
       
-      this.homeCollection.doc(createdby+this.unit).update(
+      this.buildingCollection.doc(createdby+this.unit).update(
         {
           street, city, zip, unit
         }
@@ -98,10 +92,61 @@ export class ClientinfoService {
     {
       var createdby = this.afAuth.auth.currentUser.displayName;
      
-      this.homeCollection.doc(createdby+this.unit).update(
+      this.buildingCollection.doc(createdby+this.unit).update(
         {squarefeet, createdby})
     }
 
+    updateVisitingdate(date)
+    {
+      var createdby = this.afAuth.auth.currentUser.displayName;
+      this.buildingCollection.doc(createdby + this.unit).update(
+      {
+        date, createdby
+      })
+      this.router.navigate(['/comment'])
+    }
+    updateComments(comments)
+    {
+      var createdby = this.afAuth.auth.currentUser.displayName;
+      this.buildingCollection.doc(createdby + this.unit).update(
+        {
+          createdby, comments
+        }
+      )
+      this.router.navigate(['/revieworder'])
+    }
+  getBuilding2() {
+    var createdby = this.afAuth.auth.currentUser.displayName;
+    this.docRef = this.buildingCollection.doc("" + createdby + this.unit + "").valueChanges();
+    this.docRef = this.buildingCollection.doc("" + createdby + this.unit + "").snapshotChanges();
+    
+         
+      
+    
+  }
+
+    getBuilding()
+    {
+      var createdby = this.afAuth.auth.currentUser.displayName;
+     
+      
+      this.docRef = this.buildingCollection.doc(""+createdby + this.unit+"");
+      this.buildingRef = this.buildingCollection.doc("" + createdby + this.unit + "");
+      this.docRef.ref.get().then(function (doc) {
+        if (doc.exists) {
+          var apple = doc.data();
+          console.log("Document data:", doc.data());
+          console.log(Object.values(doc.data()));
+       
+          
+        } else {
+          // doc.data() will be undefined in this case
+          console.log("No such document!");
+        }
+      }).catch(function (error) {
+        console.log("Error getting document:", error);
+      });
+    }
 
   addUser(displayName, email, brokerage, phone, password)
    {

@@ -19,21 +19,25 @@ h1
 
 
 
-.btn
-	{
-		color: white;
-		background-color:#F07C49 !important;
-        padding: 2rem;
-         width: 31rem;
+// .btn
+// 	{
+// 		color: white;
+// 		background-color:#F07C49 !important;
+//         padding: 2rem;
+//          width: 31rem;
         
 		
-    }
-    .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
-        color: #fff !important;
-        background-color: red !important;
-        border-color: #4e555b !important;
-    }   
-   
+//     }
+//     .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+//         color: #fff !important;
+//         background-color: red !important;
+//         border-color: #4e555b !important;
+//     }   
+  input[type="checkbox"] :checked + label
+  {
+    background-color: aqua;
+    color: #000;
+  }
     h4 {
         color: #fff;
         font-size: 1rem;

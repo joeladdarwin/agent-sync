@@ -1,4 +1,6 @@
 export interface Home {
+    propertytype?:string;
+    totalunits?:number;
     street?: string;
     city ?: string;
     zip ?: string;
@@ -10,4 +12,5 @@ export interface Home {
     notes ?: string;
     createdby ?:string;
     createdon ?:any;
+    comments ?:string;
 }
