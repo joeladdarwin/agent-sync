@@ -41,9 +41,7 @@ h1
     line-height: 3.5rem;
     border: 2px solid #434343;
 }
-.container{
-    color:#000;
-}
+
 .incbtn{
     font-size: 9rem;
 
@@ -53,7 +51,7 @@ h1
 }
 .increbtn{
     font-size: 9rem;
-    margin-top: 0 !important;
+    margin-top: -20px !important;
 }
 
 @media screen and (max-width: 780px) {
@@ -62,4 +60,5 @@ h1
         width:86vw;
         line-height: 3.5rem;
     }
+
     }
