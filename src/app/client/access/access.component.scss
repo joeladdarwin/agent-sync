@@ -7,31 +7,36 @@ h1
     
  
 }
-.btn1
-	{
-		color: white;
-        background-color:#F07C49;
-        
-    
-     }
-     .numinput{
+
+.numinput{
         width:37vw;
         line-height: 2.5rem;
         border: 1px solid #434343;
+    }
+    .sidecon{
+        padding-left: 6rem;
     }
 
     .slidepara{
         color:#5F5F5F;
     }
-.btn
+    .btn
 	{
 		color: white;
-		background-color:#F07C49;
+		background-color:#F07C49 !important;
         padding: 2rem;
          width: 29rem;
         
 		
     }
+
+   
+ .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+    color: #fff !important;
+    background-color: red !important;
+    border-color: #4e555b !important;
+}   	
+ 
    
     h4 {
         color: #fff;
@@ -45,12 +50,10 @@ h1
         margin-top: 4rem;
   
         }
-        ul>li
-            {
-                list-style-type: none;
-            }
+      
+ 
 
-        
+   
   
 
 @media screen and (max-width: 780px) {
@@ -58,12 +61,13 @@ h1
 	{
 		color: white;
 		background-color:#F07C49;
-        padding: 2rem;
-         width: 24rem;
-         margin-left:-3rem;
+       
+         width: 21rem;
+        
         
 		
     }
+    
     .fa{
          
       
@@ -73,6 +77,10 @@ h1
             width:76vw;
             line-height: 3.5rem;
           
+        }
+        
+        .sidecon{
+            padding-left: 3rem
         }
        
     

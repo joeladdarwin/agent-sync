@@ -10,26 +10,31 @@ import { ClientinfoService } from '../../shared/clientinfo.service';
 })
 export class PlaceorderComponent implements OnInit {
   names : any;
+  cdate = Date.now();
+
   constructor(private cli : ClientinfoService) {
     this.names = this.cli.getUsername();
    }
-  onselecthouse()
+
+  onselectbuilding()
   {
-    var cdate = Date.now();
-    this.cli.addHome(cdate)
     
+    this.cli.addBuilding("Home")
   }
   onselecttown()
   {
-
+    this.cli.addBuilding("Town Home")
+    
   }
   onselectapt()
   {
-
+    this.cli.addBuilding("Appartment")
+    
   }
   onselectcommercial()
   {
-
+    this.cli.addBuilding("Commercial")
+   
   }
   ngOnInit() {
   }

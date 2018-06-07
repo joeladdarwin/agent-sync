@@ -22,7 +22,7 @@ h1
 	{
         color: #fff !important;
         font-size: 1rem;
-		
+		width:8rem;
 		
     }
     a {
@@ -35,7 +35,9 @@ h1
     p{
         color:#F07C49;
     }
-  
+  .sidecon{
+      padding-left: 6rem
+  }
 .numinput{
     width:44vw;
     line-height: 3.5rem;
@@ -50,7 +52,19 @@ h1
     color:#5F5F5F;
 }
 @media screen and (max-width: 780px) {
-    
+    .classab{
+       
+     top: -44px;
+    right: 10px;
+   
+    bottom: 0;
+    z-index: 9949;
+    position: absolute;
+    }
+    .classbb
+    {
+        margin-top:18px;
+    }
     .numinput{
         width:79vw;
         line-height: 3.5rem;
@@ -63,8 +77,13 @@ h1
         }
     .btn
 	    {
-            margin-left: -7rem;
+            margin-left: -3rem;
+            width:7rem;
             margin-top: -1rem;
+           
+        }
+        .sidecon{
+            padding-left: 3rem
         }
    
     

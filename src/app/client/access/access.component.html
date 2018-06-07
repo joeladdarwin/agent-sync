@@ -1,54 +1,75 @@
 
 <app-navbar></app-navbar>
 <div class="row">
-<div class="jumbotron jumbotron-fluid">
-    <img src="assets/image/delivery.png" class="float-right">
-   <div class="container text-center">
-     <h4>New Order>First Order  </h4>      
-    <p>Product</p> 
- 
- </div><br>
-
- <div class="row">
-   <div class="container-fluid">
-     <div class="row text-center">
-       <div class="col-sm-4 md-4 col-4 con">
-        
-   <a routerLink="/product"><h4>BACK</h4></a>
-         
-       </div>
-       <div class="col-sm-4 md-4 col-4 con">
-         <h4>Subtotal :</h4>
-       </div>
-       <div class="col-sm-4 md-4 col-4 con">
-   <a routerLink="/date">    <h4>NEXT</h4></a>
-       </div>
+<form class="col-md-12" #addressForm="ngForm" (submit)="addressSubmit(addressForm)">
+   <div class="form-group row">
+    <div class="jumbotron jumbotron-fluid">
+	 <div class="container text-center">
+        <img src="assets/image/delivery.png" class="float-right">
+      
+         <h4>New Order>First Order  </h4>      
+        <p>Product</p> 
      
-     </div>
+     </div><br>
+    
+      <div class="form-group row">
+                <div class="col-sm-4 md-4 col-4 sidecon">
+         
+                    <a routerLink="/product"> <h4>BACK</h4></a>
+                      
+                </div>
+                <div class="col-sm-4 md-4 col-4 sidecon">
+                      <h4>Subtotal :</h4>
+                </div>
+                <div class="col-sm-4 md-4 col-4 sidecon">
+                    <a routerLink="/date"><h4>NEXT</h4></a>
+                </div>
+            </div>
+    </div>
    </div>
 
- </div>
-</div>
-</div>
-<div class="row">
- <h3>What products are needed at this unit?</h3> 
-<h3>*Please select all that apply.</h3>
-   
-</div>
-<div class="row test">
-    <div class="col-md-6 mx-auto">
-        <ul>
-          <li >
-            <button type="button" class="btn btn1">Meet agent on site</button>
-            <button type="button" class="btn btn1">Lockbox</button>
-            <button type="button" class="btn btn1">Access Code</button>
-            <button type="button" class="btn btn1">Other</button>
-          </li><br><br>
-          <input type="text mx-auto" name="" placeholder="Code?" id="test" class="numinput text-center"><br><br>
-        </ul>
-        
+ <div class="container-fluid text-center" >
+
+        <div class="form-group row">
+                
+          <div class="col-md-12 mx-auto mt-2">
+		  <h3>What products are needed at this unit?</h3> 
+			<h3>*Please select all that apply.</h3>
+			<div class="row test">
+    <div class="col-md-12 text-center">
+      <div class="btn-group-toggle" data-toggle="buttons">
+			  <label class="btn btn-secondary">
+				<input type="checkbox" autocomplete="off"> Meet agent on site
+			  </label>
+			</div>
+			<div class="btn-group-toggle" data-toggle="buttons">
+			  <label class="btn btn-secondary">
+				<input type="checkbox" autocomplete="off">Lockbox
+
+			  </label>
+      </div>
+      <div class="btn-group-toggle" data-toggle="buttons">
+			  <label class="btn btn-secondary">
+				<input type="checkbox" autocomplete="off" checked> Access Code
+			  </label>
+      </div>
+      <div class="btn-group-toggle" data-toggle="buttons">
+			  <label class="btn btn-secondary">
+				<input type="checkbox" autocomplete="off"> OtherS
+
+			  </label>
+      </div><br><br>
+
+        <input type="text mx-auto" name="" placeholder="Code?" id="test" class="numinput text-center">
+ 
     </div>
+	
   </div>
+		  </div>
+		</div>
+  </div>		  
+  </form>
+</div>
   
   <div class="row">
       <div class="col-md-12 text-center">

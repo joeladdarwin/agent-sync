@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientinfoService } from '../../shared/clientinfo.service';
 
 @Component({
   selector: 'app-unitnumber',
   templateUrl: './unitnumber.component.html',
-  styleUrls: ['./unitnumber.component.scss']
+  styleUrls: ['./unitnumber.component.scss'],
+  providers: [ClientinfoService]
 })
 export class UnitnumberComponent implements OnInit {
   public amount:number;
@@ -11,7 +13,7 @@ export class UnitnumberComponent implements OnInit {
  buttonstatus;
  public cone=true;
  public ctwo=true;
-
+  
   addItem(){
     if(this.amount < 10){
       this.amount = this.amount + 1;
@@ -44,8 +46,11 @@ export class UnitnumberComponent implements OnInit {
 
 
 
-  constructor() { }
-
+  constructor(private cli: ClientinfoService) { }
+  updatetotalunit() {
+    this.cli.updatetotalbuilding(this.amount)
+    
+  }
   ngOnInit() {
     this.amount=1;
   }

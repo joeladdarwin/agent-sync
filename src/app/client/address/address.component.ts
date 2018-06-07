@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
   providers : [ ClientinfoService]
 })
 export class AddressComponent implements OnInit {
-
+  title = "New Order > First Unit";
+  building;
   constructor(private cli: ClientinfoService, private router : Router) { }
   addressSubmit(addressForm : NgForm)
   {
@@ -21,9 +22,10 @@ export class AddressComponent implements OnInit {
     var unit = addressForm.controls['unit'].value;
 
     this.cli.updateHomeaddress(street, city, zip, unit )
-    this.router.navigateByUrl('/squarefeet')
+ 
   }
   ngOnInit() {
+   
   }
 
 }

@@ -3,5 +3,6 @@ export interface Client {
     brokerage : string;
     email : string;
     phone : string;
-    
+    selectedbuilding?: string;
+    buildingnos?: number;
 }
