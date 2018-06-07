@@ -23,7 +23,7 @@ export class PlaceorderComponent implements OnInit {
   }
   onselecttown()
   {
-    this.cli.addBuilding("Town")
+    this.cli.addBuilding("Town Home")
     
   }
   onselectapt()

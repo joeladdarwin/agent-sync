@@ -10,13 +10,14 @@ import { Home } from '../../shared/home';
   providers:[ClientinfoService]
 })
 export class RevieworderComponent implements OnInit {
-    data:any;
+  data;
+  data1;
   constructor(public cli : ClientinfoService) {
-    this.data = this.cli.getBuilding();
+    this.data = this.cli.getBuilding2();
    }
 
   ngOnInit() {
-    
+    this.data1 = this.cli.getBuilding();
   }
 
 }

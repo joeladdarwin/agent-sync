@@ -52,7 +52,19 @@ h1
     color:#5F5F5F;
 }
 @media screen and (max-width: 780px) {
-    
+    .classab{
+       
+     top: -44px;
+    right: 10px;
+   
+    bottom: 0;
+    z-index: 9949;
+    position: absolute;
+    }
+    .classbb
+    {
+        margin-top:18px;
+    }
     .numinput{
         width:79vw;
         line-height: 3.5rem;

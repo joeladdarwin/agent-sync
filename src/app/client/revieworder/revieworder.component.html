@@ -19,7 +19,7 @@
           
         </div>
         <div class="col-sm-4 md-4 col-4 con">
-          <h4>Subtotal :</h4>
+          <h4>Subtotal :<p>{{(data | async)?.price }}</p></h4>
         </div>
        
       
@@ -33,7 +33,14 @@
     <h1>All set? Please review your order below
       </h1>
    
-  <p>ddd{{(data | async)?.name }}</p>
+  <p>{{(data | async)?.building }}</p>
+  <p>{{(data | async)?.street }}</p>
+  <p>{{(data | async)?.city }}</p>
+  <p>{{(data | async)?.zip }}</p>
+  <p>{{(data | async)?.squarefeet }}</p>
+  
+  <p>{{(data | async)?.comments }}</p>
+ 
 </div>
 <div class="row">
     <button type="button" class="btn btn1 mx-auto" routerLink="/completenew">ADD TO CART</button>
