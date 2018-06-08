@@ -88,20 +88,20 @@ export class ClientinfoService {
     }
 
 
-    updateHomesqft(squarefeet)
+    updateHomesqft(squarefeet, price)
     {
       var createdby = this.afAuth.auth.currentUser.displayName;
      
       this.buildingCollection.doc(createdby+this.unit).update(
-        {squarefeet, createdby})
+        {squarefeet, price})
     }
 
-    updateVisitingdate(date)
+    updateVisitingdate(visitingdate)
     {
       var createdby = this.afAuth.auth.currentUser.displayName;
       this.buildingCollection.doc(createdby + this.unit).update(
       {
-        date, createdby
+        visitingdate, createdby
       })
       this.router.navigate(['/comment'])
     }
@@ -118,7 +118,7 @@ export class ClientinfoService {
   getBuilding2() {
     var createdby = this.afAuth.auth.currentUser.displayName;
     this.docRef = this.buildingCollection.doc("" + createdby + this.unit + "").valueChanges();
-    this.docRef = this.buildingCollection.doc("" + createdby + this.unit + "").snapshotChanges();
+    return this.docRef
     
          
       

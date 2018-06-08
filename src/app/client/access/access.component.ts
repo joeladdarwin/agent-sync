@@ -7,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccessComponent implements OnInit {
  
-
+   isActive:boolean;
   constructor() { }
 
   ngOnInit() {
+    this.isActive=false;
+    console.log(this.isActive);
+
   }
+  activeButton()
+  {
+    this.isActive=true;
+    console.log(this.isActive);
+
+    }
 
 }

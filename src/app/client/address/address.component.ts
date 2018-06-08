@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   providers : [ ClientinfoService]
 })
 export class AddressComponent implements OnInit {
+  title = "New Order > First Unit";
   building;
   constructor(private cli: ClientinfoService, private router : Router) { }
   addressSubmit(addressForm : NgForm)

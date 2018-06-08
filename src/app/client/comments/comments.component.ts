@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
   providers: [ClientinfoService]
 })
 export class CommentsComponent implements OnInit {
-
+  
   constructor(private cli: ClientinfoService) { 
 
   }

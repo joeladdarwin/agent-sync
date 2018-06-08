@@ -29,15 +29,10 @@ h1
         
 		
     }
-
-   
- .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
-    color: #fff !important;
-    background-color: red !important;
-    border-color: #4e555b !important;
-}   	
- 
-   
+    .active {
+        background-color:black;
+      }
+     
     h4 {
         color: #fff;
         font-size: 1rem;
@@ -45,13 +40,17 @@ h1
     p{
         color:#F07C49;
     }
-    .fa{
-        font-size: 3rem;
-        margin-top: 4rem;
-  
-        }
+
+
+   
+
+   
+    
       
- 
+        .slidep{
+            color:#5F5F5F;
+
+        }
 
    
   
@@ -63,19 +62,16 @@ h1
 		background-color:#F07C49;
         margin-left: -1rem;
          width: 21rem;
+         margin-bottom: 1rem;
         
         
 		
     }
     
-    .fa{
-         
-      
-        margin-top: 2rem;
-        }
-        .numinput{
-            width:76vw;
+  .numinput{
+            width:82vw;
             line-height: 3.5rem;
+            margin-left: -1rem;
           
         }
         
