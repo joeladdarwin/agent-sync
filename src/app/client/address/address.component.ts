@@ -21,11 +21,11 @@ export class AddressComponent implements OnInit {
     var zip = addressForm.controls['zip'].value;
     var unit = addressForm.controls['unit'].value;
 
-    this.cli.updateHomeaddress(street, city, zip, unit )
+    this.cli.updatePropertyaddress(street, city, zip, unit )
  
   }
   ngOnInit() {
-   
+   this.cli.getBuilding2()
   }
 
 }
