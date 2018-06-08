@@ -34,7 +34,7 @@ export class ClientinfoService {
     this.usersCollection = this.afs.collection('users');
     this.buildingCollection = this.afs.collection('building');
    
-    this.unit = 1;
+    this.unit;
     this.user.subscribe((user) => {
       if (user) {
         this.userDetails = user;
@@ -73,8 +73,8 @@ export class ClientinfoService {
       })
       this.router.navigate(['/address'])
   }
-
-    updateHomeaddress(street, city, zip, unit )
+  
+    updatePropertyaddress(street, city, zip, unit )
     {
       var createdby = this.afAuth.auth.currentUser.displayName;
       
