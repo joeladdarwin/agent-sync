@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 
 })
 export class SquarefeetComponent implements OnInit {
+  title = "New Order > First Unit";
   a = "0-750";
   ap = 145;
   b = "751-1500";

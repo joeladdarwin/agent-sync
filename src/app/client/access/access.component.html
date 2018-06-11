@@ -1,82 +1,96 @@
 
 <app-navbar></app-navbar>
-<div class="row">
-<form class="col-md-12" #addressForm="ngForm" (submit)="addressSubmit(addressForm)">
-   <div class="form-group row">
-    <div class="jumbotron jumbotron-fluid">
-	 <div class="container text-center">
-        <img src="assets/image/delivery.png" class="float-right">
-      
-         <h4>New Order>First Order  </h4>      
-        <p>Product</p> 
-     
-     </div><br>
-    
-      <div class="form-group row">
-                <div class="col-sm-4 md-4 col-4 sidecon">
-         
-                    <a routerLink="/product"> <h4>BACK</h4></a>
-                      
-                </div>
-                <div class="col-sm-4 md-4 col-4 sidecon">
-                      <h4>Subtotal :</h4>
-                </div>
-                <div class="col-sm-4 md-4 col-4 sidecon">
-                    <a routerLink="/date"><h4>NEXT</h4></a>
-                </div>
-            </div>
-    </div>
-   </div>
-
- <div class="container-fluid text-center" >
-
-        <div class="form-group row">
-                
-          <div class="col-md-12 mx-auto mt-2">
-		  <h3>What products are needed at this unit?</h3> 
-			<h3>*Please select all that apply.</h3>
-			<div class="row test">
-    <div class="col-md-12 text-center">
-      <div class="btn-group-toggle" data-toggle="buttons">
-			  <label class="btn btn-secondary">
-				<input type="checkbox" autocomplete="off"> Meet agent on site
-			  </label>
-			</div>
-			<div class="btn-group-toggle" data-toggle="buttons">
-			  <label class="btn btn-secondary">
-				<input type="checkbox" autocomplete="off">Lockbox
-
-			  </label>
-      </div>
-      <div class="btn-group-toggle" data-toggle="buttons">
-			  <label class="btn btn-secondary">
-				<input type="checkbox" autocomplete="off" checked> Access Code
-			  </label>
-      </div>
-      <div class="btn-group-toggle" data-toggle="buttons">
-			  <label class="btn btn-secondary">
-				<input type="checkbox" autocomplete="off"> OtherS
-
-			  </label>
-      </div><br><br>
-
-        <input type="text mx-auto" name="" placeholder="Code?" id="test" class="numinput text-center">
- 
-    </div>
-	
-  </div>
-		  </div>
-		</div>
-  </div>		  
-  </form>
-</div>
-  
-  <div class="row">
-      <div class="col-md-12 text-center">
-          <i class="fa fa-angle-up mx-auto"></i>
-          <p class="slidepara">Slide to view prices</p>
+<form class="row"  #addressForm="ngForm" (submit)="addressSubmit(addressForm)">
+<div class="col-md-12 ">
+  <div class="row grey">
+        <div class="col-md-8  mx-auto col-10 classab">
+                          
+          <h4 class="text-center">{{title}} </h4>
+          <p class="text-center">Product</p>
         </div>
+        <div class="col-md-2 col-2 classab">
+            <img src="assets/image/delivery.png" class="float-right img-fluid" alt="delivery">
+        </div>              
+                          
+                             
   </div>
+
+</div>
+
+  
+<div class="col-md-12 grey classbb">
+ 
+
+      <div class="row">
+          <div class="col-sm-4 md-4 col-4 sidecon">
+
+            <a routerLink="/product">
+                  <h4>BACK</h4>
+              </a>
+
+          </div>
+          <div class="col-sm-4 md-4 col-4 sidecon">
+              <h4>Subtotal :</h4>
+          </div>
+          <div class="col-sm-4 md-4 col-4 sidecon">
+            <a routerLink="/date"><h4>NEXT</h4></a>
+          </div>
+      </div>
+  
+</div>
+<div class="container-fluid text-center">
+
+  <div class="form-group row">
+
+      <div class="col-md-12 mx-auto address">
+        <h3 class="text-center">What products are needed at this unit?</h3> 
+ 
+        <h2 class="text-center">*Please select all that apply.</h2>
+        <div class="row test">
+          <div class="col-md-6 mx-auto">
+            <div class="btn-group-toggle "  data-toggle="buttons">
+              <label class="btn btn-secondary">
+              <input type="checkbox" autocomplete="off"> Meet agent on site
+              </label>
+            </div>
+            <div class="btn-group-toggle " data-toggle="buttons" >
+              <label class="btn btn-secondary" ng-class="{'active': isActive}" ng-click="activeButton()">
+              <input type="checkbox" autocomplete="off">Lockbox
+      
+              </label>
+            </div>
+            <div class="btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary">
+              <input type="checkbox" autocomplete="off" checked> Access Code
+              </label>
+            </div>
+            <div class="btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary">
+              <input type="checkbox" autocomplete="off"> OtherS
+      
+              </label>
+            </div><br><br>
+      
+              <input type="text mx-auto" name="" placeholder="Code?" id="test" class="numinput text-center">   
+           
+          </div>
+        </div>
+         
+
+
+
+      </div>
+  </div>
+
+</div>
+</form>
+  <div class="row">
+    <div class="col-md-12 text-center">
+        <i class="fa fa-angle-up mx-auto"></i>
+        <p class="slidep">Slide to view prices</p>
+      </div>
+</div>
+
   
   
    
