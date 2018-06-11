@@ -1,64 +1,77 @@
+<app-navbar [title]="title">
+</app-navbar>
+<form class="row frm" >
 
-<app-navbar></app-navbar>
-<div class="row">
-<div class="jumbotron jumbotron-fluid">
-    <img src="assets/image/delivery.png" class="float-right">
-   <div class="container text-center">
-     <h4>New Order>First Order  </h4>      
-    <p>Property Size</p> 
- 
- </div><br>
+  <div class="col-12 grey">
+    <div class="row">
+      <div class="col-12 mt-5">
+        <h3 class="text-center d-none d-md-block text-light">{{title}}</h3>
+      </div>
+      <div class="col-12">
+        <h4 class="text-center">{{(property | async)?.building}} size</h4>
+      </div>
+      <div class="col-12">
+        <div class="row">
 
- <div class="row">
-   <div class="container-fluid">
-     <div class="row text-center">
-       <div class="col-sm-4 md-4 col-4 con">
-        
-    <a routerLink="/address"> <h4>BACK</h4></a>
-         
-       </div>
-       <div class="col-sm-4 md-4 col-4 con">
-         <h4>Subtotal :</h4>
-       </div>
-       <div class="col-sm-4 md-4 col-4 con">
-    <a routerLink="/product">     <h4>NEXT</h4></a>
-       </div>
-     
-     </div>
-   </div>
+          <div class="col-4 text-center">
+            <button class="btn btn-link" routerLink="/address">
+              BACK
+            </button>
+          </div>
+          <div class="col-4 text-center">
 
- </div>
-</div>
-</div>
-<div class="row">
- <h1>How many square feet?
 
-   </h1>
-</div>
-<div class="row test">
-    <div class="col-md-6 mx-auto">
-        <ul>
-          <li>
-            
-            <button type="button" class="btn btn1" (click)="sfhma()">0-750</button>
-            <button type="button" class="btn btn1" (click)="sfhmb()">751-1500</button>
-            <button type="button" class="btn btn1" (click)="sfhmc()">2251-3000</button>
-            <button type="button" class="btn btn1" (click)="sfhmd()">3001-3750</button>
-            <button type="button" class="btn btn1" (click)="sfhme()">3751-4500</button>
-            <button type="button" class="btn btn1" (click)="sfhmf()">4501-5250</button>
-            <button type="button" class="btn btn1" (click)="sfhmg()">5251</button>
-          </li>
-        </ul>
+          </div>
+          <div class="col-4 text-center">
+            <button type="submit" class="btn btn-link">NEXT</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+  </div>
+
+
+
+
+  <div class="col-12 mx-auto text-center">
+      <h1 class="text-center">How many square feet?</h1>
+    <div class="col-md-12 mx-auto ">
+
+                    <button type="button" class="btn btn1" (click)="sfhma()">0-750</button>
+                    <button type="button" class="btn btn1" (click)="sfhmb()">751-1500</button>
+                    <button type="button" class="btn btn1" (click)="sfhmc()">2251-3000</button>
+                    <button type="button" class="btn btn1" (click)="sfhmd()">3001-3750</button>
+                    <button type="button" class="btn btn1" (click)="sfhme()">3751-4500</button>
+                    <button type="button" class="btn btn1" (click)="sfhmf()">4501-5250</button>
+                    <button type="button" class="btn btn1" (click)="sfhmg()">5251</button>
+    
+
+
+
+
     </div>
   </div>
-  
-  <div class="row">
-      <div class="col-md-12 text-center">
-          <i class="fa fa-angle-up mx-auto"></i>
-          <p class="slidep">Slide to view prices</p>
-        </div>
-  </div>
-  
-  
-   
+
+
+
+
+</form>
+
+
+<div class="col-md-12 text-center">
+  <i class="fa fa-angle-up mx-auto"></i>
+  <p class="slidepara">Slide to view prices</p>
+
+</div>
+
+
+
+
+
 

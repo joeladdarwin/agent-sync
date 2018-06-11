@@ -10,7 +10,7 @@
         
            
 
-        
+         
         
             
         
@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-12 mt-5"><h3 class="text-center d-none d-md-block text-light">{{title}}</h3>
                     </div>
-                    <div class="col-12"><h4 class="text-center">Property Address</h4></div>
+                    <div class="col-12"><h4 class="text-center">{{(property | async)?.building}} Address</h4></div>
                     <div class="col-12">
                     <div class="row">
                         
@@ -31,7 +31,7 @@
                         </div>
                         <div class="col-4 text-center">
                             
-                            <h4 class="text-center">Subtotal:${{amount}} </h4>
+                           
                         </div>
                         <div class="col-4 text-center">
                             <button type="submit" class="btn btn-link" [disabled]="!addressForm.valid">NEXT</button>

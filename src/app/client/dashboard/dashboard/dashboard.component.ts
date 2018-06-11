@@ -12,9 +12,10 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   name:any;
+  message: any;
   constructor(private clientinfocervice: ClientinfoService, private router: Router) {
    this.name = this.clientinfocervice.getUsername();
-  
+    this.message = "You have 1 appointment scheduled for today, and 2 coming up this week";
   }
 
   ngOnInit() {

@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class AddressComponent implements OnInit {
   title = "New Order > First Unit";
   building;
+  property;
   constructor(private cli: ClientinfoService, private router : Router) { }
   addressSubmit(addressForm : NgForm)
   {
@@ -25,7 +26,7 @@ export class AddressComponent implements OnInit {
  
   }
   ngOnInit() {
-   this.cli.getBuilding2()
+   this.property = this.cli.getBuilding2()
   }
 
 }
