@@ -2,81 +2,33 @@ input.ng-invalid.ng-dirty
 {
     border: 1px solid red;
 }
-button :hover, a.btn:hover
-{
-    cursor: pointer;
-}
+
 h4
 { 
-	color: #434343;
-    margin-bottom: 3rem;
-    text-align:center;
-    line-height:100%;
-    margin-top: 3rem;
-    
+	color: #434343;   
  
 }
-#headerback{
-
-    background-image: url('/assets/image/background.jpg');
-    background-repeat: no-repeat;
-    width:100vw;
-    height:100vh;
-    margin: auto;
-    background-size: cover;
-    margin-top: -5rem;
+.btd
+{
+    color: #F07C49;
 }
 
-.btn
+.btninput
 	{
 		color: white;
 		background-color:#F07C49;
-        border-radius:30px;
-         width: 21rem;
-        padding: 10px 20px 10px 20px;
-		
+        border-radius:30vh;
+       
     }
-    .fa{
+.fa{
         
-        font-size: 2rem;
-        margin-top:1rem;
+        font-size: 1.5rem;
+      
     }
-.reg{
-    margin-top: 6rem;
-}
 .numinput{
-    width:44vw;
-    line-height: 3.5rem;
     border: 2px solid #434343;
 }
 @media screen and (max-width: 780px) {
-    #headerback{
-
-        background-image: url('/assets/image/mobileback.png');
-        background-repeat: no-repeat;
-        width:100vw;
-        height:100vh;
-        margin: auto;
-        background-size: cover;
-        margin-top: -5rem;
-    }
-    .numinput{
-        width:86vw;
-        line-height: 3rem;
-    }
-
-    .reg{
-        margin-top: 3rem;
-    }
-    .fa{
-        
-        font-size: 1rem;
-        margin-top:1rem;
-    }
-    .btn
-	{
-         width: 19rem;
-  
-		
-    }
+    
+     
     }
