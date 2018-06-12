@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 
 })
 export class SquarefeetComponent implements OnInit {
+  title = "New Order > First Unit";
   a = "0-750";
   ap = 145;
   b = "751-1500";
@@ -25,7 +26,7 @@ export class SquarefeetComponent implements OnInit {
   fp = 305;
   g = "5251";
   gp = 335;
-  
+  property;
 
   constructor(private cli: ClientinfoService, private router : Router) { }
   sfhma()
@@ -59,6 +60,7 @@ export class SquarefeetComponent implements OnInit {
     this.router.navigateByUrl("/product")
   }
   ngOnInit() {
+    this.property = this.cli.getBuilding2()
   }
 
 }

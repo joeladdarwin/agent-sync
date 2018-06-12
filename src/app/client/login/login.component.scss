@@ -1,89 +1,24 @@
-.divi {
-    background-color: aqua;
-}
-#headerback{
 
-    background-image: url('/assets/image/background.jpg');
-    background-repeat: no-repeat;
-    width:100vw;
-    height:100vh;
-    margin: auto;
-    background-size: cover;
-    margin-top:-5rem
+.error
+{
+    color:red;
 }
 input{
     background-color: #fff;
-    line-height: 3rem;
+    line-height: 10vh;
+    opacity: .8;
 }
 .btn1
 	{
 		color: white;
 		background-color:#F07C49;
-        border-radius:20px;
-         width: 17rem;
-      
-		
+        border-radius:20vh;
     }
-    img{
-        width:15vw;
-    }
+
     .btn2{
         color: white;
-        width: 10rem;
-        padding: 10px 20px 10px 20px;
         background-color:#A1A1A1;
-        border-radius:20px;
-    }
-    .con{
-        margin-top: 3rem;
-    }
-    .numinput{
-        width:47vw;
-        line-height: 2.5rem;
-       
-    }
-    span{
-        color:#fff;
-    }
-    small{
-       color:#fff;
-       font-size: 1rem;
-    }
-    p{
-        color:#F07C49;
-        margin-top: -1rem;
-        margin-right: -9rem;
-    }
+        border-radius:20vh;
+    }    
     
     
-@media screen and (max-width: 780px) {
-    img {
-        margin-top: 1rem;
-        width:35vw;
-    }
-   
-    .con{
-        margin-top: 1rem;
-    }
-    .numinput{
-        width:100vw;
-        line-height: 3.5rem;
-        margin-left: -2rem;
-    }
-    
-    .btn2{
-        width: 8rem;
-    }
-    #headerback{
-
-        background-image: url('/assets/image/mobilebacklogin.png');
-        background-repeat: no-repeat;
-        width:100vw;
-        height:100vh;
-        margin: auto;
-        background-size: cover;
-        margin-top: -5rem;
-    }
-   
-    }
-   

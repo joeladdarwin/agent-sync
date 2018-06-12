@@ -34,7 +34,7 @@ export class ClientinfoService {
     this.usersCollection = this.afs.collection('users');
     this.buildingCollection = this.afs.collection('building');
    
-    this.unit = 1;
+    // this.unit =1 ;
     this.user.subscribe((user) => {
       if (user) {
         this.userDetails = user;
@@ -45,12 +45,16 @@ export class ClientinfoService {
     }
       );
    }
-  
+  unittracking()
+  {
+    this.unit = 1;
+    return this.unit
+  }
   addBuilding(building)
   {
     var createdby = this.afAuth.auth.currentUser.displayName;
-    
-    this.buildingCollection.doc(createdby+this.unit).set({
+   
+    this.buildingCollection.doc(createdby+this.unittracking()).set({
       createdby, building,
     }
     
@@ -73,8 +77,8 @@ export class ClientinfoService {
       })
       this.router.navigate(['/address'])
   }
-
-    updateHomeaddress(street, city, zip, unit )
+  
+    updatePropertyaddress(street, city, zip, unit )
     {
       var createdby = this.afAuth.auth.currentUser.displayName;
       
@@ -85,6 +89,7 @@ export class ClientinfoService {
         
       )
       this.router.navigate(['/squarefeet'])
+     
     }
 
 
@@ -103,6 +108,15 @@ export class ClientinfoService {
       {
         visitingdate, createdby
       })
+      this.router.navigate(['/time'])
+    }
+    updatevisitingtime(visitingtime)
+    {
+      var createdby = this.afAuth.auth.currentUser.displayName;
+      this.buildingCollection.doc(createdby + this.unit).update(
+        {
+          visitingtime, createdby
+        })
       this.router.navigate(['/comment'])
     }
     updateComments(comments)
@@ -201,11 +215,11 @@ export class ClientinfoService {
 
         // .if (user != null) {
         user.providerData.forEach(function (profile) {
-          console.log("Sign-in provider: " + profile.providerId);
-          console.log("  Provider-specific UID: " + profile.uid);
-          console.log("  Name: " + profile.displayName);
-          console.log("  Email: " + profile.email);
-          console.log("  Photo URL: " + profile.photoURL);
+          // console.log("Sign-in provider: " + profile.providerId);
+          // console.log("  Provider-specific UID: " + profile.uid);
+          // console.log("  Name: " + profile.displayName);
+          // console.log("  Email: " + profile.email);
+          // console.log("  Photo URL: " + profile.photoURL);
          
         });
       } else {
@@ -222,7 +236,13 @@ export class ClientinfoService {
         this.getUser();
 
       })
-      .catch(error => console.log(error));
+      .catch(error => 
+        
+         {return error
+         }
+
+      
+    );
   }
 
  

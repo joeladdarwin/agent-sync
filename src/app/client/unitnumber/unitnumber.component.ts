@@ -8,6 +8,7 @@ import { ClientinfoService } from '../../shared/clientinfo.service';
   providers: [ClientinfoService]
 })
 export class UnitnumberComponent implements OnInit {
+  title = "New Order";
   public amount:number;
 
  buttonstatus;

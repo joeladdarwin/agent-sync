@@ -1,59 +1,61 @@
-<!-- <app-navbar>
-
-</app-navbar>
- -->
 
 
-<app-navbar></app-navbar>
+<app-navbar
+[title]="title"></app-navbar>
 
 
-<form class="row"  #addressForm="ngForm" (submit)="addressSubmit(addressForm)">
+<form class="row frm"  #addressForm="ngForm" (submit)="addressSubmit(addressForm)">
         
             
-        <div class="col-md-12 ">
-            <div class="row grey">
-                                    <div class="col-md-8  mx-auto col-10 classab">
-                                    
-                                    
-                                    
-                                        <h4 class="text-center">{{title}} </h4>
-                                    </div>
-                                    <div class="col-md-2 col-2 classab">
-                                        <img src="assets/image/delivery.png" class="float-right img-fluid" alt="delivery">
-                                    </div>
-            </div>
-
-        </div>
         
-            
-        <div class="col-md-12 grey classbb">
            
 
-                <div class="row">
-                    <div class="col-sm-4 md-4 col-4 sidecon">
-
-                        <a routerLink="/placeorder">
-                            <h4>BACK</h4>
-                        </a>
-
-                    </div>
-                    <div class="col-sm-4 md-4 col-4 sidecon">
-                        <h4>Subtotal :</h4>
-                    </div>
-                    <div class="col-sm-4 md-4 col-4 sidecon">
-                        <button type="submit" class="btn btn-link" [disabled]="!addressForm.valid">NEXT</button>
-                    </div>
-                </div>
+         
+        
             
-        </div>
-        <div class="container-fluid text-center">
+        
+           
 
-            <div class="form-group row">
+            <div class="col-12 grey">
+                <div class="row">
+                    <div class="col-12 mt-5"><h3 class="text-center d-none d-md-block text-light">{{title}}</h3>
+                    </div>
+                    <div class="col-12"><h4 class="text-center">{{(property | async)?.building}} Address</h4></div>
+                    <div class="col-12">
+                    <div class="row">
+                        
+                        <div class="col-4 text-center">
+                            <button class="btn btn-link" routerLink="/placeorder">
+                                BACK
+                            </button>
+                        </div>
+                        <div class="col-4 text-center">
+                            
+                           
+                        </div>
+                        <div class="col-4 text-center">
+                            <button type="submit" class="btn btn-link" [disabled]="!addressForm.valid">NEXT</button>
+                        </div>
+                        </div>
+                    </div>
+                  
+                </div>
+                       
+                      
+                   
+                       
+                    
+            </div>
+            
+       
+     
 
-                <div class="col-md-12 mx-auto mt-2">
+            <div class="col-12 mx-auto text-center mt-5">
+
+                <div class="col-md-12 mx-auto mt-5">
 
 
-                    <input type="text" name="street" #street="ngModel" [(ngModel)]="cli.street" placeholder="Street Address" required class="numinput text-center">
+                    <input type="text" name="street" #street="ngModel" [(ngModel)]="cli.street" placeholder="Street Address" required class="numinput text-center" >
                     <br>
                     <br>
                     <input type="text" name="city" #city="ngModel" [(ngModel)]="cli.city" placeholder="City, State" required class="numinput text-center">
@@ -72,7 +74,6 @@
                 </div>
             </div>
 
-        </div>
 
 
 
@@ -81,4 +82,4 @@
     <i class="fa fa-angle-up mx-auto"></i>
     <p class="slidepara">Slide to view prices</p>
 
-</div>
+</div> -->

@@ -9,6 +9,7 @@ export interface Home {
     productsneeded ?: string;
     accessproperty ?: string;
     visitingdate ?: string;
+    visitingtime ?: number;
     notes ?: string;
     createdby ?:string;
     createdon ?:any;

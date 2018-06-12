@@ -7,9 +7,6 @@ h1
     
  
 }
-.classone{
-    background-color: #F07C49;
-}
 
 #headerback{
 
@@ -21,7 +18,13 @@ h1
     background-size: cover;
 }
 
-
+.btn
+	{
+        color: #fff !important;
+        font-size: 1rem;
+		
+		
+    }
     a {
         color: #F07C49;
     }
@@ -29,6 +32,29 @@ h1
         color: #fff;
         font-size: 1rem;
     }
+    p{
+        color:#F07C49;
+    }
+  .sidecon{
+      padding-left: 6rem
+  }
+.numinput{
+    width:44vw;
+    line-height: 3.5rem;
+    border: 2px solid #434343;
+}
+.frm 
+    {
+        margin-top:-2vh;
+    }
+.fa{
+    font-size: 2rem;
+    margin-top: 3rem;
+    
+}
+.slidepara{
+    color:#5F5F5F;
+}
     p{
         color:#F07C49;
     }
@@ -41,9 +67,7 @@ h1
     line-height: 3.5rem;
     border: 2px solid #434343;
 }
-.container{
-    color:#000;
-}
+
 .incbtn{
     font-size: 9rem;
 
@@ -53,8 +77,9 @@ h1
 }
 .increbtn{
     font-size: 9rem;
-    margin-top: 0 !important;
+    margin-top: -20px !important;
 }
+
 
 @media screen and (max-width: 780px) {
     
@@ -62,4 +87,7 @@ h1
         width:86vw;
         line-height: 3.5rem;
     }
+    
+
     }
+    

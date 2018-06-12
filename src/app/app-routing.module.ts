@@ -34,6 +34,7 @@ import { PriceComponent } from './client/price/price.component';
 
 
 
+
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
@@ -60,7 +61,8 @@ const routes: Routes = [
   { path: "revieworder", component: RevieworderComponent, canActivate: [AuthGuard] },
   { path: "completenew", component: CompletenewComponent, canActivate: [AuthGuard] },
   { path: "complete", component: CompleteComponent, canActivate: [AuthGuard] },
-  { path: "price", component: PriceComponent, canActivate: [AuthGuard] }
+  { path: "price", component: PriceComponent, canActivate: [AuthGuard] },
+  
   
 
 

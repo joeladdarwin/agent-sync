@@ -7,3 +7,32 @@ span.navbar-toggler-icon {
 .navbar{
     box-shadow: none !important;
 }
+.nav-brand
+{
+    font-size: 1rem !important;
+}
+.imgicon
+{
+    width: 6vw !important;
+}
+.classbb
+{
+    width:11vw;
+
+}
+.navback{
+    background-color: #636363;
+}
+.navbar.navbar-light .navbar-nav .nav-item .nav-link{
+    color:#fff !important;
+}
+.navbar-light .navbar-brand {
+    color:#fff;
+   
+}
+@media screen and (max-width: 780px) {
+   .imgicon{
+       width:10vw;
+   }
+       
+}

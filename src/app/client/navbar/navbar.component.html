@@ -1,48 +1,170 @@
-<!--Navbar-->
+<!-- <!-- <app-navbar>
 
-<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark grey scrolling-navbar ie-nav" >
-
-  <!-- Navbar brand -->
-
-
-  <!-- Collapsible content -->
-  <links>
-
-    <!-- Links -->
-    <ul class="navbar-nav ml-auto">
+</app-navbar>
+ -->
+ <div class="row">
+  <nav class="navbar fixed-top col-12 navbar-expand-lg navbar-dark navback">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  <a class="navbar-brand d-block d-md-none" href="#">{{title}} </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+      aria-expanded="false" aria-label="Toggle navigation">
+  <img src="assets/image/delivery.png" class="img-fluid classbb" alt="delivery">
+  </button>
+   
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="#">Agent-sync</a>
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link waves-light" routerLink="/dashboard" mdbWavesEffect>Main
-          <span class="sr-only">(current)</span>
-        </a>
+          <a class="nav-link waves-light" routerLink="/dashboard" mdbWavesEffect>Main
+              <span class="sr-only">(current)</span>
+          </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link waves-light" routerLink="/price" mdbWavesEffect>Price Menu</a>
+          <a class="nav-link waves-light" routerLink="/price" mdbWavesEffect>Price Menu</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link waves-light" routerLink="/placeorder" mdbWavesEffect>Place Order</a>
+          <a class="nav-link waves-light" routerLink="/placeorder" mdbWavesEffect>Place Order</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link waves-light" routerLink="/myorder" mdbWavesEffect>My Orders</a>
+          <a class="nav-link waves-light" routerLink="/myorder" mdbWavesEffect>My Orders</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link waves-light" routerLink="/myaccount" mdbWavesEffect>My Account</a>
+          <a class="nav-link waves-light" routerLink="/myaccount" mdbWavesEffect>My Account</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link waves-light" routerLink="/deliveries" mdbWavesEffect>Deliveries</a>
+          <a class="nav-link waves-light" routerLink="/deliveries" mdbWavesEffect>Deliveries</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link waves-light" routerLink="/profile" mdbWavesEffect>Profile</a>
+          <a class="nav-link waves-light" routerLink="/profile" mdbWavesEffect>Profile</a>
       </li>
-
-
-
-    </ul>
-    <!-- Links -->
-
-
-  </links>
-  <!-- Collapsible content -->
-
-</mdb-navbar>
-
-<!--/.Navbar-->
+      <li class="nav-item">
+      <img src="assets/image/delivery.png" class="img-fluid imgicon d-none d-sm-block" alt="delivery">
+      </li>
+      </ul>
+      
+    </div>
+  </nav>
+  </div>
+  
+  
+  <!-- <app-navbar></app-navbar>
+  
+  <div class="row">
+      <div class="col-12 grey">
+          <h4 class="text-center classab">{{title}} </h4>
+          <img src="assets/image/delivery.png" class="float-right img-fluid classbb" alt="delivery">
+      
+      </div>
+  </div>
+  
+  
+  <form class="row frm"  #addressForm="ngForm" (submit)="addressSubmit(addressForm)">
+          
+              
+          
+             
+  
+          
+          
+              
+          
+             
+  
+              <div class="col-12 grey">
+                      
+  
+                          <button  class="btn btn-link" routerLink="/placeorder">
+                              BACK
+                          </button>
+  
+                     
+                          <button type="submit" class="btn btn-link float-right" [disabled]="!addressForm.valid">NEXT</button>
+                      
+              </div>
+              
+         
+       
+  
+              <div class="col-12 mx-auto text-center mt-5">
+  
+                  <div class="col-md-12 mx-auto mt-5">
+  
+  
+                      <input type="text" name="street" #street="ngModel" [(ngModel)]="cli.street" placeholder="Street Address" required class="numinput text-center" >
+                      <br>
+                      <br>
+                      <input type="text" name="city" #city="ngModel" [(ngModel)]="cli.city" placeholder="City, State" required class="numinput text-center">
+                      <br>
+                      <br>
+                      <input type="text" name="zip" #zip="ngModel" [(ngModel)]="cli.zip" placeholder="Zip Code" required class="numinput text-center">
+                      <br>
+                      <br>
+                      <input type="text" name="unit" #unit="ngModel" [(ngModel)]="cli.unit" placeholder="Unit Number" required class="numinput text-center">
+                      <br>
+                      <br>
+  
+  
+  
+  
+                  </div>
+              </div>
+  
+  
+  
+  
+  </form>
+  <div class="col-md-12 text-center">
+      <i class="fa fa-angle-up mx-auto"></i>
+      <p class="slidepara">Slide to view prices</p>
+  
+  </div> -->
+  
+  <!-- 
+  <div class="row">
+    <nav class="navbar fixed-top col-12 navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand d-block d-sm-none" href="#">Navbar </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <img src="assets/image/delivery.png" class="img-fluid classbb" alt="delivery">
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#">Agent-sync</a>
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link waves-light" routerLink="/dashboard" mdbWavesEffect>Main
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" routerLink="/price" mdbWavesEffect>Price Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" routerLink="/placeorder" mdbWavesEffect>Place Order</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" routerLink="/myorder" mdbWavesEffect>My Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" routerLink="/myaccount" mdbWavesEffect>My Account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" routerLink="/deliveries" mdbWavesEffect>Deliveries</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" routerLink="/profile" mdbWavesEffect>Profile</a>
+          </li>
+          <li class="nav-item">
+            <img src="assets/image/delivery.png" class="img-fluid .d-none .d-sm-block" alt="delivery">
+          </li>
+        </ul>
+  
+      </div>
+    </nav>
+  </div> -->
