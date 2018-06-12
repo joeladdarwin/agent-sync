@@ -18,7 +18,7 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   state: string = '';
-  error: any;
+  error: any =null;
 
   constructor(private clientinfocervice : ClientinfoService, private router: Router) {
    
@@ -28,10 +28,7 @@ export class LoginComponent implements OnInit {
     var email = loginForm.controls['email'].value;
     var pass = loginForm.controls['password'].value;
     this.clientinfocervice.emailLogin(email, pass);
-    if (loginForm.valid) {
-     
-      
-    }
+    this.error = this.clientinfocervice.emailLogin(email, pass);
     }
         
   ngOnInit() {}

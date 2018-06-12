@@ -1,59 +1,46 @@
-<div class="row">
-    <div class="container-fluid text-center" id="headerback">
+<div class="row" id="headerback">
+    <div class="col-12 mt-5" >
         <i class="fa fa-arrow-left float-left"></i>
-        <h4>Please let us know who to register.</h4>
-            <form class=" col-md-12 text-center reg " #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" >
-
-               
-                    <input type="text" name="name" placeholder="Full Name" class=" form-group numinput text-center" #name="ngModel" [(ngModel)] ="clientinfocervice.name" required minlength="5" maxlength="30"
-                    >
-                    <br>
-                    <br>
-                    <input type="text" name="brokerage" placeholder="Brokerage" class=" form-group numinput text-center" #brokerage="ngModel" [(ngModel)] ="clientinfocervice.brokerage" required>
-                    <br>
-                    <br>
-                    
-                    <input type="email" name="email" placeholder="Email Address" class=" form-group numinput text-center" #email="ngModel" [(ngModel)] ="clientinfocervice.email" required pattern="[^@]*@[^@]*">
-                    <br>
-                    <br>
-                    <input type="tel" name="phone" placeholder="Phonenumber" class=" form-group numinput text-center" #phone="ngModel" [(ngModel)] ="clientinfocervice.phone" required pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$" maxlength="13">
-                    <br>
-                    <br>
-
-                        <div class="row">
-                            <button type="submit" class="btn btn1 mx-auto" [disabled]="!registerForm.valid">REGISTER ME</button>
-                        
-                        </div>
-                        <br>
-
-                        <p>Already have an account?
-                            <a routerLink="/login">Sign In</a>
+        <h2 class="text-center">Please let us know <br> who to register.</h2>
+     </div>   
+            <form class=" col-12 text-center mt-3" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" >
+                <div class="row">
+                    <div class="offset-1 col-10 my-2">
+                    <input type="text" name="name" placeholder="Full Name" class="form-control p-3 input-lg numinput text-center" #name="ngModel"
+                        [(ngModel)]="clientinfocervice.name" required minlength="5" maxlength="30">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-1 col-10 my-2">
+                        <input type="text" name="brokerage" placeholder="Brokerage" class="form-control p-3 numinput text-center" #brokerage="ngModel"
+                            [(ngModel)]="clientinfocervice.brokerage" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-1 col-10 my-2">
+                        <input type="email" name="email" placeholder="Email Address" class=" form-control p-3 numinput text-center" #email="ngModel" [(ngModel)]="clientinfocervice.email"
+                            required pattern="[^@]*@[^@]*">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-1 col-10 my-2">
+                        <input type="tel" name="phone" placeholder="Phonenumber" class=" form-control p-3 numinput text-center" #phone="ngModel" [(ngModel)]="clientinfocervice.phone"
+                            required pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$" maxlength="10">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="offset-1 col-10 my-2">
+                        <button type="submit" class="btn btninput btn-block mx-auto" [disabled]="!registerForm.valid">REGISTER ME</button>
+                    </div>
+                </div>
+                <p>Already have an account?
+                            <a routerLink="/login" class="btd">Sign In</a>
                         </p>
 
             </form>
-   </div>
-   <!-- <form [formGroup]="userForm" *ngIf="newUser" (ngSubmit)="signup()">
-       <h3>New User Signup</h3>
-       <p (click)="toggleForm()">Already Registered?</p>
-       <hr>
+
+
+
+
    
-       <label for="email">Email</label>
-       <input type="email" formControlName="email" required>
-   
-       <div *ngIf="formErrors.email">
-           {{ formErrors.email }}
-       </div>
-   
-       <label for="password">Password</label>
-       <input type="password" formControlName="password" required>
-   
-       <div *ngIf="formErrors.password">
-           {{ formErrors.password }}
-       </div>
-   
-       <button type="submit" [disabled]="!userForm.valid">Submit</button>
-   
-       <span *ngIf="userForm.valid">Form is valid</span>
-   
-   </form> -->
 </div>

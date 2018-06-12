@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from '../app/shared/auth.guard'
@@ -131,7 +130,6 @@ import { PriceComponent } from './client/price/price.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MDBBootstrapModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
