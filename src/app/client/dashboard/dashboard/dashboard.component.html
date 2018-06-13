@@ -1,23 +1,22 @@
 <app-navbar></app-navbar>
-<div class="row">
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container text-center">
-            <h1>Welcome, {{name}}!</h1>
-            <br>
-            <p>{{message}}</p>  
+<div class="row grey mt-5">
+    <div class="col-12 p-5">
+       
+            <h1 class="text-center text-white m-2">Welcome, {{name}}!</h1>
             
-        </div>
+            <p class="text-center text-white">{{message}}</p>     
     </div>
 </div>
 
-    <div class="row text-center ml-3">
-        <div class="col-md-3 col-sm-6 col-6 p-2 dash">
+    <div class="row mt-5">
+        <div class="col-md-3 col-sm-6 col-6">
+            <span class="badge bad d-none">1</span>
             <div class="circle-text">
                 <a routerLink="/placeorder">
                     <img src="assets/image/icons/1.png" class="img-fluid "> 
-                    <h5>
+                    <h6>
                     PLACE ORDER
-                    </h5>
+                    </h6>
                 </a>
 
             </div>

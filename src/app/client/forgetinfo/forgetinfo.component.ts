@@ -1,26 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientinfoService } from '../../shared/clientinfo.service';
+import { NgForm } from '@angular/forms';
 
-import { HttpClient } from '@angular/common/http';
-import 'rxjs/add/operator/toPromise';
 @Component({
   selector: 'app-forgetinfo',
   templateUrl: './forgetinfo.component.html',
-  styleUrls: ['./forgetinfo.component.scss']
+  styleUrls: ['./forgetinfo.component.scss'],
+  providers : [ClientinfoService]
 })
 export class ForgetinfoComponent implements OnInit {
-  from: 'josh@sonderworks.com';
-  endpoint = `https://agent-sync-sonder.firebaseapp.com/forget`;
-  constructor(private http: HttpClient) { }
-
+ error;
+  constructor(private cli : ClientinfoService) { }
+  onSubmit(passwordresetform : NgForm)
+  {
+    var email = passwordresetform.controls['recoveremail'].value;
+    this.cli.passwordrecovery(email)
+    this.error = this.cli.passwordrecovery(email)
+  }
   ngOnInit() {
   }
-  sendEmail() {
-    const data = {
-      toEmail: 'joeladdarwin@gmail.com',
-      toName: 'Joe'
-    }
-
-    this.http.post(this.endpoint, data).subscribe()
-
-  }
+  
 }
