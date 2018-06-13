@@ -228,6 +228,17 @@ export class ClientinfoService {
       }
     });
   } 
+  passwordrecovery(email: string)
+  {
+    return this.afAuth.auth.sendPasswordResetEmail(email).then((user) =>
+    {  
+      this.router.navigate(["/loginsent"])
+    }
+    ).catch(error => {
+      return error
+    }
+    );
+  }
   emailLogin(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
@@ -237,8 +248,8 @@ export class ClientinfoService {
 
       })
       .catch(error => 
-        
-         {return error
+         {
+           return error
          }
 
       

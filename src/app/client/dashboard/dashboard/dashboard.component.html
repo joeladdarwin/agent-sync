@@ -1,70 +1,219 @@
-    <app-navbar></app-navbar>
-    <div class="row">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container text-center">
-                <h1>Welcome, {{name}}!</h1>
-                <br>
-                <p>{{message}}</p>  
-                
+<app-navbar></app-navbar>
+<div class="row greyed mt-5">
+    <div class="col-12 p-5">
+       
+            <h2 class="text-center text-white">Welcome, {{name | titlecase}}!</h2>
+            
+            <p class="text-center text-white">{{message}}</p>     
+    </div>
+</div>
+<div class="d-none d-md-block d-lg-block d-xl-block">
+    <div class="row mt-5">
+        <div class="col-md-3 p-2 mx-auto">
+            <span class="badge bad float-right con">&nbsp;</span>
+           
+            <div class="circle-text p-5">
+                <a routerLink="/placeorder">
+                    <img src="assets/image/icons/1.png" class="img-fluid "> 
+                    <br>
+                    <small>
+                    PLACE ORDER
+                    </small>
+                </a>
+
             </div>
         </div>
-        <div class="col-md-12">
-            <div class="row text-center">
-                <div class="col-md-3 col-sm-6 col-6 offset-md-2">
-                    <div class="circle-text">
-                        <a routerLink="/placeorder">
-                            <img src="assets/image/icons/1.png" class="img-fluid "> 
-                            <h5>
-                            PLACE ORDER
-                            </h5>
-                        </a>
-    
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-6 offset-md-2">
-                    <div class="circle-text">
-                        <a routerLink="/myorder">
-                            <img src="assets/image/icons/2.png" class="img-fluid " > 
-                            <h5>
-                                MY ORDERS
-                            </h5>   
-                        </a>
-                    </div>
+        <div class="col-md-3 p-2 mx-auto">
+                <span class="badge bad float-right">1</span>
+            <div class="circle-text p-5">
+                <a routerLink="/myorder">
+                    <img src="assets/image/icons/2.png" class="img-fluid " > <br>
+                    <small>
+                        MY ORDERS
+                    </small>   
+                </a>
             </div>
-           
-        </div>
-    
-    
-  <div class="row text-center">
-    <div class="col-md-3 col-sm-6 col-6 offset-md-2">
-        <span class="badge bad">1</span>
-        <div class="circle-text">
-           
-            <a routerLink="/myaccount">
-            <img src="assets/image/3.png" class="img-fluid " > 
-      
-            <h5>  MY ACCOUNT</h5>
+         </div>
+   
+
+
+
+
+<div class="col-md-3 p-2 mx-auto">
+<span class="badge bad float-right">1</span>
+<div class="circle-text p-5">
+   
+    <a routerLink="/myaccount">
+    <img src="assets/image/3.png" class="img-fluid" > <br>
+
+    <small>MY ACCOUNT</small>
+    </a>
+
+   
+    </div>
+</div>
+<div class="col-md-3 p-2 mx-auto">
+<span class="badge bad float-right">3</span>
+<div class="circle-text p-5">
+    <a routerLink="/deliveries">
+        <img src="assets/image/4.png" class="img-fluid" ><br> 
+
+        <small>DELIVERIES</small>
+    </a>
+   
+    </div>
+</div>
+    </div>
+ </div>   
+ <!-- for xs -->
+<div class="d-block d-sm-none">
+
+<div class="row mt-5">
+    <div class="col-6 p-3 mx-auto">
+        <span class="badge bad float-right con">&nbsp;</span>
+        <br><br>
+        <div class="circle-text p-4">
+            <a routerLink="/placeorder">
+                <img src="assets/image/icons/1.png" class="img-fluid ">
+                <small>
+                    PLACE ORDER
+                </small>
+
+
             </a>
 
-           
-            </div>
-    </div>
-    <div class="col-md-3 col-sm-6 col-6 offset-md-2">
-        <span class="badge bad">3</span>
-        <div class="circle-text">
-            <a routerLink="/deliveries">
-                <img src="assets/image/4.png" class="img-fluid " > 
-        
-                <h5>  DELIVERIES</h5>
-            </a>
-           
-            </div>
-    </div>
-  </div>  
-  <div class="row">
-            <div class="col-md-12 text-center">
-                <i class="fa fa-angle-up mx-auto"></i>
-                <p>Slide to View Prices</p>
-            
-              </div>
         </div>
+    </div>
+    <div class="col-6 p-3 mx-auto">
+        <span class="badge bad float-right">1</span>
+        <br>
+        <br>
+        <div class="circle-text p-4">
+            <a routerLink="/myorder">
+                <img src="assets/image/icons/2.png" class="img-fluid ">
+                <small>
+                    MY ORDERS
+                </small>
+
+
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="col-6 p-3 mx-auto">
+        <span class="badge bad float-right">1</span>
+        <br>
+        <br>
+        <div class="circle-text p-4">
+
+            <a routerLink="/myaccount">
+                <img src="assets/image/3.png" class="img-fluid">
+                <small>
+                    MY ACCOUNT
+                </small>
+
+
+            </a>
+
+
+        </div>
+    </div>
+    <div class="col-6 p-3 mx-auto">
+        <span class="badge bad float-right">3</span>
+        <br>
+        <br>
+        <div class="circle-text p-4">
+            <a routerLink="/deliveries">
+                <img src="assets/image/4.png" class="img-fluid">
+                <small>
+                    DELIVERIES
+                </small>
+
+            </a>
+
+        </div>
+    </div>
+</div>
+
+</div>
+<!-- for sm -->
+<div class="d-none d-sm-block d-md-none">
+
+
+    <div class="row mt-5">
+        <div class="col-6 p-4 mx-auto">
+            <span class="badge bad float-right con">&nbsp;</span>
+
+            <div class="circle-text p-2">
+                <a routerLink="/placeorder">
+                    <img src="assets/image/icons/1.png" class="img-fluid ">
+                    <h4>
+                         PLACE ORDER
+                    </h4>
+                        
+                  
+                </a>
+
+            </div>
+        </div>
+        <div class="col-6 p-4 mx-auto">
+            <span class="badge bad float-right">1</span>
+            <div class="circle-text p-2">
+                <a routerLink="/myorder">
+                    <img src="assets/image/icons/2.png" class="img-fluid ">
+                   <h4>
+                     MY ORDERS
+                   </h4>
+                       
+                   
+                </a>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="col-6 p-4 mx-auto">
+            <span class="badge bad float-right">1</span>
+            <div class="circle-text p-2">
+
+                <a routerLink="/myaccount">
+                    <img src="assets/image/3.png" class="img-fluid">
+                    <h4>
+                         MY ACCOUNT
+                    </h4>
+
+                   
+                </a>
+
+
+            </div>
+        </div>
+        <div class="col-6 p-4 mx-auto">
+            <span class="badge bad float-right">3</span>
+            <div class="circle-text p-5">
+                <a routerLink="/deliveries">
+                    <img src="assets/image/4.png" class="img-fluid">
+                    <h4>
+                         DELIVERIES
+                    </h4>
+                   
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <i class="fa fa-angle-up mx-auto"></i>
+        <p>Slide to View Prices</p>
+    
+      </div>
+</div>

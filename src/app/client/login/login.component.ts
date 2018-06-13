@@ -1,12 +1,5 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { AngularFireAuthModule } from 'angularfire2/auth';
-import { Router } from '@angular/router';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
 import { ClientinfoService } from '../../shared/clientinfo.service';
-import { Observable } from '@firebase/util';
-import { Client } from '../../shared/client';
 import { NgForm } from '@angular/forms';
 
 
@@ -20,7 +13,7 @@ export class LoginComponent implements OnInit {
   state: string = '';
   error: any =null;
 
-  constructor(private clientinfocervice : ClientinfoService, private router: Router) {
+  constructor(private clientinfocervice : ClientinfoService) {
    
    
   }
