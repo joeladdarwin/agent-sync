@@ -5,17 +5,19 @@ a {
 a:hover {
     color:#F07C49;
 }
-
+.con
+{
+    visibility: hidden;
+}
 .circle-text {
     display: table-cell;
-
     text-align: center;
     vertical-align: middle;
     border-radius: 50%;
-
     border:1px solid #707070;
     color: #000;
-    
+    width:22vw;
+    height: 22vw;
     }
     .bad{
         border-radius: 50%;
@@ -28,8 +30,31 @@ a:hover {
       margin-top: 9rem;
     }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 420px) {
+   .circle-text {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+    border:1px solid #707070;
+    color: #000;
+    width:40vw;
+    height: 40vw;
+    }
    
+}
+
+@media screen and (max-width: 750px) {
+   .circle-text {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+    border:1px solid #707070;
+    color: #000;
+    width:44vw;
+    height: 44vw;
+    }
    
     // .circle-text {
     //     display: table-cell;
@@ -54,6 +79,10 @@ a:hover {
            margin-top:0rem;
         }
 }
+
+
+
+
 
 
 
