@@ -2,6 +2,7 @@
 
 <app-navbar
 [title]="title"></app-navbar>
+<<<<<<< HEAD
 <div *ngIf="(property | async)?.building == 'Appartment';else otheroption">
     <form class="row mt-5" #addressForm="ngForm" (submit)="addressSubmitapt(addressForm)">
     
@@ -17,6 +18,19 @@
                     <h4 class="text-center text-white">{{(property | async)?.building}} Address</h4>
                 </div>
                 <div class="col-12">
+=======
+
+
+<form class="row frm mt-5"  #addressForm="ngForm" (submit)="addressSubmit(addressForm)">
+        
+    
+            <div class="col-12 greyed">
+                <div class="row">
+                    <div class="col-12 mt-5"><h3 class="text-center d-none d-md-block text-light">{{title}}</h3>
+                    </div>
+                    <div class="col-12"><h4 class="text-center">{{(property | async)?.building}} Address</h4></div>
+                    <div class="col-12">
+>>>>>>> ecc934f96197326ee0d8983df6cd57de4cc9af76
                     <div class="row">
     
                         <div class="col-4 text-center">
@@ -154,8 +168,15 @@
     </form>
 </ng-template>
 
+<<<<<<< HEAD
 <div class="col-md-12 text-center">
     <i class="fa fa-angle-up mx-auto"></i>
     <p class="slidepara">Slide to view prices</p>
 
 </div> 
+=======
+
+
+
+</form>
+>>>>>>> ecc934f96197326ee0d8983df6cd57de4cc9af76

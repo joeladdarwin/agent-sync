@@ -1,46 +1,37 @@
 <app-navbar [title]="title">
 </app-navbar>
-<form class="row frm" >
 
-<app-navbar></app-navbar>
-<form class="row"  #addressForm="ngForm" (submit)="addressSubmit(addressForm)">
-<div class="col-md-12 ">
-  <div class="row grey">
-                          <div class="col-md-8  mx-auto col-10 classab">
-                          
-                          
-                          
-                              <h4 class="text-center">{{title}} </h4>
-                              <p class="text-center"> Property Size</p> 
-                          </div>
-                          <div class="col-md-2 col-2 classab">
-                              <img src="assets/image/delivery.png" class="float-right img-fluid" alt="delivery">
-                          </div>
-  </div>
 
+<div class="row greyed mt-5">
+    <div class="col-12 py-3">
+       
+            <h4 class="text-center text-white d-none d-sm-block">{{title}}</h4>
+            
+            <p class="text-center text-white"> Property Size</p>     
+    </div>
 </div>
 
-  
-<div class="col-md-12 grey classbb">
+
+
  
 
-      <div class="row">
-          <div class="col-sm-4 md-4 col-4 sidecon">
+      <div class="row greyed p-2">
+          <div class="col-sm-4 md-4 col-4 justify-content-left">
 
             <a routerLink="/address">
                   <h4>BACK</h4>
               </a>
 
           </div>
-          <div class="col-sm-4 md-4 col-4 sidecon">
+          <div class="col-sm-4 md-4 col-4 justify-content-center">
             <h4>Subtotal :</h4>
           </div>
-          <div class="col-sm-4 md-4 col-4 sidecon">
+          <div class="col-sm-4 md-4 col-4 justify-content-right">
             <a routerLink="/product"><h4>NEXT</h4></a>
           </div>
       </div>
   
-</div>
+
 <div class="container-fluid text-center">
 
   <div class="form-group row">
@@ -50,11 +41,11 @@
 
         </h3><br>
         <div class="row test">
-          <div class="col-md-6 mx-auto">
+          <div class="col-md-6 col-sm-6 col-12  mx-auto">
                 
-            <button type="button" class="btn btn1" ng-class="{'active': isActive}" ng-click="activeButton()" (click)="sfhma()">0-750</button><br>
-            <button type="button" class="btn btn1" (click)="sfhmb()">751-1500</button><br>
-            <button type="button" class="btn btn1" (click)="sfhmc()">2251-3000</button><br>
+            <button type="button" class="btn btn1" ng-class="{'active': isActive}" ng-click="activeButton()" (click)="sfhma()">0-750</button>
+            <button type="button" class="btn btn1" (click)="sfhmb()">751-1500</button>
+            <button type="button" class="btn btn1" (click)="sfhmc()">2251-3000</button>
             <button type="button" class="btn btn1" (click)="sfhmd()">3001-3750</button>
             <button type="button" class="btn btn1" (click)="sfhme()">3751-4500</button>
             <button type="button" class="btn btn1" (click)="sfhmf()">4501-5250</button>
@@ -69,27 +60,17 @@
   </div>
 
 </div>
-</form>
+
 
   
-  <div class="row">
-      <div class="col-md-12 text-center">
-          <i class="fa fa-angle-up mx-auto"></i>
-          <p class="slidep">Slide to view prices</p>
-        </div>
-  </div>
+ 
 
 
 
 
-</form>
 
 
-<div class="col-md-12 text-center">
-  <i class="fa fa-angle-up mx-auto"></i>
-  <p class="slidepara">Slide to view prices</p>
 
-</div>
 
 
 

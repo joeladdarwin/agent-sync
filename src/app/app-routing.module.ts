@@ -35,6 +35,7 @@ import { PriceComponent } from './client/price/price.component';
 
 
 
+
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
