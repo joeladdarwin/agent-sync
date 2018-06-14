@@ -18,6 +18,7 @@ h1
     background-size: cover;
 }
 
+
 .btn
 	{
         color: #fff;	
@@ -40,15 +41,7 @@ h1
     line-height: 3.5rem;
     border: 2px solid #434343;
 }
-.frm 
-    {
-        margin-top:-2vh;
-    }
-.fa{
-    font-size: 2rem;
-    margin-top: 3rem;
-    
-}
+
 .btn2{
     color:#fff;
     font-size: 1rem;
@@ -66,4 +59,34 @@ h1
 .slidepara{
     color:#5F5F5F;
 }
+@media screen and (max-width: 780px) {
+ 
+    .btn
+	{
+		color: white;
+		background-color:#F07C49;
+        padding: 2rem;
+        width:24rem;
+ 
        
+        
+		
+    }
+   
+    }	
+    @media screen and (max-width: 450px) {
+ 
+        .btn
+        {
+            color: white;
+            background-color:#F07C49;
+            padding: 2rem;
+            width:18rem;
+            margin-left: 0rem;
+           
+            
+            
+        }
+       
+        }	
+     

@@ -1,15 +1,7 @@
-h1
-{ 
-	color: #434343;
-	font-size: 2rem;
-    text-align:center;
-    line-height:100%;
-    
- 
-}
+
 
 .numinput{
-        width:37vw;
+        width:45vw;
         line-height: 2.5rem;
         border: 1px solid #434343;
     }
@@ -17,9 +9,7 @@ h1
         padding-left: 6rem;
     }
 
-    .slidepara{
-        color:#5F5F5F;
-    }
+    
     .btn
 	{
 		color: white;
@@ -29,55 +19,42 @@ h1
         
 		
     }
-    .active {
-        background-color:black;
-      }
-     
-    h4 {
-        color: #fff;
-        font-size: 1rem;
-    }
-    p{
-        color:#F07C49;
-    }
-
-
    
-
    
-    
-      
-        .slidep{
-            color:#5F5F5F;
-
-        }
-
-   
-  
-
-@media screen and (max-width: 780px) {
+    @media screen and (max-width: 780px) {
     .btn
 	{
 		color: white;
 		background-color:#F07C49;
         margin-left: -1rem;
-         width: 21rem;
-         margin-bottom: 1rem;
-        
-        
-		
+         width: 25rem;
     }
     
   .numinput{
-            width:82vw;
+            width:52vw;
             line-height: 3.5rem;
             margin-left: -1rem;
           
         }
         
-        .sidecon{
-            padding-left: 2rem
-        }
+    
        
     
     }
+    @media screen and (max-width: 480px) {
+        .btn
+        {
+            color: white;
+            background-color:#F07C49;
+            padding: 2rem;
+            width:17rem;
+            
+        }
+        
+     
+            
+        
+           
+        
+        }
+        
