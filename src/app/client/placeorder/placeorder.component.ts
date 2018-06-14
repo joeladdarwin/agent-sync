@@ -20,12 +20,12 @@ export class PlaceorderComponent implements OnInit {
   {
     
     this.cli.addBuilding("House");
-    this.router.navigateByUrl("/unitnumber")
+    this.router.navigateByUrl("/address")
   }
   onselecttown()
   {
     this.cli.addBuilding("Town Home")
-    this.router.navigateByUrl("/unitnumber")
+    this.router.navigateByUrl("/address")
     
   }
   onselectapt()
@@ -36,9 +36,8 @@ export class PlaceorderComponent implements OnInit {
   }
   onselectcommercial()
   {
-    this.cli.addBuilding("Commercial")
-    this.router.navigateByUrl("/unitnumber")
-   
+    this.cli.addBuilding("Commercial")   
+    this.router.navigateByUrl("/address")
   }
   ngOnInit() {
   }
