@@ -1,84 +1,38 @@
-h1
-{ 
-	color: #434343;
-	font-size: 2rem;
-    text-align:center;
-    line-height:100%;
-    
- 
-}
-
-#headerback{
-
-    background-image: url('/assets/image/background.jpg');
-    background-repeat: no-repeat;
-    width:100vw;
-    height:100vh;
-    margin: auto;
-    background-size: cover;
-}
-
 .btn
 	{
         color: #fff !important;
         font-size: 1rem;
-		
-		
     }
-    a {
+    a, p {
         color: #F07C49;
     }
-    h4 {
-        color: #fff;
-        font-size: 1rem;
-    }
-    p{
-        color:#F07C49;
-    }
-  .sidecon{
-      padding-left: 6rem
-  }
+    
 .numinput{
     width:44vw;
     line-height: 3.5rem;
     border: 2px solid #434343;
 }
-.frm 
-    {
-        margin-top:-2vh;
-    }
+
 .fa{
     font-size: 2rem;
-    margin-top: 3rem;
-    
 }
 .slidepara{
     color:#5F5F5F;
 }
-    p{
-        color:#F07C49;
-    }
-    .slidepara{
-        color:#5F5F5F;
-    }
-  
+   
+   
 .numinput{
     width:44vw;
     line-height: 3.5rem;
     border: 2px solid #434343;
 }
 
-.incbtn{
-    font-size: 9rem;
+.incbtn, .increbtn{
+    font-size: 5rem;
 
 }
-.amountdec{
-    margin-top: 1rem;
-}
-.increbtn{
-    font-size: 9rem;
-    margin-top: -20px !important;
-}
+
+
 
 
 @media screen and (max-width: 780px) {

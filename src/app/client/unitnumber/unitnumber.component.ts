@@ -9,16 +9,16 @@ import { ClientinfoService } from '../../shared/clientinfo.service';
 })
 export class UnitnumberComponent implements OnInit {
   title = "New Order";
-  public amount:number;
+  public totalunits:number;
 
  buttonstatus;
  public cone=true;
  public ctwo=true;
   
   addItem(){
-    if(this.amount < 10){
-      this.amount = this.amount + 1;
-      console.log('plus is : ' + this.amount)
+    if(this.totalunits < 10){
+      this.totalunits = this.totalunits + 1;
+      console.log('plus is : ' + this.totalunits)
     }else{
       this.buttonstatus=true;
     }
@@ -29,14 +29,14 @@ export class UnitnumberComponent implements OnInit {
   }
 
   removeItem(){
-    if(this.amount==0){
+    if(this.totalunits==0){
      this.buttonstatus=true;
     
     }
-    if(this.amount>=1){
-      this.amount=this.amount-1;
+    if(this.totalunits>=1){
+      this.totalunits=this.totalunits-1;
       this.buttonstatus=false;
-     console.log('plus is : '+this.amount)
+     console.log('plus is : '+this.totalunits)
      
      
     }
@@ -49,11 +49,11 @@ export class UnitnumberComponent implements OnInit {
 
   constructor(private cli: ClientinfoService) { }
   updatetotalunit() {
-    this.cli.updatetotalbuilding(this.amount)
+    this.cli.updatetotalbuilding(this.totalunits)
     
   }
   ngOnInit() {
-    this.amount=1;
+    this.totalunits=1;
   }
 
 }

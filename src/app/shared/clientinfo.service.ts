@@ -52,25 +52,18 @@ export class ClientinfoService {
   }
   addBuilding(building)
   {
-    var createdby = this.afAuth.auth.currentUser.displayName;
-   
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, ""); 
     this.buildingCollection.doc(createdby+this.unittracking()).set({
       createdby, building,
     }
     
-    ).then(function (docRef) {
-      console.log("Document written with ID: ", docRef);
-      // var docRefid = this.docRef.id;
-      // return docRefid
-    })
-      .catch(function (error) {
-        console.error("Error adding document: ", error);
-      });
+    )
+      
   }
   updatetotalbuilding(totalunits)
   {
-    var createdby = this.afAuth.auth.currentUser.displayName;
-    this.buildingCollection.doc(createdby + this.unit).update(
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
       {
         createdby, totalunits
       
@@ -78,26 +71,35 @@ export class ClientinfoService {
       this.router.navigate(['/address'])
   }
   
-    updatePropertyaddress(street, city, zip, unit )
+    updatePropertyaddress(street, city, zip )
     {
-      var createdby = this.afAuth.auth.currentUser.displayName;
-      
-      this.buildingCollection.doc(createdby+this.unit).update(
+       var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
         {
-          street, city, zip, unit
+          street, city, zip,
         }
         
       )
       this.router.navigate(['/squarefeet'])
      
     }
+  updatePropertyaddressapt(street, city, zip, unit) {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      {
+        street, city, zip, unit
+      }
+
+    )
+    this.router.navigate(['/squarefeet'])
+
+  }
 
 
     updateHomesqft(squarefeet, price)
     {
-      var createdby = this.afAuth.auth.currentUser.displayName;
-     
-      this.buildingCollection.doc(createdby+this.unit).update(
+      var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+      this.buildingCollection.doc(createdby + this.unittracking()).update(
         {squarefeet, price})
     }
 
@@ -130,13 +132,9 @@ export class ClientinfoService {
       this.router.navigate(['/revieworder'])
     }
   getBuilding2() {
-    var createdby = this.afAuth.auth.currentUser.displayName;
-    this.docRef = this.buildingCollection.doc("" + createdby + this.unit + "").valueChanges();
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, ""); 
+    this.docRef = this.buildingCollection.doc("" + createdby + this.unittracking() + "").valueChanges();
     return this.docRef
-    
-         
-      
-    
   }
 
     getBuilding()
