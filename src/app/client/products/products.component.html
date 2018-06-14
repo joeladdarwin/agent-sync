@@ -1,37 +1,32 @@
 
 <app-navbar
 [title]="title"></app-navbar>
-<form class="row frm"  #addressForm="ngForm" (submit)="addressSubmit(addressForm)">
-    <div class="col-12 product">
-        <div class="row">
-            <div class="col-12"><h3 class="text-center d-none d-md-block text-light">{{title}}</h3>
-            </div>
-            <div class="col-12"><p class="text-center">Products</p></div>
-            <div class="col-12">
-            <div class="row">
-                
-                <div class="col-4 text-center">
-                    <button class="btn btn-link" routerLink="/placeorder">
-                        BACK
-                    </button>
-                </div>
-                <div class="col-4 text-center">
-                    
-                    <h4 class="text-center">Subtotal:${{amount}} </h4>
-                </div>
-                <div class="col-4 text-center">
-                    <button type="submit" class="btn btn-link" routerLink="/access">NEXT</button>
-                </div>
+
+        <div class="row greyed mt-5">
+                <div class="col-12 py-3">
+                   
+                        <h4 class="text-center text-white d-none d-sm-block">{{title}}</h4>
+                        
+                        <p class="text-center text-white"> Property Size</p>     
                 </div>
             </div>
+
+
+            <div class="row greyed p-2">
+                    <div class="col-sm-4 md-4 col-4 pl-4">
           
-        </div>
-               
-              
-           
-               
-            
-    </div>
+                      <a routerLink="/address">
+                            <h4>BACK</h4>
+                        </a>
+          
+                    </div>
+                    <div class="col-sm-4 md-4 col-4 pl-4">
+                      <h4>Subtotal :</h4>
+                    </div>
+                    <div class="col-sm-4 md-4 col-4 pl-5">
+                      <a routerLink="/product"><h4>NEXT</h4></a>
+                    </div>
+                </div>            
 
 <div class="container-fluid text-center">
 
@@ -114,7 +109,7 @@
   </div>
 
 </div>
-</form>
+
  
 
   
