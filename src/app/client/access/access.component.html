@@ -1,91 +1,81 @@
 
-<app-navbar></app-navbar>
-<form class="row"  #addressForm="ngForm" (submit)="addressSubmit(addressForm)">
-<div class="col-md-12 ">
-  <div class="row grey">
-        <div class="col-md-8  mx-auto col-10 classab">
-                          
-          <h4 class="text-center">{{title}} </h4>
-          <p class="text-center">Product</p>
-        </div>
-        <div class="col-md-2 col-2 classab">
-            <img src="assets/image/delivery.png" class="float-right img-fluid" alt="delivery">
-        </div>              
-                          
-                             
-  </div>
+<app-navbar
+[title]="title"></app-navbar>
 
-</div>
-
-  
-<div class="col-md-12 grey classbb">
- 
-
-      <div class="row">
-          <div class="col-sm-4 md-4 col-4 sidecon">
-
-            <a routerLink="/product">
-                  <h4>BACK</h4>
-              </a>
-
-          </div>
-          <div class="col-sm-4 md-4 col-4 sidecon">
-              <h4>Subtotal :</h4>
-          </div>
-          <div class="col-sm-4 md-4 col-4 sidecon">
-            <a routerLink="/date"><h4>NEXT</h4></a>
-          </div>
-      </div>
-  
-</div>
-<div class="container-fluid text-center">
-
-  <div class="form-group row">
-
-      <div class="col-md-12 mx-auto address">
-        <h3 class="text-center">How will we access the property?
-
-        </h3> 
- 
-        
-        <div class="row test">
-          <div class="col-md-6 col-sm-6 col-12  mx-auto">
-            <div class="btn-group-toggle "  data-toggle="buttons">
-              <label class="btn btn-secondary">
-              <input type="checkbox" autocomplete="off"> Meet agent on site
-              </label>
+        <div class="row greyed mt-5">
+                <div class="col-12 py-3">
+                   
+                        <h4 class="text-center text-white d-none d-sm-block">{{title}}</h4>
+                        
+                        <p class="text-center text-white"> Products</p>     
+                </div>
             </div>
-            <div class="btn-group-toggle " data-toggle="buttons" >
-              <label class="btn btn-secondary" ng-class="{'active': isActive}" ng-click="activeButton()">
-              <input type="checkbox" autocomplete="off">Lockbox
-      
-              </label>
-            </div>
-            <div class="btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary">
-              <input type="checkbox" autocomplete="off" checked> Access Code
-              </label>
-            </div>
-            <div class="btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary">
-              <input type="checkbox" autocomplete="off"> OtherS
-      
-              </label>
-            </div><br><br>
-      
-              <input type="text mx-auto" name="" placeholder="Code?" id="test" class="numinput text-center">   
-           
-          </div>
-        </div>
-         
 
 
+            <div class="row greyed p-2">
+                    <div class="col-sm-4 md-4 col-4 pl-4">
+          
+                      <a routerLink="/product">
+                            <h4>BACK</h4>
+                        </a>
+          
+                    </div>
+                    <div class="col-sm-4 md-4 col-4 pl-4">
+                      <h4>Subtotal :</h4>
+                    </div>
+                    <div class="col-sm-4 md-4 col-4 pl-5">
+                      <a routerLink="/date"><h4>NEXT</h4></a>
+                    </div>
+                </div>            
 
-      </div>
-  </div>
+                <div class="container-fluid text-center">
 
-</div>
-</form>
+                  <div class="form-group row">
+                
+                      <div class="col-md-12 mx-auto address">
+                        <h3 class="text-center">How will we access the property?
+                
+                        </h3> 
+                 
+                        
+                        <div class="row test">
+                          <div class="col-md-6 col-sm-6 col-12  mx-auto">
+                            <div class="btn-group-toggle "  data-toggle="buttons">
+                              <label class="btn btn-secondary">
+                              <input type="checkbox" autocomplete="off"> Meet agent on site
+                              </label>
+                            </div>
+                            <div class="btn-group-toggle " data-toggle="buttons" >
+                              <label class="btn btn-secondary" ng-class="{'active': isActive}" ng-click="activeButton()">
+                              <input type="checkbox" autocomplete="off">Lockbox
+                      
+                              </label>
+                            </div>
+                            <div class="btn-group-toggle" data-toggle="buttons">
+                              <label class="btn btn-secondary">
+                              <input type="checkbox" autocomplete="off" checked> Access Code
+                              </label>
+                            </div>
+                            <div class="btn-group-toggle" data-toggle="buttons">
+                              <label class="btn btn-secondary">
+                              <input type="checkbox" autocomplete="off"> OtherS
+                      
+                              </label>
+                            </div><br><br>
+                      
+                              <input type="text mx-auto" name="" placeholder="Code?" id="test" class="numinput text-center">   
+                           
+                          </div>
+                        </div>
+                         
+                
+                
+                
+                      </div>
+                  </div>
+                
+                </div>
+
  
 
   

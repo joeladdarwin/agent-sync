@@ -30,6 +30,9 @@ import { RevieworderComponent } from './client/revieworder/revieworder.component
 import { CompletenewComponent } from './client/completenew/completenew.component';
 import { CompleteComponent } from './client/complete/complete.component';
 import { PriceComponent } from './client/price/price.component';
+import { AddonsComponent } from './client/addons/addons.component';
+import { SlideviewComponent } from './client/slideview/slideview.component';
+import { HeaderComponent } from './admin/header/header.component';
 
 
 
@@ -63,6 +66,10 @@ const routes: Routes = [
   { path: "completenew", component: CompletenewComponent, canActivate: [AuthGuard] },
   { path: "complete", component: CompleteComponent, canActivate: [AuthGuard] },
   { path: "price", component: PriceComponent, canActivate: [AuthGuard] },
+  { path: "addons", component: AddonsComponent, canActivate: [AuthGuard] },
+  { path: "slideview", component: SlideviewComponent, canActivate: [AuthGuard] },
+  { path: "header", component: HeaderComponent, canActivate: [AuthGuard] },
+  
   
   
 

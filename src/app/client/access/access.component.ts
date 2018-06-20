@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./access.component.scss']
 })
 export class AccessComponent implements OnInit {
+  title = "New Order > First Unit";
+
  
    isActive:boolean;
   constructor() { }

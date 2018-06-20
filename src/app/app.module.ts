@@ -90,6 +90,11 @@ import { RevieworderComponent } from './client/revieworder/revieworder.component
 import { CompletenewComponent } from './client/completenew/completenew.component';
 import { CompleteComponent } from './client/complete/complete.component';
 import { PriceComponent } from './client/price/price.component';
+import { AddonsComponent } from './client/addons/addons.component';
+import { SlideviewComponent } from './client/slideview/slideview.component';
+import { HeaderComponent } from './admin/header/header.component';
+import { SidenavComponent } from './admin/sidenav/sidenav.component';
+
 
 
 
@@ -124,6 +129,11 @@ import { PriceComponent } from './client/price/price.component';
     CompletenewComponent,
     CompleteComponent,
     PriceComponent,
+    AddonsComponent,
+    SlideviewComponent,
+    HeaderComponent,
+    SidenavComponent,
+  
   
   ],
   imports: [
