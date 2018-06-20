@@ -15,16 +15,26 @@ export class AddressComponent implements OnInit {
   building;
   property;
   constructor(private cli: ClientinfoService, private router : Router) { }
-  addressSubmit(addressForm : NgForm)
+  addressSubmitapt(addressForm : NgForm)
   {
     var street = addressForm.controls['street'].value;
     var city = addressForm.controls['city'].value;
     var zip = addressForm.controls['zip'].value;
     var unit = addressForm.controls['unit'].value;
-
-    this.cli.updatePropertyaddress(street, city, zip, unit )
- 
+   
+    this.cli.updatePropertyaddressapt(street, city, zip, unit )
+    this.cli.updatePropertyaddress(street, city, zip)
   }
+  addressSubmit(addressForm: NgForm) {
+    var street = addressForm.controls['street'].value;
+    var city = addressForm.controls['city'].value;
+    var zip = addressForm.controls['zip'].value;
+   
+
+   
+    this.cli.updatePropertyaddress(street, city, zip)
+  }
+
   ngOnInit() {
    this.property = this.cli.getBuilding2()
   }
