@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6, p{
     background-size: cover; 
     min-height: 100vh;   
 }
-.btn.btn-link {
+.btn-link {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
     background-color: transparent !important;
@@ -35,6 +35,19 @@ h1, h2, h3, h4, h5, h6, p{
 {
     background-color:#636363;
 }
+ .pcolor{
+        color:#F07C49;
+    }
+    .btn1
+	{
+		color: white;
+        background-color:#F07C49;
+        font-size: 1.25rem;
+    }
+.btn1:hover
+{
+    background-color: #D5D5D5;
+}  
 @media screen and (max-width: 780px) {
      #headerback{
 
@@ -46,6 +59,11 @@ h1, h2, h3, h4, h5, h6, p{
     font-size: 1rem;  
 
     }
+    
+.btn1:hover
+{
+    background-color: #D5D5D5;
+}  
    
     }
 

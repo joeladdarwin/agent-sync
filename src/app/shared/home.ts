@@ -7,6 +7,8 @@ export interface Home {
     unit ?: number;
     squarefeet ?: string;
     productsneeded ?: string;
+    ordersprice ?: number;
+    addons ?: string;
     accessproperty ?: string;
     visitingdate ?: string;
     visitingtime ?: number;

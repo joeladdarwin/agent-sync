@@ -7,12 +7,12 @@
                    
                         <h4 class="text-center text-white d-none d-sm-block">{{title}}</h4>
                         
-                        <p class="text-center text-white"> Products</p>     
+                        <p class="text-center text-white">Products</p>     
                 </div>
-            </div>
+        </div>
+        <form #productsform="ngForm" (submit)="productspush(productsform)">
 
-
-            <div class="row greyed p-2">
+        <div class="form-group row greyed p-2">
                     <div class="col-sm-4 md-4 col-4 pl-4">
           
                       <a routerLink="/squarefeet">
@@ -21,94 +21,123 @@
           
                     </div>
                     <div class="col-sm-4 md-4 col-4 pl-4">
-                      <h4>Subtotal :</h4>
+                      <h4>Subtotal : ${{subtotal}}</h4>
                     </div>
                     <div class="col-sm-4 md-4 col-4 pl-5">
-                      <a routerLink="/access"><h4>NEXT</h4></a>
+                      <button type="submit" class="btn btn-link">NEXT</button>
+                      <a routerLink="/access">NEXT</a>
                     </div>
-                </div>            
+        </div>            
 
-<div class="container-fluid text-center">
+
 
   <div class="form-group row">
 
       <div class="col-md-12 mx-auto address">
         <h3>What products are needed at this unit?</h3> 
  
-        <h6>*Please select all that apply.</h6>
-        <div class="row test">
-          <div class="col-md-6 col-sm-6 col-12 mx-auto">
-                
-            <div class="btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary">
-              <input type="checkbox" autocomplete="off"> Photography
-              </label>
-            </div>
-            <div class="btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary">
-              <input type="checkbox" autocomplete="off">Video Tour
+        <h6>*Please select all that apply.{{orders}}</h6>
       
-              </label>
-            </div>
-            <div class="btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary">
-              <input type="checkbox" autocomplete="off" checked> 360 Tour
-              </label>
-            </div>
-            <div class="btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary">
-              <input type="checkbox" autocomplete="off"> Single Property Website
-      
-              </label>
-            </div>
-            <div class="btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary">
-                <input type="checkbox" autocomplete="off"> Floor Plans (B&W)
-        
-                </label>
-              </div>
-              <div class="btn-group-toggle" data-toggle="buttons">
-                  <label class="btn btn-secondary">
-                  <input type="checkbox" autocomplete="off"> Floor Plans (Color)
+        <div [ngSwitch]="(property | async)?.squarefeet" class="row test">
           
-                  </label>
-                </div>
-                <div class="btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-secondary">
-                    <input type="checkbox" autocomplete="off"> Floor Plans (Color + Furniture)
-            
-                    </label>
-                  </div>
-                  <div class="btn-group-toggle" data-toggle="buttons">
-                      <label class="btn btn-secondary">
-                      <input type="checkbox" autocomplete="off"> Double-Sided Flyer
-
-
               
-                      </label>
-                    </div>
-                    <div class="btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-secondary">
-                        <input type="checkbox" autocomplete="off"> Brochure (8 Page)
+              <div class="col-md-6 col-sm-6 col-12 mx-auto">
+               
                 
-                        </label>
-                      </div>
-                      <div class="btn-group-toggle" data-toggle="buttons">
-                          <label class="btn btn-secondary">
-                          <input type="checkbox" autocomplete="off"> Brochure (4 Page)
+
+                <!-- common -->
                   
-                          </label>
-                        </div>
-          </div>
+                  
+                    <div *ngSwitchCase="'0-750'">
+     
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 145,'Photography')">Photography $145</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 255,'Video Tour')">Video Tour $255</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 125 ,'360 Tour')">360 Tour $125</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 125,'Floor Plans (BnW)')">
+                      Floor Plans (B&W) $125</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 165,'Floor Plans (Color)')">Floor Plans (Color) $165</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 195,'Floor Plans (Color + Furniture)')">
+                      Floor Plans (Color + Furniture) $195</button>
+                    
+                    </div>
+                    <div *ngSwitchCase="'751-1500'">
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 175,'Photography')">Photography $175</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 255,'Video Tour')">Video Tour $255</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 155 ,'360 Tour')">360 Tour $155</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 155,'Floor Plans (BnW)')">
+                        Floor Plans (B&W) $155</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 195,'Floor Plans (Color)')">Floor Plans (Color) $195</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 215,'Floor Plans (Color + Furniture)')">
+                        Floor Plans (Color + Furniture) $215</button>
+                    </div>
+                    <div *ngSwitchCase="'1501-2250'">
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 205,'Photography')">Photography $205</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 335,'Video Tour')">Video Tour $335</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 155 ,'360 Tour')">360 Tour $155</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 185,'Floor Plans (BnW)')">
+                        Floor Plans (B&W) $185</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 195,'Floor Plans (Color)')">Floor Plans (Color) $195</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 215,'Floor Plans (Color + Furniture)')">
+                        Floor Plans (Color + Furniture) $215</button>
+                    </div>
+                    <div *ngSwitchCase="'2251-3000'">
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 235,'Photography')">Photography $235</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 335,'Video Tour')">Video Tour $335</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 215 ,'360 Tour')">360 Tour $215</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 215,'Floor Plans (B&W)')">
+                        Floor Plans (B&W) $215</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 245,'Floor Plans (Color)')">Floor Plans (Color) $245</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 275,'Floor Plans (Color + Furniture)')">
+                        Floor Plans (Color + Furniture) $275</button>
+                    </div>
+                    <div *ngSwitchCase="'3001-3750'">
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 275,'Photography')">Photography $275</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 415,'Video Tour')">Video Tour $415</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 245 ,'360 Tour')">360 Tour $245</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 245,'Floor Plans (BnW)')">
+                        Floor Plans (B&W) $245</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 275,'Floor Plans (Color)')">Floor Plans (Color) $275</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 305,'Floor Plans (Color + Furniture)')">
+                        Floor Plans (Color + Furniture) $305</button>
+                    </div>
+                    <div *ngSwitchCase="'3751-4500'">
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 305,'Photography')">Photography $305</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 415,'Video Tour')">Video Tour $415</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 275 ,'360 Tour')">360 Tour $275</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 275,'Floor Plans (BnW)')">
+                        Floor Plans (B&W) $275</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 305,'Floor Plans (Color)')">Floor Plans (Color) $305</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 335,'Floor Plans (Color + Furniture)')">
+                        Floor Plans (Color + Furniture) $335</button>
+                    </div>
+                    <div *ngSwitchCase="'4501-5250'">
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 335,'Photography')">Photography $335</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 415,'Video Tour')">Video Tour $415</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 305 ,'360 Tour')">360 Tour $305</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 305,'Floor Plans (BnW)')">
+                        Floor Plans (B&W) $305</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 335,'Floor Plans (Color)')">Floor Plans (Color) $335</button>
+                      <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 375,'Floor Plans (Color + Furniture)')">
+                        Floor Plans (Color + Furniture) $375</button>
+                    </div>
+                    <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 85,'Single Property Website')">Single Property Website $85</button>
+                    <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 75,'Double-Sided Flyer 50')"> Double-Sided Flyer 8.5*11 50 $75</button>
+                    <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 95,'Double-Sided Flyer 100')">Double-Sided Flyer 8.5*11 100 $95</button>
+                    <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 215,'Brochure (8 Page) 25')">Brochure 8.5*11(8 Page) 25 $215</button>
+                    <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 245,'Brochure (8 Page) 50')">Brochure 8.5*11(8 Page) 50 $245</button>
+                    <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 125,'Brochure (4 Page) 25')"> Brochure 8.5*11(4 Page) 25 $125</button>
+                    <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 155,'Brochure (4 Page) 50')">Brochure 8.5*11(4 Page) 50 $155</button>
+                    <!-- <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, ,'')"></button>
+                     -->
+ 
+                
         </div>
-         
-
-
-
+        </div>
+    
       </div>
-  </div>
 
-</div>
+  </div>
+    </form>
 
  
 

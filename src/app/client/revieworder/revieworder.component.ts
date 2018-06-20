@@ -17,7 +17,7 @@ export class RevieworderComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.data1 = this.cli.getBuilding();
+    
   }
 
 }

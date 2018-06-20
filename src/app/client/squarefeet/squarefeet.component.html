@@ -2,12 +2,12 @@
 </app-navbar>
 
 
-<div class="row greyed mt-5">
+<div class="row greyed mt-5 pt-5">
     <div class="col-12 py-3">
        
-            <h4 class="text-center text-white d-none d-sm-block">{{title}}</h4>
+            <h4 class="text-center text-white d-none d-md-block d-lg-block d-xl-block">{{title}}</h4>
             
-            <p class="text-center text-white"> Property Size</p>     
+          <p class="text-center pcolor">{{(property | async)?.building}} Size</p>     
     </div>
 </div>
 
@@ -18,16 +18,16 @@
       <div class="row greyed p-2">
           <div class="col-sm-4 md-4 col-4 justify-content-left">
 
-            <a routerLink="/address">
-                  <h4>BACK</h4>
+            <a routerLink="/address" class="text-white">
+                  BACK
               </a>
 
           </div>
           <div class="col-sm-4 md-4 col-4 justify-content-center">
-            <h4>Subtotal :</h4>
+           
           </div>
           <div class="col-sm-4 md-4 col-4 justify-content-right">
-            <a routerLink="/product"><h4>NEXT</h4></a>
+            <a routerLink="/product" class="float-right text-white">NEXT</a>
           </div>
       </div>
   
@@ -36,20 +36,21 @@
 
   <div class="form-group row">
 
-      <div class="col-md-12 mx-auto address">
+      <div class="col-12 mx-auto pt-2">
         <h3 class="text-center">How many square feet?
 
         </h3><br>
-        <div class="row test">
-          <div class="col-md-6 col-sm-6 col-12  mx-auto">
+        <div class="row">
+          <div class="offset-1 col-10  mx-auto">
                 
-            <button type="button" class="btn btn1" ng-class="{'active': isActive}" ng-click="activeButton()" (click)="sfhma()">0-750</button>
-            <button type="button" class="btn btn1" (click)="sfhmb()">751-1500</button>
-            <button type="button" class="btn btn1" (click)="sfhmc()">2251-3000</button>
-            <button type="button" class="btn btn1" (click)="sfhmd()">3001-3750</button>
-            <button type="button" class="btn btn1" (click)="sfhme()">3751-4500</button>
-            <button type="button" class="btn btn1" (click)="sfhmf()">4501-5250</button>
-            <button type="button" class="btn btn1" (click)="sfhmg()">5251</button>
+            <button type="button" class="btn btn1 p-4 m-2 btn-block" ng-class="{'active': isActive}" ng-click="activeButton()" (click)="sfhma('0-750')">0-750 SF</button>
+            <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('751-1500')">751-1500 SF</button>
+            <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('1501-2250')">1501-2250 SF </button>
+            <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('2251-3000')">2251-3000 SF</button>
+            <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('3001-3750')">3001-3750 SF</button>
+            <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('3751-4500')">3751-4500 SF</button>
+            <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('4501-5250')">4501-5250 SF</button>
+            <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('5251')">5251 SF</button>
           </div>
         </div>
          
