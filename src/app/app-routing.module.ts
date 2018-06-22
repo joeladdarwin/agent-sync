@@ -33,6 +33,7 @@ import { PriceComponent } from './client/price/price.component';
 import { AddonsComponent } from './client/addons/addons.component';
 import { SlideviewComponent } from './client/slideview/slideview.component';
 import { HeaderComponent } from './admin/header/header.component';
+import { MainComponent } from './admin/main/main.component';
 
 
 
@@ -69,6 +70,9 @@ const routes: Routes = [
   { path: "addons", component: AddonsComponent, canActivate: [AuthGuard] },
   { path: "slideview", component: SlideviewComponent, canActivate: [AuthGuard] },
   { path: "header", component: HeaderComponent, canActivate: [AuthGuard] },
+  { path: "main", component: MainComponent, canActivate: [AuthGuard] },
+ 
+  
   
   
   

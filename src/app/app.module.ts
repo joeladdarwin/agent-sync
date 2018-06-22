@@ -94,6 +94,7 @@ import { AddonsComponent } from './client/addons/addons.component';
 import { SlideviewComponent } from './client/slideview/slideview.component';
 import { HeaderComponent } from './admin/header/header.component';
 import { SidenavComponent } from './admin/sidenav/sidenav.component';
+import { MainComponent } from './admin/main/main.component';
 
 
 
@@ -133,6 +134,7 @@ import { SidenavComponent } from './admin/sidenav/sidenav.component';
     SlideviewComponent,
     HeaderComponent,
     SidenavComponent,
+    MainComponent,
   
   
   ],
