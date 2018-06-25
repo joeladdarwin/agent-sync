@@ -40,6 +40,7 @@ import { MainComponent } from './admin/main/main.component';
 
 
 
+
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
@@ -71,6 +72,7 @@ const routes: Routes = [
   { path: "slideview", component: SlideviewComponent, canActivate: [AuthGuard] },
   { path: "header", component: HeaderComponent, canActivate: [AuthGuard] },
   { path: "main", component: MainComponent, canActivate: [AuthGuard] },
+ 
  
   
   

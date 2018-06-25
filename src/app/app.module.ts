@@ -95,13 +95,28 @@ import { SlideviewComponent } from './client/slideview/slideview.component';
 import { HeaderComponent } from './admin/header/header.component';
 import { SidenavComponent } from './admin/sidenav/sidenav.component';
 import { MainComponent } from './admin/main/main.component';
+import { HammertimeDirective } from './hammertime.directive';
 
 
+import * as Hammer from 'hammerjs';
 
+  import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+  
+
+  export class HammerConfig extends HammerGestureConfig {
+    overrides = <any>
+    {
+      'pinch': { enabled: false },
+      'rotate': { enabled: false },
+      'swipe': {  velocity: 0.4, threshold: 20,direction: Hammer.DIRECTION_VERTICAL }
+    };
+
+  }
 
 
 @NgModule({
   declarations: [
+    HammertimeDirective,
     AppComponent,
     LoginComponent,
     RegisterComponent,
@@ -135,6 +150,7 @@ import { MainComponent } from './admin/main/main.component';
     HeaderComponent,
     SidenavComponent,
     MainComponent,
+   
   
   
   ],
@@ -187,9 +203,13 @@ import { MainComponent } from './admin/main/main.component';
 
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [AuthGuard],
+  providers: [{
+    provide: HAMMER_GESTURE_CONFIG,
+    useClass: HammerConfig
+  },AuthGuard],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
   constructor(private afs: AngularFirestore) {
     afs.firestore.settings({
