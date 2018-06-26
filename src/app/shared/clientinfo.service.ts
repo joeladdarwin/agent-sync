@@ -8,6 +8,8 @@ import { Router } from "@angular/router";
 import { EmailAuthProvider } from '@firebase/auth-types';
 import { User } from 'firebase';
 import * as firebase from 'firebase/app';
+import { Commercial } from './commercial';
+
 
 
 
@@ -21,6 +23,7 @@ export class ClientinfoService {
   usersCollection : AngularFirestoreCollection<Client>;
   users : Observable<Client[]>;
   buildingCollection : AngularFirestoreCollection<Home>;
+  priceCollection: AngularFirestoreCollection<Commercial>;
   userDocument : AngularFirestoreDocument<Client>;
   docRef; 
   unit : number;
@@ -33,6 +36,7 @@ export class ClientinfoService {
     
     this.usersCollection = this.afs.collection('users');
     this.buildingCollection = this.afs.collection('building');
+    this.priceCollection = this.afs.collection('price');
    
     // this.unit =1 ;
     this.user.subscribe((user) => {
@@ -89,77 +93,86 @@ export class ClientinfoService {
       {
         street, city, zip, unit
       }
-
+    
     )
     this.router.navigate(['/squarefeet'])
 
   }
 
 
-    updateHomesqft(squarefeet, price)
+    updateHomesqft(squarefeet)
     {
       var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
       this.buildingCollection.doc(createdby + this.unittracking()).update(
-        {squarefeet, price})
+        {squarefeet})
+      this.router.navigate(['/product'])
     }
 
     updateVisitingdate(visitingdate)
     {
-      var createdby = this.afAuth.auth.currentUser.displayName;
-      this.buildingCollection.doc(createdby + this.unit).update(
-      {
-        visitingdate, createdby
-      })
+      var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+      this.buildingCollection.doc(createdby + this.unittracking()).update(
+      {visitingdate})
       this.router.navigate(['/time'])
     }
     updatevisitingtime(visitingtime)
     {
-      var createdby = this.afAuth.auth.currentUser.displayName;
-      this.buildingCollection.doc(createdby + this.unit).update(
+      var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+      this.buildingCollection.doc(createdby + this.unittracking()).update(
         {
-          visitingtime, createdby
+          visitingtime
         })
       this.router.navigate(['/comment'])
     }
     updateComments(comments)
     {
       var createdby = this.afAuth.auth.currentUser.displayName;
-      this.buildingCollection.doc(createdby + this.unit).update(
+      this.buildingCollection.doc(createdby + this.unittracking()).update(
         {
           createdby, comments
         }
       )
       this.router.navigate(['/revieworder'])
     }
+  updateAddons(productsneeded, addonsprice)
+    {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      { productsneeded, addonsprice })
+    
+    this.router.navigate(['/access'])
+    }
+  updateProducts(addons, ordersprice) {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      { addons, ordersprice })
+     
+  }
+  updateMeet(lockcode)
+  {
+      var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      { lockcode })
+    this.router.navigate(['/date']) 
+  }
+  updateMeet2(meet) {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      { meet })
+    
+  }
+  updateMeet3(meet) {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      { meet })
+    this.router.navigate(['/date'])
+  }
   getBuilding2() {
     var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, ""); 
     this.docRef = this.buildingCollection.doc("" + createdby + this.unittracking() + "").valueChanges();
     return this.docRef
   }
-
-    getBuilding()
-    {
-      var createdby = this.afAuth.auth.currentUser.displayName;
-     
-      
-      this.docRef = this.buildingCollection.doc(""+createdby + this.unit+"");
-      this.buildingRef = this.buildingCollection.doc("" + createdby + this.unit + "");
-      this.docRef.ref.get().then(function (doc) {
-        if (doc.exists) {
-          var apple = doc.data();
-          console.log("Document data:", doc.data());
-          console.log(Object.values(doc.data()));
-       
-          
-        } else {
-          // doc.data() will be undefined in this case
-          console.log("No such document!");
-        }
-      }).catch(function (error) {
-        console.log("Error getting document:", error);
-      });
-    }
-
+ 
   addUser(displayName, email, brokerage, phone, password)
    {
    

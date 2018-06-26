@@ -3,22 +3,26 @@
  <app-navbar></app-navbar>
 
  <form #commentForm="ngForm" (submit)="updatecomment(commentForm)">
- <div class="form-group row">
- <div class="jumbotron jumbotron-fluid">
-    <img src="assets/image/delivery.png" class="float-right">
-    <div class="container text-center">
-      <h4>New Order > First Unit </h4>      
-     <p>Notes</p> 
-  
-  </div><br>
+<div class="form-group row greyed p-2">
+  <div class="col-sm-4 md-4 col-4 justify-content-left">
 
+    <a routerLink="/time" class="text-white">
+      BACK
+    </a>
 
+  </div>
+  <div class="col-sm-4 md-4 col-4 justify-content-center">
+    <h4>Subtotal : ${{(property | async)?.price}}</h4>
+  </div>
+  <div class="col-sm-4 md-4 col-4 justify-content-right">
+    <button type="submit" class="btn btn-link">Next</button>
+  </div>
 </div>
-</div>
+
 <div class="col-md-6 mx-auto">
     <h1>Please add any additional notes on this order</h1>
     <textarea class="form-control form-rounded" rows="7" name="comment" #comment="ngModel" [(ngModel)]="cli.comment" required></textarea>
-  <br />
+
   
 </div>
 </form>

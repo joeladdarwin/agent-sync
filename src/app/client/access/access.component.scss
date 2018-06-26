@@ -1,63 +1,41 @@
 
 
-.numinput{
-        width:45vw;
-        line-height: 2.5rem;
-        border: 1px solid #434343;
-    }
-    .sidecon{
-        padding-left: 6rem;
-    }
+#headerback{
 
-    
-    .btn
+    background-image: url('/assets/image/background.jpg');
+    background-repeat: no-repeat;
+    width:100vw;
+    height:100vh;
+    margin: auto;
+    background-size: cover;
+}
+
+
+.btn
 	{
-		color: white;
-		background-color:#F07C49 !important;
-        padding: 2rem;
-         width: 29rem;
-        
-		
+        color: #fff;	
     }
-    h4{
-        color:#fff;
+    a {
+        color: #F07C49;
     }
    
+
+
+.btn-secondary {
+    background-color: #F07C49!important;
    
-    @media screen and (max-width: 780px) {
-    .btn
-	{
-		color: white;
-		background-color:#F07C49;
-        margin-left: -1rem;
-         width: 25rem;
-    }
-    
-  .numinput{
-            width:52vw;
-            line-height: 3.5rem;
-            margin-left: -1rem;
-          
-        }
-        
-    
-       
-    
-    }
-    @media screen and (max-width: 480px) {
-        .btn
-        {
-            color: white;
-            background-color:#F07C49;
-            padding: 2rem;
-            width:17rem;
-            
-        }
-        
+}
+.btn-remove {
+    background-color: grey!important;
      
-            
-        
-           
-        
-        }
-        
+}
+.btn.btn-link {
+    color: #fff!important;
+}
+.slidepara{
+    color:#5F5F5F;
+}
+
+
+  
+     
