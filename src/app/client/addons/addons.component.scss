@@ -9,11 +9,7 @@
     margin: auto;
     background-size: cover;
 }
-.btn-secondary:not([disabled]):not(.disabled):active, .btn-secondary:not([disabled]):not(.disabled).active, .show > .btn-secondary.dropdown-toggle {
-    -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-    background-color: #D5D5D5 !important;
-}
+
 
 .btn
 	{
@@ -23,30 +19,15 @@
         color: #F07C49;
     }
    
-   h4{
-       color:#fff;
-       font-size: 1rem;
-   }
-   p{
-       color:#F07C49;
-   }
- 
-.numinput{
-    width:44vw;
-    line-height: 3.5rem;
-    border: 2px solid #434343;
-}
 
-.btn2{
-    color:#fff;
-    font-size: 1rem;
-}
+
 .btn-secondary {
     background-color: #F07C49!important;
-    color: #fff !important;
-    padding: 2rem;
-    width: 23rem;
-    margin-left:0rem;
+   
+}
+.btn-remove {
+    background-color: grey!important;
+     
 }
 .btn.btn-link {
     color: #fff!important;
@@ -54,34 +35,7 @@
 .slidepara{
     color:#5F5F5F;
 }
-@media screen and (max-width: 780px) {
- 
-    .btn
-	{
-		color: white;
-		background-color:#F07C49;
-        padding: 2rem;
-        width:24rem;
- 
-       
-        
-		
-    }
-   
-    }	
-    @media screen and (max-width: 450px) {
- 
-        .btn
-        {
-            color: white;
-            background-color:#F07C49;
-            padding: 2rem;
-            width:18rem;
-            margin-left: 0rem;
-           
-            
-            
-        }
-       
-        }	
+
+
+  
      

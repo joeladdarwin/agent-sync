@@ -9,6 +9,9 @@ export interface Home {
     productsneeded ?: string;
     ordersprice ?: number;
     addons ?: string;
+    lockcode ?: string;
+    meet ?: string;
+    addonsprice ?: number;
     accessproperty ?: string;
     visitingdate ?: string;
     visitingtime ?: number;

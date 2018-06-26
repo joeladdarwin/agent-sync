@@ -11,8 +11,8 @@
                 </div>
             </div>
 
-
-            <div class="row greyed p-2">
+<form #addonsform="ngForm" (submit)="addonsSubmit(addonsForm)" >
+ <div class="form-group row greyed p-2">
                     <div class="col-sm-4 md-4 col-4 pl-4">
           
                       <a routerLink="/squarefeet">
@@ -21,40 +21,32 @@
           
                     </div>
                     <div class="col-sm-4 md-4 col-4 pl-4">
-                      <h4>Subtotal :</h4>
+                      <h4>Subtotal :{{subtotal+(property | async)?.ordersprice}}</h4>
                     </div>
                     <div class="col-sm-4 md-4 col-4 pl-5">
+                      <button type="submit" class="btn btn-link">NEXT</button>
                       <a routerLink="/access"><h4>NEXT</h4></a>
                     </div>
-                </div>            
+  </div>            
 
-<div class="container-fluid text-center">
+
 
   <div class="form-group row">
 
       <div class="col-md-12 mx-auto address">
         <h3>Are there any add-ons You need to apply to this product?</h3> 
  
-        <h6>*Please select all that apply.</h6>
+        <h6>*Please select all that apply.{{addons}}</h6>
         <div class="row test">
           <div class="col-md-6 col-sm-6 col-12 mx-auto">
-                
-            <div class="btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary">
-              <input type="checkbox" autocomplete="off">Community Shot (+$50)
-              </label>
-            </div>
-            <div class="btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary">
-              <input type="checkbox" autocomplete="off">Twilight Shot(+$65)
+            <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 50,'Community Shot')">
+               Community Shot (+$50)</button>
+              <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 65,'Twilight Shot')">
+                 Twilight Shot(+$65)</button>
+                <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 75,'Rush Fee')">
+                   Rush Fee(+$75)</button>
       
-              </label>
-            </div>
-            <div class="btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary">
-              <input type="checkbox" autocomplete="off" checked> Rush Fee(+$75) 
-              </label>
-            </div>
+           
             
            
               
@@ -68,8 +60,8 @@
 
       </div>
   </div>
+</form>
 
-</div>
 
  
 

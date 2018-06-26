@@ -110,19 +110,17 @@ export class ClientinfoService {
 
     updateVisitingdate(visitingdate)
     {
-      var createdby = this.afAuth.auth.currentUser.displayName;
-      this.buildingCollection.doc(createdby + this.unit).update(
-      {
-        visitingdate, createdby
-      })
+      var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+      this.buildingCollection.doc(createdby + this.unittracking()).update(
+      {visitingdate})
       this.router.navigate(['/time'])
     }
     updatevisitingtime(visitingtime)
     {
-      var createdby = this.afAuth.auth.currentUser.displayName;
-      this.buildingCollection.doc(createdby + this.unit).update(
+      var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+      this.buildingCollection.doc(createdby + this.unittracking()).update(
         {
-          visitingtime, createdby
+          visitingtime
         })
       this.router.navigate(['/comment'])
     }
@@ -136,25 +134,45 @@ export class ClientinfoService {
       )
       this.router.navigate(['/revieworder'])
     }
-  updateProducts(productsneeded, ordersprice)
+  updateAddons(productsneeded, addonsprice)
     {
     var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
     this.buildingCollection.doc(createdby + this.unittracking()).update(
-      { productsneeded, ordersprice })
-    this.router.navigate(['/revieworder'])
-
-    }
-
+      { productsneeded, addonsprice })
     
+    this.router.navigate(['/access'])
+    }
+  updateProducts(addons, ordersprice) {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      { addons, ordersprice })
+     
+  }
+  updateMeet(lockcode)
+  {
+      var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      { lockcode })
+    this.router.navigate(['/date']) 
+  }
+  updateMeet2(meet) {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      { meet })
+    
+  }
+  updateMeet3(meet) {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      { meet })
+    this.router.navigate(['/date'])
+  }
   getBuilding2() {
     var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, ""); 
     this.docRef = this.buildingCollection.doc("" + createdby + this.unittracking() + "").valueChanges();
     return this.docRef
   }
  
-
-   
-
   addUser(displayName, email, brokerage, phone, password)
    {
    

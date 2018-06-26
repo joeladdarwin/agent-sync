@@ -18,6 +18,7 @@ export class ProductsComponent implements OnInit {
   inc = false;
   status;
   orders:string=""; 
+  error;
   constructor(private cli : ClientinfoService, private router: Router) { }
 
   ngOnInit() {
@@ -26,10 +27,25 @@ export class ProductsComponent implements OnInit {
   }
   productspush(productsform)
   {
+  
     if(this.subtotal>0)
     {
-      console.log(this.orders,this.subtotal)
-      this.cli.updateProducts(this.orders, this.subtotal)
+           
+      if (this.orders.match(/Photography/gi) || this.orders.match(/Video/gi) )
+      {
+        this.cli.updateProducts(this.orders, this.subtotal)
+        this.router.navigateByUrl("/addons")
+      }
+      else if (this.orders.match(/360/gi) || this.orders.match(/Floor/gi))
+      {
+        this.cli.updateProducts(this.orders, this.subtotal)
+        this.router.navigateByUrl("/access")
+      }else
+      {
+        this.cli.updateProducts(this.orders, this.subtotal)
+        this.router.navigateByUrl("/comment")
+      }
+      
     }
   }
   toggleClass(e,price,order) {

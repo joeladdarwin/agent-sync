@@ -1,18 +1,31 @@
+<app-navbar [title]="title"></app-navbar>
+<div class="row greyed mt-5 pt-5">
+  <div class="col-12 py-3">
 
-<app-navbar></app-navbar>
-<div class="row">
-<div class="jumbotron jumbotron-fluid">
-    <img src="assets/image/delivery.png" class="float-right">
-   <div class="container text-center">
-     <h4>New Order>First Order  </h4>      
-    <p>Product</p> 
- 
- </div><br>
+    <h4 class="text-center text-white d-none d-md-block d-lg-block d-xl-block">{{title}}</h4>
 
- 
+    <p class="text-center pcolor">Pick a Time</p>
+  </div>
 </div>
+<form #timeform="ngForm" (submit)="timeSubmit(timeform)">
+<div class="form-group row greyed p-2">
+  <div class="col-sm-4 md-4 col-4 justify-content-left">
+
+    <a routerLink="/date" class="text-white">
+      BACK
+    </a>
+
+  </div>
+  <div class="col-sm-4 md-4 col-4 justify-content-center">
+    <h4>Subtotal : ${{(property | async)?.price}}</h4>
+  </div>
+  <div class="col-sm-4 md-4 col-4 justify-content-right">
+  <a routerLink="/access" class="text-white">
+    NEXT
+  </a>
+  </div>
 </div>
-<div class="container-fluid text-center">
+
 
     <div class="form-group row">
   
@@ -22,37 +35,11 @@
         
           <div class="row test">
             <div class="col-md-6 col-sm-6 col-12 mx-auto">
-                  
-              <div class="btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary">
-                <input type="checkbox" autocomplete="off"> 10:00 AM
-                </label>
-              </div>
-              <div class="btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary">
-                <input type="checkbox" autocomplete="off">11:00 AM
-        
-                </label>
-              </div>
-              <div class="btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary">
-                <input type="checkbox" autocomplete="off" checked> 12:00 PM
-                </label>
-              </div>
-              <div class="btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary">
-                <input type="checkbox" autocomplete="off"> 1:00 PM
-        
-                </label>
-
-              </div>
-              <div class="btn-group-toggle" data-toggle="buttons">
-                  <label class="btn btn-secondary">
-                  <input type="checkbox" autocomplete="off"> 2:00 PM
-          
-                  </label>
-                </div>
-                
+                <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="updatetime('10.00am')">10.00 AM</button>
+                <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="updatetime('11.00am')">11.00 AM</button>
+                <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="updatetime('12.00pm')">12.00 PM</button>
+                <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="updatetime('1.00pm')">1.00 PM</button>
+                <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="updatetime('2.00pm')">2.00 PM</button>
             </div>
           </div>
            
@@ -61,8 +48,8 @@
   
         </div>
     </div>
-  
-  </div>
+</form> 
+ 
 
 
   

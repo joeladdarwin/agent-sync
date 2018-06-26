@@ -23,7 +23,7 @@ export class AddressComponent implements OnInit {
     var unit = addressForm.controls['unit'].value;
    
     this.cli.updatePropertyaddressapt(street, city, zip, unit )
-    this.cli.updatePropertyaddress(street, city, zip)
+   
   }
   addressSubmit(addressForm: NgForm) {
     var street = addressForm.controls['street'].value;
