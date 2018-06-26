@@ -92,8 +92,16 @@ import { CompleteComponent } from './client/complete/complete.component';
 import { PriceComponent } from './client/price/price.component';
 import { AddonsComponent } from './client/addons/addons.component';
 import { SlideviewComponent } from './client/slideview/slideview.component';
-import { HeaderComponent } from './admin/header/header.component';
-import { SidenavComponent } from './admin/sidenav/sidenav.component';
+
+
+
+import { AdminLayoutComponent } from './admin/layout/admin-layout/admin-layout/admin-layout.component';
+
+import { NotificationComponent } from './admin/notification/notification.component';
+import { UserProfileComponent } from './admin/user-profile/user-profile.component';
+import { SidebarComponent } from './admin/component/sidebar/sidebar.component';
+import { FooterComponent } from './admin/component/footer/footer.component';
+import { HeadernavComponent } from './admin/component/headernav/headernav.component';
 
 
 
@@ -131,8 +139,14 @@ import { SidenavComponent } from './admin/sidenav/sidenav.component';
     PriceComponent,
     AddonsComponent,
     SlideviewComponent,
-    HeaderComponent,
-    SidenavComponent,
+   
+    AdminLayoutComponent,
+
+    NotificationComponent,
+    UserProfileComponent,
+    SidebarComponent,
+    FooterComponent,
+    HeadernavComponent
   
   
   ],

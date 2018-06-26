@@ -32,7 +32,15 @@ import { CompleteComponent } from './client/complete/complete.component';
 import { PriceComponent } from './client/price/price.component';
 import { AddonsComponent } from './client/addons/addons.component';
 import { SlideviewComponent } from './client/slideview/slideview.component';
-import { HeaderComponent } from './admin/header/header.component';
+
+import { AdminLayoutComponent } from './admin/layout/admin-layout/admin-layout/admin-layout.component';
+
+import { NotificationComponent } from './admin/notification/notification.component';
+import { UserProfileComponent } from './admin/user-profile/user-profile.component';
+import { SidebarComponent } from './admin/component/sidebar/sidebar.component';
+import { FooterComponent } from './admin/component/footer/footer.component';
+import { HeadernavComponent } from './admin/component/headernav/headernav.component';
+
 
 
 
@@ -68,7 +76,17 @@ const routes: Routes = [
   { path: "price", component: PriceComponent, canActivate: [AuthGuard] },
   { path: "addons", component: AddonsComponent, canActivate: [AuthGuard] },
   { path: "slideview", component: SlideviewComponent, canActivate: [AuthGuard] },
-  { path: "header", component: HeaderComponent, canActivate: [AuthGuard] },
+  { path: "admin-layout", component: AdminLayoutComponent, canActivate: [AuthGuard] },
+  { path: "notification", component: NotificationComponent, canActivate: [AuthGuard] },
+  { path: "user-profile", component: UserProfileComponent, canActivate: [AuthGuard] },
+  { path: "sidebar", component: SidebarComponent, canActivate: [AuthGuard] },
+  { path: "footer", component: FooterComponent, canActivate: [AuthGuard] },
+  { path: "headernav", component: HeadernavComponent, canActivate: [AuthGuard] },
+ 
+  
+  
+ 
+  
   
   
   

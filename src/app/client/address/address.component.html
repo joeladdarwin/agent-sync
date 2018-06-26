@@ -1,10 +1,7 @@
-
-
-<app-navbar
-[title]="title"></app-navbar>
+<app-navbar [title]="title"></app-navbar>
 <div *ngIf="(property | async)?.building == 'Appartment';else otheroption">
     <form class="row mt-5" #addressForm="ngForm" (submit)="addressSubmitapt(addressForm)">
-            <div class="col-12 greyed">
+        <div class="col-12 greyed">
             <div class="row">
                 <div class="col-12 mt-5">
                     <h3 class="text-center text-white d-none d-md-block text-light">{{title}}</h3>
@@ -14,71 +11,71 @@
                 </div>
                 <div class="col-12">
                     <div class="row">
-    
+
                         <div class="col-4 text-center">
-                          
-                                <button class="btn btn-link" routerLink="/unitnumber">
-                                    BACK
-                                </button>
-                            
-                           
-    
+
+                            <button class="btn btn-link" routerLink="/unitnumber">
+                                BACK
+                            </button>
+
+
+
                         </div>
                         <div class="col-4 text-center">
-    
-    
+
+
                         </div>
                         <div class="col-4 text-center">
                             <button type="submit" class="btn btn-link" [disabled]="!addressForm.valid">NEXT</button>
                         </div>
                     </div>
                 </div>
-    
+
             </div>
-    
-    
-    
-    
-    
+
+
+
+
+
         </div>
-    
-    
-    
-    
+
+
+
+
         <div class="col-12 mx-auto text-center mt-5">
-          
-                <div class="col-md-12 mx-auto mt-5">
-    
-    
-                    <input type="text" name="street" #street="ngModel" [(ngModel)]="cli.street" placeholder="Street Address" required class="numinput text-center">
-                    <br>
-                    <br>
-                    <input type="text" name="city" #city="ngModel" [(ngModel)]="cli.city" placeholder="City, State" required class="numinput text-center">
-                    <br>
-                    <br>
-                    <input type="text" name="zip" #zip="ngModel" [(ngModel)]="cli.zip" placeholder="Zip Code" required class="numinput text-center">
-                    <br>
-                    <br>
-                    <input type="text" name="unit" #unit="ngModel" [(ngModel)]="cli.unit" placeholder="Unit Number" required class="numinput text-center">
-                    <br>
-                    <br>
-    
-    
-    
-    
+
+            <div class="col-md-12 mx-auto mt-5">
+
+
+                <input type="text" name="street" #street="ngModel" [(ngModel)]="cli.street" placeholder="Street Address" required class="numinput text-center">
+                <br>
+                <br>
+                <input type="text" name="city" #city="ngModel" [(ngModel)]="cli.city" placeholder="City, State" required class="numinput text-center">
+                <br>
+                <br>
+                <input type="text" name="zip" #zip="ngModel" [(ngModel)]="cli.zip" placeholder="Zip Code" required class="numinput text-center">
+                <br>
+                <br>
+                <input type="text" name="unit" #unit="ngModel" [(ngModel)]="cli.unit" placeholder="Unit Number" required class="numinput text-center">
+                <br>
+                <br>
+
+
+
+
             </div>
-          
-    
+
+
         </div>
-    
-    
-    
-    
+
+
+
+
     </form>
 </div>
 <ng-template #otheroption>
     <form class="row mt-5" #addressForm="ngForm" (submit)="addressSubmit(addressForm)">
-            <div class="col-12 greyed">
+        <div class="col-12 greyed">
             <div class="row">
                 <div class="col-12 mt-5">
                     <h3 class="text-center text-white d-none d-md-block text-light">{{title}}</h3>
@@ -88,61 +85,61 @@
                 </div>
                 <div class="col-12">
                     <div class="row">
-    
+
                         <div class="col-4 text-center">
-                                                       
-                                <button class="btn btn-link" routerLink="/placeorder">
-                                    BACK
-                                </button>
-                           
-    
+
+                            <button class="btn btn-link" routerLink="/placeorder">
+                                BACK
+                            </button>
+
+
                         </div>
                         <div class="col-4 text-center">
-    
-    
+
+
                         </div>
                         <div class="col-4 text-center">
                             <button type="submit" class="btn btn-link" [disabled]="!addressForm.valid">NEXT</button>
                         </div>
                     </div>
                 </div>
-    
+
             </div>
-    
-    
-    
-    
-    
+
+
+
+
+
         </div>
-    
-    
-    
-    
+
+
+
+
         <div class="col-12 mx-auto text-center mt-5">
-           
-                <div class="col-md-12 mx-auto mt-5">
-    
-    
-                    <input type="text" name="street" #street="ngModel" [(ngModel)]="cli.street" placeholder="Street Address" required class="numinput text-center">
-                    <br>
-                    <br>
-                    <input type="text" name="city" #city="ngModel" [(ngModel)]="cli.city" placeholder="City, State" required class="numinput text-center">
-                    <br>
-                    <br>
-                    <input type="text" name="zip" #zip="ngModel" [(ngModel)]="cli.zip" placeholder="Zip Code" required class="numinput text-center">
-                    <br>
-                    <br>
-    
-    
-    
-                </div>
-           
-    
+
+            <div class="col-md-12 mx-auto mt-5">
+
+
+                <input type="text" name="street" #street="ngModel" [(ngModel)]="cli.street" placeholder="Street Address" required class="numinput text-center">
+                <br>
+                <br>
+                <input type="text" name="city" #city="ngModel" [(ngModel)]="cli.city" placeholder="City, State" required class="numinput text-center">
+                <br>
+                <br>
+                <input type="text" name="zip" #zip="ngModel" [(ngModel)]="cli.zip" placeholder="Zip Code" required class="numinput text-center">
+                <br>
+                <br>
+
+
+
+            </div>
+
+
         </div>
-    
-    
-    
-    
+
+
+
+
     </form>
 </ng-template>
 
@@ -150,4 +147,4 @@
     <i class="fa fa-angle-up mx-auto"></i>
     <p class="slidepara">Slide to view prices</p>
 
-</div> 
+</div>

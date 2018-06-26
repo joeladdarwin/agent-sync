@@ -4,6 +4,7 @@
         "name": "agent-sync"
     },
     "apps": [{
+        "name": "app",
         "root": "src",
         "outDir": "dist",
         "assets": [
@@ -31,7 +32,36 @@
             "dev": "environments/environment.ts",
             "prod": "environments/environment.prod.ts"
         }
-    }],
+    },
+    {   "name": "app1",
+        "root": "src",
+        "outDir": "dist",
+        "assets": [
+            "assets",
+            "favicon.ico"
+        ],
+        "index": "index.html",
+        "main": "main.ts",
+        "polyfills": "polyfills.ts",
+        "test": "test.ts",
+        "tsconfig": "tsconfig.app.json",
+        "testTsconfig": "tsconfig.spec.json",
+        "prefix": "app",
+        "styles": [
+            "../node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
+          "./assets/scss/material-dashboard.scss",
+          "./assets/css/demo.css"
+        ],
+        "scripts": ["../node_modules/chart.js/dist/Chart.js",
+            "../node_modules/hammerjs/hammer.min.js"
+        ],
+        "environmentSource": "environments/environment.ts",
+        "environments": {
+            "dev": "environments/environment.ts",
+            "prod": "environments/environment.prod.ts"
+        }
+    }
+],
     "e2e": {
         "protractor": {
             "config": "./protractor.conf.js"
