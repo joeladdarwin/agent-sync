@@ -1,7 +1,8 @@
 <app-navbar
 [title]="title"></app-navbar>
 
-<form #dateform="ngForm" (submit)="updatedate(dateform)">
+
+    <form #commentForm="ngForm" (submit)="updateComments(commentForm)">
   <div class="row greyed mt-3 pt-5">
   
     <div class="col-12 py-3">
@@ -22,11 +23,17 @@
     <div class="col-sm-4 md-4 col-4 justify-content-center">
       <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
     </div>
-    <div class="col-sm-4 md-4 col-4 justify-content-right">
-        <a routerLink="/revieworder" class="float-right text-white">
-          BACK
-      </a>
+    <div class="col-sm-4 md-4 col-4 justify-content-right ">
+        <div *ngIf="(prop | async)?.comments ===undefined;else defaults">
+        <button type="submit" class="btn btn-link" [disabled]="!commentForm.valid">NEXT</button>
+        </div>
+        <ng-template #defaults >
+            <a routerLink="/revieworder" class="text-white ">
+              NEXT
+          </a>
+          </ng-template>
       </div>
+      
     
 </div> 
 
@@ -37,8 +44,18 @@
 </div>
         <div class="col-md-6 mx-auto">
           <h1>Please add any additional notes on this order</h1>
-          <textarea class="form-control form-rounded" rows="7" name="comment" #comment="ngModel" [(ngModel)]="cli.comment" required></textarea>
+          <div *ngIf="(prop | async)?.comments ===undefined;else default">
+              <textarea class="form-control form-rounded" rows="7" name="comment" #comment="ngModel" [(ngModel)]="cli.comment"  placeholder="Please Enter Your Comments" required></textarea>
+          </div>
+          <ng-template #default>
+              <textarea class="form-control form-rounded" rows="7" name="comment" #comment="ngModel" [(ngModel)]="cli.comment" [value]="(prop | async)?.comments" placeholder="Please Enter Your Comments" required></textarea>
+          </ng-template>
+         
+
       
         
       </div>
+      
+
+ 
         </form>
