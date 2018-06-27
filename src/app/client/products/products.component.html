@@ -1,39 +1,36 @@
 
 <app-navbar
 [title]="title"></app-navbar>
+<div class="row greyed mt-5 pt-5">
+  <div class="col-12 py-3">
+     
+          <h4 class="text-center text-white d-none d-md-block d-lg-block d-xl-block">{{title}}</h4>
+          
+        <p class="text-center pcolor">products</p>     
+  </div>
+</div>  
+<form #productsform="ngForm" (submit)="productspush(productsform)">
+    <div class="row greyed p-2">
+        <div class="col-sm-4 md-4 col-4 justify-content-left">
 
-        <div class="row greyed mt-5">
-                <div class="col-12 py-3">
-                   
-                        <h4 class="text-center text-white d-none d-sm-block">{{title}}</h4>
-                        
-                        <p class="text-center text-white">Products</p>     
-                </div>
+          <a routerLink="/squarefeet" class="text-white">
+                BACK
+            </a>
+
         </div>
-        <form #productsform="ngForm" (submit)="productspush(productsform)">
-
-        <div class="form-group row greyed p-2">
-                    <div class="col-sm-4 md-4 col-4 pl-4">
-          
-                      <a routerLink="/squarefeet">
-                            <h4>BACK</h4>
-                        </a>
-          
-                    </div>
-                    <div class="col-sm-4 md-4 col-4 pl-4">
-                      <h4>Subtotal : ${{subtotal}}</h4>
-                    </div>
-                    <div class="col-sm-4 md-4 col-4 pl-5">
-                      <button type="submit" class="btn btn-link">NEXT</button>
-                      <a routerLink="/access">NEXT</a>
-                    </div>
-        </div>            
+        <div class="col-sm-4 md-4 col-4 justify-content-center">
+          <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
+        </div>
+        <div class="col-sm-4 md-4 col-4 justify-content-right">
+          <a routerLink="/access" class="float-right text-white">NEXT</a>
+        </div>
+    </div>
 
 
 
   <div class="form-group row">
 
-      <div class="col-md-12 mx-auto address">
+      <div class="col-md-12 text-center address">
         <h3>What products are needed at this unit?</h3> 
  
         <h6>*Please select all that apply.{{orders}}</h6>

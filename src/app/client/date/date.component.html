@@ -1,38 +1,28 @@
-<app-navbar></app-navbar>
+<app-navbar
+[title]="title"></app-navbar>
 <form #dateform="ngForm" (submit)="updatedate(dateform)">
-<div class="form-group row">
-  <div class="jumbotron jumbotron-fluid">
-    <img src="assets/image/delivery.png" class="float-right">
-    <div class="container text-center">
-      <h4>New Order>First Order </h4>
-      <p>Product</p>
+  <div class="row greyed mt-5 pt-5">
+    <div class="col-12 py-3">
+       
+            <h4 class="text-center text-white d-none d-md-block d-lg-block d-xl-block">{{title}}</h4>
+            
+          <p class="text-center pcolor">Pick a Date</p>     
+    </div>
+  </div> 
+  <div class="row greyed p-2">
+    <div class="col-sm-4 md-4 col-4 justify-content-left">
+
+      <a routerLink="/access" class="text-white">
+            BACK
+        </a>
 
     </div>
-    <br>
-
-    <div class="row">
-      <div class="container-fluid">
-        <div class="row text-center">
-          <div class="col-sm-4 md-4 col-4 con">
-
-            <a routerLink="/access">
-              <h4>BACK</h4>
-            </a>
-
-          </div>
-          <div class="col-sm-3 md-3 col-3 con">
-            <h4>Subtotal :</h4>
-          </div>
-          <div class="col-sm-4 md-4 col-4 con">
-            <button type="submit" class="btn btn-link" [disabled]="!dateform.valid">NEXT</button>
-           
-          </div>
-
-        </div>
-      </div>
-
+    <div class="col-sm-4 md-4 col-4 justify-content-center">
+      <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
     </div>
-  </div>
+    <div class="col-sm-4 md-4 col-4 justify-content-right">
+      <a routerLink="/time" class="float-right text-white">NEXT</a>
+    </div>
 </div>
 <div class="form-group row">
   <div class="col-md-12 mx-auto">
