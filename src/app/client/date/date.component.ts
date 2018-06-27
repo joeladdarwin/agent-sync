@@ -12,6 +12,7 @@ import { NgForm } from '@angular/forms';
   providers: [ClientinfoService]
 })
 export class DateComponent implements OnInit {
+  title="New Order>First Order";
   minDate = new Date(Date.now() + (5 * 24 * 60 * 60 * 1000));
   maxDate = new Date(2025, 0, 1);
   myFilter = (d: Date): boolean => {

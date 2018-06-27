@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./complete.component.scss']
 })
 export class CompleteComponent implements OnInit {
+  title="New order > First Unit";
 
   constructor() { }
 

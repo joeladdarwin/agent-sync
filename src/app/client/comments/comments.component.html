@@ -1,33 +1,44 @@
+<app-navbar
+[title]="title"></app-navbar>
 
-
- <app-navbar></app-navbar>
-
- <form #commentForm="ngForm" (submit)="updatecomment(commentForm)">
-<div class="form-group row greyed p-2">
-  <div class="col-sm-4 md-4 col-4 justify-content-left">
-
-    <a routerLink="/time" class="text-white">
-      BACK
-    </a>
-
-  </div>
-  <div class="col-sm-4 md-4 col-4 justify-content-center">
-    <h4>Subtotal : ${{(property | async)?.price}}</h4>
-  </div>
-  <div class="col-sm-4 md-4 col-4 justify-content-right">
-    <button type="submit" class="btn btn-link">Next</button>
-  </div>
-</div>
-
-<div class="col-md-6 mx-auto">
-    <h1>Please add any additional notes on this order</h1>
-    <textarea class="form-control form-rounded" rows="7" name="comment" #comment="ngModel" [(ngModel)]="cli.comment" required></textarea>
-
+<form #dateform="ngForm" (submit)="updatedate(dateform)">
+  <div class="row greyed mt-3 pt-5">
   
-</div>
-</form>
+    <div class="col-12 py-3">
+       
+            <h4 class="text-center text-white d-none d-md-block d-lg-block d-xl-block">{{title}}</h4>
+            
+          <p class="text-center pcolor">Notes</p>     
+    </div>
+  </div> 
+  <div class="row greyed p-2">
+    <div class="col-sm-4 md-4 col-4 justify-content-left">
 
+      <a routerLink="/time" class="text-white">
+            BACK
+        </a>
 
-  
+    </div>
+    <div class="col-sm-4 md-4 col-4 justify-content-center">
+      <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
+    </div>
+    <div class="col-sm-4 md-4 col-4 justify-content-right">
+        <a routerLink="/revieworder" class="float-right text-white">
+          BACK
+      </a>
+      </div>
     
+</div> 
 
+<div class="container">
+   
+   
+  
+</div>
+        <div class="col-md-6 mx-auto">
+          <h1>Please add any additional notes on this order</h1>
+          <textarea class="form-control form-rounded" rows="7" name="comment" #comment="ngModel" [(ngModel)]="cli.comment" required></textarea>
+      
+        
+      </div>
+        </form>

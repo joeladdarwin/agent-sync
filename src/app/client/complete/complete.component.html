@@ -1,47 +1,39 @@
-
-
- <app-navbar></app-navbar>
- <div class="row">
- <div class="jumbotron jumbotron-fluid">
-    <img src="assets/image/delivery.png" class="float-right">
-    <div class="container text-center">
-      <h4>New Order > First Unit </h4>      
-     <p>Order Complete</p> 
-  
-  </div><br>
-
-  <div class="row">
-    <div class="container-fluid">
-      <div class="row text-center">
-        <div class="col-sm-4 md-4 col-4 con">
-         
-    <h4>BACK</h4>
-          
-        </div>
-        <div class="col-sm-4 md-4 col-4 con">
-          <h4>Subtotal :</h4>
-        </div>
+<app-navbar
+[title]="title"></app-navbar>
+<form #dateform="ngForm" (submit)="updatedate(dateform)">
+  <div class="row greyed mt-3 pt-5">
+    <div class="col-12 py-3">
        
-      
-      </div>
+            <h4 class="text-center text-white d-none d-md-block d-lg-block d-xl-block">{{title}}</h4>
+            
+          <p class="text-center pcolor">Order Complete</p>     
     </div>
+  </div> 
+  <div class="row greyed p-2">
+    <div class="col-sm-4 md-4 col-4 justify-content-left">
 
-  </div>
-</div>
-</div>
-<div class="container">
+      <a routerLink="/revieworder" class="text-white">
+            BACK
+        </a>
+
+    </div>
+    <div class="col-sm-4 md-4 col-4 justify-content-center">
+      <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
+    </div>
     
+</div> 
+<div class="container">
+   
    
   
 </div>
 <div class="row">
-    <button type="button" class="btn btn1 mx-auto">BACK HOME</button>
+    <button type="button" class="btn btn1 mx-auto" routerLink="/login">BACK TO HOME </button>
    
   </div>
   <div class="row">
-      <button type="button" class="btn btn3 mx-auto">PLACE NEW ORDER</button>
+      <button type="button" class="btn btn3 mx-auto" routerLink="/placeorder">PLACE NEW ORDER</button>
      
     </div>
-
-    
+</form>
 
