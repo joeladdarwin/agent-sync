@@ -20,4 +20,5 @@ export interface Home {
     createdon ?:any;
     comments ?:string;
     price ?: number;
+    orderstatus?:string;
 }

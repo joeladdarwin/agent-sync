@@ -2,7 +2,7 @@
 <div class="row" id="headerback">
 
     <div class="col-12" >
-       <a routerLink="/login"><i class="m-3 fa fa-arrow-left float-left"></i></a>
+       <a routerLink="/login"><i class="m-3 text-dark fa fa-arrow-left float-left"></i></a>
        
     </div> 
     <div class="col-12">
@@ -15,13 +15,13 @@
     <form class="col-12 mt-5 text-center" #passwordresetform ="ngForm" (ngSubmit)="onSubmit(passwordresetform)">
          
           <div class="row">
-                <div class="offset-2 col-8 mb-5">
+                <div class="offset-2 col-8 mb-3">
                     <p class="error text-center">{{ (error | async)?.message }}</p>
                     <input type="email" name="recoveremail" #recoveremail placeholder="Email Address" (ngModel)="recoveremail" required class="form-control p-3 input-lg numinput text-center">
                 </div>
-                <div class="offset-2 col-6 mt-5">
+                <div class="offset-2 col-6">
                     
-                    <button type="submit" class="btn btn1 btn-block p-2">RECOVER LOGIN</button>
+                    <button type="submit" class="btn btn1 btn-block p-2">Recover Login</button>
                 </div> 
           </div> 
       </form>   

@@ -126,14 +126,23 @@ export class ClientinfoService {
     }
     updateComments(comments)
     {
-      var createdby = this.afAuth.auth.currentUser.displayName;
+      var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
       this.buildingCollection.doc(createdby + this.unittracking()).update(
         {
-          createdby, comments
+          comments
         }
       )
       this.router.navigate(['/revieworder'])
     }
+  placeOrder(orderstatus) {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      {
+        orderstatus
+      }
+    )
+    
+  }
   updateAddons(productsneeded, addonsprice)
     {
     var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");

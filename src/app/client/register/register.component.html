@@ -1,6 +1,6 @@
 <div class="row" id="headerback">
     <div class="col-12 mt-5" >
-        <i class="fa fa-arrow-left float-left"></i>
+        <a routerLink="/login"><i class="fa fa-arrow-left float-left text-dark"></i></a>
         <h2 class="text-center">Please let us know <br> who to register.</h2>
      </div>   
             <form class=" col-12 text-center mt-3" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" >
@@ -30,7 +30,7 @@
                 </div>
                 <div class="row">
                     <div class="offset-1 col-10 my-2">
-                        <button type="submit" class="btn btninput btn-block mx-auto" [disabled]="!registerForm.valid">REGISTER ME</button>
+                        <button type="submit" class="btn btninput btn-block mx-auto py-3" [disabled]="!registerForm.valid">REGISTER ME</button>
                     </div>
                 </div>
                 <p>Already have an account?

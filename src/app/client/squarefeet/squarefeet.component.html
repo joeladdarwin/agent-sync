@@ -27,7 +27,13 @@
            
           </div>
           <div class="col-sm-4 md-4 col-4 justify-content-right">
-            <a routerLink="/product" class="float-right text-white">NEXT</a>
+            <div *ngIf="(property|async)?.squarefeet">
+              <a routerLink="/product" class="float-right text-white">NEXT</a>
+            </div>
+            <ng-template>
+              <button class="btn btn-link" (click)="please()"></button>
+            </ng-template>
+            
           </div>
       </div>
   
@@ -38,6 +44,7 @@
 
       <div class="col-12 mx-auto pt-2">
         <h3 class="text-center">How many square feet?
+          {{obj}}
 
         </h3><br>
         <div class="row">
