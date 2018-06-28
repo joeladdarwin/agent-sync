@@ -45,10 +45,10 @@
         <div class="col-md-6 mx-auto">
           <h1>Please add any additional notes on this order</h1>
           <div *ngIf="(prop | async)?.comments ===undefined;else default">
-              <textarea class="form-control form-rounded" rows="7" name="comment" #comment="ngModel" [(ngModel)]="cli.comment"  placeholder="Please Enter Your Comments" required></textarea>
+              <textarea class="form-control form-rounded" rows="13" name="comment" #comment="ngModel" [(ngModel)]="cli.comment"  placeholder="Please Enter Your Comments" required></textarea>
           </div>
           <ng-template #default>
-              <textarea class="form-control form-rounded" rows="7" name="comment" #comment="ngModel" [(ngModel)]="cli.comment" [value]="(prop | async)?.comments" placeholder="Please Enter Your Comments" required></textarea>
+              <textarea class="form-control form-rounded" rows="13" name="comment" #comment="ngModel" [(ngModel)]="cli.comment" [value]="(prop | async)?.comments" placeholder="Please Enter Your Comments" required></textarea>
           </ng-template>
          
 
