@@ -1,6 +1,7 @@
 <app-navbar [title]="title">
 </app-navbar>
-
+<div *ngIf="(property | async)?.building == 'Appartment';else otheroption">
+    <form class="row mt-5" #addressForm="ngForm" (submit)="addressSubmitapt(addressForm)">
 
 <div class="row greyed mt-5 pt-5">
     <div class="col-12 py-3">
@@ -24,6 +25,7 @@
 
           </div>
           <div class="col-sm-4 md-4 col-4 justify-content-center">
+<<<<<<< HEAD
       
           </div>
           <div class="col-sm-4 md-4 col-4 justify-content-right">
@@ -35,6 +37,12 @@
              
             </ng-template>
             
+=======
+           
+          </div>
+          <div class="col-sm-4 md-4 col-4 justify-content-right">
+            <a routerLink="/product" class="float-right text-white">NEXT</a>
+>>>>>>> 772cec8d9f5f41d92de3e67cbd7414056686e6b7
           </div>
       </div>
   
@@ -45,7 +53,6 @@
 
       <div class="col-12 mx-auto pt-2">
         <h3 class="text-center">How many square feet?
-          {{obj}}
 
         </h3><br>
         <div class="row">
