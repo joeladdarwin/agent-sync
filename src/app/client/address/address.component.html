@@ -47,16 +47,42 @@
 
             <div class="col-md-12 mx-auto mt-5">
 
-                <input type="text" name="street" #street="ngModel" [(ngModel)]="cli.street" [value]="(property | async)?.street" placeholder="Street Address" required class="numinput text-center">
+                <div *ngIf="(property | async)?.street===undefined;else nostreet">
+                    <input type="text" name="street" #street="ngModel" [(ngModel)]="cli.street" placeholder="Street Address" required class="numinput text-center">
+                </div>
+                <ng-template #nostreet>
+                    <input type="text" name="street" #street="ngModel" [(ngModel)]="cli.street" [value]="(property | async)?.street" placeholder="Street Address"
+                        required class="numinput text-center">
+                </ng-template>
                 <br>
                 <br>
-                <input type="text" name="city" #city="ngModel" [(ngModel)]="cli.city" [value]="(property | async)?.city" placeholder="City, State" required class="numinput text-center">
+                <div *ngIf="(property | async)?.city===undefined;else nocity">
+                    <input type="text" name="city" #city="ngModel" [(ngModel)]="cli.city" placeholder="City, State" required class="numinput text-center">
+                </div>
+                <ng-template #nocity>
+                    <input type="text" name="city" #city="ngModel" [(ngModel)]="cli.city" [value]="(property | async)?.city" placeholder="City, State"
+                        required class="numinput text-center">
+                </ng-template>
                 <br>
                 <br>
-                <input type="text" name="zip" #zip="ngModel" [(ngModel)]="cli.zip" [value]="(property | async)?.zip"  placeholder="Zip Code" required class="numinput text-center">
+                <div *ngIf="(property | async)?.zip===undefined;else nozip">
+                    <input type="text" name="zip" #zip="ngModel" [(ngModel)]="cli.zip" placeholder="Zip Code" required class="numinput text-center">
+                </div>
+                <ng-template #nozip>
+                    <input type="text" name="zip" #zip="ngModel" [(ngModel)]="cli.zip" [value]="(property | async)?.zip" placeholder="Zip Code"
+                        required class="numinput text-center">
+                </ng-template>
                 <br>
                 <br>
-                <input type="text" name="unit" #unit="ngModel" [(ngModel)]="cli.unit" [value]="(property | async)?.unit" placeholder="Unit Number" required class="numinput text-center">
+                <div *ngIf="(property | async)?.unit===undefined;else nounit">
+                    <input type="text" name="unit" #unit="ngModel" [(ngModel)]="cli.unit"  placeholder="Unit Number"
+                        required class="numinput text-center">
+                </div>
+                <ng-template #nounit>
+                    <input type="text" name="unit" #unit="ngModel" [(ngModel)]="cli.unit" [value]="(property | async)?.unit" placeholder="Unit Number"
+                        required class="numinput text-center">
+                </ng-template>
+               
                 <br>
                 <br>
 
@@ -118,19 +144,36 @@
         <div class="col-12 mx-auto text-center mt-5">
 
             <div class="col-md-12 mx-auto mt-5">
-
-
-                <input type="text" name="street" #street="ngModel" [(ngModel)]="cli.street" [value]="(property | async)?.street" placeholder="Street Address" required class="numinput text-center">
+                <div *ngIf="(property | async)?.street===undefined;else nostreet">
+                <input type="text" name="street" #street="ngModel" [(ngModel)]="cli.street" placeholder="Street Address"
+                    required class="numinput text-center">
+                </div>
+                <ng-template #nostreet>
+                <input type="text" name="street" #street="ngModel" [(ngModel)]="cli.street" [value]="(property | async)?.street" placeholder="Street Address"
+                    required class="numinput text-center">
+                </ng-template>
                 <br>
                 <br>
-                <input type="text" name="city" #city="ngModel" [(ngModel)]="cli.city" [value]="(property | async)?.city" placeholder="City, State" required class="numinput text-center">
+                <div *ngIf="(property | async)?.city===undefined;else nocity">
+                <input type="text" name="city" #city="ngModel" [(ngModel)]="cli.city" placeholder="City, State"
+                    required class="numinput text-center">
+                </div>
+                <ng-template #nocity>
+                <input type="text" name="city" #city="ngModel" [(ngModel)]="cli.city" [value]="(property | async)?.city" placeholder="City, State"
+                    required class="numinput text-center">
+                </ng-template>
                 <br>
                 <br>
-                <input type="text" name="zip" #zip="ngModel" [(ngModel)]="cli.zip" [value]="(property | async)?.zip"  placeholder="Zip Code" required class="numinput text-center">
+                <div *ngIf="(property | async)?.zip===undefined;else nozip">
+                <input type="text" name="zip" #zip="ngModel" [(ngModel)]="cli.zip" placeholder="Zip Code"
+                    required class="numinput text-center">
+                </div>
+                <ng-template #nozip>
+                <input type="text" name="zip" #zip="ngModel" [(ngModel)]="cli.zip" [value]="(property | async)?.zip" placeholder="Zip Code"
+                    required class="numinput text-center">
+                </ng-template>
                 <br>
                 <br>
-
-
 
             </div>
 

@@ -117,6 +117,18 @@
                       <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 375,'Floor Plans (Color + Furniture)')">
                         Floor Plans (Color + Furniture) $375</button>
                     </div>
+                      <div *ngSwitchCase="'5251'">
+                      
+                        <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 0,'Photography')">Photography </button>
+                        <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 0,'Video Tour')">Video Tour </button>
+                        <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 0 ,'360 Tour')">360 Tour</button>
+                        <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 0,'Floor Plans (BnW)')">
+                          Floor Plans (B&W) </button>
+                        <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 0,'Floor Plans (Color)')">Floor Plans (Color) </button>
+                        <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 0,'Floor Plans (Color + Furniture)')">
+                          Floor Plans (Color + Furniture) </button>
+                      
+                      </div>
                     <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 85,'Single Property Website')">Single Property Website $85</button>
                     <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 75,'Double-Sided Flyer 50')"> Double-Sided Flyer 8.5*11 50 $75</button>
                     <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 95,'Double-Sided Flyer 100')">Double-Sided Flyer 8.5*11 100 $95</button>

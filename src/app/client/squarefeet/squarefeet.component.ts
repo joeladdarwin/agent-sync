@@ -22,7 +22,7 @@ export class SquarefeetComponent implements OnInit {
   }
 please()
 {
-  this.obj = "Please select a squarefeet"
+  this.obj = "Please select a squarefeet";
 }
 
   ngOnInit() {

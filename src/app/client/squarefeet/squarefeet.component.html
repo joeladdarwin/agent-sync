@@ -24,14 +24,15 @@
 
           </div>
           <div class="col-sm-4 md-4 col-4 justify-content-center">
-            <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
+      
           </div>
           <div class="col-sm-4 md-4 col-4 justify-content-right">
-            <div *ngIf="(property|async)?.squarefeet">
-              <a routerLink="/product" class="float-right text-white">NEXT</a>
-            </div>
-            <ng-template>
+            <div *ngIf="(property|async)?.squarefeet===undefined;else valids">
               <button class="btn btn-link" (click)="please()"></button>
+            </div>
+            <ng-template #valids>
+              <a routerLink="/product" class="float-right text-white">NEXT</a>
+             
             </ng-template>
             
           </div>
@@ -50,8 +51,13 @@
         <div class="row">
           <div class="offset-1 col-10  mx-auto">
                 
-              <button type="button" class="btn btn-secondary p-4 m-2 btn-block">Photography $145</button>
-            <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('751-1500')">751-1500 SF</button>
+            <div *ngIf="(property|async)?.squarefeet==='751-1500';else valid751">
+              <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('751-1500')">751-1500 SF</button>
+            </div>
+            <ng-template>
+              <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('751-1500')">751-1500 SF</button>
+            </ng-template>
+            
             <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('1501-2250')">1501-2250 SF </button>
             <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('2251-3000')">2251-3000 SF</button>
             <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('3001-3750')">3001-3750 SF</button>
