@@ -1,46 +1,13 @@
 h1
 { 
-	color: #434343;
-	font-size: 2rem;
-    text-align:center;
-    line-height:100%;
-    
+	color: #434343;  
+ }
+.btn-link
+{
+    color: #fff !important;
+}
  
-}
-
-#headerback{
-
-    background-image: url('/assets/image/background.jpg');
-    background-repeat: no-repeat;
-    width:100vw;
-    height:100vh;
-    margin: auto;
-    background-size: cover;
-}
-
-.btn
-	{
-        color: #fff !important;
-        font-size: 1rem;
-		
-		
-    }
-    a {
-        color: #F07C49;
-    }
-    h4 {
-        color: #fff;
-        font-size: 1rem;
-    }
-    p{
-        color:#F07C49;
-    }
-  .sidecon{
-      padding-left: 6rem
-  }
 .numinput{
-    width:44vw;
-    line-height: 3.5rem;
     border: 2px solid #434343;
 }
 
@@ -50,124 +17,122 @@ h1
     
 }
 
-@media screen and (max-width: 780px) {
-    .classab{
+
+// @media screen and (max-width: 780px) {
+//     .classab{
        
-    top: -44px;
-    right: 160px;
+//     top: -44px;
+//     right: 160px;
    
-    bottom: 0;
-    z-index: 9949;
-    position: absolute;
-    }
-    .frm 
-    {
-        margin-top:-8px;
-    }
-    .classbb
-    {
-    top: -54px;
-    right: 10px;
-     height: 10vh;
+//     bottom: 0;
+//     z-index: 9949;
+//     position: absolute;
+//     }
+//     .frm 
+//     {
+//         margin-top:-8px;
+//     }
+//     .classbb
+//     {
+//     top: -54px;
+//     right: 10px;
+//      height: 10vh;
    
-    z-index: 9949;
-    position: absolute;
-    }
-    .numinput{
-        width:79vw;
-        line-height: 3.5rem;
-    }
-    .fa{
+//     z-index: 9949;
+//     position: absolute;
+//     }
+    
+//     .fa{
          
-        font-size: 1rem;
-        margin-top: -1rem;
-        margin-left: -11rem;
-        }
+//         font-size: 1rem;
+//         margin-top: -1rem;
+//         margin-left: -11rem;
+//         }
     
    
     
-    }
-    @media screen and (max-width: 380px) {
-    .classab{
+//     }
+// @media screen and (max-width: 380px) {
+//     .classab{
        
-    top: -44px;
-    right: 108px;
+//     top: -44px;
+//     right: 108px;
    
-    bottom: 0;
-    z-index: 9949;
-    position: absolute;
-    }
-    .frm 
-    {
-        margin-top:-8px;
-    }
-    .classbb
-    {
-    top: -54px;
-    right: 10px;
+//     bottom: 0;
+//     z-index: 9949;
+//     position: absolute;
+//     }
+//     .frm 
+//     {
+//         margin-top:-8px;
+//     }
+//     .classbb
+//     {
+//     top: -54px;
+//     right: 10px;
    
    
-    z-index: 9949;
-    position: absolute;
-    height:4vh;
-    }
+//     z-index: 9949;
+//     position: absolute;
+//     height:4vh;
+//     }
   
     
    
     
-    }
-    @media screen and (max-width: 420px) {
-    .classab{
+//     }
+// @media screen and (max-width: 420px) {
+//     .classab{
        
-    top: -44px;
-    right: 108px;
+//     top: -44px;
+//     right: 108px;
    
-    bottom: 0;
-    z-index: 9949;
-    position: absolute;
-    }
+//     bottom: 0;
+//     z-index: 9949;
+//     position: absolute;
+//     }
     
-    .classbb
-    {
-    top: -54px;
-    right: 10px;
+//     .classbb
+//     {
+//     top: -54px;
+//     right: 10px;
    
    
-    z-index: 9949;
-    position: absolute;
-    height:6vh;
-    }
+//     z-index: 9949;
+//     position: absolute;
+//     height:6vh;
+//     }
   
     
    
     
-    }
-     @media screen and (max-width: 330px) {
-    .classab{
+//     }
+// @media screen and (max-width: 330px) {
+//     .classab{
        
-    top: -44px;
-    right: 80px;
+//     top: -44px;
+//     right: 80px;
    
-    bottom: 0;
-    z-index: 9949;
-    position: absolute;
-    }
-    .frm 
-    {
-        margin-top:-8px;
-    }
-    .classbb
-    {
-    top: -54px;
-    right: 10px;
+//     bottom: 0;
+//     z-index: 9949;
+//     position: absolute;
+//     }
+//     .frm 
+//     {
+//         margin-top:-8px;
+//     }
+//     .classbb
+//     {
+//     top: -54px;
+//     right: 10px;
    
    
-    z-index: 9949;
-    position: absolute;
-    height:6vh;
-    }
+//     z-index: 9949;
+//     position: absolute;
+//     height:6vh;
+//     }
   
     
    
     
-    }
+//     }
