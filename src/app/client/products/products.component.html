@@ -6,7 +6,7 @@
      
           <h4 class="text-center text-white d-none d-md-block d-lg-block d-xl-block">{{title}}</h4>
           
-        <p class="text-center pcolor">products</p>     
+        <p class="text-center pcolor">{{(property | async)?.building}} Product</p>     
   </div>
 </div>  
 <form #productsform="ngForm" (submit)="productspush(productsform)">
@@ -22,7 +22,7 @@
           <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
         </div>
         <div class="col-sm-4 md-4 col-4 justify-content-right">
-          <a routerLink="/access" class="float-right text-white">NEXT</a>
+          <a routerLink="/addons" class="float-right text-white">NEXT</a>
         </div>
     </div>
 

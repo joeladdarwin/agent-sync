@@ -42,3 +42,120 @@ span.navbar-toggler-icon {
            
         }
 }
+@media screen and (max-width: 780px) {
+    .classab{
+       
+    top: -44px;
+    right: 160px;
+   
+    bottom: 0;
+    z-index: 9949;
+    position: absolute;
+    }
+    .frm 
+    {
+        margin-top:-8px;
+    }
+    .classbb
+    {
+    top: -43px;
+    right: 20px;
+    height: 8vh;
+    width: 8vw;   
+    z-index: 9949;
+    position: absolute;
+    }
+    
+    .fa{
+         
+        font-size: 1rem;
+        margin-top: -1rem;
+        margin-left: -11rem;
+        }
+    
+   
+    
+    }
+@media screen and (max-width: 380px) {
+    .classab{
+       
+    top: -44px;
+    right: 108px;
+   
+    bottom: 0;
+    z-index: 9949;
+    position: absolute;
+    }
+    .frm 
+    {
+        margin-top:-8px;
+    }
+    .classbb
+    {
+    top: -54px;
+    right: 10px;
+   
+   
+    z-index: 9949;
+    position: absolute;
+    height:4vh;
+    }
+  
+    
+   
+    
+    }
+@media screen and (max-width: 420px) {
+    .classab{
+       
+    top: -44px;
+    right: 108px;
+   
+    bottom: 0;
+    z-index: 9949;
+    position: absolute;
+    }
+    
+    .classbb
+    {
+    top: -40px;
+    right: 25px;
+     height: 5vh;
+    width: 11vw; 
+    z-index: 9949;
+    position: absolute;
+    }
+  
+    
+   
+    
+    }
+@media screen and (max-width: 330px) {
+    .classab{
+       
+    top: -44px;
+    right: 80px;
+   
+    bottom: 0;
+    z-index: 9949;
+    position: absolute;
+    }
+    .frm 
+    {
+        margin-top:-8px;
+    }
+    .classbb
+    {
+    top: -54px;
+    right: 10px;
+   
+   
+    z-index: 9949;
+    position: absolute;
+    height:6vh;
+    }
+  
+    
+   
+    
+    }

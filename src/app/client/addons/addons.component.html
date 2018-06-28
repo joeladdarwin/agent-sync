@@ -1,41 +1,42 @@
+<app-navbar [title]="title">
+  </app-navbar>
+  <form #addonsform="ngForm" (submit)="addonsSubmit(addonsForm)" >
+  <div class="row"  >
+  <div class="col-12 greyed">
+    <div class="row mt-5">
+      <div class="col-12 mt-3">
+        <h4 class="text-center text-white">{{title}}</h4>
+      </div>
+      <div class="col-12">
+        <h4 class="text-center otopic">{{(property | async)?.building}} Products</h4>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-4">
+            <button class="btn btn-link m-3" routerLink="/product">
+              BACK
+            </button>
+          </div>
+          <div class="col-4 text-center">
+  
+              <h6 class="text-white">Subtotal :{{subtotal+(property | async)?.ordersprice}}</h6>
+          </div>
+          <div class="col-4 text-right">
+           
+              <button class="btn btn-link m-3" routerLink="/access">NEXT</button>
 
-<app-navbar
-[title]="title"></app-navbar>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <div class="row greyed mt-5">
-                <div class="col-12 py-3">
-                   
-                        <h4 class="text-center text-white d-none d-sm-block">{{title}}</h4>
-                        
-                        <p class="text-center"> Products</p>     
-                </div>
-            </div>
-<form #addonsform="ngForm" (submit)="addonsSubmit(addonsForm)" >
- <div class="form-group row greyed p-2">
-                    <div class="col-sm-4 md-4 col-4 pl-4">
-          
-                      <a routerLink="/squarefeet">
-                            <h4>BACK</h4>
-                        </a>
-          
-                    </div>
-                    <div class="col-sm-4 md-4 col-4 pl-4">
-                      <h4>Subtotal :{{subtotal+(property | async)?.ordersprice}}</h4>
-                    </div>
-                    <div class="col-sm-4 md-4 col-4 pl-5">
-                      <button type="submit" class="btn btn-link">NEXT</button>
-                      <a routerLink="/access"><h4>NEXT</h4></a>
-                    </div>
-  </div>            
-
-
-
-  <div class="form-group row">
+  <div class="form-group row mx-auto">
 
       <div class="col-md-12 mx-auto address">
-        <h3>Are there any add-ons You need to apply to this product?</h3> 
+        <h3 class="text-center">Are there any add-ons You need to apply to this product?</h3> 
  
-        <h6>*Please select all that apply.{{addons}}</h6>
+        <h6 class="text-center">*Please select all that apply.{{addons}}</h6>
         <div class="row test">
           <div class="col-md-6 col-sm-6 col-12 mx-auto">
             <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="toggleClass($event, 50,'Community Shot')">
@@ -59,6 +60,7 @@
 
       </div>
   </div>
+</div>
 </form>
 
 

@@ -1,37 +1,96 @@
 <app-navbar [title]="title">
 </app-navbar>
-<div *ngIf="(property | async)?.building == 'Appartment';else otheroption">
-    <form class="row mt-5" #addressForm="ngForm" (submit)="addressSubmitapt(addressForm)">
-
-<div class="row greyed mt-5 pt-5">
-    <div class="col-12 py-3">
-       
-            <h4 class="text-center text-white d-none d-md-block d-lg-block d-xl-block">{{title}}</h4>
-            
-          <p class="text-center pcolor">{{(property | async)?.building}} Size</p>     
+<form #addonsform="ngForm" (submit)="addonsSubmit(addonsForm)" >
+<div class="row"  >
+<div class="col-12 greyed">
+  <div class="row mt-5">
+    <div class="col-12 mt-3">
+      <h4 class="text-center text-white">{{title}}</h4>
     </div>
-</div>
+    <div class="col-12">
+      <h4 class="text-center otopic">{{(property | async)?.building}} Size</h4>
+    </div>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-4">
+          <button class="btn btn-link m-3" routerLink="/address">
+            BACK
+          </button>
+        </div>
+        <div class="col-4 text-center">
 
-s
 
- 
-
-      <div class="row greyed p-2">
-          <div class="col-sm-4 md-4 col-4 justify-content-left">
-
-            <a routerLink="/address" class="text-white">
-                  BACK
-              </a>
-
+        </div>
+        <div class="col-4 text-right">
+          <div *ngIf="(property|async)?.squarefeet===undefined;else valids">
+            <button class="btn btn-link m-3" (click)="please()"></button>
           </div>
-          <div class="col-sm-4 md-4 col-4 justify-content-center">
-           
-          </div>
-          <div class="col-sm-4 md-4 col-4 justify-content-right">
-            <a routerLink="/product" class="float-right text-white">NEXT</a>
-          </div>
+          <ng-template #valids>
+            <button routerLink="/product" class="btn btn-link m-3">NEXT</button>
+
+          </ng-template>
+
+        </div>
       </div>
+    </div>
+  </div>
+</div>
+<div class="col-12 mx-auto pt-2">
+  <h3 class="text-center mb-3">How many square feet?</h3>
+  <p>{{obj}}</p>
+  <div class="row">
+    <div class="offset-1 col-10  mx-auto">
   
+      <div *ngIf="(property|async)?.squarefeet==='751-1500';else valid751">
+        <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="sfhma('751-1500')">751-1500 SF</button>
+      </div>
+      <ng-template #valid751>
+        <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="sfhma('751-1500')">751-1500 SF</button>
+      </ng-template>
+      <div *ngIf="(property|async)?.squarefeet==='1501-2250';else valid1501">
+        <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="sfhma('1501-2250')">1501-2250 SF</button>
+      </div>
+      <ng-template #valid1501>
+        <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="sfhma('1501-2250')">1501-2250 SF</button>
+      </ng-template>
+      <div *ngIf="(property|async)?.squarefeet==='2251-3000';else valid2251">
+        <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="sfhma('2251-3000')">2251-3000 SF</button>
+      </div>
+      <ng-template #valid2251>
+        <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="sfhma('2251-3000')">2251-3000 SF</button>
+      </ng-template>
+      <div *ngIf="(property|async)?.squarefeet==='3001-3750';else valid3001">
+        <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="sfhma('3001-3750')">3001-3750 SF</button>
+      </div>
+      <ng-template #valid3001>
+        <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="sfhma('3001-3750')">3001-3750 SF</button>
+      </ng-template>
+      <div *ngIf="(property|async)?.squarefeet==='3751-4500';else valid3751">
+        <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="sfhma('3751-4500')">3751-4500 SF</button>
+      </div>
+      <ng-template #valid3751>
+        <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="sfhma('3751-4500')">3751-4500 SF</button>
+      </ng-template>
+      <div *ngIf="(property|async)?.squarefeet==='4501-5250';else valid4501">
+        <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="sfhma('4501-5250')">4501-5250 SF</button>
+      </div>
+      <ng-template #valid4501>
+        <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="sfhma('4501-5250')">4501-5250 SF</button>
+      </ng-template>
+      <div *ngIf="(property|async)?.squarefeet==='5251';else valid5251">
+        <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="sfhma('5251')">5251 SF</button>
+      </div>
+      <ng-template #valid5251>
+        <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="sfhma('5251')">5251 SF</button>
+      </ng-template>
+    </div>
+  </div>
+</div>  
+
+</div>
+</form>
+
+<!--   
 
 <div class="container-fluid text-center">
 
@@ -44,14 +103,19 @@ s
         <div class="row">
           <div class="offset-1 col-10  mx-auto">
                 
-            <button type="button" class="btn btn1 p-4 m-2 btn-block" ng-class="{'active': isActive}" ng-click="activeButton()" (click)="sfhma('0-750')">0-750 SF</button>
-            <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('751-1500')">751-1500 SF</button>
-            <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('1501-2250')">1501-2250 SF </button>
-            <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('2251-3000')">2251-3000 SF</button>
-            <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('3001-3750')">3001-3750 SF</button>
-            <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('3751-4500')">3751-4500 SF</button>
-            <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('4501-5250')">4501-5250 SF</button>
-            <button type="button" class="btn btn1 p-4 m-2 btn-block" (click)="sfhma('5251')">5251 SF</button>
+            <div *ngIf="(property|async)?.squarefeet==='751-1500';else valid751">
+              <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="sfhma('751-1500')">751-1500 SF</button>
+            </div>
+            <ng-template #valid751>
+              <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="sfhma('751-1500')">751-1500 SF</button>
+            </ng-template>
+            
+            <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="sfhma('1501-2250')">1501-2250 SF </button>
+            <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="sfhma('2251-3000')">2251-3000 SF</button>
+            <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="sfhma('3001-3750')">3001-3750 SF</button>
+            <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="sfhma('3751-4500')">3751-4500 SF</button>
+            <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="sfhma('4501-5250')">4501-5250 SF</button>
+            <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="sfhma('5251')">5251 SF</button>
           </div>
         </div>
          
@@ -61,8 +125,8 @@ s
       </div>
   </div>
 
-</div>
-</form>
+</div> -->
+
 
   
  
