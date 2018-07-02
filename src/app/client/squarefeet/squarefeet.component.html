@@ -40,7 +40,12 @@
   <p>{{obj}}</p>
   <div class="row">
     <div class="offset-1 col-10  mx-auto">
-  
+      <div *ngIf="(property|async)?.squarefeet==='0-750';else valid0to750">
+        <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="sfhma('0-750')">0-750 SF</button>
+      </div>
+      <ng-template #valid0to750>
+        <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="sfhma('0-750')">0-750 SF</button>
+      </ng-template>
       <div *ngIf="(property|async)?.squarefeet==='751-1500';else valid751">
         <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="sfhma('751-1500')">751-1500 SF</button>
       </div>
