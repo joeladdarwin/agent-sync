@@ -12,13 +12,18 @@ import { Router } from '@angular/router';
 })
 export class AccessComponent implements OnInit {
   title = "New Order > First Unit";
- show =false;
+obj;
  property;
+
 
 //  other = false;
 
   constructor(private cli : ClientinfoService, private router : Router) {
-
+   
+   }
+   please()
+   {
+     this.obj = "Please select a squarefeet";
    }
 
   ngOnInit() {
@@ -50,5 +55,6 @@ export class AccessComponent implements OnInit {
   meetagent()
   {
     this.cli.updateMeet3("meet agent on site")
+    console.log("meet agent on site");
   }
 }

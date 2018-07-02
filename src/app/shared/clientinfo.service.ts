@@ -106,6 +106,7 @@ export class ClientinfoService {
       this.buildingCollection.doc(createdby + this.unittracking()).update(
         {squarefeet})
       this.router.navigate(['/product'])
+<<<<<<< HEAD
       this.deleteProducts() 
       this.deleteProduct1();
       this.deleteProduct2();
@@ -121,6 +122,9 @@ export class ClientinfoService {
       this.deleteProduct12();
       this.deleteProduct13();
     }
+=======
+    } 
+>>>>>>> 002a73b139993e94cf058775de5397c0af00134e
 
     updateVisitingdate(visitingdate)
     {

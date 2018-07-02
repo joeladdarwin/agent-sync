@@ -1,34 +1,40 @@
-<app-navbar
-[title]="title"></app-navbar>
-<form #dateform="ngForm" (submit)="updatedate(dateform)">
-  <div class="row greyed mt-5 pt-5">
-    <div class="col-12 py-3">
-       
-            <h4 class="text-center text-white d-none d-md-block d-lg-block d-xl-block">{{title}}</h4>
-            
-          <p class="text-center pcolor">Pick a Time</p>     
+<app-navbar [title]="title">
+</app-navbar>
+<form #timeform="ngForm" (submit)="updatetime(timeform)">	
+  <div class="row">
+<div class="col-12 greyed">
+  <div class="row mt-5">
+    <div class="col-12 mt-3">
+      <h4 class="text-center text-white">{{title}}</h4>
     </div>
-  </div> 
-  <div class="row greyed p-2">
-    <div class="col-sm-4 md-4 col-4 justify-content-left">
-
-      <a routerLink="/date" class="text-white">
+    <div class="col-12">
+      <h4 class="text-center otopic">Pick a time</h4>
+    </div>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-4">
+          <button class="btn btn-link m-3" routerLink="/date">
             BACK
-        </a>
+          </button>
+        </div>
+        <div class="col-4 text-center">
 
+          <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
+        </div>
+        <div class="col-4 text-right">
+         
+            <button class="btn btn-link m-3" routerLink="/comment">NEXT</button>
+
+        </div>
+      </div>
     </div>
-    <div class="col-sm-4 md-4 col-4 justify-content-center">
-      <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
-    </div>
-    <div class="col-sm-4 md-4 col-4 justify-content-right">
-      <a routerLink="/comment" class="float-right text-white">NEXT</a>
-    </div>
+  </div>
 </div>
-
-    <div class="form-group row">
+</div>
+    <div class="form-group row mx-auto">
   
         <div class="col-md-12 mx-auto address">
-          <h3>Great! Now please pick a time slot that we have available</h3> 
+          <h3 class="text-center">Great! Now please pick a time slot that we have available</h3> 
    
         
           <div class="row test">
@@ -46,7 +52,8 @@
   
         </div>
     </div>
-</form> 
+   
+ </form>
  
 
 

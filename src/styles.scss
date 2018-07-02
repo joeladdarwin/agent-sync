@@ -27,6 +27,9 @@ h1, h2, h3, h4, h5, h6, p{
 {
 color: #F1875B
 }
+.btn.btn-link{
+    color:#fff !important;
+}
 
 
 /* You can add global styles to this file, and also import other style files */
@@ -46,7 +49,7 @@ color: #F1875B
 	{
 		color: white;
         background-color:#F07C49;
-        font-size: 1.25rem;
+        
     }
     .btn-selected
 {
@@ -57,7 +60,7 @@ color: #F1875B
 .btn1:hover
 {
     background-color: #D5D5D5;
-      color:#000 !important;
+      color:#fff !important;
 }  
 @media screen and (max-width: 780px) {
      #headerback{

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   providers: [ClientinfoService]
 })
 export class TimeComponent implements OnInit {
+  title="New Order > First Unit";
 property;
 
 

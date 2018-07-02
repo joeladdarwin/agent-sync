@@ -1,11 +1,12 @@
-h1
-{ 
-	color: #434343;
-	font-size: 2rem;
-    text-align:center;
-    line-height:100%;
-    
- 
+
+.comporder{
+  color:#616161;
+
+}
+.comorder{
+    color:#8ACA80;
+    text-align: center;
+
 }
 
 #headerback{
@@ -18,20 +19,8 @@ h1
     background-size: cover;
 }
 
-.btn
-	{
-		color: white;
-		background-color:#F07C49;
-        border-radius:30px;
-         width: 13rem;
-        padding: 10px 20px 10px 20px;
-		
-    }
-    
-    h4 {
-        color: #fff;
-        font-size: 1rem;
-    }
+
+  
     p{
         color:#F07C49;
     }
@@ -41,8 +30,13 @@ h1
 		background-color:#F07C49;
         border-radius:20px;
          width: 21rem;
-         margin-top: 15rem;
+         margin-top: 8rem;
+      
 		
+    }
+    .comporder{
+        color:#616161;
+        text-align: center;
     }
   
 .numinput{

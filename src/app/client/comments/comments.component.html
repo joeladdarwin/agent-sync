@@ -1,61 +1,57 @@
-<app-navbar
-[title]="title"></app-navbar>
-
-
-    <form #commentForm="ngForm" (submit)="updateComments(commentForm)">
-  <div class="row greyed mt-3 pt-5">
-  
-    <div class="col-12 py-3">
-       
-            <h4 class="text-center text-white d-none d-md-block d-lg-block d-xl-block">{{title}}</h4>
-            
-          <p class="text-center pcolor">Notes</p>     
-    </div>
-  </div> 
-  <div class="row greyed p-2">
-    <div class="col-sm-4 md-4 col-4 justify-content-left">
-
-      <a routerLink="/time" class="text-white">
-            BACK
-        </a>
-
-    </div>
-    <div class="col-sm-4 md-4 col-4 justify-content-center">
-      <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
-    </div>
-    <div class="col-sm-4 md-4 col-4 justify-content-right ">
-        <div *ngIf="(prop | async)?.comments ===undefined;else defaults">
-        <button type="submit" class="btn btn-link" [disabled]="!commentForm.valid">NEXT</button>
+<app-navbar [title]="title">
+    </app-navbar>
+    <form #commentForm="ngForm" (submit)="updateComments(commentForm)">	
+    <div class="row"  >
+    <div class="col-12 greyed">
+      <div class="row mt-5">
+        <div class="col-12 mt-3">
+          <h4 class="text-center text-white">{{title}}</h4>
         </div>
-        <ng-template #defaults >
-            <a routerLink="/revieworder" class="text-white ">
-              NEXT
-          </a>
-          </ng-template>
-      </div>
-      
-    
-</div> 
-
-<div class="container">
-   
-   
+        <div class="col-12">
+          <h4 class="text-center otopic">Notes</h4>
+        </div>
+        <div class="col-12">
+          <div class="row">
+            <div class="col-4">
+              <button class="btn btn-link m-3" routerLink="/time">
+                BACK
+              </button>
+            </div>
+            <div class="col-4 text-center">
   
-</div>
+              <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
+            </div>
+            <div class="col-4 text-right ">
+                    <div *ngIf="(prop | async)?.comments ===undefined;else defaults">
+                    <button type="submit" class="btn btn-link" [disabled]="!commentForm.valid">NEXT</button>
+                    </div>
+                    <ng-template #defaults >
+                            <button class="btn btn-link m-3" routerLink="/revieworder">
+                                NEXT
+                              </button>
+                      </ng-template>
+                  </div>
+                  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    
+
         <div class="col-md-6 mx-auto">
-          <h1>Please add any additional notes on this order</h1>
+          <h3 class="text-center">Please add any additional notes on this order</h3>
           <div *ngIf="(prop | async)?.comments ===undefined;else default">
-              <textarea class="form-control form-rounded" rows="7" name="comment" #comment="ngModel" [(ngModel)]="cli.comment"  placeholder="Please Enter Your Comments" required></textarea>
+              <textarea class="form-control form-rounded" rows="13" name="comment" #comment="ngModel" [(ngModel)]="cli.comment"  placeholder="Please Enter Your Comments" required></textarea>
           </div>
           <ng-template #default>
-              <textarea class="form-control form-rounded" rows="7" name="comment" #comment="ngModel" [(ngModel)]="cli.comment" [value]="(prop | async)?.comments" placeholder="Please Enter Your Comments" required></textarea>
+              <textarea class="form-control form-rounded" rows="13" name="comment" #comment="ngModel" [(ngModel)]="cli.comment" [value]="(prop | async)?.comments" placeholder="Please Enter Your Comments" required></textarea>
           </ng-template>
          
 
       
         
       </div>
-      
-
  
-        </form>
+    </form>

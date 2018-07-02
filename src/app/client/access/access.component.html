@@ -1,66 +1,97 @@
 
-<app-navbar
-[title]="title"></app-navbar>
-<div class="row greyed mt-5 pt-5">
-  <div class="col-12 py-3">
-     
-          <h4 class="text-center text-white d-none d-md-block d-lg-block d-xl-block">{{title}}</h4>
-          
-        <p class="text-center pcolor">property access   </p>     
-  </div>
-</div> 
+<app-navbar [title]="title">
+</app-navbar>
+<form #accessForm="ngForm" (submit)="accessSubmit(accessForm)">
+<div class="row"  >
+<div class="col-12 greyed">
+  <div class="row mt-5">
+    <div class="col-12 mt-3">
+      <h4 class="text-center text-white">{{title}}</h4>
+    </div>
+    <div class="col-12">
+      <h4 class="text-center otopic"> Property Access</h4>
+    </div>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-4">
+          <button class="btn btn-link m-3" routerLink="/addons">
+            BACK
+          </button>
+        </div>
+        <div class="col-4 text-center">
 
-  <form #accessForm="ngForm" (submit)="accessSubmit(accessForm)">
-    <div class="row greyed p-2">
-      <div class="col-sm-4 md-4 col-4 justify-content-left">
+            <h6 class="text-white">Subtotal :{{subtotal+(property | async)?.addonsprice}}</h6>
+        </div>
+        <div class="col-4 text-right">
+            <div *ngIf="(property|async)?.meet===undefined;else valids">
+              <button class="btn btn-link m-3" (click)="please()"></button>
+         </div>
+          <ng-template #valids>
+              <button routerLink="/date" class="btn btn-link m-3">NEXT</button>
   
-        <a routerLink="/product" class="text-white">
-              BACK
-          </a>
-  
+            </ng-template>
+          </div>
       </div>
-      <div class="col-sm-4 md-4 col-4 justify-content-center">
-        <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
-      </div>
-      <div class="col-sm-4 md-4 col-4 justify-content-right">
-        <a routerLink="/date" class="float-right text-white">NEXT</a>
-      </div>
+    </div>
   </div>
-            <div class="form-group row">
+</div>
+
                 
-                      <div class="col-md-12 mx-auto address">
-                        <h3 class="text-center">How will we access the property?
-                
-                        </h3> 
-                 
-                        
-                        <div class="row test">
-                          <div class="col-md-6 col-sm-6 col-12  mx-auto">
-                            <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="meetagent()">Meet agent on site</button>
-                            <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="lshow = !lshow;lockbox()">Lockbox</button>
-                            <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="ashow = !ashow;accesscode()">Access code</button>
-                            <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="others()">Others</button>
+<div class="col-md-12 mx-auto address">
+    <h3 class="text-center">How will we access the property?
+       
+    </h3>                 
+    <div class="row test">
+  {{obj}}
+      <div class="col-md-6 col-sm-6 col-12  mx-auto">
+   <div *ngIf="(property|async)?.meet==='meet agent on site';else valid0">
+        <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="meetagent()">Meet agent on site</button>
+  </div>
+  <ng-template #valid0>
+    <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)=" meetagent()">Meet agent on site</button>
+  </ng-template>
+  <div *ngIf="(property|async)?.meet==='lock code';else valid1">
+        <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="lshow = !lshow;lockbox()">Lockbox</button>
+  </div>
+  <ng-template #valid1>
+    <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="lshow = !lshow;lockbox()">Lockbox</button>
+  </ng-template>
+   <div *ngIf="(property|async)?.meet==='access code';else valid2">
+        <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="lshow = !lshow;accesscode()">Access code</button>
+  </div>
+  <ng-template #valid2>
+    <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="lshow = !lshow;accesscode()">Access code</button>
+  </ng-template>
+    <div *ngIf="(property|async)?.meet==='Others';else valid3">
+        <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="others()">Others</button>
+  </div>
+  <ng-template #valid3>
+      <button type="button" class="btn btn1 p- m-2 btn-block" (click)="others()">Others</button>
+  </ng-template>
 <!--                             
-                            <div *ngIf ="show">
-                              <input type="text mx-auto" name="code" placeholder="Code?" #code="ngModel" [(ngModel)]="cli.code" class="numinput text-center" required>
-                            </div> -->
-                            <div *ngIf="lshow">
-                        <input type="text mx-auto" name="lcode" placeholder="Code?" #code="ngModel" [(ngModel)]="cli.lcode" class="numinput text-center"
-                          required>
-                            </div>
-                           
-                           
-                         </div>
-                       </div>
-                       </div>
-            </div>
-            </form>
-                
-                
+        <div *ngIf ="show">
+          <input type="text mx-auto" name="code" placeholder="Code?" #code="ngModel" [(ngModel)]="cli.code" class="numinput text-center" required>
+        </div> -->
+        <div *ngIf="lshow">
+    <input type="text mx-auto" name="lcode" placeholder="Code?" #code="ngModel" [(ngModel)]="cli.lcode" class="numinput ml-1 text-center"
+      required>
+        </div>
+       
+       
+     </div>
+   </div>
+   </div>
 
- 
+</div>
+</form>           
 
-  
-  
-   
 
+
+
+
+
+
+
+
+                        
+                        
