@@ -106,7 +106,7 @@ export class ClientinfoService {
       this.buildingCollection.doc(createdby + this.unittracking()).update(
         {squarefeet})
       this.router.navigate(['/product'])
-    }
+    } 
 
     updateVisitingdate(visitingdate)
     {

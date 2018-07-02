@@ -1,54 +1,63 @@
-
-<app-navbar
-[title]="title"></app-navbar>
-<form #dateform="ngForm" (submit)="updatedate(dateform)">
-  <div class="row greyed mt-3 pt-5">
-    <div class="col-12 py-3">
-       
-            <h4 class="text-center text-white d-none d-md-block d-lg-block d-xl-block">{{title}}</h4>
-            
-          <p class="text-center pcolor">Order Review</p>     
-    </div>
-  </div> 
-  <div class="row greyed p-2">
-    <div class="col-sm-4 md-4 col-4 justify-content-left">
-
-      <a routerLink="/comment" class="text-white">
-            BACK
-        </a>
-
-    </div>
-    <div class="col-sm-4 md-4 col-4 justify-content-center">
-      <h4>Subtotal :<p>{{(data | async)?.price }}</p></h4>
-    </div>
-   
-</div>
-
-       
-<h3 class="text-center">All set? Please review your order below
-  </h3>   
-<div class="row review">
-<div class="col-md-6 mx-auto ">
-
-      
-     
-       <p class="reviewpara"><img src="/assets/image/icons/complete.png" class="reviewicon">    {{(data | async)?.building }}</p>
-       <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.street }}</p>
-       <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.city }}</p>
-       <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.zip }}</p>
-       <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.squarefeet }}</p>
-       <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.product}}</p>
-       <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.addonsprice}}</p> 
-       <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.accessproperty}}</p> 
-
-       <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.visitingdate }}</p>
-       <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.visitingtime }}</p>
-       <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.comments }}</p>
+<app-navbar [title]="title">
+  </app-navbar>
+  <form #dateform="ngForm" (submit)="updatedate(dateform)">	
+  <div class="row"  >
+  <div class="col-12 greyed">
+    <div class="row mt-5">
+      <div class="col-12 mt-3">
+        <h4 class="text-center text-white">{{title}}</h4>
       </div>
-</div>
-<div class="row">
-    <button type="button" class="btn btn1 mx-auto mt-1" routerLink="/completenew">ADD TO CART</button>
+      <div class="col-12">
+        <h4 class="text-center otopic">Order Review</h4>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-4">
+            <button class="btn btn-link m-3" routerLink="/comment">
+              BACK
+            </button>
+          </div>
+          <div class="col-4 text-center">
+
+            <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
+          </div>
+          <div class="col-4 text-right">
+          
+              <button class="btn btn-link m-3" routerLink="/completenew">NEXT</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+
+ 
+      <h3 class="text-center">All set? Please review your order below
+        </h3>   
+        <div class="row review">    
+      <div class="col-md-6 mx-auto">
+      
+            
+           
+             <p class="reviewpara"><img src="/assets/image/icons/complete.png" class="reviewicon">    {{(data | async)?.building }}</p>
+             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.street }}</p>
+             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.city }}</p>
+             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.zip }}</p>
+             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.squarefeet }}</p>
+             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.product}}</p>
+             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.addonsprice}}</p> 
+             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.accessproperty}}</p> 
+      
+             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.visitingdate }}</p>
+             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.visitingtime }}</p>
+             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.comments }}</p>
+            </div>
+      </div>
+      <div class="row">
+          <button type="button" class="btn btn1 mx-auto mt-1" routerLink="/completenew">ADD TO CART</button>
+       </div>
+      
 </form>
 
     

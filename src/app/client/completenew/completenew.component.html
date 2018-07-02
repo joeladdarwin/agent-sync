@@ -1,27 +1,36 @@
-<app-navbar
-[title]="title"></app-navbar>
-<form #dateform="ngForm" (submit)="updatedate(dateform)">
-  <div class="row greyed mt-3 pt-5">
-    <div class="col-12 py-3">
-       
-            <h4 class="text-center text-white d-none d-md-block d-lg-block d-xl-block">{{title}}</h4>
-            
-          <p class="text-center pcolor">Order Updated</p>     
-    </div>
-  </div> 
-  <div class="row greyed p-2">
-    <div class="col-sm-4 md-4 col-4 justify-content-left">
+<app-navbar [title]="title">
+  </app-navbar>
+  <form #dateform="ngForm" (submit)="updatedate(dateform)">	
+  <div class="row"  >
+  <div class="col-12 greyed">
+    <div class="row mt-5">
+      <div class="col-12 mt-3">
+        <h4 class="text-center text-white">{{title}}</h4>
+      </div>
+      <div class="col-12">
+        <h4 class="text-center otopic">Order Updated</h4>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-4">
+            <button class="btn btn-link m-3" routerLink="/revieworder">
+              BACK
+            </button>
+          </div>
+          <div class="col-4 text-center">
 
-      <a routerLink="/revieworder" class="text-white">
-            BACK
-        </a>
+            <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
+          </div>
+          <div class="col-4 text-right">
+          
+           
 
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-sm-4 md-4 col-4 justify-content-center">
-      <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
-    </div>
-    
-</div> <br><br>
+  </div>
+</div>
 <div class="col-md-6 mx-auto">
     <h2 class="comorder">Your order has been updated.</h2><br><br>
     <p class="comporder">To add another property or unit to your order,<br> please choose New Order below. Otherwise <br> submit this order.

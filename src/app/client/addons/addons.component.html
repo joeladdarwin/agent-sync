@@ -8,7 +8,7 @@
         <h4 class="text-center text-white">{{title}}</h4>
       </div>
       <div class="col-12">
-        <h4 class="text-center otopic">{{(property | async)?.building}} Products</h4>
+        <h4 class="text-center otopic"> Products</h4>
       </div>
       <div class="col-12">
         <div class="row">
@@ -19,7 +19,7 @@
           </div>
           <div class="col-4 text-center">
   
-              <h6 class="text-white">Subtotal :{{subtotal+(property | async)?.ordersprice}}</h6>
+              <h6 class="text-white">Subtotal :{{subtotal+(property | async)?.addonsprice}}</h6>
           </div>
           <div class="col-4 text-right">
            

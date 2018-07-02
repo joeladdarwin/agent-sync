@@ -1,41 +1,23 @@
 
 
-#headerback{
 
-    background-image: url('/assets/image/background.jpg');
-    background-repeat: no-repeat;
-    width:100vw;
-    height:100vh;
-    margin: auto;
-    background-size: cover;
+.numinput{
+    width:31rem;
 }
-
-
-.btn
-	{
-        color: #fff;	
-    }
-    a {
-        color: #F07C49;
-    }
    
 
 
-.btn-secondary {
-    background-color: #F07C49!important;
-   
-}
-.btn-remove {
-    background-color: grey!important;
-     
-}
-.btn.btn-link {
-    color: #fff!important;
-}
-.slidepara{
-    color:#5F5F5F;
-}
 
 
   
-     
+.btn-selected
+{
+    background-color:#D5D5D5 !important;
+    color:#000 !important;
+     font-size: 1.25rem;
+} 
+.btn-link
+{
+    color: #fff !important;
+}
+ 
