@@ -19,11 +19,17 @@
         </div>
         <div class="col-4 text-center">
 
-          <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
+        <h6 class="text-white">Subtotal :{{(property | async)?.ordersprice+(property | async)?.addonsprice}}</h6>
         </div>
         <div class="col-4 text-right">
-         
+            <div *ngIf="(property|async)?.visitingtime===undefined;else validsa">
+            <button class="btn btn-link m-3" type="submit">NEXT</button>
+            </div>
+            <ng-template #validsa>
             <button class="btn btn-link m-3" routerLink="/comment">NEXT</button>
+            
+            </ng-template>
+            
 
         </div>
       </div>
@@ -39,11 +45,42 @@
         
           <div class="row test">
             <div class="col-md-6 col-sm-6 col-12 mx-auto">
-                <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="updatetime('10.00am')">10.00 AM</button>
-                <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="updatetime('11.00am')">11.00 AM</button>
-                <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="updatetime('12.00pm')">12.00 PM</button>
-                <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="updatetime('1.00pm')">1.00 PM</button>
-                <button type="button" class="btn btn-secondary p-4 m-2 btn-block" (click)="updatetime('2.00pm')">2.00 PM</button>
+              <div *ngIf="(property|async)?.visitingtime==='10.00am';else validt1">
+                <button type="button" class="btn btn-selected p-3 mb-2 btn-block" (click)="updatetime('10.00am')">10.00 AM</button>
+               </div>
+               <ng-template #validt1>
+                <button type="button" class="btn btn1 p-3 mb-2 btn-block" (click)="updatetime('10.00am')">10.00 AM</button>
+               </ng-template> 
+              <div *ngIf="(property|async)?.visitingtime==='11.00am';else validt2">
+              <button type="button" class="btn btn-selected p-3 mb-2 btn-block" (click)="updatetime('11.00am')">11.00 AM</button>
+              </div>
+              <ng-template #validt2>
+              <button type="button" class="btn btn1 p-3 mb-2 btn-block" (click)="updatetime('11.00am')">11.00 AM</button>
+              </ng-template>
+              <div *ngIf="(property|async)?.visitingtime==='12.00pm';else validt3">
+              <button type="button" class="btn btn-selected p-3 mb-2 btn-block" (click)="updatetime('12.00pm')">12.00 PM</button>
+              </div>
+              <ng-template #validt3>
+              <button type="button" class="btn btn1 p-3 mb-2 btn-block" (click)="updatetime('12.00pm')">12.00 PM</button>
+              </ng-template>
+              <div *ngIf="(property|async)?.visitingtime==='1.00pm';else validt4">
+              <button type="button" class="btn btn-selected p-3 mb-2 btn-block" (click)="updatetime('1.00pm')">1.00 PM</button>
+              </div>
+              <ng-template #validt4>
+                <button type="button" class="btn btn1 p-3 mb-2 btn-block" (click)="updatetime('1.00pm')">1.00 PM</button>
+              </ng-template>
+              <div *ngIf="(property|async)?.visitingtime==='2.00pm';else validt5">
+                <button type="button" class="btn btn-selected p-3 mb-2 btn-block" (click)="updatetime('2.00pm')">2.00 PM</button>
+              </div>
+              <ng-template #validt5>
+                <button type="button" class="btn btn1 p-3 mb-2 btn-block" (click)="updatetime('2.00pm')">2.00 PM</button>
+              </ng-template>
+              
+               
+               
+               
+               
+               
             </div>
           </div>
            

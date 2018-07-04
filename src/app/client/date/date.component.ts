@@ -13,6 +13,7 @@ import { NgForm } from '@angular/forms';
 })
 export class DateComponent implements OnInit {
   title="New Order>First Order";
+  property;
   minDate = new Date(Date.now() + (5 * 24 * 60 * 60 * 1000));
   maxDate = new Date(2025, 0, 1);
   myFilter = (d: Date): boolean => {
@@ -29,6 +30,7 @@ export class DateComponent implements OnInit {
      this.cli.updateVisitingdate(date)
    }
   ngOnInit() {
+    this.property = this.cli.getBuilding2();
   }
 
 }

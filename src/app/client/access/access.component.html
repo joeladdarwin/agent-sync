@@ -20,12 +20,12 @@
         </div>
         <div class="col-4 text-center">
 
-            <h6 class="text-white">Subtotal :{{subtotal+(property | async)?.addonsprice}}</h6>
+            <h6 class="text-white">Subtotal :{{(property | async)?.ordersprice+(property | async)?.addonsprice}}</h6>
         </div>
         <div class="col-4 text-right">
             <div *ngIf="(property|async)?.meet===undefined;else valids">
               <button class="btn btn-link m-3" (click)="please()"></button>
-         </div>
+            </div>
           <ng-template #valids>
               <button routerLink="/date" class="btn btn-link m-3">NEXT</button>
   
@@ -48,19 +48,19 @@
         <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="meetagent()">Meet agent on site</button>
   </div>
   <ng-template #valid0>
-    <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)=" meetagent()">Meet agent on site</button>
+    <button type="button" class="btn btn-selected p-3 mb-2 btn-block" (click)=" meetagent()">Meet agent on site</button>
   </ng-template>
   <div *ngIf="(property|async)?.meet==='lock code';else valid1">
         <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="lshow = !lshow;lockbox()">Lockbox</button>
   </div>
   <ng-template #valid1>
-    <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="lshow = !lshow;lockbox()">Lockbox</button>
+    <button type="button" class="btn btn-selected p-3 mb-2 btn-block" (click)="lshow = !lshow;lockbox()">Lockbox</button>
   </ng-template>
    <div *ngIf="(property|async)?.meet==='access code';else valid2">
         <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="lshow = !lshow;accesscode()">Access code</button>
   </div>
   <ng-template #valid2>
-    <button type="button" class="btn btn1 p-3 m-2 btn-block" (click)="lshow = !lshow;accesscode()">Access code</button>
+    <button type="button" class="btn btn-selected p-3 mb-2 btn-block" (click)="lshow = !lshow;accesscode()">Access code</button>
   </ng-template>
     <div *ngIf="(property|async)?.meet==='Others';else valid3">
         <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="others()">Others</button>

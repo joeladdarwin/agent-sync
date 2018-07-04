@@ -1,33 +1,42 @@
   <app-navbar [title]="title">
   </app-navbar>
-  <form #dateform="ngForm" (submit)="updatedate(dateform)">	
-  <div class="row"  >
-  <div class="col-12 greyed">
-    <div class="row mt-5">
-      <div class="col-12 mt-3">
-        <h4 class="text-center text-white">{{title}}</h4>
-      </div>
-      <div class="col-12">
-        <h4 class="text-center otopic">Pick a Date</h4>
-      </div>
-      <div class="col-12">
-        <div class="row">
-          <div class="col-4">
-            <button class="btn btn-link m-3" routerLink="/access">
-              BACK
-            </button>
+  <form #dateform="ngForm" class="row" (submit)="updatedate(dateform)">	
+  
+      <div class="col-12 greyed">
+        <div class="row mt-5">
+          <div class="col-12 mt-3">
+            <h4 class="text-center text-white">{{title}}</h4>
           </div>
-          <div class="col-4 text-center">
-
-            <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
+          <div class="col-12">
+            <h4 class="text-center otopic">Pick a Date</h4>
           </div>
-          <div class="col-4 text-right">
-          
-              <button class="btn btn-link m-3" routerLink="/time">NEXT</button>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-4">
+                <button class="btn btn-link m-3" routerLink="/access">
+                  BACK
+                </button>
+              </div>
+              <div class="col-4 text-center">
 
+                <h6 class="text-white">Subtotal :{{(property | async)?.ordersprice+(property | async)?.addonsprice}} </h6>
+              </div>
+              <div class="col-4 text-right">
+                  <div *ngIf="(property|async)?.visitingdate===undefined;else validsa">
+                  <button class="btn btn-link m-3" type="submit">NEXT</button>
+                  </div>
+                  <ng-template #validsa>
+                    <button routerLink="/time" class="btn btn-link m-3">NEXT</button>
+                  
+                  </ng-template>
+                  
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
+<<<<<<< HEAD
     </div>
   </div>
 
@@ -45,3 +54,19 @@
 </div>
 </div>
 </form>
+=======
+      <div class="form-group row  mx-auto">
+          <div class="col-md-12">
+            <h3 class="text-center">Please choose an available date for this order  </h3> 
+              <div class="col-md-12 text-center mt-5">
+                <mat-form-field class="example-full-width">
+                  <input matInput [matDatepicker]="picker" [matDatepickerFilter]="myFilter" name="picker" #picker="ngModel" [(ngModel)]="cli.picker" [min]="minDate" [max]="maxDate" placeholder="Choose a date" required>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker touchUi="true" #picker></mat-datepicker>
+                </mat-form-field>
+              </div>
+          </div>
+      </div>
+    
+  </form>
+>>>>>>> 1e88f2b0df120a851b4d7c75081286a3317663cb

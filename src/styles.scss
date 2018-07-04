@@ -49,12 +49,19 @@ color: #F1875B
 	{
 		color: white;
         background-color:#F07C49;
+         font-size: 1.25rem;
         
     }
+    .btn-selected
+{
+    background-color:#D5D5D5 !important;
+    color:#000 !important;
+     font-size: 1.25rem;
+} 
 .btn1:hover
 {
     background-color: #D5D5D5;
-      color:#fff !important;
+      color:#000 !important;
 }  
 @media screen and (max-width: 780px) {
      #headerback{
@@ -63,10 +70,11 @@ color: #F1875B
         background-repeat: no-repeat;
         background-size: cover;     
     }
-    .fa{
+    .fa,.btn1,.btn-selected{
     font-size: 1rem;  
 
     }
+
     
 .btn1:hover
 {

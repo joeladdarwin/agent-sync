@@ -8,7 +8,7 @@
         <h4 class="text-center text-white">{{title}}</h4>
       </div>
       <div class="col-12">
-        <h4 class="text-center otopic"> Products</h4>
+        <h4 class="text-center otopic"> Addons</h4>
       </div>
       <div class="col-12">
         <div class="row">
@@ -18,13 +18,28 @@
             </button>
           </div>
           <div class="col-4 text-center">
-  
-              <h6 class="text-white">Subtotal :{{subtotal+(property | async)?.addonsprice}}</h6>
+              <div *ngIf="(property | async)?.squarefeet==='5251';else defsubtotal">
+                <h5 class="text-white">Subtotal : {{Custom}}</h5>
+              </div>
+              <ng-template #defsubtotal>
+                <ng-container *ngIf="(property | async)?.addonsprice===undefined;else current">
+                  <h5 class="text-white">Subtotal : ${{subtotal}}</h5>
+                </ng-container>
+              
+              </ng-template>
+              <ng-template #current>
+              
+              <h5 class="text-white">Subtotal : ${{(property | async)?.addon1price+(property | async)?.addon2price+(property | async)?.addon3price}}</h5>
+              
+              </ng-template>
           </div>
           <div class="col-4 text-right">
-           
-              <button class="btn btn-link m-3" routerLink="/access">NEXT</button>
-
+            <div *ngIf="(property|async)?.addons===undefined;else current">
+              <button type="submit" class="btn btn-link m-3">NEXT</button>
+            </div>
+            <ng-template #current>
+                <button class="btn btn-link m-3" routerLink="/access">NEXT</button>
+            </ng-template>
           </div>
         </div>
       </div>
@@ -33,11 +48,12 @@
 
   <div class="form-group row mx-auto">
 
-      <div class="col-md-12 mx-auto address">
-        <h3 class="text-center">Are there any add-ons You need to apply to this product?</h3> 
+      <div class="col-12 mx-auto address">
+        <h3 class="text-center mt-1">Are there any add-ons You need to apply to this product?</h3> 
  
         <h6 class="text-center">*Please select all that apply.{{addons}}</h6>
         <div class="row test">
+<<<<<<< HEAD
           <div class="col-md-6 col-sm-6 col-12 mx-auto">
               <div *ngIf="(property|async)?.addons==='Community Shot';else valid0">
                   <button type="button" class="btn btn-secondary p-3 m-2 btn-block" (click)="toggleClass($event, 50,'Community Shot')">
@@ -60,6 +76,41 @@
                              <ng-template #valid2>
                                 <button type="button" class="btn btn-secondary p-3 m-2 btn-block" (click)="toggleClass($event, 50,'Community Shot')">   Rush Fee(+$75)</button>
                              </ng-template>
+=======
+          <div class="col-xs-12 col-offset-1 col-10 mx-auto">
+            <div *ngIf="(property|async)?.addon1==='Community Shot';else defco">
+              <button type="button" class="btn btn-selected p-3 mb-2 btn-block" (click)="toggleClass($event, 50,'Community Shot');addon1($event, 50,'Community Shot')">
+                Community Shot (+$50)</button>
+            </div> 
+            <ng-template #defco>
+                <button type="button" class="btn btn1 p-3 mb-2 btn-block" (click)="toggleClass($event, 50,'Community Shot');addon1($event, 50,'Community Shot')">
+                  Community Shot (+$50)</button>
+            </ng-template>  
+            <div *ngIf="(property|async)?.addon1==='Twilight Shot';else deftw">
+            <button type="button" class="btn btn-selected p-3 mb-2 btn-block" (click)="toggleClass($event, 65,'Twilight Shot');addon2($event, 65,'Twilight Shot')">
+              Twilight Shot(+$65)</button>
+            </div>
+            <ng-template #deftw>
+            <button type="button" class="btn btn1 p-3 mb-2 btn-block" (click)="toggleClass($event, 65,'Twilight Shot');addon2($event, 65,'Twilight Shot')">
+              Twilight Shot(+$65)</button>
+            </ng-template>
+            <div *ngIf="(property|async)?.addon1==='Rush Fee';else defrf">
+              <button type="button" class="btn btn-selected p-3 mb-2 btn-block" (click)="toggleClass($event, 75,'Rush Fee');addon3($event, 75,'Rush Fee')">
+                Rush Fee(+$75)</button>
+            </div>
+            <ng-template #defrf>
+                <button type="button" class="btn btn1 p-3 mb-2 btn-block" (click)="toggleClass($event, 75,'Rush Fee');addon3($event, 75,'Rush Fee')">
+                  Rush Fee(+$75)</button>
+            </ng-template>
+
+
+            
+               
+              
+             
+            
+      
+>>>>>>> 1e88f2b0df120a851b4d7c75081286a3317663cb
            
             
            
