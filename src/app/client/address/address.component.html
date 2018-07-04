@@ -3,11 +3,11 @@
     <form class="row mt-5" #addressForm="ngForm" (submit)="addressSubmitapt(addressForm)">
         <div class="col-12 greyed">
             <div class="row">
-                <div class="col-12 mt-3">
+                <div class="col-12 mt-3 mb-4">
                     <h3 class="text-center text-white d-none d-md-block text-white">{{title}}</h3>
                 </div>
                 <div class="col-12">
-                    <h4 class="text-center otopic">{{(property | async)?.building}} Address</h4>
+                    <h4 class="text-center otopic mb-4">{{(property | async)?.building}} Address</h4>
                 </div>
                 <div class="col-12">
                     <div class="row">

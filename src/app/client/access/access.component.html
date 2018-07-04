@@ -6,10 +6,10 @@
 <div class="col-12 greyed">
   <div class="row mt-5">
     <div class="col-12 mt-3">
-      <h4 class="text-center text-white">{{title}}</h4>
+      <h4 class="text-center text-white mb-4">{{title}}</h4>
     </div>
     <div class="col-12">
-      <h4 class="text-center otopic"> Property Access</h4>
+      <h4 class="text-center otopic mb-4"> Property Access</h4>
     </div>
     <div class="col-12">
       <div class="row">
@@ -20,7 +20,7 @@
         </div>
         <div class="col-4 text-center">
 
-            <h6 class="text-white">Subtotal :{{(property | async)?.ordersprice+(property | async)?.addonsprice}}</h6>
+            <h6 class="text-light">Subtotal :<span class="otopic">${{(property | async)?.ordersprice+(property | async)?.addonsprice}}</span></h6>
         </div>
         <div class="col-4 text-right">
             <div *ngIf="(property|async)?.meet===undefined;else valids">
@@ -38,42 +38,42 @@
 
                 
 <div class="col-md-12 mx-auto address">
-    <h3 class="text-center">How will we access the property?
+    <h3 class="text-center my-4">How will we access the property?
        
     </h3>                 
     <div class="row test">
   {{obj}}
       <div class="col-md-6 col-sm-6 col-12  mx-auto">
    <div *ngIf="(property|async)?.meet==='meet agent on site';else valid0">
-        <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="meetagent()">Meet agent on site</button>
+        <button type="button" class="btn btn-selected p-3 mb-2 btn-block" (click)="meetagent()">Meet agent on site</button>
   </div>
   <ng-template #valid0>
-    <button type="button" class="btn btn-selected p-3 mb-2 btn-block" (click)=" meetagent()">Meet agent on site</button>
+    <button type="button" class="btn btn1 p-3 mb-2 btn-block" (click)=" meetagent()">Meet agent on site</button>
   </ng-template>
   <div *ngIf="(property|async)?.meet==='lock code';else valid1">
-        <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="lshow = !lshow;lockbox()">Lockbox</button>
+        <button type="button" class="btn btn-selected p-3 mb-2 btn-block" (click)="lshow = !lshow;lockbox()">Lockbox</button>
   </div>
   <ng-template #valid1>
-    <button type="button" class="btn btn-selected p-3 mb-2 btn-block" (click)="lshow = !lshow;lockbox()">Lockbox</button>
+    <button type="button" class="btn btn1 p-3 mb-2 btn-block" (click)="lshow = !lshow;lockbox()">Lockbox</button>
   </ng-template>
    <div *ngIf="(property|async)?.meet==='access code';else valid2">
-        <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="lshow = !lshow;accesscode()">Access code</button>
+        <button type="button" class="btn btn-selected p-3 mb-2 btn-block" (click)="lshow = !lshow;accesscode()">Access code</button>
   </div>
   <ng-template #valid2>
-    <button type="button" class="btn btn-selected p-3 mb-2 btn-block" (click)="lshow = !lshow;accesscode()">Access code</button>
+    <button type="button" class="btn btn1 p-3 mb-2 btn-block" (click)="lshow = !lshow;accesscode()">Access code</button>
   </ng-template>
     <div *ngIf="(property|async)?.meet==='Others';else valid3">
-        <button type="button" class="btn btn-selected p-3 m-2 btn-block" (click)="others()">Others</button>
+        <button type="button" class="btn btn-selected p-3 mb-2 btn-block" (click)="lshow = !lshow;others()">Others</button>
   </div>
   <ng-template #valid3>
-      <button type="button" class="btn btn1 p- m-2 btn-block" (click)="others()">Others</button>
+    <button type="button" class="btn btn1 p-3 mb-2 btn-block" (click)="lshow = !lshow;others()">Others</button>
   </ng-template>
 <!--                             
         <div *ngIf ="show">
           <input type="text mx-auto" name="code" placeholder="Code?" #code="ngModel" [(ngModel)]="cli.code" class="numinput text-center" required>
         </div> -->
         <div *ngIf="lshow">
-    <input type="text mx-auto" name="lcode" placeholder="Code?" #code="ngModel" [(ngModel)]="cli.lcode" class="numinput ml-1 text-center"
+    <input type="text mx-auto" name="lcode" placeholder="Code?" #code="ngModel" [(ngModel)]="cli.lcode" class="btn-block p-3 text-center"
       required>
         </div>
        

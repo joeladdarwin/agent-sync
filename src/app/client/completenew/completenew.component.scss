@@ -9,15 +9,6 @@
 
 }
 
-#headerback{
-
-    background-image: url('/assets/image/background.jpg');
-    background-repeat: no-repeat;
-    width:100vw;
-    height:100vh;
-    margin: auto;
-    background-size: cover;
-}
 
 
   
@@ -30,7 +21,7 @@
 		background-color:#F07C49;
         border-radius:20px;
          width: 21rem;
-         margin-top: 8rem;
+         margin-top: 6rem;
       
 		
     }
@@ -57,6 +48,14 @@
         border-radius:20px;
          width: 21rem;
         
+}
+.btn4
+{
+    color: white;
+    background-color:#F07C49;
+    border-radius:20px;
+    width: 21rem;
+    
 }
 
 @media screen and (max-width: 780px) {
