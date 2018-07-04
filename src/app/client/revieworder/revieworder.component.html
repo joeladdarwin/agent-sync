@@ -19,7 +19,7 @@
           </div>
           <div class="col-4 text-center">
 
-            <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
+            <h6 class="text-white">Subtotal :{{(property | async)?.ordersprice+(property | async)?.addonsprice}}</h6>
           </div>
           <div class="col-4 text-right">
           
@@ -45,11 +45,11 @@
              <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.city }}</p>
              <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.zip }}</p>
              <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.squarefeet }}</p>
-             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.product}}</p>
-             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.addonsprice}}</p> 
-             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.accessproperty}}</p> 
+             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.productsneeded}}</p>
+             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.addons}}</p> 
+             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.meet}}</p> 
       
-             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.visitingdate }}</p>
+             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.visitingdate}}</p>
              <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.visitingtime }}</p>
              <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.comments }}</p>
             </div>

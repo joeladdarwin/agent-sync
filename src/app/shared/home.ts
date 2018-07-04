@@ -35,6 +35,12 @@ export interface Home {
     product13price?: string;
     ordersprice ?: number;
     addons ?: string;
+    addon1?: string;
+    addon2?: string;
+    addon3?: string;
+    addon1price?: number;
+    addon2price?: number;
+    addon3price?: number;
     lockcode ?: string;
     meet ?: string;
     addonsprice ?: number;

@@ -106,7 +106,6 @@ export class ClientinfoService {
       this.buildingCollection.doc(createdby + this.unittracking()).update(
         {squarefeet})
       this.router.navigate(['/product'])
-<<<<<<< HEAD
       this.deleteProducts() 
       this.deleteProduct1();
       this.deleteProduct2();
@@ -121,13 +120,15 @@ export class ClientinfoService {
       this.deleteProduct11();
       this.deleteProduct12();
       this.deleteProduct13();
+      this.deleteAddons();
+      this.deleteAddon1();
+      this.deleteAddon2();
+      this.deleteAddon3();
     }
-=======
-    } 
->>>>>>> 002a73b139993e94cf058775de5397c0af00134e
 
-    updateVisitingdate(visitingdate)
+    updateVisitingdate(visitingdate: Date)
     {
+      
       var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
       this.buildingCollection.doc(createdby + this.unittracking()).update(
       {visitingdate})
@@ -303,12 +304,47 @@ export class ClientinfoService {
     this.buildingCollection.doc(createdby + this.unittracking()).update(
       { product13: firebase.firestore.FieldValue.delete(), product13price: firebase.firestore.FieldValue.delete() })
   }
+  updateAddon1(addon1, addon1price) {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      { addon1, addon1price })
+  }
+  deleteAddon1() {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      { addon1: firebase.firestore.FieldValue.delete(), addon1price: firebase.firestore.FieldValue.delete() })
+  }
+  updateAddon2(addon2, addon2price) {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      { addon2, addon2price })
+  }
+  deleteAddon2() {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      { addon2: firebase.firestore.FieldValue.delete(), addon2price: firebase.firestore.FieldValue.delete() })
+  }
+  updateAddon3(addon3, addon3price) {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      { addon3, addon3price })
+  }
+  deleteAddon3() {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      { addon3: firebase.firestore.FieldValue.delete(), addon3price: firebase.firestore.FieldValue.delete() })
+  }
   updateAddons(addons, addonsprice) {
     var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
     this.buildingCollection.doc(createdby + this.unittracking()).update(
       { addons, addonsprice })
 
     this.router.navigate(['/access'])
+  }
+  deleteAddons() {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      { addons: firebase.firestore.FieldValue.delete(), addonsprice: firebase.firestore.FieldValue.delete() })
   }
   updateMeet(lockcode)
   {
