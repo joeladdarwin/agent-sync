@@ -10,7 +10,7 @@
         <div class="col-12">
           <h4 class="text-center otopic mb-4">Notes</h4>
         </div>
-        <div class="col-12">
+        <div class="col-12">  
           <div class="row">
             <div class="col-4">
               <button class="btn btn-link m-3" routerLink="/time">
@@ -19,7 +19,7 @@
             </div>
             <div class="col-4 text-center">
   
-              <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
+              <h6 class="text-light">Subtotal : <span class="otopic">${{subtotal}}</span></h6>
             </div>
             <div class="col-4 text-right ">
                     <div *ngIf="(prop | async)?.comments ===undefined;else defaults">
