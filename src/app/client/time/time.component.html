@@ -19,7 +19,7 @@
         </div>
         <div class="col-4 text-center">
 
-        <h6 class="text-white">Subtotal :{{(property | async)?.ordersprice+(property | async)?.addonsprice}}</h6>
+        <h6 class="text-white">Subtotal : ${{(property | async)?.ordersprice+(property | async)?.addonsprice}}</h6>
         </div>
         <div class="col-4 text-right">
             <div *ngIf="(property|async)?.visitingtime===undefined;else validsa">

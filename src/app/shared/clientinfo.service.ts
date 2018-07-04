@@ -52,6 +52,7 @@ export class ClientinfoService {
   unittracking()
   {
     this.unit = 1;
+    
     return this.unit
   }
   addBuilding(building)
@@ -161,6 +162,17 @@ export class ClientinfoService {
       }
     )
     
+  }
+  AddtoCart(orderstatus) {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      {
+        orderstatus
+      }
+
+    )
+    this.router.navigate(['/completenew'])
+
   }
   updateProducts(productsneeded, ordersprice)
     {
