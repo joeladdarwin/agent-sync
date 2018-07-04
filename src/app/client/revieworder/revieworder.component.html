@@ -5,10 +5,10 @@
   <div class="col-12 greyed">
     <div class="row mt-5">
       <div class="col-12 mt-3">
-        <h4 class="text-center text-white">{{title}}</h4>
+        <h4 class="text-center text-white mb-2">{{title}}</h4>
       </div>
       <div class="col-12">
-        <h4 class="text-center otopic">Order Review</h4>
+        <h4 class="text-center otopic mb-2">Order Review</h4>
       </div>
       <div class="col-12">
         <div class="row">
@@ -19,7 +19,7 @@
           </div>
           <div class="col-4 text-center">
 
-            <h6 class="text-white">Subtotal :{{(property | async)?.ordersprice+(property | async)?.addonsprice}}</h6>
+            <h6 class="text-light">Subtotal: <span class="otopic"> ${{(data | async)?.ordersprice+(data | async)?.addonsprice}}</span></h6>
           </div>
           <div class="col-4 text-right">
           
@@ -33,7 +33,7 @@
 </div>
 
  
-      <h3 class="text-center">All set? Please review your order below
+      <h3 class="text-center my-5">All set? Please review your order below
         </h3>   
         <div class="row review">    
       <div class="col-md-6 mx-auto">
@@ -48,14 +48,13 @@
              <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.productsneeded}}</p>
              <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.addons}}</p> 
              <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.meet}}</p> 
-      
              <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.visitingdate}}</p>
              <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.visitingtime }}</p>
              <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.comments }}</p>
             </div>
       </div>
       <div class="row">
-          <button type="button" class="btn btn1 mx-auto mt-1" routerLink="/completenew">ADD TO CART</button>
+          <button type="button" class="btn btn1 mx-auto mt-1"(click)="AddtoCart()" >ADD TO CART</button>
        </div>
       
 </form>
