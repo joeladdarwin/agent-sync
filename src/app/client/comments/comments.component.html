@@ -5,10 +5,10 @@
     <div class="col-12 greyed">
       <div class="row mt-5">
         <div class="col-12 mt-3">
-          <h4 class="text-center text-white">{{title}}</h4>
+          <h4 class="text-center text-white mb-4">{{title}}</h4>
         </div>
         <div class="col-12">
-          <h4 class="text-center otopic">Notes</h4>
+          <h4 class="text-center otopic mb-4">Notes</h4>
         </div>
         <div class="col-12">
           <div class="row">
@@ -41,7 +41,7 @@
     
 
         <div class="col-md-6 mx-auto">
-          <h3 class="text-center">Please add any additional notes on this order</h3>
+          <h3 class="text-center my-4">Please add any additional notes on this order</h3>
           <div *ngIf="(prop | async)?.comments ===undefined;else default">
               <textarea class="form-control form-rounded" rows="13" name="comment" #comment="ngModel" [(ngModel)]="cli.comment"  placeholder="Please Enter Your Comments" required></textarea>
           </div>

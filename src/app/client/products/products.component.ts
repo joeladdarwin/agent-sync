@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   providers:[ClientinfoService]
 })
 export class ProductsComponent implements OnInit {
-  title="New Order>First Order";
+  title="New Order > First Order";
   property;
   subtotal:number = 0;
   spw = false;
