@@ -8,29 +8,39 @@
 
            
 
-            <div class="col-12 greyed mt-2">
+        <div class="col-12 greyed">
                 <div class="row">
-                    <div class="col-12 p-4"><h2 class="text-center d-none d-md-block text-white">{{title}}</h2>
+                    <div class="col-12 mt-3 mb-4">
+                        <h3 class="text-center text-white d-none d-md-block text-white">{{title}}</h3>
                     </div>
-                    <div class="col-12"><h4 class="text-center text-white">Number Of Units</h4></div>
                     <div class="col-12">
-                    <div class="row">
-                        
-                        <div class="col-4">
-                            <button class="btn btn-link" routerLink="/placeorder">
-                                BACK
-                            </button>   
-                        </div>
-                        <div class="col-4 text-center">
-                            
-                          
-                        </div>
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-link float-right"><a (click)="updatetotalunit()">NEXT </a></button>  
-                        </div>
+                        <h4 class="text-center otopic mb-4">{{(property | async)?.building}} Number Of Units</h4>
+                    </div>
+                    <div class="col-12">
+                        <div class="row">
+    
+                            <div class="col-4">
+    
+                                <button class="btn btn-link m-3" routerLink="/placeorder">
+                                    BACK
+                                </button>
+    
+    
+    
+                            </div>
+                            <div class="col-4 text-center">
+    
+                                  
+                            </div>
+                            <div class="col-4 text-right">
+                                
+                                    <button class="btn btn-link m-3" routerLink="/address">
+                                       NEXT
+                                    </button>
+                            </div>
                         </div>
                     </div>
-                  
+    
                 </div>
             </div>
          
@@ -40,7 +50,7 @@
                 <div class="col-md-12 mx-auto">
 
                     <div class="col-md-12 mx-auto mt-2">
-                        <h3>How many units are we serving at this property?</h3> 
+                        <h3 class="text-center my-4">How many units are we serving at this property?</h3> 
                   
                         <div class="row">
                           <div class="col-md-12 text-center">
@@ -60,8 +70,3 @@
                 </div>
             </div> 
 </form>
-<div class="col-md-12 text-center">
-    <i class="fa fa-angle-up mx-auto"></i>
-    <p class="slidepara">Slide to view prices</p>
-
-</div> 
