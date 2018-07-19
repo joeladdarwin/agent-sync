@@ -1,0 +1,92 @@
+<div class="row" id="headerback">
+        
+  <div class="offset-2 col-8 offset-md-5 col-md-2 text-center mt-3">
+     <img src="/assets/image/logo1.jpg" class="rounded-circle img-fluid mt-3">
+     <img src="/assets/image/icons/agentsynclogo.png" class="img-fluid my-2" alt="Agent-sync">
+   </div> 
+   
+
+   <div class="col-6 mx-auto mt-3 d-block d-sm-block d-md-none d-lg-none d-xl-none">
+           
+           <form class="row" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+                 
+           
+             <div class="form-group col-12">
+               <p class="error text-center">{{ (error | async)?.message }}</p>
+               <div class="row">
+                
+                   <input type="email" class="form-control-lg col-12 text-center" placeholder="Email" required (ngModel)="email" name="email">
+                   <input type="password" class="form-control-lg col-12 text-center" placeholder="Password" required (ngModel)="password" name="password">
+               </div>
+             </div>
+             <div class="form-group col-12">
+               <div class="row">
+                    <div class="offset-1 col-10 my-2">
+                     <button type="submit" class="btn btn1 btn-block mx-auto btn-lg p-3" [disabled]="!loginForm.valid">SIGN IN</button>
+                    </div>
+               </div>
+             </div>
+             <div class="form-group col-12 my-2">
+                 <div class="row">
+                     <div class="offset-sm-1 col-sm-4 offset-xs-1 col-xs-4">
+                     
+                       <button type="button" class="btn btn2 btn-block p-4 mb-1" routerLink="/register">REGISTER ME</button>
+                     
+                     
+                     </div>
+                     <div class="offset-sm-1 col-sm-4 offset-xs-1 col-xs-6">
+                       <button type="button" class="btn btn2 btn-block p-4 mb-1" routerLink="/forget">FORGET INFO</button>
+                     </div>
+                 </div>
+                         
+             </div>
+             
+           </form>
+
+          
+   </div>  
+
+   <!-- for md -->
+   <div class="col-md-12 d-none d-md-block d-lg-block d-xl-block">
+   
+     <form class="row" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+   
+   
+       <div class="form-group offset-md-1 col-md-10">
+         <p class="error text-center">{{ (error | async)?.message }}</p>
+         <div class="row">
+   
+           <input type="email" class="form-control-lg col-12 text-center" placeholder="Email" required (ngModel)="email" name="email">
+           <input type="password" class="form-control-lg col-12 text-center" placeholder="Password" required (ngModel)="password" name="password">
+         </div>
+       </div>
+       <div class="form-group col-12">
+         <div class="row">
+           <div class="offset-1 col-10 my-2">
+             <button type="submit" class="btn btn1 btn-block mx-auto btn-lg p-4" [disabled]="!loginForm.valid">SIGN IN</button>
+           </div>
+         </div>
+       </div>
+       <div class="form-group col-12 mb-2">
+         <div class="row">
+           <div class="offset-sm-1 col-sm-4 offset-xs-1 col-xs-4">
+   
+             <button type="button" class="btn btn2 btn-block p-4 mb-1" routerLink="/register">REGISTER ME</button>
+   
+   
+           </div>
+           <div class="offset-sm-1 col-sm-4 offset-xs-1 col-xs-6">
+             <button type="button" class="btn btn2 btn-block p-4 mb-1" routerLink="/forget">FORGET INFO</button>
+           </div>
+         </div>
+   
+       </div>
+   
+     </form>
+   
+   
+   </div>
+
+</div>
+  
+        

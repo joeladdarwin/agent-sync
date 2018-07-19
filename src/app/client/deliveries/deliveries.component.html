@@ -1,33 +1,83 @@
+<app-navbar
+[title]="title"></app-navbar>
 
-   <app-navbar></app-navbar>
-   <div class="row">
-   <div class="jumbotron jumbotron-fluid">
-      <div class="container text-center">
-        <h4>My Deliveries</h4>      
-       
-      </div><br><br>
-      <div class="row">
-          <div class="container-fluid">
-            <div class="row text-center">
-              <div class="col-sm-4 md-4 col-4 con">
-               
-          <h4 routerLink="/dashboard">BACK</h4>
-                
-              </div>
-              <div class="col-sm-4 md-4 col-4 con">
-             
-              </div>
-              <div class="col-sm-4 md-4 col-4 con">
-                <h4>SELECT</h4>
-              </div>
-            
+<form class="row my-5"  #addressForm="ngForm" (submit)="addressSubmit(addressForm)">
+        <div class="col-12 greyed">
+                <div class="row">
+                    <div class="col-12 mt-3 mb-4">
+                        <h4 class="text-center text-white mb-4">{{title}}</h4>
+                    </div>
+                 
+                    <div class="col-12">
+                        <div class="row">
+    
+                            <div class="col-4">
+    
+                                <button class="btn btn-link m-3" routerLink="/placeorder">
+                                    BACK
+                                </button>
+    
+    
+    
+                            </div>
+                            <div class="col-4 text-center">
+    
+                                  
+                            </div>
+                            <div class="col-4 text-right">
+                                
+                                    <button class="btn btn-link m-3" routerLink="/address">
+                                       SELECT
+                                    </button>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
             </div>
-          </div>
-      
-        </div>
-      
-    </div>
-  </div>
-       <div class="row">
-         <button type="button" class="btn btn1 mx-auto">DOWNLOAD</button>
-       </div>
+            <div class="row mx-auto my-4">
+                <div class="col-md-4 col-4">
+                           
+           
+                    <div class="example">
+                        <label class="checkbox-button ">
+                          <input type="checkbox" class="checkbox-button__input" id="choice1-1" name="choice1">
+                          <span class="checkbox-button__control " ></span>
+                        
+                        </label>
+                      </div>
+                       <div class="imagee">
+                          <img src="/assets/image/icons/folder.png" class="checkimage">
+                       </div>
+                  
+        
+                </div>
+                <div class="col-md-4 col-4">
+                    <div class="example">
+                        <label class="checkbox-button ">
+                          <input type="checkbox" class="checkbox-button__input" id="choice1-1" name="choice1">
+                          <span class="checkbox-button__control"></span>
+                        
+                        </label>
+                      </div>
+                       <div class="imagee">
+                          <img src="/assets/image/background/mobile/Home.png" class="checkimage">
+                       </div>
+                      
+                  </div>
+                  <div class="col-md-4 col-4">
+                      <div class="example">
+                          <label class="checkbox-button ">
+                            <input type="checkbox" class="checkbox-button__input" id="choice1-1" name="choice1">
+                            <span class="checkbox-button__control"></span>
+                          
+                          </label>
+                        </div>
+                         <div class="imagee">
+                            <img src="/assets/image/background/mobile/Home.png" class="checkimage">
+                         </div>
+                      
+                    </div>
+                    
+                 <button type="button" class="btn btn1 mx-auto">DOWNLOAD</button>
+               </div>

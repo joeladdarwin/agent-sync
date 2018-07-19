@@ -21,6 +21,7 @@ export class ClientinfoService {
   displayName: string;
   user : Observable<User>;
   usersCollection : AngularFirestoreCollection<Client>;
+  ordersCollection: AngularFirestoreCollection<Home>;
   users : Observable<Client[]>;
   buildingCollection : AngularFirestoreCollection<Home>;
   priceCollection: AngularFirestoreCollection<Commercial>;
@@ -33,10 +34,14 @@ export class ClientinfoService {
   private userDetails: firebase.User = null;
   constructor(public afs: AngularFirestore, private afAuth: AngularFireAuth, private router: Router) {
     this.user = this.afAuth.authState;
-    
+    this.ordersCollection = this.afs.collection('orders');
     this.usersCollection = this.afs.collection('users');
     this.buildingCollection = this.afs.collection('building');
     this.priceCollection = this.afs.collection('price');
+
+    
+
+ 
    
     // this.unit =1 ;
     this.user.subscribe((user) => {
@@ -162,7 +167,22 @@ export class ClientinfoService {
       }
     )
     
+    
   }
+  QueryOrder()
+  {
+    this.ordersCollection.ref.get().then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        //doc.data() is never undefined for query doc snapshots
+        //console.log(doc.id, " => ", doc.data());
+        console.log( doc.data());
+        console.log(doc.id, " => ", doc.data());
+        return doc.data();
+      });
+    
+    });
+  }
+  
   AddtoCart(orderstatus) {
     var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
     this.buildingCollection.doc(createdby + this.unittracking()).update(

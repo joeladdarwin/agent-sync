@@ -3,9 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { FooterComponent } from './footer/footer.component';
-import { HeadernavComponent } from './headernav/headernav.component';
 
-import { SidebarComponent } from './sidebar/sidebar.component';
+
 
 @NgModule({
   imports: [
@@ -13,14 +12,12 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     RouterModule,
   ],
   declarations: [
-    FooterComponent,
-    HeadernavComponent,
-    SidebarComponent
+    FooterComponent
+   
   ],
   exports: [
-    FooterComponent,
-    HeadernavComponent,
-    SidebarComponent
+    FooterComponent
+ 
   ]
 })
 export class ComponentsModule { }

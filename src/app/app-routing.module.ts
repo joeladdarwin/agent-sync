@@ -37,13 +37,14 @@ import { AdminLayoutComponent } from './admin/layout/admin-layout/admin-layout/a
 
 import { NotificationComponent } from './admin/notification/notification.component';
 import { UserProfileComponent } from './admin/user-profile/user-profile.component';
-import { SidebarComponent } from './admin/component/sidebar/sidebar.component';
+
 import { FooterComponent } from './admin/component/footer/footer.component';
-import { HeadernavComponent } from './admin/component/headernav/headernav.component';
 
-
-
-
+import { UsersComponent } from './admin/component/users/users.component';
+import { BlankComponent } from './admin/component/blank/blank.component';
+import { AdminLoginComponent } from './admin/component/admin-login/admin-login.component';
+import { AdminDashboardComponent } from './admin/component/admin-dashboard/admin-dashboard.component';
+import { OrdersComponent } from './admin/component/orders/orders.component';
 
 
 
@@ -79,9 +80,14 @@ const routes: Routes = [
   { path: "admin-layout", component: AdminLayoutComponent, canActivate: [AuthGuard] },
   { path: "notification", component: NotificationComponent, canActivate: [AuthGuard] },
   { path: "user-profile", component: UserProfileComponent, canActivate: [AuthGuard] },
-  { path: "sidebar", component: SidebarComponent, canActivate: [AuthGuard] },
+  
   { path: "footer", component: FooterComponent, canActivate: [AuthGuard] },
-  { path: "headernav", component: HeadernavComponent, canActivate: [AuthGuard] },
+ 
+  { path: "users", component: UsersComponent, canActivate: [AuthGuard] },
+  { path: "blank", component: BlankComponent, canActivate: [AuthGuard] },
+  { path: "admin-login", component: AdminLoginComponent, canActivate: [AuthGuard] },
+  { path: "admin-dashboard", component: AdminDashboardComponent, canActivate: [AuthGuard] },
+  { path: "orders", component: OrdersComponent, canActivate: [AuthGuard] },
  
   
   
