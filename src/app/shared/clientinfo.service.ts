@@ -21,9 +21,9 @@ export class ClientinfoService {
   displayName: string;
   user : Observable<User>;
   usersCollection : AngularFirestoreCollection<Client>;
+  ordersCollection: AngularFirestoreCollection<Home>;
   users : Observable<Client[]>;
   buildingCollection : AngularFirestoreCollection<Home>;
-  ordersCollection: AngularFirestoreCollection<Home>;
   priceCollection: AngularFirestoreCollection<Commercial>;
   userDocument : AngularFirestoreDocument<Client>;
   docRef; 
@@ -36,11 +36,15 @@ export class ClientinfoService {
   private userDetails: firebase.User = null;
   constructor(public afs: AngularFirestore, private afAuth: AngularFireAuth, private router: Router) {
     this.user = this.afAuth.authState;
-    
+    this.ordersCollection = this.afs.collection('orders');
     this.usersCollection = this.afs.collection('users');
     this.buildingCollection = this.afs.collection('building');
     this.ordersCollection = this.afs.collection('orders');
     this.priceCollection = this.afs.collection('price');
+
+    
+
+ 
    
     // this.unit =1 ;
     this.user.subscribe((user) => {
@@ -165,7 +169,18 @@ export class ClientinfoService {
       this.router.navigate(['/revieworder'])
     }
  
-  
+  QueryOrder() {
+    this.ordersCollection.ref.get().then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        //doc.data() is never undefined for query doc snapshots
+        //console.log(doc.id, " => ", doc.data());
+        console.log(doc.data());
+        console.log(doc.id, " => ", doc.data());
+        return doc.data();
+      });
+
+    });
+  }
  
   placeOrderaptaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet){
     var createdby = this.afAuth.auth.currentUser.displayName;

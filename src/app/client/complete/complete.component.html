@@ -19,7 +19,7 @@
           </div>
           <div class="col-4 text-center">
 
-            <h6 class="text-white">Subtotal : ${{subtotal}}</h6>
+            <h6 class="text-white">Subtotal : <span class="otopic">${{(property | async)?.ordersprice+(property | async)?.addonsprice}}</span></h6>
           </div>
           <div class="col-4 text-right">
           
@@ -39,11 +39,19 @@
 
 </div>
 <div class="row">
-    <button type="button" class="btn btn4 mx-auto" routerLink="/dashboard">BACK TO HOME </button>
+    <button type="button" class="btn btn4 mx-auto" (click)="backtohome()">BACK TO HOME </button>
    
   </div>
-  <div class="row">
-      <button type="button" class="btn btn3 mx-auto" routerLink="/placeorder">PLACE NEW ORDER</button>
+  <div class="row ">
+     <div class="col-md-12 text-center">
+        <div *ngIf="(property | async)?.unit===1 ">
+            <button type="button" class="btn btn3 mx-auto" (click)="placeneworder(1)">PLACE NEW ORDER</button>
+        </div>
+        <div *ngIf="(property | async)?.unit===2">
+            <button type="button" class="btn btn3 mx-auto" (click)="placeneworder(2)">PLACE NEW ORDER</button> 
+          </div>
+     </div>
+     
      
     </div>
 </form>
