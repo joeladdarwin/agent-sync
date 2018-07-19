@@ -35,15 +35,22 @@ export interface Home {
     product13price?: string;
     ordersprice ?: number;
     addons ?: string;
+    addonsprice?: number;
     addon1?: string;
-    addon2?: string;
-    addon3?: string;
     addon1price?: number;
+    addon2?: string;
     addon2price?: number;
+    addon3?: string;
     addon3price?: number;
+    addon?: {
+        Community?:number;
+        Twlight?:number;
+        RushFee?:number;
+    }
+    
     lockcode ?: string;
     meet ?: string;
-    addonsprice ?: number;
+   
     accessproperty ?: string;
     visitingdate ?: string;
     visitingtime ?: number;

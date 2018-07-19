@@ -16,19 +16,19 @@ export class ProductsComponent implements OnInit {
   spw = false;
   inc = false;
   status;
-  Custom="Custom quote"
+  Custom="Custom quote";
+  orderedproducts:string[]=[];
   orders:string=""; 
   error;
   constructor(private cli : ClientinfoService, private router: Router) { }
 
   ngOnInit() {
     this.property = this.cli.getBuilding2()
-    console.log(this.orders)
-    console.log(this.property);
+    
   }
   productspush(productsform)
   {
-  
+    this.cli.updateOrders(this.orderedproducts,this.subtotal)
     if (this.subtotal > 0 || this.Custom ==="Custom quote")
     {
            
@@ -222,6 +222,12 @@ export class ProductsComponent implements OnInit {
       this.subtotal = this.subtotal-price;
      this.orders = this.orders.replace(order+",","");
      console.log(this.orders);
+      for (var i = this.orderedproducts.length - 1; i >= 0; i--) {
+        if (this.orderedproducts[i] === order) {
+          this.orderedproducts.splice(i, 1);
+          // break;       //<-- Uncomment  if only the first term has to be removed
+        }
+      }
      
       // this.orders = this.orders.filter(item => item !== order)
       classList.remove('btn-selected');
@@ -230,6 +236,7 @@ export class ProductsComponent implements OnInit {
     } else if (classes.includes('btn1')) {
       classList.add('btn-selected');
       classList.remove('btn1');
+      this.orderedproducts.push(order)
       this.subtotal = this.subtotal+price;
       
       this.orders = this.orders + order+"," ;

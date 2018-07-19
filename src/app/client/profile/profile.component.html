@@ -1,61 +1,19 @@
 
-<!--Navbar-->
-<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar scrolling-navbar ie-nav" >
-           
-  <!-- Navbar brand -->
-
-
-  <!-- Collapsible content -->
-  <links>
-
-      <!-- Links -->
-      <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-              <a class="nav-link waves-light" mdbWavesEffect>Main<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link waves-light" mdbWavesEffect>Price Menu</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link waves-light" mdbWavesEffect>Place Order</a>
-          </li>
-          <li class="nav-item">
-                  <a class="nav-link waves-light" mdbWavesEffect>My Orders</a>
-              </li>
-              <li class="nav-item">
-                      <a class="nav-link waves-light" mdbWavesEffect>My Account</a>
-                  </li>
-                  <li class="nav-item">
-                          <a class="nav-link waves-light" mdbWavesEffect>Deliveries</a>
-                      </li>
-                      <li class="nav-item">
-                              <a class="nav-link waves-light" mdbWavesEffect>Profile</a>
-                          </li>
-
-         
-
-      </ul>
-      <!-- Links -->
-
-
-  </links>
-  <!-- Collapsible content -->
-
-</mdb-navbar>
+<app-navbar [title]="title">
+</app-navbar>
 <!--/.Navbar-->
           
-<div class="container-fluid">
+
 <div class="row text-center">
   <div class="col-md-12">
     <img src='/assets/image/profile.png' class="img-thumbnail">
-    <p>LINDA GREEN</p><hr>  
+    <p>{{name}}</p><hr>  
     </div>
     <div class="col-md-12">
-    <p>yourname@domain.com</p><hr>
+    <p>{{email}}</p><hr>
     <p>Your Real Estate Company</p><hr>
-    <p>(555) 535 6646</p><hr>
+    <p>{{phone}}</p><hr>
     <p>Payment Info: <span>Not set up yet</span></p><hr>
     <button type="button" class="btn btn1" routerLink="/editprofile">Edit Profile</button>
   </div>
-</div>
 </div>

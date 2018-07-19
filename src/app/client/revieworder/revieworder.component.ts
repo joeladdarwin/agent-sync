@@ -13,6 +13,7 @@ export class RevieworderComponent implements OnInit {
   title="New Order > First Unit";
   data;
   data1;
+  date;
   
   constructor(public cli : ClientinfoService) {
   
@@ -23,6 +24,7 @@ export class RevieworderComponent implements OnInit {
   }
   ngOnInit() {
     this.data = this.cli.getBuilding2();
+    
   }
 
 }

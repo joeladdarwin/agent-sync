@@ -23,12 +23,12 @@
             <h6 class="text-light">Subtotal :<span class="otopic">${{(property | async)?.ordersprice+(property | async)?.addonsprice}}</span></h6>
         </div>
         <div class="col-4 text-right">
-            <div *ngIf="(property|async)?.meet===undefined;else valids">
-              <button class="btn btn-link m-3" (click)="please()"></button>
+            <div *ngIf="(property|async)?.meet==='lock code'|| (property|async)?.meet==='access code'|| (property|async)?.meet==='Others' ||(property|async)?.meet ==='meet agent on site' ;else valids">
+              <button class="btn btn-link m-3" (click)="please(lcode.value)">NEXT</button>
             </div>
           <ng-template #valids>
-              <button routerLink="/date" class="btn btn-link m-3">NEXT</button>
-  
+              
+                <button class="btn btn-link m-3" (click)="please(lcode.value)">NEXT</button>
             </ng-template>
           </div>
       </div>
@@ -73,7 +73,8 @@
           <input type="text mx-auto" name="code" placeholder="Code?" #code="ngModel" [(ngModel)]="cli.code" class="numinput text-center" required>
         </div> -->
         <div *ngIf="lshow">
-    <input type="text mx-auto" name="lcode" placeholder="Code?" #code="ngModel" [(ngModel)]="cli.lcode" class="btn-block p-3 text-center"
+          
+    <input type="text" name="lcode" placeholder="Code?" #lcode #lcode="ngModel" [(ngModel)]="cli.lcode" class="btn-block p-3 text-center"
       required>
         </div>
        

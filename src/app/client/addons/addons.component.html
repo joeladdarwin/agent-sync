@@ -52,6 +52,17 @@
       <h3 class="text-center my-4">Are there any add-ons You need to apply to this product?</h3> 
 
       <h6 class="text-center">*Please select all that apply.{{addons}}</h6>
+  <ul>
+    <li *ngFor="let addon of (property | async)?.addons;let i=index;">
+  
+     {{i}}is {{addon}} 
+  
+    </li>
+  
+  </ul>
+      
+    
+      
       <div class="row test">
         <div class="col-xs-12 col-offset-1 col-10 mx-auto">
           <div *ngIf="(property|async)?.addon1==='Community Shot';else defco">

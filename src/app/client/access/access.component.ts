@@ -21,9 +21,9 @@ obj;
   constructor(private cli : ClientinfoService, private router : Router) {
    
    }
-   please()
+   please(lcode)
    {
-     this.obj = "Please select a squarefeet";
+     this.cli.updateMeet(lcode)
    }
 
   ngOnInit() {
@@ -36,7 +36,7 @@ obj;
    
     var lcode = accessForm.controls['lcode'].value;
    
-     
+      console.log(lcode);
       this.cli.updateMeet(lcode)
   }
   lockbox()

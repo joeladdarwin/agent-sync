@@ -5,7 +5,7 @@
   <div class="col-12 greyed">
     <div class="row mt-5">
       <div class="col-12 mt-3">
-        <h4 class="text-center text-white mb-2">{{title}}</h4>
+        <h4 class="text-center text-white my-2">{{title}}</h4>
       </div>
       <div class="col-12">
         <h4 class="text-center otopic mb-2">Order Review</h4>
@@ -37,7 +37,7 @@
         </h3>   
         <div class="row review">    
       <div class="col-md-6 mx-auto">
-      
+            
             
            
              <p class="reviewpara"><img src="/assets/image/icons/complete.png" class="reviewicon">    {{(data | async)?.building }}</p>
@@ -46,11 +46,23 @@
              <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.zip }}</p>
              <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.squarefeet }}</p>
              <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.productsneeded}}</p>
-             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.addons}}</p> 
+       
+             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">  <strong>ADDONS</strong></p>  
+            <ul style="list-style-type:none">
+            
+              <li style="list-style-type:none" *ngFor="let addon of (data | async)?.addons">
+                <p class="reviewpara">
+            
+                  <img src="/assets/image/icons/complete.png" class="reviewicon"> {{addon}}</p>
+              </li>
+            
+            </ul>
+            <p>{{date}}</p>
              <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.meet}}</p> 
-             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.visitingdate}}</p>
+             <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.visitingdate.toDate() | date :'mediumDate'}}</p>
              <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.visitingtime }}</p>
              <p class="reviewpara"><img src="/assets/image/icons/complete.png"  class="reviewicon">   {{(data | async)?.comments }}</p>
+
             </div>
       </div>
       <div class="row">

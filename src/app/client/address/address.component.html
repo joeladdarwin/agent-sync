@@ -3,7 +3,7 @@
     <form class="row mt-5" #addressForm="ngForm" (submit)="addressSubmitapt(addressForm)">
         <div class="col-12 greyed">
             <div class="row">
-                <div class="col-12 mt-3 mb-4">
+                <div class="col-12 mt-3 my-4">
                     <h3 class="text-center text-white d-none d-md-block text-white">{{title}}</h3>
                 </div>
                 <div class="col-12">
@@ -66,11 +66,11 @@
                 <br>
                 <br>
                 <div *ngIf="(property | async)?.unit===undefined;else nounit">
-                    <input type="text" name="unit" #unit="ngModel" [(ngModel)]="cli.unit"  placeholder="Unit Number"
+                    <input type="text" name="unit" #unit="ngModel" [(ngModel)]="cli.unita"  placeholder="Unit Number"
                         required class="numinput p-3 btn-block text-center">
                 </div>
                 <ng-template #nounit>
-                    <input type="text" name="unit" #unit="ngModel" [(ngModel)]="cli.unit" [value]="(property | async)?.unit" placeholder="Unit Number"
+                    <input type="text" name="unit" #unit="ngModel" [(ngModel)]="cli.unita" placeholder="Unit Number" [value]="(property | async)?.unit" 
                         required class="numinput p-3 btn-block text-center">
                 </ng-template>
                

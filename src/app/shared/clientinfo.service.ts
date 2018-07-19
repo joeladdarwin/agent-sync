@@ -23,6 +23,7 @@ export class ClientinfoService {
   usersCollection : AngularFirestoreCollection<Client>;
   users : Observable<Client[]>;
   buildingCollection : AngularFirestoreCollection<Home>;
+  ordersCollection: AngularFirestoreCollection<Home>;
   priceCollection: AngularFirestoreCollection<Commercial>;
   userDocument : AngularFirestoreDocument<Client>;
   docRef; 
@@ -30,12 +31,15 @@ export class ClientinfoService {
   totalunits : number;
   createdby:string;
   buildingRef;
+
+ 
   private userDetails: firebase.User = null;
   constructor(public afs: AngularFirestore, private afAuth: AngularFireAuth, private router: Router) {
     this.user = this.afAuth.authState;
     
     this.usersCollection = this.afs.collection('users');
     this.buildingCollection = this.afs.collection('building');
+    this.ordersCollection = this.afs.collection('orders');
     this.priceCollection = this.afs.collection('price');
    
     // this.unit =1 ;
@@ -52,7 +56,6 @@ export class ClientinfoService {
   unittracking()
   {
     this.unit = 1;
-    
     return this.unit
   }
   addBuilding(building)
@@ -129,12 +132,19 @@ export class ClientinfoService {
 
     updateVisitingdate(visitingdate: Date)
     {
-      
+      var timestamp;
       var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
       this.buildingCollection.doc(createdby + this.unittracking()).update(
-      {visitingdate})
+        { visitingdate, timestamp: firebase.firestore.FieldValue.serverTimestamp() })
       this.router.navigate(['/time'])
     }
+    // getVisitingdate() {
+      
+    //   var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    //   this.docRef = this.buildingCollection.doc("" + createdby + this.unittracking() + "").valueChanges();
+    //   return this.docRef.FieldValue.visitingdate
+    //   }
+ 
     updatevisitingtime(visitingtime)
     {
       var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
@@ -154,15 +164,249 @@ export class ClientinfoService {
       )
       this.router.navigate(['/revieworder'])
     }
-  placeOrder(orderstatus) {
-    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
-    this.buildingCollection.doc(createdby + this.unittracking()).update(
+ 
+  
+ 
+  placeOrderaptaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet){
+    var createdby = this.afAuth.auth.currentUser.displayName;
+    var timestamp = firebase.firestore.FieldValue.serverTimestamp()
+    var d = new Date();
+    var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
+    console.log("createdby" + createdby + "time")
+    this.ordersCollection.doc(building.replace(/\s+/, "").toLowerCase() + c).set(
       {
-        orderstatus
+        orderedby:createdby,
+        building: building,
+        street: street,
+        city: city,
+        zip: zip,
+        unit: unit,
+        squarefeet: squarefeet,
+        ordersprice: ordersprice,
+        orders: orders,
+        meet:meet,
+        addons: addons,
+        addonsprice : addonsprice,
+        visitingdate: visitingdate,
+        visitingtime: visitingtime,
+        comments: comments,
+        orderedon: timestamp
       }
     )
-    
   }
+  placeOrderaptaddoncode(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, lockcode, meet){
+    var createdby = this.afAuth.auth.currentUser.displayName;
+    var timestamp = firebase.firestore.FieldValue.serverTimestamp()
+    var d = new Date();
+    var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
+    console.log("createdby" + createdby + "time")
+    this.ordersCollection.doc(building.replace(/\s+/, "").toLowerCase() + c).set(
+      {
+        createdby:createdby,
+        building: building,
+        street: street,
+        city: city,
+        zip: zip,
+        unit: unit,
+        squarefeet: squarefeet,
+        ordersprice : ordersprice,
+        orders: orders,
+        addons: addons,
+        addonsprice:addonsprice,
+        lockcode: lockcode,
+        meet: meet,
+        visitingdate: visitingdate,
+        visitingtime: visitingtime,
+        comments: comments,
+        orderedon: timestamp
+      }
+    )
+
+  }
+  placeOrderaptnoaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, meet){
+    var createdby = this.afAuth.auth.currentUser.displayName;
+    var timestamp = firebase.firestore.FieldValue.serverTimestamp()
+    var d = new Date();
+    var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
+    console.log("createdby" + createdby + "time")
+    this.ordersCollection.doc(building.replace(/\s+/, "").toLowerCase() + c).set(
+      {
+        orderedby: createdby,
+        building: building,
+        street: street,
+        city: city,
+        zip: zip,
+        unit: unit,
+        squarefeet: squarefeet,
+        meet:meet,
+        total: ordersprice,
+        orders: orders,
+        visitingdate: visitingdate,
+        visitingtime: visitingtime,
+        comments: comments,
+        orderedon: timestamp
+      }
+    )
+
+  } 
+  placeOrderaptnoaddoncode(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, lockcode, meet) {
+    var createdby = this.afAuth.auth.currentUser.displayName;
+    var timestamp = firebase.firestore.FieldValue.serverTimestamp()
+    var d = new Date();
+    var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
+    console.log("createdby" + createdby + "time")
+    this.ordersCollection.doc(building.replace(/\s+/, "").toLowerCase() + c).set(
+      {
+        orderedby: createdby,
+        building: building,
+        street: street,
+        city: city,
+        zip: zip,
+        unit: unit,
+        squarefeet: squarefeet,
+        total: ordersprice,
+        orders: orders,
+        lockcode: lockcode,
+        meet: meet,
+        visitingdate: visitingdate,
+        visitingtime: visitingtime,
+        comments: comments,
+        orderedon: timestamp
+      }
+    )
+  }
+  order(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, meet)
+  {
+    var createdby = this.afAuth.auth.currentUser.displayName;
+    var timestamp = firebase.firestore.FieldValue.serverTimestamp()
+    var d = new Date();
+    var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
+    this.ordersCollection.doc(building.replace(/\s+/, "").toLowerCase() + c).set(
+      {
+        orderedby: createdby,
+        building: building,
+        street: street,
+        city: city,
+        zip: zip,
+        squarefeet: squarefeet,
+        ordersprice:ordersprice,
+        orders: orders,
+        visitingdate: visitingdate,
+        visitingtime: visitingtime,
+        comments: comments,
+        meet:meet,
+        orderedon: timestamp
+      }
+    )
+
+  }
+  placeOrdergenaddoncode(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, lockcode, meet){
+    var createdby = this.afAuth.auth.currentUser.displayName;
+    var timestamp = firebase.firestore.FieldValue.serverTimestamp()
+    var d = new Date();
+    var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
+    this.ordersCollection.doc(building.replace(/\s+/, "").toLowerCase() + c).set(
+      {
+        orderedby: createdby,
+        building: building,
+        street: street,
+        city: city,
+        zip: zip,
+        squarefeet: squarefeet,
+        ordersprice:ordersprice,
+        orders: orders,
+        lockcode: lockcode,
+        meet: meet,
+        visitingdate: visitingdate,
+        visitingtime: visitingtime,
+        comments: comments,
+        addons:addons,
+        addonsprice : addonsprice,
+        orderedon: timestamp
+      }
+    )
+  }
+
+  placeOrdergenaddonmeet(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet){
+    var createdby = this.afAuth.auth.currentUser.displayName;
+    var timestamp = firebase.firestore.FieldValue.serverTimestamp()
+    var d = new Date();
+    var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
+    console.log("createdby" + createdby + "time")
+    this.ordersCollection.doc(building.replace(/\s+/, "").toLowerCase() + c).set(
+      {
+        orderedby: createdby,
+        building: building,
+        street: street,
+        city: city,
+        zip: zip,
+        squarefeet: squarefeet,
+        ordersprice: ordersprice,
+        orders: orders,
+        meet: meet,
+        visitingdate: visitingdate,
+        visitingtime: visitingtime,
+        comments: comments,
+        addons:addons,
+        addonsprice:addonsprice,
+        orderedon: timestamp
+      }
+    )
+  }
+
+  placeOrdergennoaddonmeet(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, meet){
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    var timestamp = firebase.firestore.FieldValue.serverTimestamp()
+    var d = new Date();
+    var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
+    console.log("createdby" + createdby + "time")
+    this.ordersCollection.doc(building.replace(/\s+/, "").toLowerCase() + c).set(
+      {
+        orderedby: createdby,
+        building: building,
+        street: street,
+        city: city,
+        zip: zip,
+        squarefeet: squarefeet,
+        total: ordersprice,
+        orders: orders,
+        meet: meet,
+        visitingdate: visitingdate,
+        visitingtime: visitingtime,
+        comments: comments,
+        orderedon: timestamp
+      }
+    )
+  }
+  placeOrdergennoaddoncode(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, lockcode, meet)
+  {
+    var createdby = this.afAuth.auth.currentUser.displayName;
+    var timestamp = firebase.firestore.FieldValue.serverTimestamp()
+    var d = new Date();
+    var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
+    console.log("createdby" + createdby + "time")
+    this.ordersCollection.doc(building.replace(/\s+/, "").toLowerCase() + c).set(
+      {
+        orderedby: createdby,
+        building: building,
+        street: street,
+        city: city,
+        zip: zip,
+        squarefeet: squarefeet,
+        total: ordersprice,
+        orders: orders,
+        lockcode:lockcode,
+        meet:meet,
+        visitingdate: visitingdate,
+        visitingtime: visitingtime,
+        comments: comments,
+        orderedon: timestamp
+      }
+    )
+  }
+
+
+
   AddtoCart(orderstatus) {
     var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
     this.buildingCollection.doc(createdby + this.unittracking()).update(
@@ -181,6 +425,13 @@ export class ClientinfoService {
       { productsneeded, ordersprice  })
 
     }
+  updateOrders(orders, ordersprice) {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      { orders, ordersprice })
+
+  }
+  
   deleteProducts() {
     var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
     this.buildingCollection.doc(createdby + this.unittracking()).update(
@@ -318,8 +569,9 @@ export class ClientinfoService {
   }
   updateAddon1(addon1, addon1price) {
     var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
-    this.buildingCollection.doc(createdby + this.unittracking()).update(
-      { addon1, addon1price })
+    this.buildingCollection.doc(createdby + this.unittracking()).update({
+      addon1, addon1price
+    })
   }
   deleteAddon1() {
     var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
@@ -346,10 +598,19 @@ export class ClientinfoService {
     this.buildingCollection.doc(createdby + this.unittracking()).update(
       { addon3: firebase.firestore.FieldValue.delete(), addon3price: firebase.firestore.FieldValue.delete() })
   }
-  updateAddons(addons, addonsprice) {
+  updateAddon(addons, addonsprice) {
+    var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    
+    this.buildingCollection.doc(createdby + this.unittracking()).update(
+      { addons, addonsprice})
+
+    
+  }
+
+  updateAddons(addon) {
     var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
     this.buildingCollection.doc(createdby + this.unittracking()).update(
-      { addons, addonsprice })
+      { addon })
 
     this.router.navigate(['/access'])
   }
@@ -362,14 +623,14 @@ export class ClientinfoService {
   {
       var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
     this.buildingCollection.doc(createdby + this.unittracking()).update(
-      { lockcode })
+      { lockcode : lockcode })
     this.router.navigate(['/date']) 
   }
   updateMeet2(meet) {
     var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
     this.buildingCollection.doc(createdby + this.unittracking()).update(
       { meet })
-    
+   
   }
   updateMeet3(meet) {
     var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
@@ -380,9 +641,13 @@ export class ClientinfoService {
   getBuilding2() {
     var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, ""); 
     this.docRef = this.buildingCollection.doc("" + createdby + this.unittracking() + "").valueChanges();
+
     return this.docRef
   }
- 
+  getProfile() {
+    var createdby = this.afAuth.auth.currentUser.displayName;
+      return this.docRef
+  }
   addUser(displayName, email, brokerage, phone, password)
    {
    
@@ -399,7 +664,10 @@ export class ClientinfoService {
         this.afAuth.auth.currentUser.updateProfile(
           {
             displayName : displayName,
-            photoURL : null
+            photoURL : null,
+           
+            // brokerage : brokerage,
+        
           }
    
         )
@@ -417,9 +685,12 @@ export class ClientinfoService {
   {
     return this.afAuth.auth.currentUser.displayName;
   }  
-  getBrokerage()
+  getEmail()
   {
-    
+    return this.afAuth.auth.currentUser.email;
+  } 
+  getPhone() {
+    return this.afAuth.auth.currentUser.phoneNumber;
   } 
   getUser()
   {
@@ -433,7 +704,8 @@ export class ClientinfoService {
         var isAnonymous = user.isAnonymous;
         var uid = user.uid;
         var providerData = user.providerData;
-
+        var phone = user.phoneNumber;
+        var uid = user.uid;
         // .if (user != null) {
         user.providerData.forEach(function (profile) {
           // console.log("Sign-in provider: " + profile.providerId);
@@ -472,8 +744,6 @@ export class ClientinfoService {
          {
            return error
          }
-
-      
     );
   }
 
