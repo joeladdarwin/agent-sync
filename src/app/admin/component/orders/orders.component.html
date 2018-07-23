@@ -1,1 +1,133 @@
-<app-blank></app-blank>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Building</th>
+            <th>Address</th>
+            <th>Visiting Date</th>
+            <th>Total</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let datas of data | async;let i= index;">
+            <td>{{i+1}}</td>
+            <td>{{ datas.building }}<br>
+                <input type=text name="orderid" #orderid [value]="datas.orderid" >
+            </td>
+            <td><p>{{datas.street}}<br> {{datas.city}}<br> {{datas.zip}}<br>{{datas.unit}}</p>   </td>
+            <td><p>{{datas.visitingdate}}<br>{{datas.visitingtime}}</p></td>
+            <td>{{datas.ordersprice}}+{{datas.addonsprice}}</td>
+            <td><button class="btn" (click)="query(orderid.value)" data-toggle="modal" data-target=".bd-example-modal-lg">Edit</button></td>
+        </tr>
+     </tbody>
+     </table> 
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form class="p-2">
+                    <div class="form-row mt-3">
+                        <div class="col">
+                            <label>Building</label>
+                            <input type="text" class="form-control" #building name="building" #building="ngModel" [(ngModel)]="cli.building" [value]="(property | async)?.building"> 
+                        </div>
+                        <div class="col">
+                            <label>SquareFeet</label>
+                            <input type="text" class="form-control" #squarefeet name="squarefeet" #squarefeet="ngModel" [(ngModel)]="cli.squarefeet" [value]="(property | async)?.squarefeet">
+                        </div>
+                        <div class="col">
+                            <label>Total</label>
+                            <input type="text" class="form-control" class="form-control" placeholder="Total">
+                        </div>
+                    </div>
+                    <div class="form-row mt-3">
+                        <div class="col">
+                            <label>Street</label>
+                            <input type="text" class="form-control" #street name="street" #street="ngModel" [(ngModel)]="cli.street" [value]="(property | async)?.street">
+                        </div>
+                        
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-4">
+                                    <label>City</label>
+                                    <input type="text" class="form-control" #city name="city" #city="ngModel" [(ngModel)]="cli.city" [value]="(property | async)?.city">
+                                </div>
+                                <div class="col-4">
+                                    <label>Zip</label>
+                                    <input type="text" class="form-control" #zip name="zip" #zip="ngModel" [(ngModel)]="cli.zip" [value]="(property | async)?.zip">
+                                </div>
+                                <div class="col-4">
+                                    <label>Unit</label>
+                                <input type="text" class="form-control" name="unit" #unit="ngModel" [(ngModel)]="cli.unit" [value]="(property | async)?.unit">
+                                </div>
+                            </div>
+                           
+                           
+                        </div>
+                    </div>
+                    <div class="form-row mt-3">
+                        <div class="col">
+                            <label>Orders</label>
+                            <input type="text" class="form-control" #orders name="orders" #orders="ngModel" [(ngModel)]="cli.orders" [value]="(property | async)?.orders">
+                        </div>
+                        <div class="col">
+                            <label>Addons </label>
+                            <input type="text" class="form-control" name="addons" #addons #addons="ngModel" [(ngModel)]="cli.addons" [value]="(property | async)?.addons">
+                        </div>
+                      
+                    </div>
+                    <div class="form-row mt-3">
+                        
+                        <div class="col">
+                            <label>Orders Price</label>
+                        <input type="number" class="form-control" #ordersprice name="squarefeet" #ordersprice="ngModel" [(ngModel)]="cli.ordersprice" [value]="(property | async)?.ordersprice">
+                        </div>
+                        <div class="col">
+                            <label>Addons price</label>
+                        <input type="number" class="form-control" #addonsprice name="addonsprice" #addonsprice="ngModel" [(ngModel)]="cli.addonsprice" [value]="(property | async)?.addonsprice">
+                        </div>
+                    
+                    </div>
+                    <div class="form-row mt-3">
+                        <div class="col">
+                            <label>Visiting Date</label>
+                        <mat-form-field class="example-full-width">
+                        
+                        
+                            <input matInput [matDatepicker]="picker" [matDatepickerFilter]="myFilter" name="picker" #picker="ngModel" [value]="(property | async)?.visitingdate.toDate() | date :'mediumDate'"
+                                [(ngModel)]="cli.picker" [min]="minDate" [max]="maxDate" placeholder="{{(property | async)?.visitingdate.toDate() | date :'mediumDate'}}"
+                                >
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker touchUi="true" #picker></mat-datepicker>
+                        </mat-form-field> 
+                        </div>
+                        <div class="col">
+                            <label>Visiting Time</label>
+                            <input type="text" class="form-control" #visitingtime name="visitingtime" #visitingtime="ngModel" [(ngModel)]="cli.visitingtime" [value]="(property | async)?.visitingtime">
+                        </div>
+                        <div class="col">
+                            <label>Meeting Type</label>
+                            <input type="text" class="form-control" #meet name="meet" #meet="ngModel" [(ngModel)]="cli.meet" [value]="(property | async)?.meet">
+                        </div>
+                        <div class="col">
+                            <label>Code</label>
+                            <input type="text" class="form-control" #lockcode name="lockcode" #lockcode="ngModel" [(ngModel)]="cli.lockcode" [value]="(property | async)?.lockcode">
+                        </div>
+                    </div>             
+                    <div class="form-row mt-3">
+                        <div class="col">
+                            <label>Comments</label>
+                            <input type="text" class="form-control" #comments name="comments" #comments="ngModel" [(ngModel)]="cli.comments" [value]="(property | async)?.comments">
+                        </div>
+                    </div>
+                    <div class="form-row mt-3">
+                        <div class="col">
+                           <button class="btn btn-primary">Save</button>
+                           <button class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </form>             
+            </div>
+        </div>
+    </div>

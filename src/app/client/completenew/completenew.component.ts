@@ -22,11 +22,7 @@ export class CompletenewComponent implements OnInit {
     this.cli.placeOrdergennoaddoncode(building,street,city,zip,squarefeet,orders,ordersprice,visitingdate, visitingtime, comments,lockcode,meet)
     this.router.navigateByUrl("/placeorder")
   }
-  order(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, meet)
-  {
-    this.cli.order(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, meet)
-    this.router.navigateByUrl("/placeorder")
-  }
+
   placeOrdergennoaddonmeet(building, street, city, zip, squarefeet, orders, total, visitingdate, visitingtime, comments, meet) {
     this.cli.placeOrdergennoaddonmeet(building, street, city, zip, squarefeet, orders, total, visitingdate, visitingtime, comments, meet)
     this.router.navigateByUrl("/placeorder")
