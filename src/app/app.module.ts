@@ -103,11 +103,15 @@ import { UserProfileComponent } from './admin/user-profile/user-profile.componen
 import { FooterComponent } from './admin/component/footer/footer.component';
 
 import { UsersComponent } from './admin/component/users/users.component';
-import { BlankComponent } from './admin/component/blank/blank.component';
+
 import { AdminLoginComponent } from './admin/component/admin-login/admin-login.component';
 import { AdminDashboardComponent } from './admin/component/admin-dashboard/admin-dashboard.component';
 import { OrdersComponent } from './admin/component/orders/orders.component';
-
+import { AdminHeaderComponent } from './admin/component/admin-header/admin-header.component';
+import { AdminSidenavComponent } from './admin/component/admin-sidenav/admin-sidenav.component';
+import { AdminPaymentComponent } from './admin/component/admin-payment/admin-payment.component';
+import { UserdetailsComponent } from './admin/component/userdetails/userdetails.component';
+  
 
 
 
@@ -154,10 +158,14 @@ import { OrdersComponent } from './admin/component/orders/orders.component';
     FooterComponent,
     
     UsersComponent,
-    BlankComponent,
+
     AdminLoginComponent,
     AdminDashboardComponent,
-    OrdersComponent
+    OrdersComponent,
+    AdminHeaderComponent,
+    AdminSidenavComponent,
+    AdminPaymentComponent,
+    UserdetailsComponent
   
   
   ],
