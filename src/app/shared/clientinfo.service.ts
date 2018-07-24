@@ -170,26 +170,39 @@ export class ClientinfoService {
     }
  
   QueryOrder() {
+    
     this.ordersCollection.ref.get().then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
-        //doc.data() is never undefined for query doc snapshots
-        //console.log(doc.id, " => ", doc.data());
-        console.log(doc.data());
-        console.log(doc.id, " => ", doc.data());
+        doc.data() //is never undefined for query doc snapshots
+        // console.log(doc.id, " => ", doc.data());
+        // console.log(doc.data());
+        // console.log(doc.id, " => ", doc.data());
         return doc.data();
       });
 
     });
   }
- 
+ Queryorder2() 
+ {
+
+   return this.ordersCollection.valueChanges();
+ }
+ queryorder(orderid)
+ {
+   this.docRef = this.ordersCollection.doc(orderid).valueChanges();
+
+   return this.docRef
+ }
   placeOrderaptaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet){
     var createdby = this.afAuth.auth.currentUser.displayName;
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
-    console.log("createdby" + createdby + "time")
-    this.ordersCollection.doc(building.replace(/\s+/, "").toLowerCase() + c).set(
+    
+    var orderid = building.replace(/\s+/, "").toLowerCase() + c;
+    this.ordersCollection.doc(orderid).set(
       {
+        
         orderedby:createdby,
         building: building,
         street: street,
@@ -205,7 +218,8 @@ export class ClientinfoService {
         visitingdate: visitingdate,
         visitingtime: visitingtime,
         comments: comments,
-        orderedon: timestamp
+        orderedon: timestamp,
+          orderid: orderid
       }
     )
   }
@@ -214,7 +228,7 @@ export class ClientinfoService {
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
-    console.log("createdby" + createdby + "time")
+    var orderid = building.replace(/\s+/, "").toLowerCase() + c;
     this.ordersCollection.doc(building.replace(/\s+/, "").toLowerCase() + c).set(
       {
         createdby:createdby,
@@ -233,7 +247,8 @@ export class ClientinfoService {
         visitingdate: visitingdate,
         visitingtime: visitingtime,
         comments: comments,
-        orderedon: timestamp
+        orderedon: timestamp,
+        orderid: orderid
       }
     )
 
@@ -243,8 +258,8 @@ export class ClientinfoService {
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
-    console.log("createdby" + createdby + "time")
-    this.ordersCollection.doc(building.replace(/\s+/, "").toLowerCase() + c).set(
+    var orderid = building.replace(/\s+/, "").toLowerCase() + c;
+    this.ordersCollection.doc(orderid).set(
       {
         orderedby: createdby,
         building: building,
@@ -259,7 +274,8 @@ export class ClientinfoService {
         visitingdate: visitingdate,
         visitingtime: visitingtime,
         comments: comments,
-        orderedon: timestamp
+        orderedon: timestamp,
+        orderid: orderid,
       }
     )
 
@@ -269,8 +285,8 @@ export class ClientinfoService {
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
-    console.log("createdby" + createdby + "time")
-    this.ordersCollection.doc(building.replace(/\s+/, "").toLowerCase() + c).set(
+    var orderid = building.replace(/\s+/, "").toLowerCase() + c;
+    this.ordersCollection.doc(orderid).set(
       {
         orderedby: createdby,
         building: building,
@@ -286,41 +302,19 @@ export class ClientinfoService {
         visitingdate: visitingdate,
         visitingtime: visitingtime,
         comments: comments,
-        orderedon: timestamp
+        orderedon: timestamp,
+        orderid: orderid
       }
     )
   }
-  order(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, meet)
-  {
-    var createdby = this.afAuth.auth.currentUser.displayName;
-    var timestamp = firebase.firestore.FieldValue.serverTimestamp()
-    var d = new Date();
-    var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
-    this.ordersCollection.doc(building.replace(/\s+/, "").toLowerCase() + c).set(
-      {
-        orderedby: createdby,
-        building: building,
-        street: street,
-        city: city,
-        zip: zip,
-        squarefeet: squarefeet,
-        ordersprice:ordersprice,
-        orders: orders,
-        visitingdate: visitingdate,
-        visitingtime: visitingtime,
-        comments: comments,
-        meet:meet,
-        orderedon: timestamp
-      }
-    )
-
-  }
+ 
   placeOrdergenaddoncode(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, lockcode, meet){
     var createdby = this.afAuth.auth.currentUser.displayName;
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
-    this.ordersCollection.doc(building.replace(/\s+/, "").toLowerCase() + c).set(
+    var orderid = building.replace(/\s+/, "").toLowerCase() + c;
+    this.ordersCollection.doc(orderid).set(
       {
         orderedby: createdby,
         building: building,
@@ -337,18 +331,20 @@ export class ClientinfoService {
         comments: comments,
         addons:addons,
         addonsprice : addonsprice,
-        orderedon: timestamp
+        orderedon: timestamp,
+        orderid: orderid
       }
     )
   }
+
 
   placeOrdergenaddonmeet(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet){
     var createdby = this.afAuth.auth.currentUser.displayName;
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
-    console.log("createdby" + createdby + "time")
-    this.ordersCollection.doc(building.replace(/\s+/, "").toLowerCase() + c).set(
+    var orderid = building.replace(/\s+/, "").toLowerCase() + c;
+    this.ordersCollection.doc(orderid).set(
       {
         orderedby: createdby,
         building: building,
@@ -364,7 +360,8 @@ export class ClientinfoService {
         comments: comments,
         addons:addons,
         addonsprice:addonsprice,
-        orderedon: timestamp
+        orderedon: timestamp,
+        orderid: orderid
       }
     )
   }
@@ -374,8 +371,8 @@ export class ClientinfoService {
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
-    console.log("createdby" + createdby + "time")
-    this.ordersCollection.doc(building.replace(/\s+/, "").toLowerCase() + c).set(
+    var orderid = building.replace(/\s+/, "").toLowerCase() + c;
+    this.ordersCollection.doc(orderid).set(
       {
         orderedby: createdby,
         building: building,
@@ -389,7 +386,8 @@ export class ClientinfoService {
         visitingdate: visitingdate,
         visitingtime: visitingtime,
         comments: comments,
-        orderedon: timestamp
+        orderedon: timestamp,
+        orderid: orderid
       }
     )
   }
@@ -399,8 +397,8 @@ export class ClientinfoService {
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
-    console.log("createdby" + createdby + "time")
-    this.ordersCollection.doc(building.replace(/\s+/, "").toLowerCase() + c).set(
+    var orderid = building.replace(/\s+/, "").toLowerCase() + c;
+    this.ordersCollection.doc(orderid).set(
       {
         orderedby: createdby,
         building: building,
@@ -415,7 +413,8 @@ export class ClientinfoService {
         visitingdate: visitingdate,
         visitingtime: visitingtime,
         comments: comments,
-        orderedon: timestamp
+        orderedon: timestamp,
+        orderid: orderid
       }
     )
   }
