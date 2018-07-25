@@ -18,13 +18,7 @@ export class OrdersComponent implements OnInit {
   // dataSource = new MatTableDataSource<Element>(this.data);
   // @ViewChild(MatPaginator) paginator: MatPaginator;
   // @ViewChild(MatSort) sort: MatSort;
-  minDate = new Date(Date.now() + (5 * 24 * 60 * 60 * 1000));
-  maxDate = new Date(2025, 0, 1);
-  myFilter = (d: Date): boolean => {
-    const day = d.getDay();
-    // Prevent Saturday and Sunday from being selected.
-    return day !== 0 && day !== 6;
-  }
+  
   constructor(private cli : ClientinfoService) {
     
    }

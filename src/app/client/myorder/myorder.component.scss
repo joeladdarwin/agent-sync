@@ -1,0 +1,39 @@
+.btn6{
+    border-radius: 40px;
+    margin-top: -1rem;
+    background-color: #F07C49;
+}
+.btn2{
+    background-color: #FF3B00;
+    height:10vh;
+    color: #656565;
+}
+.btn5{
+    background-color:#D5D5D5;
+    height:10vh;
+    color: #656565;
+}
+.cal{
+    background-color: #77C16C;
+}
+.cal2{
+    background-color:#fff;
+    min-height:20vh;
+}
+@media screen and (max-width:768px){
+    .btn2{
+        background-color: #FF3B00;
+    height: 20vh;
+    color: #656565;
+    width: 20vw;
+
+    }
+    .btn5{
+        background-color: #D5D5D5;
+    height: 20vh;
+    color: #656565;
+    width: 20vw;
+
+
+ }   
+}
