@@ -112,6 +112,11 @@ import { AdminHeaderComponent } from './admin/component/admin-header/admin-heade
 import { AdminSidenavComponent } from './admin/component/admin-sidenav/admin-sidenav.component';
 import { AdminPaymentComponent } from './admin/component/admin-payment/admin-payment.component';
 import { UserdetailsComponent } from './admin/component/userdetails/userdetails.component';
+import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
+import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.component';
+import { AgentordersComponent } from './agent/agentorders/agentorders.component';
+import { AgentsidenavComponent } from './agent/agentsidenav/agentsidenav.component';
+import { AgentheaderComponent } from './agent/agentheader/agentheader.component';
   
 
 
@@ -166,7 +171,12 @@ import { UserdetailsComponent } from './admin/component/userdetails/userdetails.
     AdminHeaderComponent,
     AdminSidenavComponent,
     AdminPaymentComponent,
-    UserdetailsComponent
+    UserdetailsComponent,
+    AgentloginComponent,
+    AgentdashboardComponent,
+    AgentordersComponent,
+    AgentsidenavComponent,
+    AgentheaderComponent
   
   
   ],
