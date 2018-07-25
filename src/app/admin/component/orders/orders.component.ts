@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDatepickerModule, } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
 import { ClientinfoService } from '../../../shared/clientinfo.service';
-
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -18,21 +18,25 @@ export class OrdersComponent implements OnInit {
   // dataSource = new MatTableDataSource<Element>(this.data);
   // @ViewChild(MatPaginator) paginator: MatPaginator;
   // @ViewChild(MatSort) sort: MatSort;
-  minDate = new Date(Date.now() + (5 * 24 * 60 * 60 * 1000));
-  maxDate = new Date(2025, 0, 1);
-  myFilter = (d: Date): boolean => {
-    const day = d.getDay();
-    // Prevent Saturday and Sunday from being selected.
-    return day !== 0 && day !== 6;
-  }
-  constructor(private cli : ClientinfoService) {
+  // minDate = new Date(Date.now() + (5 * 24 * 60 * 60 * 1000));
+  // maxDate = new Date(2025, 0, 1);
+  // myFilter = (d: Date): boolean => {
+  //   const day = d.getDay();
+  //   // Prevent Saturday and Sunday from being selected.
+  //   return day !== 0 && day !== 6;
+  // }
+  constructor(private cli: ClientinfoService, private tstr: ToastrService) {
     
    }
    query(order)
    {
      this.property = this.cli.queryorder(order);
-     console.log(this.property);
+     
    }
+  delete(order) {
+    this.property = this.cli.deleteorder(order);
+    this.tstr.warning('Order Deleted!')
+  }
   ngOnInit() {
     this.data = this.cli.Queryorder2();
     

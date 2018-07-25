@@ -187,12 +187,18 @@ export class ClientinfoService {
 
    return this.ordersCollection.valueChanges();
  }
+
  queryorder(orderid)
  {
    this.docRef = this.ordersCollection.doc(orderid).valueChanges();
 
    return this.docRef
  }
+deleteorder(orderid) {
+    this.docRef = this.ordersCollection.doc(orderid).delete();
+
+    return this.docRef
+  }
   placeOrderaptaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet){
     var createdby = this.afAuth.auth.currentUser.displayName;
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()

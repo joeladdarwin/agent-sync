@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from '../app/shared/auth.guard'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import '../polyfills';
+import { ToastrModule } from 'ngx-toastr';
 
 import { environment } from "../environments/environment";
 import { AngularFireModule } from 'angularfire2';
@@ -213,7 +214,8 @@ import { UserdetailsComponent } from './admin/component/userdetails/userdetails.
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
     
 
   ],
