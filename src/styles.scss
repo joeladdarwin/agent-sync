@@ -62,7 +62,15 @@ color: #F1875B
 {
     background-color: #D5D5D5;
       color:#000 !important;
-}  
+} 
+
+.invisible {
+  visibility: hidden;
+}
+.sminput
+{
+  width: 2px !important;
+} 
 @media screen and (max-width: 780px) {
      #headerback{
 

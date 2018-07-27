@@ -12,11 +12,7 @@ export class CompletenewComponent implements OnInit {
   title="New Order > First Unit";
   property;
   constructor(private cli: ClientinfoService, private router: Router ) { }
-  submitorder()
-  {
  
-    this.router.navigateByUrl("/complete")
-  }
   placeOrdergennoaddoncode(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, lockcode, meet)
   {
     this.cli.placeOrdergennoaddoncode(building,street,city,zip,squarefeet,orders,ordersprice,visitingdate, visitingtime, comments,lockcode,meet)
@@ -58,7 +54,45 @@ export class CompletenewComponent implements OnInit {
     this.cli.placeOrderaptaddoncode(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, lockcode, meet)
     this.router.navigateByUrl("/placeorder")
   }
+  submitOrdergennoaddoncode(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, lockcode, meet) {
+    this.cli.placeOrdergennoaddoncode(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, lockcode, meet)
+    this.router.navigateByUrl("/dashboard")
+  }
 
+  submitOrdergennoaddonmeet(building, street, city, zip, squarefeet, orders, total, visitingdate, visitingtime, comments, meet) {
+    this.cli.placeOrdergennoaddonmeet(building, street, city, zip, squarefeet, orders, total, visitingdate, visitingtime, comments, meet)
+    this.router.navigateByUrl("/dashboard")
+  }
+
+  submitOrdergenaddonmeet(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet) {
+    this.cli.placeOrdergenaddonmeet(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet)
+    this.router.navigateByUrl("/dashboard")
+  }
+
+
+  submitOrdergenaddoncode(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, lockcode, meet) {
+    this.cli.placeOrdergenaddoncode(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, lockcode, meet)
+    this.router.navigateByUrl("/dashboard")
+  }
+
+  submitOrderaptnoaddoncode(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, lockcode, meet) {
+    this.cli.placeOrderaptnoaddoncode(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, lockcode, meet)
+    this.router.navigateByUrl("/dashboard")
+  }
+
+  submitOrderaptnoaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, meet) {
+    this.cli.placeOrderaptnoaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, meet)
+    this.router.navigateByUrl("/dashboard")
+  }
+
+  submitOrderaptaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet) {
+    this.cli.placeOrderaptaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet)
+    this.router.navigateByUrl("/dashboard")
+  }
+  submitOrderaptaddoncode(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, lockcode, meet) {
+    this.cli.placeOrderaptaddoncode(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, lockcode, meet)
+    this.router.navigateByUrl("/dashboard")
+  }
   
   addanotherunit(OrderForm:NgForm)
   {

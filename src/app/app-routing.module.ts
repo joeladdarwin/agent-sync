@@ -90,20 +90,25 @@ const routes: Routes = [
   
   { path: "footer", component: FooterComponent, canActivate: [AuthGuard] },
  
-  { path: "users", component: UsersComponent, canActivate: [AuthGuard] },
+  { path: "admin-users", component: UsersComponent, canActivate: [AuthGuard] },
  
   { path: "admin-login", component: AdminLoginComponent, canActivate: [AuthGuard] },
   { path: "admin-dashboard", component: AdminDashboardComponent, canActivate: [AuthGuard] },
-  { path: "orders", component: OrdersComponent, canActivate: [AuthGuard] },
+  { path: "admin-orders", component: OrdersComponent, canActivate: [AuthGuard] },
   { path: "admin-header", component: AdminHeaderComponent, canActivate: [AuthGuard] },
   { path: "admin-sidenav", component: AdminSidenavComponent, canActivate: [AuthGuard] },
   { path: "userdetails", component: UserdetailsComponent, canActivate: [AuthGuard] },
+<<<<<<< HEAD
   { path: "admin-payment", component: AdminPaymentComponent, canActivate: [AuthGuard] },
   { path: "agent-header", component: AgentheaderComponent, canActivate: [AuthGuard] },
   { path: "agent-sidenav", component: AgentsidenavComponent, canActivate: [AuthGuard] },
   { path: "agent-dashboard", component: AgentdashboardComponent, canActivate: [AuthGuard] },
   { path: "agent-login", component: AgentloginComponent, canActivate: [AuthGuard] },
   { path: "agent-orders", component: AgentordersComponent, canActivate: [AuthGuard] },
+=======
+  
+ 
+>>>>>>> 89bc005fbeb33b3598ed47584f4067e6208d1873
   
   
  
