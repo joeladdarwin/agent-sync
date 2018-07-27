@@ -1,7 +1,17 @@
-table {
-    width: 100%;
-  }
-  .navdes
-  {
-    background-color: #F07C49;
-  }
+
+.invisible {
+  visibility: hidden;
+}
+.sminput
+{
+  width: 2px !important;
+}
+.sidenav{
+background-color: #656565 !important;
+
+
+}
+.nav-link.active, {
+  background-color:#f07c49;
+
+}

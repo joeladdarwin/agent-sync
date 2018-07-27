@@ -48,6 +48,12 @@ import { OrdersComponent } from './admin/component/orders/orders.component';
 import { AdminHeaderComponent } from './admin/component/admin-header/admin-header.component';
 import { AdminSidenavComponent } from './admin/component/admin-sidenav/admin-sidenav.component';
 import { UserdetailsComponent } from './admin/component/userdetails/userdetails.component';
+import { AdminPaymentComponent } from './admin/component/admin-payment/admin-payment.component';
+import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
+import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.component';
+import { AgentordersComponent } from './agent/agentorders/agentorders.component';
+import { AgentsidenavComponent } from './agent/agentsidenav/agentsidenav.component';
+import { AgentheaderComponent } from './agent/agentheader/agentheader.component';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -92,7 +98,12 @@ const routes: Routes = [
   { path: "admin-header", component: AdminHeaderComponent, canActivate: [AuthGuard] },
   { path: "admin-sidenav", component: AdminSidenavComponent, canActivate: [AuthGuard] },
   { path: "userdetails", component: UserdetailsComponent, canActivate: [AuthGuard] },
- 
+  { path: "admin-payment", component: AdminPaymentComponent, canActivate: [AuthGuard] },
+  { path: "agent-header", component: AgentheaderComponent, canActivate: [AuthGuard] },
+  { path: "agent-sidenav", component: AgentsidenavComponent, canActivate: [AuthGuard] },
+  { path: "agent-dashboard", component: AgentdashboardComponent, canActivate: [AuthGuard] },
+  { path: "agent-login", component: AgentloginComponent, canActivate: [AuthGuard] },
+  { path: "agent-orders", component: AgentordersComponent, canActivate: [AuthGuard] },
   
   
  

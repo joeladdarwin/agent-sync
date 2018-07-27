@@ -18,10 +18,6 @@ export class OrdersComponent implements OnInit {
   // dataSource = new MatTableDataSource<Element>(this.data);
   // @ViewChild(MatPaginator) paginator: MatPaginator;
   // @ViewChild(MatSort) sort: MatSort;
-<<<<<<< HEAD
-  
-  constructor(private cli : ClientinfoService) {
-=======
   // minDate = new Date(Date.now() + (5 * 24 * 60 * 60 * 1000));
   // maxDate = new Date(2025, 0, 1);
   // myFilter = (d: Date): boolean => {
@@ -30,7 +26,6 @@ export class OrdersComponent implements OnInit {
   //   return day !== 0 && day !== 6;
   // }
   constructor(private cli: ClientinfoService, private tstr: ToastrService) {
->>>>>>> 3382e3f67baed9b4870eed6a33a5af0a4d40afee
     
    }
    query(order)
