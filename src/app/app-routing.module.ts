@@ -84,14 +84,15 @@ const routes: Routes = [
   
   { path: "footer", component: FooterComponent, canActivate: [AuthGuard] },
  
-  { path: "users", component: UsersComponent, canActivate: [AuthGuard] },
+  { path: "admin-users", component: UsersComponent, canActivate: [AuthGuard] },
  
   { path: "admin-login", component: AdminLoginComponent, canActivate: [AuthGuard] },
   { path: "admin-dashboard", component: AdminDashboardComponent, canActivate: [AuthGuard] },
-  { path: "orders", component: OrdersComponent, canActivate: [AuthGuard] },
+  { path: "admin-orders", component: OrdersComponent, canActivate: [AuthGuard] },
   { path: "admin-header", component: AdminHeaderComponent, canActivate: [AuthGuard] },
   { path: "admin-sidenav", component: AdminSidenavComponent, canActivate: [AuthGuard] },
   { path: "userdetails", component: UserdetailsComponent, canActivate: [AuthGuard] },
+  
  
   
   
