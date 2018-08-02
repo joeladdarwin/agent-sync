@@ -60,4 +60,5 @@ export interface Home {
     comments ?:string;
     price ?: number;
     orderstatus?:string;
+    orderedon:Date;
 }

@@ -9,8 +9,9 @@ import { EmailAuthProvider } from '@firebase/auth-types';
 import { User } from 'firebase';
 import * as firebase from 'firebase/app';
 import { Commercial } from './commercial';
-
-
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { switchMap } from 'rxjs/operators';
+// import { Observable } from 'rxjs/Observable';
 
 
 
@@ -22,7 +23,11 @@ export class ClientinfoService {
   user : Observable<User>;
   usersCollection : AngularFirestoreCollection<Client>;
   ordersCollection: AngularFirestoreCollection<Home>;
+  orders$:Observable<Home[]>;
+  orderstoday$: Observable<Home[]>;
+  visitingdate$:BehaviorSubject<Date>;
   users : Observable<Client[]>;
+  users$: Observable<Client[]>;
   buildingCollection : AngularFirestoreCollection<Home>;
   priceCollection: AngularFirestoreCollection<Commercial>;
   userDocument : AngularFirestoreDocument<Client>;
@@ -37,15 +42,19 @@ export class ClientinfoService {
   constructor(public afs: AngularFirestore, private afAuth: AngularFireAuth, private router: Router) {
     this.user = this.afAuth.authState;
     this.ordersCollection = this.afs.collection('orders');
+    this.orders$ = this.ordersCollection.valueChanges();
+    this.visitingdate$ = new BehaviorSubject(new Date('2018-08-22'));
+    this.orderstoday$ = this.visitingdate$.pipe(
+      switchMap(date => this.afs.collection<Home>('orders', ref => ref.where('visitingdate', '==', date)).valueChanges())
+    );
+    // .pipe(
+    //   switchMap(date =>this.afs.collection<Home>('orders', 
+    //   ref=>ref.where('orderedon','==',date)).valueChanges(),)
+    //  );
     this.usersCollection = this.afs.collection('users');
-    this.buildingCollection = this.afs.collection('building');
-    this.ordersCollection = this.afs.collection('orders');
+    this.users$ = this.usersCollection.valueChanges();
+    this.buildingCollection = this.afs.collection('building');   
     this.priceCollection = this.afs.collection('price');
-
-    
-
- 
-   
     // this.unit =1 ;
     this.user.subscribe((user) => {
       if (user) {
@@ -173,11 +182,11 @@ export class ClientinfoService {
     
     this.ordersCollection.ref.get().then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
-        doc.data() //is never undefined for query doc snapshots
+        doc.data().where('building', '==', 'Appartment') //is never undefined for query doc snapshots
         // console.log(doc.id, " => ", doc.data());
         // console.log(doc.data());
         // console.log(doc.id, " => ", doc.data());
-        return doc.data();
+        return doc.data()
       });
 
     });
@@ -190,14 +199,32 @@ export class ClientinfoService {
 
  queryorder(orderid)
  {
-   this.docRef = this.ordersCollection.doc(orderid).valueChanges();
+  
+
+
+   this.docRef = this.ordersCollection.doc(orderid).valueChanges()
 
    return this.docRef
+ }
+ queryordertoday()
+ {
+   this.docRef = this.afs.collection<Home>('orders',ref=>{return ref.where('building','==','Appartment')}).valueChanges();
+   return  this.docRef
+  //  this.docRef = this.ordersCollection.ref.orderBy('building');
+  //  console.log(this.docRef)
+
+  //  this.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
  }
 deleteorder(orderid) {
     this.docRef = this.ordersCollection.doc(orderid).delete();
 
     return this.docRef
+  }
+  datenow()
+  {
+    var d = new Date();
+    var c = (d.getDate()).toString() + "-" + (d.getMonth() + 1).toString() + "-" + (d.getFullYear()).toString();
+    return c
   }
   placeOrderaptaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet){
     var createdby = this.afAuth.auth.currentUser.displayName;
@@ -264,7 +291,7 @@ deleteorder(orderid) {
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
-    var orderid = building.replace(/\s+/, "").toLowerCase() + c;
+    var orderid = building.replace(/\s+/, "").toLowerCase().slice(0, 3) + c;
     this.ordersCollection.doc(orderid).set(
       {
         orderedby: createdby,
@@ -291,7 +318,7 @@ deleteorder(orderid) {
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
-    var orderid = building.replace(/\s+/, "").toLowerCase() + c;
+    var orderid = building.replace(/\s+/, "").toLowerCase().slice(0, 3) + c;
     this.ordersCollection.doc(orderid).set(
       {
         orderedby: createdby,
@@ -319,7 +346,7 @@ deleteorder(orderid) {
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
-    var orderid = building.replace(/\s+/, "").toLowerCase() + c;
+    var orderid = building.replace(/\s+/, "").toLowerCase().slice(0, 3) + c;
     this.ordersCollection.doc(orderid).set(
       {
         orderedby: createdby,
@@ -349,7 +376,7 @@ deleteorder(orderid) {
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
-    var orderid = building.replace(/\s+/, "").toLowerCase() + c;
+    var orderid = building.replace(/\s+/, "").toLowerCase().slice(0, 3) + c;
     this.ordersCollection.doc(orderid).set(
       {
         orderedby: createdby,
@@ -377,7 +404,7 @@ deleteorder(orderid) {
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
-    var orderid = building.replace(/\s+/, "").toLowerCase() + c;
+    var orderid = building.replace(/\s+/, "").toLowerCase().slice(0, 3) + c;
     this.ordersCollection.doc(orderid).set(
       {
         orderedby: createdby,
@@ -403,7 +430,7 @@ deleteorder(orderid) {
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
-    var orderid = building.replace(/\s+/, "").toLowerCase() + c;
+    var orderid = building.replace(/\s+/, "").toLowerCase().slice(0, 3) + c;
     this.ordersCollection.doc(orderid).set(
       {
         orderedby: createdby,
@@ -668,6 +695,11 @@ deleteorder(orderid) {
     var createdby = this.afAuth.auth.currentUser.displayName;
       return this.docRef
   }
+  getuserdetails()
+  {
+    var createdby = this.afAuth.auth.currentUser.displayName;
+    return this.usersCollection.ref.where('displayName','==',createdby)
+  }
   addUser(displayName, email, brokerage, phone, password)
    {
    
@@ -766,8 +798,6 @@ deleteorder(orderid) {
          }
     );
   }
-
- 
   signOut(): void {
     this.afAuth.auth.signOut();
     this.router.navigate(['/login'])

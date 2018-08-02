@@ -14,6 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 export class OrdersComponent implements OnInit {
   data;
   property;
+  test;
   // displayedColumns = ['building', 'street', 'ordersprice', 'orders'];
   // dataSource = new MatTableDataSource<Element>(this.data);
   // @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -38,8 +39,12 @@ export class OrdersComponent implements OnInit {
     this.tstr.warning('Order Deleted!')
   }
   ngOnInit() {
+    // this.data = this.cli.Queryorder2();
     this.data = this.cli.Queryorder2();
     
+    
+    // console.log(this.cli.orderstoday$+"psio");
+    this.test = this.cli.datenow();
     // console.log("Elemt"+this.data);
   }
   // ngAfterViewInit() {
