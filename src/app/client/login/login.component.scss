@@ -21,5 +21,13 @@ input{
         background-color:#A1A1A1;
         border-radius:20vh;
     }    
+    @media screen and(max-width:768){
+        .btn1
+	{
+		color: white;
+		background-color:#F07C49;
+        border-radius:20vh;
+    }
     
+    }
     

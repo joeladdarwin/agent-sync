@@ -46,6 +46,13 @@ img{
         color:#fff;
        
     }
+
+    .custom-file-upload {
+
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+    }
     @media screen and (max-width: 780px) {
          .imgicon{
            width:10vw;
