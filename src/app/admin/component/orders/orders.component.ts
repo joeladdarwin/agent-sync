@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class OrdersComponent implements OnInit {
   data;
+  datacom;
   property;
   test;
   // displayedColumns = ['building', 'street', 'ordersprice', 'orders'];
@@ -32,7 +33,7 @@ export class OrdersComponent implements OnInit {
    query(order)
    {
      this.property = this.cli.queryorder(order);
-     
+   
    }
   delete(order) {
     this.property = this.cli.deleteorder(order);
@@ -40,11 +41,12 @@ export class OrdersComponent implements OnInit {
   }
   ngOnInit() {
     // this.data = this.cli.Queryorder2();
-    this.data = this.cli.Queryorder2();
+    this.data = this.cli.queryordertoday();
     
     
     // console.log(this.cli.orderstoday$+"psio");
     this.test = this.cli.datenow();
+    this.datacom = this.cli.queryordercomplete(); 
     // console.log("Elemt"+this.data);
   }
   // ngAfterViewInit() {

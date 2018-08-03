@@ -25,6 +25,7 @@ export class ClientinfoService {
   ordersCollection: AngularFirestoreCollection<Home>;
   orders$:Observable<Home[]>;
   orderstoday$: Observable<Home[]>;
+  orderref$: Observable<Home[]>;
   visitingdate$:BehaviorSubject<Date>;
   users : Observable<Client[]>;
   users$: Observable<Client[]>;
@@ -208,13 +209,23 @@ export class ClientinfoService {
  }
  queryordertoday()
  {
-   this.docRef = this.afs.collection<Home>('orders',ref=>{return ref.where('building','==','Appartment')}).valueChanges();
-   return  this.docRef
-  //  this.docRef = this.ordersCollection.ref.orderBy('building');
-  //  console.log(this.docRef)
-
-  //  this.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
+   var date = this.datenow();
+ 
+   this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('visitingdate', '==',date)}).valueChanges();
+   return  this.orderref$
+  //  is.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
  }
+  queryordercomplete() {
+   
+    this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('orderstatus', '==', 'completed') }).valueChanges();
+    return this.orderref$
+    //  is.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
+  }
+  queryorderassigned() {
+
+    this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('orderstatus', '==', 'assigned') }).valueChanges();
+    return this.orderref$ //  is.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
+  }
 deleteorder(orderid) {
     this.docRef = this.ordersCollection.doc(orderid).delete();
 
@@ -222,8 +233,9 @@ deleteorder(orderid) {
   }
   datenow()
   {
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     var d = new Date();
-    var c = (d.getDate()).toString() + "-" + (d.getMonth() + 1).toString() + "-" + (d.getFullYear()).toString();
+    var c = months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
     return c
   }
   placeOrderaptaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet){
