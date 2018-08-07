@@ -6,6 +6,14 @@
     "predeploy": "npm --prefix \"%RESOURCE_DIR%\" run build",
     "source": "functions"
   },
+  "headers": [ {
+    "origin" : ["http://localhost:4200"],
+  "source" : "**/*.@(jpg|jpeg|gif|png)",
+  "headers" : [ {
+    "key" : "Access-Control-Allow-Origin",
+    "value" : "*"
+  } ]
+} ],
   "hosting": {
     "public": "dist",
     "ignore": [

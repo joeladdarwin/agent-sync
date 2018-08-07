@@ -48,8 +48,20 @@
 <div class="row text-center">
   <div class="col-md-12 col-6 mx-auto">
     <img src='/assets/image/profile.png' class="img-thumbnail" >
-   <input type="file" (change)="onFileSelected($event)">
-   <button type="button" (click)="onUpload()">Upload</button>
+   <!-- <input type="file" (change)="upload($event)" accept=".png,.jpg"/> -->
+ 
+<div class="image-upload">
+    <label for="file-input">
+       <i class="fa fa-edit custom-edit"></i>
+    </label>
+  
+    <input id="file-input" type="file" (change)="upload($event)" name="file-input" accept=".png,.jpg">
+    
+  
+</div>
+<div *ngIf="downloadURL | async; let downloadsrc" class="alert alert-info" role="alert">
+    File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+</div>
 
     <span>{{tenantIDFileName}}</span>
     <p>LINDA GREEN</p><hr>    

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import{ AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask} from 'angularfire2/storage';
 
 
 
@@ -10,23 +11,17 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class EditprofileComponent {
-  selectedFile:File=null;
- constructor(private http: HttpClient){}
-  onFileSelected(event){
-    this.selectedFile = <File>event.target.files[0];
-  }
-  onUpload(){
-    const fd =new FormData();
-    fd.append('image', this.selectedFile,this.selectedFile.name)
-    this.http.post('https://us-central1-agent-sync-sonder.cloudfunctions.net/helloWorld',fd, {
-      reportProgress:true,
-      observe:'events'
+  ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
+  
+  constructor (private afStorage: AngularFireStorage){} 
+    upload(event) {
+      const id = Math.random().toString(36).substring(2);
+      this.ref = this.afStorage.ref(id);
+      this.task = this.ref.put(event.target.files[0]);
+      console.log("enter your click");
 
-    } )
-    .subscribe(event =>{
-      console.log(event);
-    });
-  }
+    }
  
 
 }
