@@ -10,13 +10,20 @@ export class ProfileComponent implements OnInit {
 name:any;
 email:any;
 phone:any;
+profile:any;
 
   constructor(private cli: ClientinfoService) { }
-
+// print()
+// {
+//   console.log("tried")
+//   console.log(this.profile);
+// }
   ngOnInit() {
     this.name = this.cli.getUsername();
     this.email = this.cli.getEmail();
     this.phone = this.cli.getPhone();
+    // this.profile = this.cli.getuserdetails();
+    // this.print();
   }
 
 }
