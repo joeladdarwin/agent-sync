@@ -54,6 +54,8 @@ import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.c
 import { AgentordersComponent } from './agent/agentorders/agentorders.component';
 import { AgentsidenavComponent } from './agent/agentsidenav/agentsidenav.component';
 import { AgentheaderComponent } from './agent/agentheader/agentheader.component';
+import { LogindemoComponent } from './client/logindemo/logindemo.component';
+
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -104,7 +106,7 @@ const routes: Routes = [
   { path: "agent-dashboard", component: AgentdashboardComponent, canActivate: [AuthGuard] },
   { path: "agent-login", component: AgentloginComponent, canActivate: [AuthGuard] },
   { path: "agent-orders", component: AgentordersComponent, canActivate: [AuthGuard] },
-  
+  { path: "logindemo", component: LogindemoComponent, canActivate: [AuthGuard] },
   
  
   

@@ -12,7 +12,7 @@ import { Commercial } from './commercial';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { switchMap } from 'rxjs/operators';
 // import { Observable } from 'rxjs/Observable';
-
+// import{ AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask} from 'angularfire2/storage';
 
 
 @Injectable()
@@ -37,7 +37,9 @@ export class ClientinfoService {
   totalunits : number;
   createdby:string;
   buildingRef;
-
+  // ref: AngularFireStorageReference;
+  // task: AngularFireUploadTask;
+  // profilepic:AngularFireStorage;
  
   private userDetails: firebase.User = null;
   constructor(public afs: AngularFirestore, private afAuth: AngularFireAuth, private router: Router) {
@@ -52,6 +54,7 @@ export class ClientinfoService {
     //   switchMap(date =>this.afs.collection<Home>('orders', 
     //   ref=>ref.where('orderedon','==',date)).valueChanges(),)
     //  );
+   
     this.usersCollection = this.afs.collection('users');
     this.users$ = this.usersCollection.valueChanges();
     this.buildingCollection = this.afs.collection('building');   
@@ -67,6 +70,17 @@ export class ClientinfoService {
     }
       );
    }
+
+  // File upload 
+  // uploadprofilepic(event) {
+  //   const id = Math.random().toString(36).substring(2);
+  //   this.ref = this.afStorage.ref()
+  //   this.task = this.ref.put(event.target.files[0]);
+  //   console.log("enter your click");
+
+  // }
+
+  // File upload
   unittracking()
   {
     this.unit = 1;
