@@ -25,7 +25,6 @@ export class EditprofileComponent {
       console.log("enter your click");
       this.cli.uploadprofileimage(event);
   
-
     }
   ngOnInit() {
     this.url = this.cli.geturl();
