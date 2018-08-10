@@ -10,9 +10,10 @@ import { User } from 'firebase';
 import * as firebase from 'firebase/app';
 import { Commercial } from './commercial';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { switchMap } from 'rxjs/operators';
-// import { Observable } from 'rxjs/Observable';
+import { switchMap, finalize } from 'rxjs/operators';
 
+// import { Observable } from 'rxjs/Observable';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 
 
 @Injectable()
@@ -37,10 +38,14 @@ export class ClientinfoService {
   totalunits : number;
   createdby:string;
   buildingRef;
+  clientstorageRef: AngularFireStorageReference;
+  profilepicRef: AngularFireStorageReference;
+  task: AngularFireUploadTask;
+  downloadURL : Observable<string | null>;
+  uploadPercent: Observable<number>;
 
- 
   private userDetails: firebase.User = null;
-  constructor(public afs: AngularFirestore, private afAuth: AngularFireAuth, private router: Router) {
+  constructor(public afs: AngularFirestore, private afStorage: AngularFireStorage, private afAuth: AngularFireAuth, private router: Router) {
     this.user = this.afAuth.authState;
     this.ordersCollection = this.afs.collection('orders');
     this.orders$ = this.ordersCollection.valueChanges();
@@ -48,10 +53,14 @@ export class ClientinfoService {
     this.orderstoday$ = this.visitingdate$.pipe(
       switchMap(date => this.afs.collection<Home>('orders', ref => ref.where('visitingdate', '==', date)).valueChanges())
     );
+    this.clientstorageRef= this.afStorage.ref('client/');
+
     // .pipe(
     //   switchMap(date =>this.afs.collection<Home>('orders', 
     //   ref=>ref.where('orderedon','==',date)).valueChanges(),)
+    
     //  );
+   
     this.usersCollection = this.afs.collection('users');
     this.users$ = this.usersCollection.valueChanges();
     this.buildingCollection = this.afs.collection('building');   
@@ -66,6 +75,33 @@ export class ClientinfoService {
       }
     }
       );
+   }
+   
+   uploadprofileimage(event)
+   {
+     var email = this.afAuth.auth.currentUser.email;
+     const file = event.target.files[0];
+     const filePath = 'users/'+'profilepic/'+email;
+     const fileRef = this.afStorage.ref(filePath);
+     const task = this.afStorage.upload(filePath, file);
+
+     // observe percentage changes
+     this.uploadPercent = task.percentageChanges();
+     // get notified when the download URL is available
+     task.snapshotChanges().pipe(
+       finalize(() => this.downloadURL = fileRef.getDownloadURL())
+     )
+       .subscribe()
+     }
+   
+   geturl()
+   {
+     var email = this.afAuth.auth.currentUser.email;
+     
+     this.profilepicRef = this.afStorage.ref('users/' + 'profilepic/' + email);
+     this.downloadURL = this.profilepicRef.getDownloadURL();
+     
+     return this.downloadURL
    }
   unittracking()
   {
@@ -215,15 +251,23 @@ export class ClientinfoService {
    return  this.orderref$
   //  is.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
  }
+  queryordernew() {
+    var date = this.datenow();
+
+    this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('status', '==', 'new') }).valueChanges();
+    return this.orderref$
+    //  is.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
+  }
+  
   queryordercomplete() {
    
-    this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('orderstatus', '==', 'completed') }).valueChanges();
+    this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('status', '==', 'completed') }).valueChanges();
     return this.orderref$
     //  is.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
   }
   queryorderassigned() {
 
-    this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('orderstatus', '==', 'assigned') }).valueChanges();
+    this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('status', '==', 'assigned') }).valueChanges();
     return this.orderref$ //  is.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
   }
 deleteorder(orderid) {
@@ -240,6 +284,7 @@ deleteorder(orderid) {
   }
   placeOrderaptaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet){
     var createdby = this.afAuth.auth.currentUser.displayName;
+    var email = this.getEmail();
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
@@ -264,12 +309,19 @@ deleteorder(orderid) {
         visitingtime: visitingtime,
         comments: comments,
         orderedon: timestamp,
-          orderid: orderid
+        orderid: orderid,
+        status:'new'
       }
     )
+    this.usersCollection.doc(email).collection('orders').doc(orderid).set({
+      orderedon: timestamp,
+      visitingdate: visitingdate,
+      visitingtime: visitingtime,
+    });
   }
   placeOrderaptaddoncode(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, lockcode, meet){
     var createdby = this.afAuth.auth.currentUser.displayName;
+    var email = this.getEmail();
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
@@ -293,13 +345,20 @@ deleteorder(orderid) {
         visitingtime: visitingtime,
         comments: comments,
         orderedon: timestamp,
-        orderid: orderid
+        orderid: orderid,
+        status: 'new'
       }
     )
+    this.usersCollection.doc(email).collection('orders').doc(orderid).set({
+      orderedon: timestamp,
+      visitingdate: visitingdate,
+      visitingtime: visitingtime,
+    });
 
   }
   placeOrderaptnoaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, meet){
     var createdby = this.afAuth.auth.currentUser.displayName;
+    var email = this.getEmail();
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
@@ -321,12 +380,19 @@ deleteorder(orderid) {
         comments: comments,
         orderedon: timestamp,
         orderid: orderid,
+        status: 'new'
       }
     )
+    this.usersCollection.doc(email).collection('orders').doc(orderid).set({
+      orderedon: timestamp,
+      visitingdate: visitingdate,
+      visitingtime: visitingtime,
+    });
 
   } 
   placeOrderaptnoaddoncode(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, lockcode, meet) {
     var createdby = this.afAuth.auth.currentUser.displayName;
+    var email = this.getEmail();
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
@@ -348,13 +414,19 @@ deleteorder(orderid) {
         visitingtime: visitingtime,
         comments: comments,
         orderedon: timestamp,
-        orderid: orderid
+        orderid: orderid,
+        status: 'new'
       }
     )
+    this.usersCollection.doc(email).collection('orders').doc(orderid).set({
+      orderedon: timestamp,
+      visitingdate: visitingdate,
+      visitingtime: visitingtime,
+    });
   }
- 
   placeOrdergenaddoncode(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, lockcode, meet){
     var createdby = this.afAuth.auth.currentUser.displayName;
+    var email = this.getEmail();
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
@@ -377,14 +449,19 @@ deleteorder(orderid) {
         addons:addons,
         addonsprice : addonsprice,
         orderedon: timestamp,
-        orderid: orderid
+        orderid: orderid,
+        status: 'new'
       }
     )
+    this.usersCollection.doc(email).collection('orders').doc(orderid).set({
+      orderedon: timestamp,
+      visitingdate: visitingdate,
+      visitingtime: visitingtime,
+    });
   }
-
-
   placeOrdergenaddonmeet(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet){
     var createdby = this.afAuth.auth.currentUser.displayName;
+    var email = this.getEmail();
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
@@ -406,13 +483,19 @@ deleteorder(orderid) {
         addons:addons,
         addonsprice:addonsprice,
         orderedon: timestamp,
-        orderid: orderid
+        orderid: orderid,
+        status: 'new'
       }
     )
+    this.usersCollection.doc(email).collection('orders').doc(orderid).set({
+      orderedon: timestamp,
+      visitingdate: visitingdate,
+      visitingtime: visitingtime,
+    });
   }
-
   placeOrdergennoaddonmeet(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, meet){
     var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
+    var email = this.getEmail();
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
@@ -432,13 +515,20 @@ deleteorder(orderid) {
         visitingtime: visitingtime,
         comments: comments,
         orderedon: timestamp,
-        orderid: orderid
+        orderid: orderid,
+        status: 'new'
       }
     )
+    this.usersCollection.doc(email).collection('orders').doc(orderid).set({
+      orderedon: timestamp,
+      visitingdate: visitingdate,
+      visitingtime: visitingtime,
+    });
   }
   placeOrdergennoaddoncode(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, lockcode, meet)
   {
     var createdby = this.afAuth.auth.currentUser.displayName;
+    var email = this.getEmail();
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
@@ -459,9 +549,16 @@ deleteorder(orderid) {
         visitingtime: visitingtime,
         comments: comments,
         orderedon: timestamp,
-        orderid: orderid
+        orderid: orderid,
+        status: 'new'
       }
-    )
+        
+    );
+    this.usersCollection.doc(email).collection('orders').doc(orderid).set({
+      orderedon: timestamp,
+      visitingdate: visitingdate,
+      visitingtime: visitingtime,
+    });
   }
 
 
@@ -720,7 +817,7 @@ deleteorder(orderid) {
         this.authState = user
         
         
-        this.usersCollection.add(
+        this.usersCollection.doc(email).set(
           { 
            displayName, email, brokerage, phone }
          )
@@ -729,6 +826,7 @@ deleteorder(orderid) {
           {
             displayName : displayName,
             photoURL : null,
+            
            
             // brokerage : brokerage,
         
@@ -754,8 +852,22 @@ deleteorder(orderid) {
     return this.afAuth.auth.currentUser.email;
   } 
   getPhone() {
-    return this.afAuth.auth.currentUser.phoneNumber;
+    return this.usersCollection.doc(this.getEmail()).valueChanges();
+    
   } 
+  QueryOrderssd() {
+
+    this.ordersCollection.ref.get().then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        doc.data().where('building', '==', 'Appartment') //is never undefined for query doc snapshots
+        // console.log(doc.id, " => ", doc.data());
+        // console.log(doc.data());
+        // console.log(doc.id, " => ", doc.data());
+        return doc.data()
+      });
+
+    });
+  }
   getUser()
   {
     this.afAuth.auth.onAuthStateChanged(function (user) {

@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class OrdersComponent implements OnInit {
   data;
+  datanew;
   datacom;
   property;
   test;
@@ -42,6 +43,7 @@ export class OrdersComponent implements OnInit {
   ngOnInit() {
     // this.data = this.cli.Queryorder2();
     this.data = this.cli.queryordertoday();
+    this.datanew = this.cli.queryordernew();
     
     
     // console.log(this.cli.orderstoday$+"psio");

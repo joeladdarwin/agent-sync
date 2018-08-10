@@ -15,6 +15,7 @@ import { AngularFireStorageModule } from "angularfire2/storage";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFirestoreModule, AngularFirestore } from 'angularfire2/firestore';
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -226,9 +227,7 @@ import { AgentheaderComponent } from './agent/agentheader/agentheader.component'
     MatTooltipModule,
     ReactiveFormsModule,
     ToastrModule.forRoot()
-    
-
-  ],
+      ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

@@ -76,47 +76,47 @@
                   
                   <div id="TODAY" class="container tab-pane active">
                   <h3 class="text-center">TODAY</h3>
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Building</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Date/Time</th>
-                                <th scope="col">Order value</th>
-                                <th scope="col">Edit/Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let datas of data |async;let i= index;">
-                                <td>{{i+1}}</td>
-                                <td>{{ datas.building }}<br>
-                                     {{ datas.squarefeet }}
-                                    <br>
-                                    <input type=text name="orderid" #orderid [value]="datas.orderid" class="invisible sminput">
-                                </td>
-                                <td>
-                                    <p>{{datas.street}}
-                                        <br> {{datas.city}}
-                                        <br> {{datas.zip}}
-                                        <br>{{datas.unit}}</p>
-                                </td>
-                                <td>
-                                    <p>{{datas.visitingdate}}
-                                        <br>{{datas.visitingtime}}</p>
-                                       
-                                </td>
-                                <td>{{datas.ordersprice}}+{{datas.addonsprice}}</td>
-                                <td>
-                                    <button class="btn btn-primary btn-sm" (click)="query(orderid.value)" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="far fa-edit"></i></button>
-                                    <button class="btn btn-danger btn-sm" (click)="delete(orderid.value)" ><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                 
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Building</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Date/Time</th>
+                                    <th scope="col">Order value</th>
+                                    <th scope="col">Edit/Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let datas of data |async;let i= index;">
+                                    <td>{{i+1}}</td>
+                                    <td>{{ datas.building }}<br>
+                                        {{ datas.squarefeet }}
+                                        <br>
+                                        <input type=text name="orderid" #orderid [value]="datas.orderid" class="invisible sminput">
+                                    </td>
+                                    <td>
+                                        <p>{{datas.street}}
+                                            <br> {{datas.city}}
+                                            <br> {{datas.zip}}
+                                            <br>{{datas.unit}}</p>
+                                    </td>
+                                    <td>
+                                        <p>{{datas.visitingdate}}
+                                            <br>{{datas.visitingtime}}</p>
+                                        
+                                    </td>
+                                    <td>{{datas.ordersprice}}+{{datas.addonsprice}}</td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm" (click)="query(orderid.value)" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="far fa-edit"></i></button>
+                                        <button class="btn btn-danger btn-sm" (click)="delete(orderid.value)" ><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
                   
                   
                   </div>
@@ -184,6 +184,54 @@
                         </table>
                     </div>
                   </div>
+                    <div id="NEW" class="container tab-pane fade">
+                        <br>
+                        <h3 class="text-center">NEW ORDERS</h3>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Building</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Date/Time</th>
+                                        <th scope="col">Order value</th>
+                                        <th scope="col">Edit/Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let datas of datanew |async;let i= index;">
+                                        <td>{{i+1}}</td>
+                                        <td>{{ datas.building }}
+                                            <br> {{ datas.squarefeet }}
+                                            <br>
+                                            <input type=text name="orderid" #orderid [value]="datas.orderid" class="invisible sminput">
+                                        </td>
+                                        <td>
+                                            <p>{{datas.street}}
+                                                <br> {{datas.city}}
+                                                <br> {{datas.zip}}
+                                                <br>{{datas.unit}}</p>
+                                        </td>
+                                        <td>
+                                            <p>{{datas.visitingdate}}
+                                                <br>{{datas.visitingtime}}</p>
+                    
+                                        </td>
+                                        <td>{{datas.ordersprice}}+{{datas.addonsprice}}</td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm" (click)="query(orderid.value)" data-toggle="modal" data-target=".bd-example-modal-lg">
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-danger btn-sm" (click)="delete(orderid.value)">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 
                
                   </div>
@@ -362,3 +410,171 @@
             </div>
         </div>
     </div>
+
+    
+
+    <div class="modal fade bd-example-modalsched-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="row p-2">
+                    <div class="col-4">
+                        <p>
+                            <strong>Order ID:</strong> {{(property |async)?.orderid}}
+    
+    
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <p class="text-center">
+                            <strong>Ordered by:</strong>{{(property |async)?.createdby}}
+                        </p>
+    
+                    </div>
+                    <div class="col-4">
+                        <p class="text-right">
+                            <strong>Phone:</strong>
+                        </p>
+                    </div>
+                </div>
+    
+                <form class="p-2" #ngForm>
+                    <div class="form-row mt-2">
+                        <div class="col">
+                            <label>Building</label>
+                            <input type="text" class="form-control" #building name="building" #building="ngModel" [(ngModel)]="cli.building" [value]="(property | async)?.building">
+                        </div>
+                        <div class="col">
+                            <label>SquareFeet</label>
+                            <input type="text" class="form-control" #squarefeet name="squarefeet" #squarefeet="ngModel" [(ngModel)]="cli.squarefeet"
+                                [value]="(property | async)?.squarefeet">
+                        </div>
+                        <div class="col">
+                            <label>Total</label>
+                            <input type="text" class="form-control" class="form-control" placeholder="Total">
+                        </div>
+                    </div>
+                    <div class="form-row mt-2">
+                        <div class="col">
+                            <label>Street</label>
+                            <input type="text" class="form-control" #street name="street" #street="ngModel" [(ngModel)]="cli.street" [value]="(property | async)?.street">
+                        </div>
+    
+                        <div class="col">
+                            <div class="row">
+                                <div class="col-4">
+                                    <label>City</label>
+                                    <input type="text" class="form-control" #city name="city" #city="ngModel" [(ngModel)]="cli.city" [value]="(property | async)?.city">
+                                </div>
+                                <div class="col-4">
+                                    <label>Zip</label>
+                                    <input type="text" class="form-control" #zip name="zip" #zip="ngModel" [(ngModel)]="cli.zip" [value]="(property | async)?.zip">
+                                </div>
+                                <div class="col-4">
+    
+                                    <div *ngIf="(property | async)?.unit===undefined; else unitshow">
+    
+                                    </div>
+                                    <ng-template #unitshow>
+                                        <label>Unit</label>
+                                        <input type="text" class="form-control" name="unit" #unit="ngModel" [(ngModel)]="cli.unit" [value]="(property | async)?.unit">
+    
+                                    </ng-template>
+    
+                                </div>
+                            </div>
+    
+    
+                        </div>
+                    </div>
+                    <div class="form-row mt-2">
+                        <div class="col-10">
+                            <label>Orders</label>
+                            <input type="text" class="form-control" #orders name="orders" #orders="ngModel" [(ngModel)]="cli.orders" [value]="(property | async)?.orders">
+                        </div>
+                        <div class="col-2">
+                            <label>Orders Price</label>
+                            <input type="number" class="form-control" #ordersprice name="squarefeet" #ordersprice="ngModel" [(ngModel)]="cli.ordersprice"
+                                [value]="(property | async)?.ordersprice">
+                        </div>
+    
+    
+    
+                    </div>
+                    <div *ngIf="(property | async)?.addons === undefined; else addonshow">
+                        <button class="btn btn-primary btn-sm" (click)="addoxnshow = !addoxnshow">Add Addons</button>
+                    </div>
+                    <ng-template #addonshow>
+                        <div class="form-row mt-2">
+                            <div class="col-10">
+                                <label>Addons </label>
+                                <input type="text" class="form-control" name="addons" #addons #addons="ngModel" [(ngModel)]="cli.addons" [value]="(property | async)?.addons">
+                            </div>
+                            <div class="col-2">
+                                <label>Addons price</label>
+                                <input type="number" class="form-control" #addonsprice name="addonsprice" #addonsprice="ngModel" [(ngModel)]="cli.addonsprice"
+                                    [value]="(property | async)?.addonsprice">
+                            </div>
+                        </div>
+                    </ng-template>
+    
+                    <div class="form-row mt-2">
+                        <div class="col">
+                            <label>Visiting Date </label>
+                            <div *ngIf="(property | async)?.visitingdate!==undefined;">
+                                <input type="date" class="form-control" #visitingdate name="visitingdate" #visitingdate="ngModel" [(ngModel)]="cli.visitingdate"
+                                    [value]="(property | async)?.visitingdate | date :'yyyy-MM-dd'">
+                            </div>
+    
+    
+                        </div>
+                        <div class="col">
+                            <label>Visiting Time</label>
+                            <input type="text" class="form-control" #visitingtime name="visitingtime" #visitingtime="ngModel" [(ngModel)]="cli.visitingtime"
+                                [value]="(property | async)?.visitingtime">
+    
+                        </div>
+                        <div class="col">
+                            <label>Meeting Type</label>
+                            <input type="text" class="form-control" #meet name="meet" #meet="ngModel" [(ngModel)]="cli.meet" [value]="(property | async)?.meet">
+                        </div>
+                        <div class="col">
+                            <label>Code</label>
+                            <input type="text" class="form-control" #lockcode name="lockcode" #lockcode="ngModel" [(ngModel)]="cli.lockcode" [value]="(property | async)?.lockcode">
+                        </div>
+                    </div>
+                    <div class="form-row mt-2">
+                        <div class="col">
+                            <label>Comments</label>
+                            <input type="text" class="form-control" #comments name="comments" #comments="ngModel" [(ngModel)]="cli.comments" [value]="(property | async)?.comments">
+                        </div>
+                        <div class="col">
+                            <label>Assign Agent</label>
+                            <!-- <select class="custom-select" id="inputGroupSelect03">
+                                    <option selected>Choose...</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select> -->
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleFormControlFile1">Example file input</label>
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                </div>
+                            </form>
+    
+                        </div>
+                    </div>
+                    <div class="form-row mt-2">
+                        <div class="col">
+                            <button class="btn btn-primary" type="submit">Save</button>
+                            <button class="btn btn-warning">Visited</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    

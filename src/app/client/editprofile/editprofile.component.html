@@ -48,8 +48,9 @@
 <div class="row text-center">
   <div class="col-md-12 col-6 mx-auto">
     <img src='/assets/image/profile.png' class="img-thumbnail" >
+    <img [src]="url |async" alt="no" class="img-thumbnail">
    <!-- <input type="file" (change)="upload($event)" accept=".png,.jpg"/> -->
- 
+    <a [href]="url |async">{{url | async}}</a> 
 <div class="image-upload">
     <label for="file-input">
        <i class="fa fa-edit custom-edit"></i>
