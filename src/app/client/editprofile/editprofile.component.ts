@@ -14,12 +14,8 @@ import { Observable } from 'rxjs';
   selector: 'app-editprofile',
   templateUrl: './editprofile.component.html',
   styleUrls: ['./editprofile.component.scss'],
-<<<<<<< HEAD
   providers: [ClientinfoService]
 
-=======
-  providers:[ClientinfoService]
->>>>>>> 9d2b79152462af973075609a9be1145259393bb6
 })
 
 export class EditprofileComponent {
