@@ -282,9 +282,10 @@ deleteorder(orderid) {
     var c = months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
     return c
   }
-  placeOrderaptaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet){
+  placeOrderaptaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet, phone){
     var createdby = this.afAuth.auth.currentUser.displayName;
     var email = this.getEmail();
+   
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
@@ -310,18 +311,26 @@ deleteorder(orderid) {
         comments: comments,
         orderedon: timestamp,
         orderid: orderid,
-        status:'new'
+        status:'new',
+        email:email,
+       contact:phone
       }
     )
     this.usersCollection.doc(email).collection('orders').doc(orderid).set({
       orderedon: timestamp,
       visitingdate: visitingdate,
       visitingtime: visitingtime,
+      building: building,
+      street: street,
+      city: city,
+      zip: zip,
+      unit: unit,
     });
   }
-  placeOrderaptaddoncode(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, lockcode, meet){
+  placeOrderaptaddoncode(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, lockcode, meet, phone){
     var createdby = this.afAuth.auth.currentUser.displayName;
     var email = this.getEmail();
+   
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
@@ -346,19 +355,27 @@ deleteorder(orderid) {
         comments: comments,
         orderedon: timestamp,
         orderid: orderid,
-        status: 'new'
+        status: 'new',
+        email: email,
+       contact:phone
       }
     )
     this.usersCollection.doc(email).collection('orders').doc(orderid).set({
       orderedon: timestamp,
       visitingdate: visitingdate,
       visitingtime: visitingtime,
+      building: building,
+      street: street,
+      city: city,
+      zip: zip,
+      unit: unit,
     });
 
   }
-  placeOrderaptnoaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, meet){
+  placeOrderaptnoaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, meet, phone){
     var createdby = this.afAuth.auth.currentUser.displayName;
     var email = this.getEmail();
+   
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
@@ -380,19 +397,27 @@ deleteorder(orderid) {
         comments: comments,
         orderedon: timestamp,
         orderid: orderid,
-        status: 'new'
+        status: 'new',
+        email: email,
+       contact:phone
       }
     )
     this.usersCollection.doc(email).collection('orders').doc(orderid).set({
       orderedon: timestamp,
       visitingdate: visitingdate,
       visitingtime: visitingtime,
+      building: building,
+      street: street,
+      city: city,
+      zip: zip,
+      unit: unit,
     });
 
   } 
-  placeOrderaptnoaddoncode(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, lockcode, meet) {
+  placeOrderaptnoaddoncode(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, lockcode, meet, phone) {
     var createdby = this.afAuth.auth.currentUser.displayName;
     var email = this.getEmail();
+   
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
@@ -415,18 +440,26 @@ deleteorder(orderid) {
         comments: comments,
         orderedon: timestamp,
         orderid: orderid,
-        status: 'new'
+        status: 'new',
+        email: email,
+       contact:phone
       }
     )
     this.usersCollection.doc(email).collection('orders').doc(orderid).set({
       orderedon: timestamp,
       visitingdate: visitingdate,
       visitingtime: visitingtime,
+      building: building,
+      street: street,
+      city: city,
+      zip: zip,
+      unit: unit,
     });
   }
-  placeOrdergenaddoncode(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, lockcode, meet){
+  placeOrdergenaddoncode(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, lockcode, meet, phone){
     var createdby = this.afAuth.auth.currentUser.displayName;
     var email = this.getEmail();
+   
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
@@ -450,18 +483,26 @@ deleteorder(orderid) {
         addonsprice : addonsprice,
         orderedon: timestamp,
         orderid: orderid,
-        status: 'new'
+        status: 'new',
+        email: email,
+       contact:phone
       }
     )
     this.usersCollection.doc(email).collection('orders').doc(orderid).set({
       orderedon: timestamp,
       visitingdate: visitingdate,
       visitingtime: visitingtime,
+      building: building,
+      street: street,
+      city: city,
+      zip: zip,
+      
     });
   }
-  placeOrdergenaddonmeet(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet){
+  placeOrdergenaddonmeet(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet, phone){
     var createdby = this.afAuth.auth.currentUser.displayName;
     var email = this.getEmail();
+   
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
@@ -484,18 +525,25 @@ deleteorder(orderid) {
         addonsprice:addonsprice,
         orderedon: timestamp,
         orderid: orderid,
-        status: 'new'
+        status: 'new',
+        email: email,
+       contact:phone
       }
     )
     this.usersCollection.doc(email).collection('orders').doc(orderid).set({
       orderedon: timestamp,
       visitingdate: visitingdate,
       visitingtime: visitingtime,
+      building: building,
+      street: street,
+      city: city,
+      zip: zip,
     });
   }
-  placeOrdergennoaddonmeet(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, meet){
+  placeOrdergennoaddonmeet(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, meet, phone){
     var createdby = this.afAuth.auth.currentUser.displayName.replace(/\s+/, "");
     var email = this.getEmail();
+   
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
@@ -516,19 +564,26 @@ deleteorder(orderid) {
         comments: comments,
         orderedon: timestamp,
         orderid: orderid,
-        status: 'new'
+        status: 'new',
+        email: email,
+       contact:phone
       }
     )
     this.usersCollection.doc(email).collection('orders').doc(orderid).set({
       orderedon: timestamp,
       visitingdate: visitingdate,
       visitingtime: visitingtime,
+      building: building,
+      street: street,
+      city: city,
+      zip: zip,
     });
   }
-  placeOrdergennoaddoncode(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, lockcode, meet)
+  placeOrdergennoaddoncode(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, lockcode, meet, phone)
   {
     var createdby = this.afAuth.auth.currentUser.displayName;
     var email = this.getEmail();
+     
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
     var c = (d.getDate()).toString() + (d.getMonth() + 1).toString() + (d.getFullYear()).toString().substr(-2) + (d.getHours()).toString() + (d.getMinutes()).toString();
@@ -550,7 +605,9 @@ deleteorder(orderid) {
         comments: comments,
         orderedon: timestamp,
         orderid: orderid,
-        status: 'new'
+        status: 'new',
+        email: email,
+       contact:phone
       }
         
     );
@@ -558,6 +615,10 @@ deleteorder(orderid) {
       orderedon: timestamp,
       visitingdate: visitingdate,
       visitingtime: visitingtime,
+      building: building,
+      street: street,
+      city: city,
+      zip: zip,
     });
   }
 

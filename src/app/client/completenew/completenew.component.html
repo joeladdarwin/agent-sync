@@ -42,8 +42,9 @@
 </div>
 <div class="row">
   <form #OrderForm="ngForm" (submit)="addanotherunit(OrderForm)" class="col-12 text-center">
-    <input type="text" class="" #email name="email" #email="ngModel" [(ngModel)]="cli.email" [value]="(property | async)?.building">
-    <input type="text" class="" #phoneno name="phoneno" #phoneno="ngModel" [(ngModel)]="cli.phoneno" [value]="(property | async)?.building">
+    
+    <input type="text" class="" #phoneno name="phoneno" #phoneno="ngModel" [(ngModel)]="cli.phoneno" [value]="(phone|async)?.phone">
+
     
    
     <input type="text" class="invisible sminput" #building name="building" #building="ngModel" [(ngModel)]="cli.building" [value]="(property | async)?.building">
@@ -67,12 +68,12 @@
    <div *ngIf="(property | async)?.unit ===undefined;else incunit">
           <div *ngIf="(property | async)?.addons ===undefined;else incaddon">
                 <div *ngIf="(property |async)?.lockcode===undefined;else meetshowaddonsno">
-                      <button type="button" (click)="placeOrdergennoaddonmeet(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value,meet.value)"
+                      <button type="button" (click)="placeOrdergennoaddonmeet(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value,meet.value, phoneno.value)"
                       class="btn btn4 mx-auto mt-5">ADD ANOTHER UNIT</button>
               
                  </div>
               <ng-template #meetshowaddonsno>
-                      <button type="button" (click)="placeOrdergennoaddoncode(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value,lockcode.value,meet.value)"
+                      <button type="button" (click)="placeOrdergennoaddoncode(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value,lockcode.value,meet.value, phoneno.value)"
                       class="btn btn4 mx-auto mt-5">ADD ANOTHER UNIT</button>
               </ng-template>
             </div>
@@ -81,11 +82,11 @@
               <ng-template *ngIf="(property |async)?.lockcode===undefined;else meetshow">
               
                 <button type="button" (click)="placeOrdergenaddonmeet(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value, ordersprice.value,visitingdate.value,
-                              visitingtime.value, comments.value, addons.value, addonsprice.value, meet.value)" class="btn btn4 mx-auto mt-5">ADD ANOTHER UNIT</button>
+                              visitingtime.value, comments.value, addons.value, addonsprice.value, meet.value, phoneno.value)" class="btn btn4 mx-auto mt-5">ADD ANOTHER UNIT</button>
                
               </ng-template>
               <ng-template #meetshow>
-                  <button type="button" (click)="placeOrdergenaddoncode(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value, addons.value, addonsprice.value, lockcode.value,meet.value)"
+                  <button type="button" (click)="placeOrdergenaddoncode(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value, addons.value, addonsprice.value, lockcode.value,meet.value, phoneno.value)"
                   class="btn btn4 mx-auto mt-5">ADD ANOTHER UNIT</button>
               </ng-template>
           </ng-template>
@@ -94,14 +95,14 @@
       
     <ng-template *ngIf="(property | async)?.addons ===undefined;else incaddonunit">
              <ng-template *ngIf="(property | async)?.lockcode === undefined;else accunitcode">
-              <button type="button" (click)="placeOrderaptnoaddonmeet(building.value,street.value,city.value,zip.value,unit.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value, meet.value)"
+              <button type="button" (click)="placeOrderaptnoaddonmeet(building.value,street.value,city.value,zip.value,unit.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value, meet.value, phoneno.value)"
                 class="btn btn4 mx-auto mt-5">ADD ANOTHER UNIT</button>
              
 
             </ng-template>
           <ng-template #accunitcode>
           
-            <button type="button" (click)="placeOrderaptnoaddoncode(building.value,street.value,city.value,zip.value,unit.value,squarefeet.value,orders.value, ordersprice.value,visitingdate.value, visitingtime.value, comments.value, lockcode.value, meet.value )"
+            <button type="button" (click)="placeOrderaptnoaddoncode(building.value,street.value,city.value,zip.value,unit.value,squarefeet.value,orders.value, ordersprice.value,visitingdate.value, visitingtime.value, comments.value, lockcode.value, meet.value , phoneno.value)"
               class="btn btn4 mx-auto mt-5">ADD ANOTHER UNIT</button>
           </ng-template>
 
@@ -109,12 +110,12 @@
     </ng-template>
         <ng-template #incaddonunit>
            <div *ngIf="(property | async)?.lockcode === undefined;else accunitcodeadd">
-            <button type="button" (click)="placeOrderaptaddonmeet(building.value,street.value,city.value,zip.value,unit.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value, addons.value, addonsprice.value, meet.value)"
+            <button type="button" (click)="placeOrderaptaddonmeet(building.value,street.value,city.value,zip.value,unit.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value, addons.value, addonsprice.value, meet.value, phoneno.value)"
               class="btn btn4 mx-auto mt-5">ADD ANOTHER UNIT</button>
             
             </div>
             <ng-template #accunitcodeadd>
-              <button type="button" (click)="placeOrderaptaddoncode(building.value,street.value,city.value,zip.value,unit.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value, addons.value,addonsprice.value, lockcode.value, meet.value )"
+              <button type="button" (click)="placeOrderaptaddoncode(building.value,street.value,city.value,zip.value,unit.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value, addons.value,addonsprice.value, lockcode.value, meet.value , phoneno.value)"
                 class="btn btn4 mx-auto mt-5">ADD ANOTHER UNIT</button>
            
             </ng-template>
@@ -125,12 +126,12 @@
     <div *ngIf="(property | async)?.unit ===undefined;else incunit">
       <div *ngIf="(property | async)?.addons ===undefined;else incaddon">
         <div *ngIf="(property |async)?.lockcode===undefined;else meetshowaddonsno">
-          <button type="button" (click)="submitOrdergennoaddonmeet(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value,meet.value)"
+          <button type="button" (click)="submitOrdergennoaddonmeet(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value,meet.value, phoneno.value)"
             class="btn btn3 mx-auto mt-2">SUBMIT ORDER</button>
     
         </div>
         <ng-template #meetshowaddonsno>
-          <button type="button" (click)="submitOrdergennoaddoncode(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value,lockcode.value,meet.value)"
+          <button type="button" (click)="submitOrdergennoaddoncode(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value,lockcode.value,meet.value, phoneno.value)"
             class="btn btn3 mx-auto mt-2">SUBMIT ORDER</button>
         </ng-template>
       </div>
@@ -139,11 +140,11 @@
         <ng-template *ngIf="(property |async)?.lockcode===undefined;else meetshow">
     
           <button type="button" (click)="submitOrdergenaddonmeet(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value, ordersprice.value,visitingdate.value,
-                                      visitingtime.value, comments.value, addons.value, addonsprice.value, meet.value)" class="btn btn3 mx-auto mt-2">SUBMIT ORDER</button>
+                                      visitingtime.value, comments.value, addons.value, addonsprice.value, meet.value, phoneno.value)" class="btn btn3 mx-auto mt-2">SUBMIT ORDER</button>
     
         </ng-template>
         <ng-template #meetshow>
-          <button type="button" (click)="submitOrdergenaddoncode(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value, addons.value, addonsprice.value, lockcode.value,meet.value)"
+          <button type="button" (click)="submitOrdergenaddoncode(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value, addons.value, addonsprice.value, lockcode.value,meet.value, phoneno.value)"
             class="btn btn3 mx-auto mt-2">SUBMIT ORDER</button>
         </ng-template>
       </ng-template>
@@ -152,14 +153,14 @@
     
       <ng-template *ngIf="(property | async)?.addons ===undefined;else incaddonunit">
         <ng-template *ngIf="(property | async)?.lockcode === undefined;else accunitcode">
-          <button type="button" (click)="submitOrderaptnoaddonmeet(building.value,street.value,city.value,zip.value,unit.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value, meet.value)"
+          <button type="button" (click)="submitOrderaptnoaddonmeet(building.value,street.value,city.value,zip.value,unit.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value, meet.value, phoneno.value)"
             class="btn btn3 mx-auto mt-2">SUBMIT ORDER</button>
     
     
         </ng-template>
         <ng-template #accunitcode>
     
-          <button type="button" (click)="submitOrderaptnoaddoncode(building.value,street.value,city.value,zip.value,unit.value,squarefeet.value,orders.value, ordersprice.value,visitingdate.value, visitingtime.value, comments.value, lockcode.value, meet.value )"
+          <button type="button" (click)="submitOrderaptnoaddoncode(building.value,street.value,city.value,zip.value,unit.value,squarefeet.value,orders.value, ordersprice.value,visitingdate.value, visitingtime.value, comments.value, lockcode.value, meet.value , phoneno.value)"
             class="btn btn3 mx-auto mt-2">SUBMIT ORDER</button>
         </ng-template>
     
@@ -167,12 +168,12 @@
       </ng-template>
       <ng-template #incaddonunit>
         <div *ngIf="(property | async)?.lockcode === undefined;else accunitcodeadd">
-          <button type="button" (click)="submitOrderaptaddonmeet(building.value,street.value,city.value,zip.value,unit.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value, addons.value, addonsprice.value, meet.value)"
+          <button type="button" (click)="submitOrderaptaddonmeet(building.value,street.value,city.value,zip.value,unit.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value, addons.value, addonsprice.value, meet.value, phoneno.value)"
             class="btn  mx-auto mt-2">SUBMIT ORDER</button>
     
         </div>
         <ng-template #accunitcodeadd>
-          <button type="button" (click)="submitOrderaptaddoncode(building.value,street.value,city.value,zip.value,unit.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value, addons.value,addonsprice.value, lockcode.value, meet.value )"
+          <button type="button" (click)="submitOrderaptaddoncode(building.value,street.value,city.value,zip.value,unit.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value, addons.value,addonsprice.value, lockcode.value, meet.value , phoneno.value)"
             class="btn btn3 mx-auto mt-2">SUBMIT ORDER</button>
     
         </ng-template>
