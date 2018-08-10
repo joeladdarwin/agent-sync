@@ -118,6 +118,7 @@ import { AgentdashboardComponent } from './agent/agentdashboard/agentdashboard.c
 import { AgentordersComponent } from './agent/agentorders/agentorders.component';
 import { AgentsidenavComponent } from './agent/agentsidenav/agentsidenav.component';
 import { AgentheaderComponent } from './agent/agentheader/agentheader.component';
+import { LogindemoComponent } from './client/logindemo/logindemo.component';
   
 
 
@@ -177,7 +178,8 @@ import { AgentheaderComponent } from './agent/agentheader/agentheader.component'
     AgentdashboardComponent,
     AgentordersComponent,
     AgentsidenavComponent,
-    AgentheaderComponent
+    AgentheaderComponent,
+    LogindemoComponent
   
   
   ],

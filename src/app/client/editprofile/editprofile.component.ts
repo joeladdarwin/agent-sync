@@ -1,15 +1,25 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import{ AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask} from 'angularfire2/storage';
 import { ClientinfoService } from '../../shared/clientinfo.service';
+import{ AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask} from 'angularfire2/storage';
+<<<<<<< HEAD
+import { ClientinfoService } from '../../shared/clientinfo.service';
+=======
+import { Observable } from 'rxjs';
+// import { map } from 'rxjs/operator/map';
+
+>>>>>>> 9d2b79152462af973075609a9be1145259393bb6
 
 
 @Component({
   selector: 'app-editprofile',
   templateUrl: './editprofile.component.html',
   styleUrls: ['./editprofile.component.scss'],
+<<<<<<< HEAD
   providers: [ClientinfoService]
 
+=======
+  providers:[ClientinfoService]
+>>>>>>> 9d2b79152462af973075609a9be1145259393bb6
 })
 
 export class EditprofileComponent {
@@ -34,3 +44,6 @@ export class EditprofileComponent {
   }
 
 }
+ 
+
+

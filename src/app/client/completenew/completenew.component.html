@@ -42,6 +42,9 @@
 </div>
 <div class="row">
   <form #OrderForm="ngForm" (submit)="addanotherunit(OrderForm)" class="col-12 text-center">
+    <input type="text" class="" #email name="email" #email="ngModel" [(ngModel)]="cli.email" [value]="(property | async)?.building">
+    <input type="text" class="" #phoneno name="phoneno" #phoneno="ngModel" [(ngModel)]="cli.phoneno" [value]="(property | async)?.building">
+    
    
     <input type="text" class="invisible sminput" #building name="building" #building="ngModel" [(ngModel)]="cli.building" [value]="(property | async)?.building">
     <input type="text" class="invisible sminput" #street name="street" #street="ngModel" [(ngModel)]="cli.street" [value]="(property | async)?.street">
