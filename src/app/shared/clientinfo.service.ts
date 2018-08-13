@@ -215,19 +215,7 @@ export class ClientinfoService {
       this.router.navigate(['/revieworder'])
     }
  
-  QueryOrder() {
-    
-    this.ordersCollection.ref.get().then(function (querySnapshot) {
-      querySnapshot.forEach(function (doc) {
-        doc.data().where('building', '==', 'Appartment') //is never undefined for query doc snapshots
-        // console.log(doc.id, " => ", doc.data());
-        // console.log(doc.data());
-        // console.log(doc.id, " => ", doc.data());
-        return doc.data()
-      });
-
-    });
-  }
+ 
  Queryorder2() 
  {
 
@@ -264,6 +252,11 @@ export class ClientinfoService {
     this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('status', '==', 'completed') }).valueChanges();
     return this.orderref$
     //  is.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
+  }
+  queryorderpending() {
+
+    this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('status', '==', 'pending') }).valueChanges();
+    return this.orderref$ //  is.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
   }
   queryorderassigned() {
 

@@ -61,18 +61,6 @@ import { AppRoutingModule } from './/app-routing.module';
 import { ThanksComponent } from './client/thanks/thanks.component';
 import { NavbarComponent } from './client/navbar/navbar.component';
 import { ProfileComponent } from './client/profile/profile.component';
-
-import { OrderunitComponent } from './client/orderunit/orderunit.component';
-import { OrderaddressComponent } from './client/orderaddress/orderaddress.component';
-import { PropertysizeComponent } from './client/propertysize/propertysize.component';
-import { SelectsquarefeetComponent } from './client/selectsquarefeet/selectsquarefeet.component';
-import { SelectproductsComponent } from './client/selectproducts/selectproducts.component';
-import { SelectaccesspropertyComponent } from './client/selectaccessproperty/selectaccessproperty.component';
-import { SelectdateComponent } from './client/selectdate/selectdate.component';
-import { SelecttimeComponent } from './client/selecttime/selecttime.component';
-import { AdditionalnotesComponent } from './client/additionalnotes/additionalnotes.component';
-
-
 import { LoginsentComponent } from './client/loginsent/loginsent.component';
 import { PlaceorderComponent } from './client/placeorder/placeorder.component';
 import { MyorderComponent } from './client/myorder/myorder.component';
@@ -101,8 +89,6 @@ import { AdminLayoutComponent } from './admin/layout/admin-layout/admin-layout/a
 
 import { NotificationComponent } from './admin/notification/notification.component';
 import { UserProfileComponent } from './admin/user-profile/user-profile.component';
-
-import { FooterComponent } from './admin/component/footer/footer.component';
 
 import { UsersComponent } from './admin/component/users/users.component';
 
@@ -163,7 +149,7 @@ import { LogindemoComponent } from './client/logindemo/logindemo.component';
     NotificationComponent,
     UserProfileComponent,
   
-    FooterComponent,
+  
     
     UsersComponent,
 
