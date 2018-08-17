@@ -215,7 +215,7 @@ export class ProductsComponent implements OnInit {
 
 
 
-  toggleClass(e,price,order,sqft) {
+  toggleClass(e,price,order) {
     var classList = e.target.classList;
     var classes = e.target.className;
     if (classes.includes('btn-selected')) {

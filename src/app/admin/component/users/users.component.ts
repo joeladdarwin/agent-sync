@@ -12,8 +12,7 @@ export class UsersComponent implements OnInit {
 
 
   constructor(private cli : ClientinfoService, private router: Router) {
-    this.name = this.cli.QueryOrder();
-    this.name="test";
+        this.name="test";
    }
 
   ngOnInit() {

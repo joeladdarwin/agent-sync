@@ -37,9 +37,6 @@ import { AdminLayoutComponent } from './admin/layout/admin-layout/admin-layout/a
 
 import { NotificationComponent } from './admin/notification/notification.component';
 import { UserProfileComponent } from './admin/user-profile/user-profile.component';
-
-import { FooterComponent } from './admin/component/footer/footer.component';
-
 import { UsersComponent } from './admin/component/users/users.component';
 
 import { AdminLoginComponent } from './admin/component/admin-login/admin-login.component';
@@ -90,7 +87,7 @@ const routes: Routes = [
   { path: "notification", component: NotificationComponent, canActivate: [AuthGuard] },
   { path: "user-profile", component: UserProfileComponent, canActivate: [AuthGuard] },
   
-  { path: "footer", component: FooterComponent, canActivate: [AuthGuard] },
+ 
  
   { path: "admin-users", component: UsersComponent, canActivate: [AuthGuard] },
  

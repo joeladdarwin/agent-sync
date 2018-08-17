@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { ClientinfoService } from '../../shared/clientinfo.service';
 import{ AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask} from 'angularfire2/storage';
-import { Observable } from 'rxjs';
-// import { map } from 'rxjs/operator/map';
-
-
 
 @Component({
   selector: 'app-editprofile',
@@ -29,7 +25,6 @@ export class EditprofileComponent {
       console.log("enter your click");
       this.cli.uploadprofileimage(event);
   
-
     }
   ngOnInit() {
     this.url = this.cli.geturl();

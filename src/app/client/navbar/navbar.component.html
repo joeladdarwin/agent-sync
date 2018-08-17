@@ -8,30 +8,58 @@
 </app-navbar>
  -->
  <div class="row">
-  <nav class="navbar col-8 fixed-top navbar-dark bg-primary mx-auto">
-    <a class="navbar-brand" href="#">Navbar</a>
+  <nav class="navbar fixed-top col-8 navbar-expand-lg navbar-dark navback mx-auto">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
-         <span class="navbar-toggler-icon"></span>
-     </button>
-     <div class="navbar-collapse collapse" id="collapsingNavbar">
-         <ul class="navbar-nav">
-             <li class="nav-item active">
-                 <a class="nav-link" href="#">Home <span class="sr-only">Home</span></a>
-             </li>
-             <li class="nav-item">
-                 <a class="nav-link" href="#features">Features</a>
-             </li>
-             <li class="nav-item">
-                 <a class="nav-link" href="#myAlert" data-toggle="collapse">Wow</a>
-             </li>
-         </ul>
-         <ul class="navbar-nav ml-auto">
-             <li class="nav-item">
-                 <a class="nav-link" href="" data-target="#myModal" data-toggle="modal">About</a>
-             </li>
-         </ul>
-     </div>
- </nav>
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+        aria-expanded="false" aria-label="Toggle navigation">
+    <img src="assets/image/icons/delivery1.png" class="img-fluid classbb mt-5" alt="delivery">
+    <div *ngIf="(property|async)?.orderstatus==='Order Updated'">
+      <span class="badge bad float-right">1</span>
+    </div>  
+    
+    </button>
+  
+     
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#">Agent-sync</a>
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+            <a class="nav-link waves-light" routerLink="/dashboard" mdbWavesEffect>Main
+                <span class="sr-only">(current)</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link waves-light" routerLink="/price" mdbWavesEffect>Price Menu</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link waves-light" routerLink="/placeorder" mdbWavesEffect>Place Order</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link waves-light" routerLink="/myorder" mdbWavesEffect>My Orders</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link waves-light" routerLink="/agent-dashboard" mdbWavesEffect>Agent</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link waves-light" routerLink="/admin-dashboard" mdbWavesEffect>Admin</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link waves-light" routerLink="/profile" mdbWavesEffect>Profile</a>
+        </li>
+        <li class="nav-item">
+        <img src="assets/image/icons/delivery1.png" class="img-fluid imgicon d-none d-sm-block" alt="delivery">
+        <div *ngIf="(property|async)?.orderstatus==='Order Updated'">
+            <span class="badge bad float-right">1</span>
+        </div>
+      
+        </li>
+        </ul>
+        
+      </div>
+    </nav>
     </div>
     
     

@@ -307,13 +307,13 @@
                     </div>
                     <div class="col-4">
                         <p class="text-center">
-                            <strong>Ordered by:</strong>{{(property |async)?.createdby}}
+                            <strong>Ordered by:</strong>{{(property |async)?.orderedby}}
                         </p>
                     
                     </div>
                     <div class="col-4">
                         <p class="text-right">
-                            <strong>Phone:</strong>
+                            <strong>Phone:</strong>{{(property |async)?.contact}}
                         </p>
                     </div>
                 </div>
@@ -598,12 +598,12 @@
                         </div>
                         <div class="col">
                             <label>Assign Agent</label>
-                            <!-- <select class="custom-select" id="inputGroupSelect03">
+                            <select class="custom-select" id="inputGroupSelect03">
                                     <option selected>Choose...</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
-                                </select> -->
+                                </select>
                             <form>
                                 <div class="form-group">
                                     <label for="exampleFormControlFile1">Example file input</label>
