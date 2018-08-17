@@ -1,28 +1,39 @@
+<div class="row">
+    <div class="col-md-3">
 
+    </div>
+    <div class="col-md-6">
+        
 <div class="row" id="headerback">
 
-    <div class="col-12" >
-       <a routerLink="/login"><i class="m-3 text-dark fa fa-arrow-left float-left"></i></a>
+        <div class="col-12" >
+           <a routerLink="/login"><i class="m-3 text-dark fa fa-arrow-left float-left"></i></a>
+           
+        </div> 
+        <div class="col-12">
+        <h3 class="text-center">Forgot your login info?</h3>
+        
+        <p class="text-center">An email will be sent to the registered address.</p>
+        
+        </div>
        
-    </div> 
-    <div class="col-12">
-    <h3 class="text-center">Forgot your login info?</h3>
-    
-    <p class="text-center">An email will be sent to the registered address.</p>
-    
+        <form class="col-12 mt-5 text-center" #passwordresetform ="ngForm" (ngSubmit)="onSubmit(passwordresetform)">
+             
+              <div class="row">
+                    <div class="offset-2 col-8 mb-3">
+                        <p class="error text-center">{{ (error | async)?.message }}</p>
+                        <input type="email" name="recoveremail" #recoveremail placeholder="Email Address" (ngModel)="recoveremail" required class="form-control p-3 input-lg numinput text-center mb-5">
+                    </div>
+                    <div class="offset-2 col-6">
+                        
+                        <button type="submit" class="btn btn1 btn-block p-2 mt-5">Recover Login</button>
+                    </div> 
+              </div> 
+          </form>   
     </div>
-   
-    <form class="col-12 mt-5 text-center" #passwordresetform ="ngForm" (ngSubmit)="onSubmit(passwordresetform)">
-         
-          <div class="row">
-                <div class="offset-2 col-8 mb-3">
-                    <p class="error text-center">{{ (error | async)?.message }}</p>
-                    <input type="email" name="recoveremail" #recoveremail placeholder="Email Address" (ngModel)="recoveremail" required class="form-control p-3 input-lg numinput text-center">
-                </div>
-                <div class="offset-2 col-6">
-                    
-                    <button type="submit" class="btn btn1 btn-block p-2">Recover Login</button>
-                </div> 
-          </div> 
-      </form>   
+
+    </div>
+    <div class="col-md-3">
+
+    </div>
 </div>

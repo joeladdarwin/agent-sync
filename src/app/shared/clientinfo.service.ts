@@ -258,17 +258,27 @@ export class ClientinfoService {
     return this.orderref$
     //  is.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
   }
-  
+
   queryordercomplete() {
    
     this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('status', '==', 'completed') }).valueChanges();
     return this.orderref$
     //  is.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
   }
-  queryorderassigned() {
+  queryorderassigned(orderid,agentname) {
+    var email = this.getEmail();
+    this.usersCollection.doc(email).collection('orders').doc(orderid).update({
+     status:"assigned"
+    });
+    // this.ordersCollection.doc(orderid).set(
+    //   {
+        
+    //     agent:agentname,
+    //     orderid: orderid,
+    //     status:'assigned'
+    //   }
+    // )
 
-    this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('status', '==', 'assigned') }).valueChanges();
-    return this.orderref$ //  is.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
   }
 deleteorder(orderid) {
     this.docRef = this.ordersCollection.doc(orderid).delete();
@@ -282,6 +292,21 @@ deleteorder(orderid) {
     var c = months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
     return c
   }
+ scheduleorder(orderid,agentname){
+  var email = this.getEmail();
+   this.ordersCollection.doc(orderid).update({
+     agent:agentname,
+    status:'assigned'
+   });
+   this.usersCollection.doc(email).collection('orders').doc(orderid).update(
+     {
+      agent:agentname,
+      status:'assigned'
+     }
+   )
+
+
+ }
   placeOrderaptaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet){
     var createdby = this.afAuth.auth.currentUser.displayName;
     var email = this.getEmail();
