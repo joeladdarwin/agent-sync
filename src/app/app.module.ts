@@ -8,14 +8,14 @@ import { AuthGuard } from '../app/shared/auth.guard'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import '../polyfills';
 import { ToastrModule } from 'ngx-toastr';
-
+import { CalendarModule } from 'angular-calendar';
 import { environment } from "../environments/environment";
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireStorageModule } from "angularfire2/storage";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFirestoreModule, AngularFirestore } from 'angularfire2/firestore';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -50,8 +50,6 @@ import {
   MatToolbarModule,
   MatTooltipModule,
 } from '@angular/material';
-
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './client/login/login.component';
 import { RegisterComponent } from './client/register/register.component';
@@ -82,16 +80,10 @@ import { CompleteComponent } from './client/complete/complete.component';
 import { PriceComponent } from './client/price/price.component';
 import { AddonsComponent } from './client/addons/addons.component';
 import { SlideviewComponent } from './client/slideview/slideview.component';
-
-
-
 import { AdminLayoutComponent } from './admin/layout/admin-layout/admin-layout/admin-layout.component';
-
 import { NotificationComponent } from './admin/notification/notification.component';
 import { UserProfileComponent } from './admin/user-profile/user-profile.component';
-
 import { UsersComponent } from './admin/component/users/users.component';
-
 import { AdminLoginComponent } from './admin/component/admin-login/admin-login.component';
 import { AdminDashboardComponent } from './admin/component/admin-dashboard/admin-dashboard.component';
 import { OrdersComponent } from './admin/component/orders/orders.component';
@@ -106,11 +98,6 @@ import { AgentsidenavComponent } from './agent/agentsidenav/agentsidenav.compone
 import { AgentheaderComponent } from './agent/agentheader/agentheader.component';
 import { LogindemoComponent } from './client/logindemo/logindemo.component';
   
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -126,7 +113,6 @@ import { LogindemoComponent } from './client/logindemo/logindemo.component';
     MyorderComponent,
     MyaccountComponent,
     DeliveriesComponent,
-    
     AddressComponent,
     EditprofileComponent,
     UnitnumberComponent,
@@ -143,16 +129,10 @@ import { LogindemoComponent } from './client/logindemo/logindemo.component';
     PriceComponent,
     AddonsComponent,
     SlideviewComponent,
-   
     AdminLayoutComponent,
-
     NotificationComponent,
-    UserProfileComponent,
-  
-  
-    
+    UserProfileComponent,     
     UsersComponent,
-
     AdminLoginComponent,
     AdminDashboardComponent,
     OrdersComponent,
@@ -166,8 +146,6 @@ import { LogindemoComponent } from './client/logindemo/logindemo.component';
     AgentsidenavComponent,
     AgentheaderComponent,
     LogindemoComponent
-  
-  
   ],
   imports: [
     BrowserModule,
@@ -214,6 +192,8 @@ import { LogindemoComponent } from './client/logindemo/logindemo.component';
     MatToolbarModule,
     MatTooltipModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
+    CalendarModule.forRoot(),
     ToastrModule.forRoot()
       ],
   schemas: [NO_ERRORS_SCHEMA],

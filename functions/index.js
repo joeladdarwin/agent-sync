@@ -9,11 +9,11 @@ const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 exports.firestoreEmail = functions.firestore
-    .document('users/{userId}/followers/{followerId}')
-    .onCreate((snap, context) => {
+    .document('users/{userId}/orders/{orderId}')
+    .onCreate((snap, msxg) => {
         const user = snap.data();
         const msg = {
-            to: user.email,
+            to: 'joeladarwin@hotmail.com',
             from: 'joeladdarwin@gmail.com',
             subject: 'New Follower',
             // text: `Hey ${toName}. You have a new follower!!! `,

@@ -8,6 +8,7 @@
     height:10vh;
     color: #656565;
 }
+
 .btn5{
     background-color:#D5D5D5;
     height:10vh;
@@ -20,7 +21,126 @@
     background-color:#fff;
     min-height:20vh;
 }
+.over
+{
+    overflow: hidden;
+    height: 1.5rem;
+}
+// calendar
+.cld-main{
+  width: 70vw;
+}
+.cld-main a{
+  color: #333;
+  font-weight: bold;
+}
+  .cld-datetime{
+    position: relative;
+    width: 66%;
+    min-width: 100px;
+    max-width: 300px;
+    margin: auto;
+    overflow: hidden;
+  }
+  .cld-datetime .today{
+    position: relative;
+    float: left;
+    width: calc(100% - 40px);
+    margin: auto;
+    text-align: center;
+  }
+  .cld-nav{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+  }
+  .cld-nav:hover{
+    cursor: pointer;
+  }
+  .cld-nav:hover svg{
+      fill: #666;
+  }
+  .cld-rwd{
+    float: left;
+  }
+  .cld-fwd{
+    float: right;
+  }
+    .cld-nav svg:hover{
 
+    }
+.cld-labels, .cld-days{
+  padding-left: 0;
+}
+  .cld-label, .cld-day{
+    display: inline-block;
+    width: 14.28%;
+    text-align: center;
+  }
+  .cld-day.today .cld-number{
+    display: block;
+   
+    border-radius: 50px;
+    background: #8DC63F;
+    color: #fff;
+  }
+  .cld-day.disableDay{
+    opacity: 0.5;
+  }
+  .cld-day.nextMonth, .cld-day.prevMonth{
+    opacity: 0.33;
+  }
+    .cld-number{
+      position: relative;
+     
+      padding: 1rem;
+    }
+      .cld-title{
+        position: absolute;
+        z-index: 5;
+        display: none;
+        top: 30px;
+        left: 0;
+        padding: 5px 10px;
+        background: #fff;
+        white-space: nowrap;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 12px;
+      }
+      .cld-number:hover .cld-title{
+        display: block;
+      }
+      .cld-title::before{
+        content: '';
+        position: absolute;
+        top: -7.5px; left: 7.5px;
+        width: 0;
+        height: 0;
+        border-left: 7.5px solid transparent;
+        border-right: 7.5px solid transparent;
+
+        border-bottom: 7.5px solid #ccc;
+      }
+      .cld-number.eventday{
+        display: block;
+        height: 1px;
+        width: 1px;
+        border-radius: 50px;
+        background-color:blueviolet;
+        border: 2px solid #999;
+        padding: 5px;
+        margin: 2rem
+      }
+      .cld-number.eventday:hover{
+        cursor: pointer;
+        background: #eee;
+      }
+      .today .cld-number.eventday:hover{
+        background: #888;
+      }
+// end of calendar
 @media screen and (max-width:768px){
     .btn2{
         background-color: #FF3B00;

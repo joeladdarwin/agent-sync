@@ -1,3 +1,130 @@
-<p>
-  agentorders works!
-</p>
+<app-agentheader>
+</app-agentheader>
+
+<br>
+
+<div class="row mt-4 ">
+  <div class="d-none d-md-block d-lg-block d-xl-block col-md-3 sidenav">
+    <app-agentsidenav></app-agentsidenav>
+  </div>
+  <div class="col-md-9 col-sm-12 my-3 bg-light">
+    <div class="row mt-5">
+      <div class="d-block">
+        <ul class="nav nav-pills nav-fill" role="tablist" id="horizontaltab">
+          <li class="nav-item">
+            <a class="nav-link active " data-toggle="pill" href="#TODAY">TODAY</a>
+          </li>
+      
+          <li class="nav-item">
+            <a class="nav-link " data-toggle="pill" href="#SCHEDULED">SCHEDULE</a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link " data-toggle="pill" href="#PENDING">PENDING</a>
+          </li>
+      
+          <li class="nav-item">
+            <a class="nav-link " data-toggle="pill" href="#COMPLETE">COMPLETE</a>
+          </li>
+      
+        </ul>
+      </div>
+        <div id="COMPLETE" class="container tab-pane fade">
+          <br>
+          <h3 class="text-center">COMPLETED ORDERS</h3>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">No</th>
+                  <th scope="col">Building</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Date/Time</th>
+                  <th scope="col">Order value</th>
+                  <th scope="col">Edit/Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let datas of datacom |async;let i= index;">
+                  <td>{{i+1}}</td>
+                  <td>{{ datas.building }}
+                    <br> {{ datas.squarefeet }}
+                    <br>
+                    <input type=text name="orderid" #orderid [value]="datas.orderid" class="invisible sminput">
+                  </td>
+                  <td>
+                    <p>{{datas.street}}
+                      <br> {{datas.city}}
+                      <br> {{datas.zip}}
+                      <br>{{datas.unit}}</p>
+                  </td>
+                  <td>
+                    <p>{{datas.visitingdate}}
+                      <br>{{datas.visitingtime}}</p>
+        
+                  </td>
+                  <td>{{datas.ordersprice}}+{{datas.addonsprice}}</td>
+                  <td>
+                    <button class="btn btn-primary btn-sm" (click)="query(orderid.value)" data-toggle="modal" data-target=".bd-example-modal-lg">
+                      <i class="far fa-edit"></i>
+                    </button>
+                    <button class="btn btn-danger btn-sm" (click)="delete(orderid.value)">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div id="PENDING" class="container tab-pane fade">
+   
+          <h3 class="text-center">PENDING</h3>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">No</th>
+                  <th scope="col">Building</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Date/Time</th>
+                  <th scope="col">Order value</th>
+                  <th scope="col">Edit/Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let datas of datacom |async;let i= index;">
+                  <td>{{i+1}}</td>
+                  <td>{{ datas.building }}
+                    <br> {{ datas.squarefeet }}
+                    <br>
+                    <input type=text name="orderid" #orderid [value]="datas.orderid" class="invisible sminput">
+                  </td>
+                  <td>
+                    <p>{{datas.street}}
+                      <br>{{datas.city}}
+                      <br>{{datas.zip}}
+                      <br>{{datas.unit}}</p>
+                  </td>
+                  <td>
+                    <p>{{datas.visitingdate}}
+                      <br>{{datas.visitingtime}}</p>
+        
+                  </td>
+                  <td>{{datas.ordersprice}}+{{datas.addonsprice}}</td>
+                  <td>
+                    <button class="btn btn-primary btn-sm" (click)="query(orderid.value)" data-toggle="modal" data-target=".bd-example-modal-lg">
+                      <i class="far fa-edit"></i>
+                    </button>
+                    <button class="btn btn-danger btn-sm" (click)="delete(orderid.value)">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
