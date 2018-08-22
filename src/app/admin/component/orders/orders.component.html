@@ -135,7 +135,7 @@
                                   </tr>
                               </thead>
                               <tbody>
-                                  <tr *ngFor="let datas of data |async;let i= index;">
+                                  <tr *ngFor="let datas of assignagent |async;let i= index;">
                                       <td>{{i+1}}</td>
                                       <td>{{ datas.building }}<br>
                                           {{ datas.squarefeet }}
@@ -279,7 +279,38 @@
                         </div>
                     </div>
                 
-               
+               <div id="PENDING" class="container tab-pane fade">
+                        <br>
+                        <h3 class="text-center">PENDING</h3>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">OrderId</th>
+                                        <th scope="col">Delivery Date</th>
+                                        <th scope="col">Edit/Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let datas of datanew |async;let i= index;">
+                                        <td>{{i+1}}</td>
+                                        <td> {{(property |async)?.orderid}} </td>
+                                        <td></td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm" (click)="query(orderid.value)" data-toggle="modal" data-target=".bd-example-modal-lg">
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-danger btn-sm" (click)="delete(orderid.value)">
+                                                <i class="fa fa-first-order" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+			
                   </div>
                   </div>
 
@@ -381,7 +412,7 @@
                           
     
                     </div>
-                    <div *ngIf="(property | async)?.addons === undefined; else addonshow">
+                    <div *ngIf="(property | async)?.addons ==='' ; else addonshow">
                         <button class="btn btn-primary btn-sm" (click)="addoxnshow = !addoxnshow">Add Addons</button>
                     </div>
                     <ng-template #addonshow>
@@ -451,7 +482,7 @@
                     <div class="form-row mt-2">
                         <div class="col">
                             <button class="btn btn-primary" type="submit">Save</button>
-                            <button class="btn btn-warning" (click)="assign(oid.value,input)">Assign</button>
+                            <button class="btn btn-warning" (click)="assign(oid.value,input.value)">Assign</button>
                             <button class="btn btn-danger">Delete</button>
                         </div>
                     </div>

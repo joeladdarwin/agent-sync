@@ -46,12 +46,14 @@ export class OrdersComponent implements OnInit {
     // this.data = this.cli.Queryorder2();
     this.data = this.cli.queryordertoday();
     this.datanew = this.cli.queryordernew();
+    // this.pending = this.cli.pendingquery();
     
     
     
     // console.log(this.cli.orderstoday$+"psio");
     this.test = this.cli.datenow();
     this.datacom = this.cli.queryordercomplete(); 
+    this.assignagent = this.cli.orderschedule();
     //this.assignagent = this.cli.queryorderassigned();
     // console.log("Elemt"+this.data);
   }
@@ -63,9 +65,9 @@ export class OrdersComponent implements OnInit {
 
     console.log("enter");
     console.log(orderid);
-    console.log(input.value);
+    console.log(input);
     this.assignagent = this.cli.queryorderassigned(orderid,input);
     console.log(this.assignagent);
   }
- 
+  
 }

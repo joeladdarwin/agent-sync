@@ -246,6 +246,12 @@ export class ClientinfoService {
     return this.orderref$
     //  is.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
   }
+  orderschedule(){
+    var date = this.datenow();
+
+    this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('status', '==', 'assigned') }).valueChanges();
+    return this.orderref$
+  }
 
   queryordercomplete() {
    
@@ -253,20 +259,18 @@ export class ClientinfoService {
     return this.orderref$
     //  is.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
   }
-  queryorderassigned(orderid,agentname) {
-    var email = this.getEmail();
-    this.usersCollection.doc(email).collection('orders').doc(orderid).update({
-     status:"assigned"
+  queryorderassigned(orderid,input) {
+    // this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('status', '==', 'assigned') }).valueChanges();
+    // return this.orderref$
+    this.docRef = this.ordersCollection.doc(orderid).update({
+      agent:input,
+      status:'assigned',
     });
-    // this.ordersCollection.doc(orderid).set(
-    //   {
-        
-    //     agent:agentname,
-    //     orderid: orderid,
-    //     status:'assigned'
-    //   }
-    // )
-
+    var email = this.getEmail();
+    this.docRef = this.ordersCollection.doc(email).update({
+      agent:input,
+      status:'assigned',
+    });
   }
 deleteorder(orderid) {
     this.docRef = this.ordersCollection.doc(orderid).delete();
@@ -286,7 +290,7 @@ deleteorder(orderid) {
      agent:agentname,
     status:'assigned'
    });
-   this.usersCollection.doc(email).collection('orders').doc(orderid).update(
+   this.ordersCollection.doc(email).collection('orders').doc(orderid).update(
      {
       agent:agentname,
       status:'assigned'
