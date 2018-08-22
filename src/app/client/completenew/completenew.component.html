@@ -65,32 +65,32 @@
    
  
     <!-- <button type="button" class="btn btn4 mx-auto" (click)="order(building.value, street.value, city.value, zip.value, squarefeet.value, orders.value, ordersprice.value, visitingdate.value, visitingtime.value, comments.value)">ADD ANOTHER UNIT 1.option</button> -->
-   <div *ngIf="(property | async)?.unit ===undefined;else incunit">
-          <div *ngIf="(property | async)?.addons ===undefined;else incaddon">
-                <div *ngIf="(property |async)?.lockcode===undefined;else meetshowaddonsno">
-                      <button type="button" (click)="placeOrdergennoaddonmeet(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value,meet.value, phoneno.value)"
-                      class="btn btn4 mx-auto mt-5">ADD ANOTHER UNIT</button>
-              
-                 </div>
-              <ng-template #meetshowaddonsno>
-                      <button type="button" (click)="placeOrdergennoaddoncode(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value,lockcode.value,meet.value, phoneno.value)"
-                      class="btn btn4 mx-auto mt-5">ADD ANOTHER UNIT</button>
-              </ng-template>
-            </div>
-          <ng-template #incaddon>
-           
-              <ng-template *ngIf="(property |async)?.lockcode===undefined;else meetshow">
-              
-                <button type="button" (click)="placeOrdergenaddonmeet(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value, ordersprice.value,visitingdate.value,
-                              visitingtime.value, comments.value, addons.value, addonsprice.value, meet.value, phoneno.value)" class="btn btn4 mx-auto mt-5">ADD ANOTHER UNIT</button>
-               
-              </ng-template>
-              <ng-template #meetshow>
-                  <button type="button" (click)="placeOrdergenaddoncode(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value, addons.value, addonsprice.value, lockcode.value,meet.value, phoneno.value)"
-                  class="btn btn4 mx-auto mt-5">ADD ANOTHER UNIT</button>
-              </ng-template>
-          </ng-template>
-       </div>
+    <div *ngIf="(property | async)?.unit ===undefined;else incunit">
+            <div *ngIf="(property | async)?.addons ===undefined;else incaddon">
+                  <div *ngIf="(property |async)?.lockcode===undefined;else meetshowaddonsno">
+                        <button type="button" (click)="placeOrdergennoaddonmeet(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value,meet.value, phoneno.value)"
+                        class="btn btn4 mx-auto mt-5">ADD ANOTHER UNIT</button>
+                
+                  </div>
+                <ng-template #meetshowaddonsno>
+                        <button type="button" (click)="placeOrdergennoaddoncode(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value,lockcode.value,meet.value, phoneno.value)"
+                        class="btn btn4 mx-auto mt-5">ADD ANOTHER UNIT</button>
+                </ng-template>
+              </div>
+            <ng-template #incaddon>
+            
+                <ng-template *ngIf="(property |async)?.lockcode===undefined;else meetshow">
+                
+                  <button type="button" (click)="placeOrdergenaddonmeet(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value, ordersprice.value,visitingdate.value,
+                                visitingtime.value, comments.value, addons.value, addonsprice.value, meet.value, phoneno.value)" class="btn btn4 mx-auto mt-5">ADD ANOTHER UNIT</button>
+                
+                </ng-template>
+                <ng-template #meetshow>
+                    <button type="button" (click)="placeOrdergenaddoncode(building.value,street.value,city.value,zip.value,squarefeet.value,orders.value,ordersprice.value,visitingdate.value, visitingtime.value, comments.value, addons.value, addonsprice.value, lockcode.value,meet.value, phoneno.value)"
+                    class="btn btn4 mx-auto mt-5">ADD ANOTHER UNIT</button>
+                </ng-template>
+            </ng-template>
+        </div>
     <ng-template #incunit>
       
     <ng-template *ngIf="(property | async)?.addons ===undefined;else incaddonunit">

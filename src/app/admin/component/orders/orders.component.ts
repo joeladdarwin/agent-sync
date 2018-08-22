@@ -17,6 +17,7 @@ export class OrdersComponent implements OnInit {
   datacom;
   property;
   test;
+  assignagent;
   // displayedColumns = ['building', 'street', 'ordersprice', 'orders'];
   // dataSource = new MatTableDataSource<Element>(this.data);
   // @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -34,6 +35,7 @@ export class OrdersComponent implements OnInit {
    query(order)
    {
      this.property = this.cli.queryorder(order);
+     
    
    }
   delete(order) {
@@ -44,15 +46,28 @@ export class OrdersComponent implements OnInit {
     // this.data = this.cli.Queryorder2();
     this.data = this.cli.queryordertoday();
     this.datanew = this.cli.queryordernew();
+    // this.pending = this.cli.pendingquery();
+    
     
     
     // console.log(this.cli.orderstoday$+"psio");
     this.test = this.cli.datenow();
     this.datacom = this.cli.queryordercomplete(); 
+    this.assignagent = this.cli.orderschedule();
+    //this.assignagent = this.cli.queryorderassigned();
     // console.log("Elemt"+this.data);
   }
   // ngAfterViewInit() {
   //   this.dataSource.paginator = this.paginator
   //   this.dataSource.sort = this.sort;
   // }
+  assign(orderid,input){
+
+    console.log("enter");
+    console.log(orderid);
+    console.log(input);
+    this.assignagent = this.cli.queryorderassigned(orderid,input);
+    console.log(this.assignagent);
+  }
+  
 }

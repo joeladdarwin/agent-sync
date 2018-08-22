@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientinfoService } from '../../shared/clientinfo.service';
-import { Observable } from '@firebase/util';
-import { Client } from '../../shared/client';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-thanks',
   templateUrl: './thanks.component.html',
@@ -9,10 +9,18 @@ import { Client } from '../../shared/client';
   providers: [ClientinfoService]
 })
 export class ThanksComponent implements OnInit {
-  users;
-  constructor(private clientinfocervice : ClientinfoService) {
-    this.users = this.clientinfocervice.usersCollection.valueChanges();
-   }
+property;
+phone;
+constructor(private cli: ClientinfoService, private router: Router ) { }
+Ordergennoaddoncode(building, street, city, zip, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, lockcode, meet, phone)
+{
+  this.cli.placeOrdergennoaddoncode(building,street,city,zip,squarefeet,orders,ordersprice,visitingdate, visitingtime, comments,lockcode,meet, phone)
+  this.router.navigateByUrl("/placeorder")
+}
+Ordergennoaddonmeet(building, street, city, zip, squarefeet, orders, total, visitingdate, visitingtime, comments, meet, phone) {
+  this.cli.placeOrdergennoaddonmeet(building, street, city, zip, squarefeet, orders, total, visitingdate, visitingtime, comments, meet, phone)
+  this.router.navigateByUrl("/placeorder")
+}
 
   ngOnInit() {
   }

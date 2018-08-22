@@ -245,22 +245,31 @@ export class ClientinfoService {
     return this.orderref$
     //  is.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
   }
-  
+  orderschedule(){
+    var date = this.datenow();
+
+    this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('status', '==', 'assigned') }).valueChanges();
+    return this.orderref$
+  }
+
   queryordercomplete() {
    
     this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('status', '==', 'completed') }).valueChanges();
     return this.orderref$
     //  is.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
   }
-  queryorderpending() {
-
-    this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('status', '==', 'pending') }).valueChanges();
-    return this.orderref$ //  is.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
-  }
-  queryorderassigned() {
-
-    this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('status', '==', 'assigned') }).valueChanges();
-    return this.orderref$ //  is.afs.collection('orders', ref => ref.where('building', '==', 'Appartment'))
+  queryorderassigned(orderid,input) {
+    // this.orderref$ = this.afs.collection<Home>('orders', ref => { return ref.where('status', '==', 'assigned') }).valueChanges();
+    // return this.orderref$
+    this.docRef = this.ordersCollection.doc(orderid).update({
+      agent:input,
+      status:'assigned',
+    });
+    var email = this.getEmail();
+    this.docRef = this.ordersCollection.doc(email).update({
+      agent:input,
+      status:'assigned',
+    });
   }
   querymyneworder()
   {
@@ -278,8 +287,29 @@ deleteorder(orderid) {
     var c = months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
     return c
   }
+<<<<<<< HEAD
   
   placeOrderaptaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet, phone){
+=======
+ scheduleorder(orderid,agentname){
+  var email = this.getEmail();
+   this.ordersCollection.doc(orderid).update({
+     agent:agentname,
+    status:'assigned'
+   });
+   this.ordersCollection.doc(email).collection('orders').doc(orderid).update(
+     {
+      agent:agentname,
+      status:'assigned'
+     }
+   )
+
+
+ }
+  placeOrderaptaddonmeet(building, street, city, zip, unit, squarefeet, orders, ordersprice, visitingdate, visitingtime, comments, addons, addonsprice, meet,phone){
+    var createdby = this.afAuth.auth.currentUser.displayName;
+    var email = this.getEmail();
+>>>>>>> 38adfbadd407404caeccd0b40973e59245140bdc
    
     var timestamp = firebase.firestore.FieldValue.serverTimestamp()
     var d = new Date();
